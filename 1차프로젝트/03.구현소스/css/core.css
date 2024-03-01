@@ -4,6 +4,8 @@
 
 /* 웹폰트 CDN */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&family=Gugi&family=Nanum+Gothic&family=Single+Day&family=ZCOOL+KuaiLe&display=swap');
+
+
 /* 
     0. 메뉴 등 일반체
     font-family: 'Noto Sans KR', sans-serif;
@@ -20,7 +22,21 @@
 /* 중앙속박스 */
 .inbox{
     /* 최대가로크기 */
-    max-width: 1360px;
+    max-width: 1280px;
     /* 블록박스 중앙정렬 -> 마.영.오! */
     margin: 0 auto;
+}
+
+/* 플렉스 박스 클래스 (걍퍼옴)  */
+.fbx{
+    /* 플렉스박스 */
+    display: flex;
+}
+.fxw{
+    /* 랩핑박스 */
+    flex-wrap: wrap;
+}
+.jcc{
+    /* 수평방향 중앙정렬 */
+    justify-content: center;
 }

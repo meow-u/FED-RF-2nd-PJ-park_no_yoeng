@@ -1,8 +1,55 @@
 @charset "utf-8";
 
 /* 스벅 PJ : 공통 모듈 CSS - common.css */
-/* 공유기능 요소 셋팅 */
+/* 공유기능 요소 셋팅 *//* 상단영역, 하단영역 반복디자인 */
 
 /************* 1. 상단영역 *************/
+#top-area .inbox{
+background-color: #3b3b3b;
+}
+/* 로고관련 */
+h1.logo a{
+    /* 부모자격 */
+    position: relative;
+    /* 중앙정렬위해 */
+    display: block;
+}
+h1.logo a:first-child{/* 세이렌 */
+    position: absolute;
+}
+h1.logo a:last-child{/* 중앙로고 */
+    text-align: center;   
+}
+h1.logo a+a img{
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+    padding: 10px 0;
+}
+/* 탑메뉴 */
+aside.tmenu-box{
+    position: relative;
+}
+.tmenu {
+    position: absolute;
+    top: 0;
+    right: 0%;
+    width: 300px;
+   /*  justify-content: center; */ /* 수평 방향 중앙 정렬 */
+}
+li{
+
+}
+li a{
+    /* 인라인이라 높이적용위해 */
+    display: inline-block;
+    color: #808080;
+    padding: 0 5px;
+    /* 줄넘김방지 */
+    white-space: nowrap;
+    
+}
+
+
 /************ 2. 메인영역 ************/
 /************* 3. 하단영역 *************/

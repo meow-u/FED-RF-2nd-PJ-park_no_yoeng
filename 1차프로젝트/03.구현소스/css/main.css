@@ -12,3 +12,41 @@
 body * {
     outline: 2px dashed #ccc;
 }
+/* 1.상단영역 */
+.top-area{
+    height: 120px;
+}
+/* 2. 롤링배너 영역 ( 630?이 한페이지정도 되는듯) */
+.ban-area{
+    height: 580px;
+}
+/* 3. 라인안내 영역 */
+.line-notice-area{
+    height: 50px;
+}
+/* 4. 리워드 영역 */
+.rewards-area{
+    height: 240px;
+}
+/* 5. 뉴스 영역 */
+.news-area{
+    height: 500px;
+}
+/* 6. 리저브소개 영역 */
+.reserve-area{
+    height: 2000px;
+}
+/* 7. 상품정보 영역(1개값만 먼저넣음)  
+580이 고정이미지, 1160이 작은썸네일 3개 스크롤 값 */
+.product-area{
+    height: 1160px;
+}
+/* 어두워지는 화면 */
+/* 8. 스페셜 매장 */
+.special-store-area{
+    height: 1000px;
+}
+/* 9. 하단 영역 */
+.footer-area{
+    height: 250px;
+}

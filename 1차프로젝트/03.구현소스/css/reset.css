@@ -51,3 +51,7 @@ img {
     엔터간극 4px 하단공백 없애기 */
     vertical-align: middle;
 }
+/* em쓰기위해 변경 */
+html{
+    font-size: 10px;
+}

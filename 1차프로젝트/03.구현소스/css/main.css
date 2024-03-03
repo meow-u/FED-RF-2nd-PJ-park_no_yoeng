@@ -10,11 +10,11 @@
 
 /* 공사중 표시 */
 body * {
-    outline: 2px dashed #ccc;
+    outline: 2px dashed #ff9f9f15;
 }
 /* 1.상단영역 */
 .top-area{
-    height: 120px;
+    height: 60px;
 }
 /* 2. 롤링배너 영역 ( 630?이 한페이지정도 되는듯) */
 .ban-area{

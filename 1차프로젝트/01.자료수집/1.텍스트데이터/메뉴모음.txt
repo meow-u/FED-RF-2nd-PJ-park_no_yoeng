@@ -4,14 +4,12 @@ My Starbucks
 Customer Service & Ideas
 Find a Store
 _______________________________
-[메인메뉴(7)]
+[메인메뉴(5)]
 COFFEE
 MENU
+RESERVE
 STORE
-RESPONSIBILITY
-STARBUCKS REWARDS
-CORPORATE SALES
-WHAT'S NEW
+WHAT'S NEWS
 _______________________________
 [서브메뉴(COFFEE)]
 -커피

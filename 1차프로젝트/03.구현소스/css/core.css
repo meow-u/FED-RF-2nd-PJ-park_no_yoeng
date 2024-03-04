@@ -40,3 +40,14 @@
     /* 수평방향 중앙정렬 */
     justify-content: center;
 }
+
+/* 임시 표시타이틀 (나중에 클래스 다른거주면 된다함)*/
+.temp-tit{
+    position: absolute;
+    font-size: 2vw;
+    color: #ccc;
+}
+/* 컨텐츠박스 */
+.cont-box{
+    height: 100%;
+}

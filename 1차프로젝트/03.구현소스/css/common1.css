@@ -19,7 +19,6 @@ h1.logo a:first-child {
 }
 h1.logo a:last-child {
    /* 중앙로고박스 */
-   left: 50%;
 }
 h1.logo a > img {
    /* 세이렌 */
@@ -30,8 +29,6 @@ h1.logo a > img {
 
 h1.logo a + a img {
    /* 중앙로고 */
-   display: inline-block;
-   transform: translateX(-50%);
    /* 최대크기 200px,최소크기 100px적용 */
    width: max(min(20vw, 150px), 95px);
    /* width: 200px; */
@@ -42,9 +39,6 @@ aside.tmenu-box {
    position: relative;
 }
 .tmenu {
-   position: absolute;
-   top: 0;
-   right: 0%;
    width: 200px;
    /* 수평 방향 중앙 정렬 */
    justify-content: right;
@@ -52,7 +46,6 @@ aside.tmenu-box {
 }
 .tmenu li a {
    /* 인라인이라 높이적용위해 */
-   display: inline-block;
    color: #808080;
    padding: 0 5px;
    /* 줄넘김방지 */

@@ -20,6 +20,8 @@ h1.logo a:first-child {
 h1.logo a:last-child {
    /* 중앙로고박스 */
    left: 50%;
+   /* 중앙으로이동( 내부 이미지만큼 늘어난 부모박스) */
+   transform: translateX(-50%);
 }
 h1.logo a > img {
    /* 세이렌 */
@@ -29,8 +31,6 @@ h1.logo a > img {
 }
 
 h1.logo a + a img {
-   /* 중앙로고 */
-   transform: translateX(-50%);
    /* 최대크기 200px,최소크기 100px적용 */
    width: max(min(20vw, 150px), 95px);
 }
@@ -74,6 +74,7 @@ ul.gnb {
    /* 플랙스박스,래핑,플랙스수평적용 되있음 */
    width: 80%;
    margin: 0 auto;
+   
 }
 .gnb li {
    margin: 0 auto;
@@ -83,6 +84,9 @@ ul.gnb {
    text-align: center;
    /* 너비지정위해 블록설정 */
    display: block;
+   /* 블록박스 중앙정렬 */
+   margin: 0px auto;
+   width: 15vw;
    color: #9f9f9f;
 }
 ul.gnb a:hover {
@@ -93,44 +97,46 @@ ul.gnb a:hover {
    z-index: 1;
    /* ________________________________ */
 }
+
 /* 서브메뉴 */
 .submenu {
    position: absolute;
    display: flex;
    top: 100%;
    /* 보이지않도록 원본 높이 0  */
-   height: 0vw; 
+   height: 0vw;
    overflow: hidden;
    left: 0;
    right: 0;
    background-color: #003b02;
    border-radius: 0 0 40px 40px;
    /* 트랜지션 */
-   transition:  0.6s ease-in-out; 
+   transition: 0.6s ease-in-out;
 }
 /* 호버시 내용물만큼 높이 줌 */
 .gnb .menu:hover .submenu {
    /* 최대 높이를 설정하여 내용이 나타나도록 함
-   max heigh값 주면 오토라그런지 트랜지션 왕복 안먹 */
-   height: 13vw; 
+   max heigh값,내용물만큼(다른거)주면 
+   오토라그런지 트랜지션 왕복 안먹 */
+   height: 22vw;
 }
 
 .submenu ol {
-   position: relative;
-   top: -1vh;
+   margin-top: 1vw;
+   /* 첫번째 문자열 띄우려면 ol이 부모역할 하면안댐 */
+   /* position: relative; */
    width: 100%;
-   margin: 0 auto;
    /* 원본 투명도 0 */
    opacity: 0;
    /* 트랜지션 */
-   transition:  0.6s ease-in-out; 
+   transition: 0.6s ease-in-out;
+   margin: auto auto;
 }
 .gnb .menu:hover .submenu ol {
    /* 호버시  투명도 1 */
    opacity: 1;
-   top: 0; 
+   top: 0;
 }
-
 
 .submenu ol li {
    display: none;
@@ -139,6 +145,11 @@ ul.gnb a:hover {
    display: block;
 }
 
+/* 많은 ol의 첫번째 li의 첫번째 a만 선택  */
+.submenu ol > li:first-child > a:first-child {
+   font-weight: bold;
+   font-size: 1.1rem;
+}
 
 /* 롤링배너영역 */
 .ban-area .visualView {

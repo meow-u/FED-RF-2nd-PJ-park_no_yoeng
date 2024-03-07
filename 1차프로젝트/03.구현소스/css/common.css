@@ -91,46 +91,50 @@ ul.gnb a:hover {
 }
 .gnb .menu {
    z-index: 1;
+   /* ________________________________ */
 }
 /* 서브메뉴 */
 .submenu {
    position: absolute;
    display: flex;
    top: 100%;
-   max-height: 0; /* 초기에는 내용이 보이지 않도록 최대 높이를 0으로 설정 */
-   overflow: hidden; /* 초과되는 내용 숨김 */
-   transition:  0.6s ease-in-out; /* 최대 높이에 대한 트랜지션 설정 */
+   /* 보이지않도록 원본 높이 0  */
+   height: 0vw; 
+   overflow: hidden;
    left: 0;
    right: 0;
    background-color: #003b02;
    border-radius: 0 0 40px 40px;
+   /* 트랜지션 */
+   transition:  0.6s ease-in-out; 
 }
-/* 호버시 서브메뉴와 내용이 나타나도록 설정 */
+/* 호버시 내용물만큼 높이 줌 */
 .gnb .menu:hover .submenu {
-   max-height: 500px; /* 최대 높이를 설정하여 내용이 나타나도록 함 */
+   /* 최대 높이를 설정하여 내용이 나타나도록 함
+   max heigh값 주면 오토라그런지 트랜지션 왕복 안먹 */
+   height: 13vw; 
 }
 
 .submenu ol {
    position: relative;
-   top: -3vh;
+   top: -1vh;
    width: 100%;
    margin: 0 auto;
-   /* margin-bottom: 50px; */
-   padding: 0; /* 기본 패딩 제거 */
-   list-style: none; /* 목록 기호 제거 */
-   opacity: 0; /* 초기에는 내용이 보이지 않도록 설정 */
+   /* 원본 투명도 0 */
+   opacity: 0;
+   /* 트랜지션 */
    transition:  0.6s ease-in-out; 
-   /* 투명도에 대한 트랜지션 설정 */
+}
+.gnb .menu:hover .submenu ol {
+   /* 호버시  투명도 1 */
+   opacity: 1;
+   top: 0; 
 }
 
-.gnb .menu:hover .submenu ol {
-   opacity: 1;
-   top: 0; /* 내용이 나타나도록 투명도 설정 */
-}
+
 .submenu ol li {
    display: none;
 }
-
 .gnb .menu:hover .submenu ol li {
    display: block;
 }

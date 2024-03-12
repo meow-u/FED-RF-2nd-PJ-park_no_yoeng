@@ -101,25 +101,29 @@ ul.gnb a:hover {
 /* 서브메뉴 */
 .submenu {
    position: absolute;
-   display: flex;
-   top: 100%;
+   /* display: flex; */
+   top: 75%;
    /* 보이지않도록 원본 높이 0  */
-   height: 0vw;
+   height: 0px;
    overflow: hidden;
    left: 0;
    right: 0;
    background-color: #003b02;
    border-radius: 0 0 40px 40px;
    /* 트랜지션 */
-   transition: 0.6s ease-in-out;
+   transition: max-height 0.6s ease-in-out;
+}
+/* 서브메뉴 내부랩핑박스 - 플렉스박스 */
+.sub-wrap{
+   display: flex;
 }
 /* 호버시 내용물만큼 높이 줌 */
-.gnb .menu:hover .submenu {
+/* .gnb .menu:hover .submenu { */
    /* 최대 높이를 설정하여 내용이 나타나도록 함
    max heigh값,내용물만큼(다른거)주면 
    오토라그런지 트랜지션 왕복 안먹 */
-   height: 22vw;
-}
+   /* height: 300px;
+} */
 
 .submenu ol {
    margin-top: 1vw;
@@ -127,10 +131,10 @@ ul.gnb a:hover {
    /* position: relative; */
    width: 100%;
    /* 원본 투명도 0 */
-   opacity: 0;
+   opacity: 1;
    /* 트랜지션 */
    transition: 0.6s ease-in-out;
-   margin: auto auto;
+   /* margin: auto auto; */
 }
 .gnb .menu:hover .submenu ol {
    /* 호버시  투명도 1 */
@@ -138,12 +142,12 @@ ul.gnb a:hover {
    top: 0;
 }
 
-.submenu ol li {
+/* .submenu ol li {
    display: none;
 }
 .gnb .menu:hover .submenu ol li {
    display: block;
-}
+} */
 
 /* 많은 ol의 첫번째 li의 첫번째 a만 선택  */
 .submenu ol > li:first-child > a:first-child {
@@ -168,7 +172,7 @@ ul.gnb a:hover {
 .ban-area .visualView .img1 {
    background-image: url(../../01.자료수집/2.이미지데이터/main/web/main_ban2.jpg);
    width: 20%;
-   filter: grayscale() brightness(0.8);
+   filter: grayscale(100%) brightness(0.8);
 }
 .ban-area .visualView .img2 {
    /* 중앙베너 */
@@ -178,7 +182,7 @@ ul.gnb a:hover {
 .ban-area .visualView .img3 {
    background-image: url(../../01.자료수집/2.이미지데이터/main/web/main_ban3.jpg);
    width: 20%;
-   filter: grayscale() brightness(0.8);
+   filter: grayscale(100%) brightness(0.8);
 }
 /* 호버시 확장 */
 .visualView .bg:hover {
@@ -187,10 +191,16 @@ ul.gnb a:hover {
    scale: 1.1;
    filter: none;
    z-index: 1;
+   filter: grayscale(0%) brightness(100%);
 }
-.visualView .img1:hover + .img2 {
-   filter: grayscale() brightness(0.8);
+.visualView div {
+   filter: grayscale(100%) brightness(0.8);
 }
+
+.visualView .bg.center {
+   filter: grayscale(0%) brightness(100%);
+}
+
 /* 3번쨰  img3 호버시 2번째 img2가 그레이스케일 되는법 모름 
 앞선형제라 그렇다 함  */
 

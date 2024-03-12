@@ -196,10 +196,10 @@ ul.gnb a:hover {
 .visualView div {
    filter: grayscale(100%) brightness(0.8);
 }
-
+/* ____________________________________________ */
 .visualView .bg.center {
-   filter: grayscale(0%) brightness(100%);
-}
+   filter: grayscale(0%) brightness(100%);}
+/* ____________________________________________ */
 
 /* 3번쨰  img3 호버시 2번째 img2가 그레이스케일 되는법 모름 
 앞선형제라 그렇다 함  */

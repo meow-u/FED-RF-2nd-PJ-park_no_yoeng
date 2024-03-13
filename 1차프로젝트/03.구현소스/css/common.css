@@ -257,7 +257,7 @@ ul.gnb a:hover {
 /************ 2. 메인영역 ************/
 /* 라인안내영역 배경색 */
 .cont-box .col-6:first-child{
-/* background-color: #000; */
+background-color: #000;
 }
 .cont-box .col-6:last-child{
 background-color: #fcfaf8;

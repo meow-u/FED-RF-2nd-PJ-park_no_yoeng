@@ -55,7 +55,7 @@ aside.tmenu-box {
    padding: 0 5px;
    /* 줄넘김방지 */
    white-space: nowrap;
-   font-size: 1.2em;
+   font-size: 1rem;
    font-weight: normal;
 }
 .tmenu li a:hover {
@@ -63,13 +63,25 @@ aside.tmenu-box {
 }
 
 /* gnb 메뉴 */
+/* 스티키 적용위해 투명 부모박스 만듬 */
+.top-area span {
+   width: 1280px;
+   /* 높이조절 */
+   height: 300vh;
+   position: absolute;
+   top: 60px;
+}
+
 nav.gnb {
-   position: relative;
+   position: sticky;
    background-color: #003b02;
-   top: 100%;
+   top: 0px;
    padding: 10px;
    z-index: 2;
 }
+/* 잘리지않게  */
+.gnb>li>a:first-of-type {
+   display: inline;}
 ul.gnb {
    /* 플랙스박스,래핑,플랙스수평적용 되있음 */
    width: 80%;
@@ -125,13 +137,14 @@ ul.gnb a:hover {
    /* height: 300px;
 } */
 
-.submenu ol {
+.sub-wrap ol {
+   margin: 20px 0px;
    margin-top: 1vw;
    /* 첫번째 문자열 띄우려면 ol이 부모역할 하면안댐 */
    /* position: relative; */
    width: 100%;
    /* 원본 투명도 0 */
-   opacity: 1;
+   opacity: 0;
    /* 트랜지션 */
    transition: 0.6s ease-in-out;
    /* margin: auto auto; */
@@ -196,13 +209,8 @@ ul.gnb a:hover {
 .visualView div {
    filter: grayscale(100%) brightness(0.8);
 }
-/* ____________________________________________ */
 .visualView .bg.center {
    filter: grayscale(0%) brightness(100%);}
-/* ____________________________________________ */
-
-/* 3번쨰  img3 호버시 2번째 img2가 그레이스케일 되는법 모름 
-앞선형제라 그렇다 함  */
 
 /* 피그캡션배경 */
 .ban-area .visualView .bg::after {
@@ -255,22 +263,22 @@ ul.gnb a:hover {
    opacity: 1;
 }
 /************ 2. 메인영역 ************/
-/* 라인안내영역 배경색 */
+/* 라인안내영역 배경색,폰트색 */
 .cont-box .col-6:first-child{
 background-color: #000;
+color: #fff;
+
 }
 .cont-box .col-6:last-child{
-background-color: #fcfaf8;
-}
-/* 첫번째상자만 글씨 색 바꾸기 */
-.cont-box .col-6:first-child{
-   color: #fff;
+   background-color: #fcfaf8;
 }
 /* 내부 플렉스 */
 .cont-box .col-6{
    display: flex;
    justify-content: center;
    align-items: center;
+   white-space: nowrap;
+   overflow: hidden;
 }
 /* 글씨크기변경 */
 .col-6 h2{
@@ -279,16 +287,32 @@ background-color: #fcfaf8;
    font-weight: bold;
 }
 /* 픽토그램공통 */
-.col-6 p img{
-   width: 20px;
-   border-radius: 50%;
-   padding: 3px;
+.col-6 a img{
+   width: 25px;
    margin: 0 100px;
-   border: 2px solid #000;
-}
-.col-6+.col-6 p img{
-   /* border: 2px solid #fff; */
 }
 
+/* 애니적용 */
+.col-6 p{
+   animation: ntc-ani 5s linear infinite;
+}
+
+@keyframes ntc-ani {
+   0% {
+     /* 시작 스타일 */
+     opacity: 0;
+     transform: translateY(-100%);
+   }
+   10%, 90% {
+      /* 중간 스타일 (지연 시간 후) */
+      opacity: 1;
+      transform: translateY(0);
+    }
+   100% {
+     /* 끝 스타일 */
+     opacity: 0;
+     transform: translateY(100%);
+   }
+ }
 
 /************* 3. 하단영역 *************/

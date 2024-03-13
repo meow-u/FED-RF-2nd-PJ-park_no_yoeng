@@ -46,6 +46,7 @@
     position: absolute;
     font-size: 2vw;
     color: #00000029;
+    z-index: -1;
 }
 /* 컨텐츠박스 */
 .cont-box{

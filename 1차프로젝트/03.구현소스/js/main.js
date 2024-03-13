@@ -21,7 +21,7 @@ for(let i = 0; i<menu.length; i++){
         let tg = this.querySelector('.submenu');
         // 대상 높이값 지정하기
         tg.style.height = '0px';
-        // tg.style.transition = '.4s ease-in-out';
+        tg.style.transition = '.4s ease-in-out';
     };
 
 } /// for ///

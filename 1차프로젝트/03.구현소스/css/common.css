@@ -170,17 +170,17 @@ ul.gnb a:hover {
    transition: 1s ease-in-out;
 }
 .ban-area .visualView .img1 {
-   background-image: url(../../01.자료수집/2.이미지데이터/main/web/main_ban2.jpg);
+   background-image: url(../images/main_ban2.jpg);
    width: 20%;
    filter: grayscale(100%) brightness(0.8);
 }
 .ban-area .visualView .img2 {
    /* 중앙베너 */
-   background-image: url(../../01.자료수집/2.이미지데이터/main/web/main_ban1.jpg);
+   background-image: url(../images/main_ban1.jpg);
    width: 60%;
 }
 .ban-area .visualView .img3 {
-   background-image: url(../../01.자료수집/2.이미지데이터/main/web/main_ban3.jpg);
+   background-image: url(../images/main_ban3.jpg);
    width: 20%;
    filter: grayscale(100%) brightness(0.8);
 }
@@ -255,4 +255,40 @@ ul.gnb a:hover {
    opacity: 1;
 }
 /************ 2. 메인영역 ************/
+/* 라인안내영역 배경색 */
+.cont-box .col-6:first-child{
+/* background-color: #000; */
+}
+.cont-box .col-6:last-child{
+background-color: #fcfaf8;
+}
+/* 첫번째상자만 글씨 색 바꾸기 */
+.cont-box .col-6:first-child{
+   color: #fff;
+}
+/* 내부 플렉스 */
+.cont-box .col-6{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+/* 글씨크기변경 */
+.col-6 h2{
+   padding-right: 20px;
+   font-size: 1.5rem;
+   font-weight: bold;
+}
+/* 픽토그램공통 */
+.col-6 p img{
+   width: 20px;
+   border-radius: 50%;
+   padding: 3px;
+   margin: 0 100px;
+   border: 2px solid #000;
+}
+.col-6+.col-6 p img{
+   /* border: 2px solid #fff; */
+}
+
+
 /************* 3. 하단영역 *************/

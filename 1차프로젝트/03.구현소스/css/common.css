@@ -19,39 +19,90 @@ h1.logo a {
 }
 h1.logo a:first-child {
    /* 세이렌박스 */
-   z-index: 2;
+   z-index: 10;
+   padding-top: 5px;
+   position: fixed;
 }
 
-/* 로고 호버 랩박스 원본 */
-.logo-wrap {
+/* *************************************랩박스 */
+.wrap-box{
+   
+z-index: 5;
+/* 어디서든랩박스 열리게하려고 픽스드 줌 */
+position: fixed;
+width: 100vw;
+height: 100vh;
+/* wrap-box가 마우스 이벤트를 캡처하지 않도록 설정
+다른요소보다 높아서 다른것 호버나 선택 안되어서 줌 */
+pointer-events: none; 
+overflow: hidden;
+}
+ .wrap-box > .logo-wrap {
+   z-index: 5;
    position: absolute;
-   width: 100%;
-   height: 100vh;
-   z-index: 1;
+ }
+ 
 
-}
 .logo-wrap.n01{
 left: -100%;
+height: 640px;
+width: 50%;
 background-color: #ececec;
 border-radius: 0 50px 50px 0;
+opacity: 0;
+transition: 0.4s ease-in-out;
+
 }
 .logo-wrap.n02{
-top: 50vh;
-left: 100%;
-height: 50vh;
+top: 100vh;
+height: 320px;
+width: 50%;
+left: 50%;
 background-color: #005018;
-border-radius: 50px 0px 0px 50px;
+border-radius: 50px 50px 0px 0px;
+opacity: 0;
+transition: 0.2s ease-in-out 0.4s;
+}
+.logo-wrap.n03{
+top: 0;
+height: 0px;
+width: 0%;
+left: 100%;
+background-color: #000000;
+/* 안먹음 */
+/* backdrop-filter: blur(100px); */
+opacity: 0;
+transition: 0.5s ease-in-out 0.5s;
+
 }
 
-/* 세이렌호버시 랩박스 */
-h1.logo a:nth-of-type(1) > img:hover
-h1.logo .n02 {
+/* 세이렌호버시 랩박스 펼치기 */
+h1.logo a:nth-of-type(1):hover ~.wrap-box> .n01{
    left: 0;
+   opacity: 1;
 }
+h1.logo a:nth-of-type(1):hover ~.wrap-box> .n02{
+   top:320px;
+   opacity: 1;
+}
+h1.logo a:nth-of-type(1):hover ~.wrap-box> .n03{
+   top:0;
+   left: -10%;
+   width: 100%;
+   height: 640px;
+   opacity: 0.7;
+   transform-origin: bottom left;
+   
+   filter: blur(22px);
+   border-radius: 100px;
+   z-index: 3;
+   scale: 1.5;
+}
+
 /* **************************************** */
 
 
-h1.logo a:last-child {
+h1.logo a:nth-of-type(2) {
    /* 중앙로고박스 */
    left: 50%;
    /* 중앙으로이동( 내부 이미지만큼 늘어난 부모박스) */
@@ -60,7 +111,7 @@ h1.logo a:last-child {
 h1.logo a:nth-of-type(1) > img {
    /* 세이렌 */
    width: 40px;
-   width: max(min(10vw, 40px), 30px);
+   width: max(min(10vw, 35px), 30px);
 }
 
 h1.logo a:nth-of-type(2) > img:first-of-type {
@@ -106,16 +157,22 @@ aside.tmenu-box {
    width: 100%;
    position: absolute;
    top: 60px;
-   z-index: -1;
+   /* 다덮여서, 다른요소선택위해 */
+   pointer-events: none;
 /* ********************************************* */
 }
 
 nav.gnb {
+   background-image: linear-gradient(45deg, #81719bdb, transparent);
+   box-sizing: border-box;
+   width: 100%;
    position: sticky;
    background-color: #003b02;
    top: 0px;
    padding: 10px;
-   z-index: 999;
+   z-index: 2;
+   /* span 이벤트x후 얘는 살림 */
+   pointer-events: all;
 }
 /* 잘리지않게  */
 .gnb > li > a:first-of-type {
@@ -143,10 +200,7 @@ ul.gnb a:hover {
    color: #ffffff;
    font-weight: bold;
 }
-.gnb .menu {
-   z-index: 1;
-   /* ________________________________ */
-}
+
 
 /* 서브메뉴 */
 .submenu {
@@ -165,6 +219,8 @@ ul.gnb a:hover {
 }
 /* 서브메뉴 내부랩핑박스 - 플렉스박스 */
 .sub-wrap {
+   
+   background-image: linear-gradient(90deg, #81719bdb, transparent);
    display: flex;
 }
 /* 호버시 내용물만큼 높이 줌 */
@@ -209,6 +265,9 @@ ul.gnb a:hover {
 /* 롤링배너영역 */
 .ban-area .visualView {
    /* 정렬: 기본 left */
+
+   position: relative;
+   z-index: 0;
    display: flex;
    height: 580px;
    overflow: hidden;

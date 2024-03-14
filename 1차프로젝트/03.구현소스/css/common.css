@@ -4,33 +4,66 @@
 /* 공유기능 요소 셋팅 */ /* 상단영역, 하단영역 반복디자인 */
 
 /************* 1. 상단영역 *************/
-#top-area .inbox {
+#top-area h1 {
+   height: 60px;
    background-color: #3b3b3b;
+   width: 100%;
+   position: absolute;
 }
 
 /* 로고관련 */
 h1.logo a {
    /* 로고img들 부모박스 */
    position: absolute;
+   padding: 10px;
 }
 h1.logo a:first-child {
    /* 세이렌박스 */
    z-index: 2;
 }
+
+/* 로고 호버 랩박스 원본 */
+.logo-wrap {
+   position: absolute;
+   width: 100%;
+   height: 100vh;
+   z-index: 1;
+
+}
+.logo-wrap.n01{
+left: -100%;
+background-color: #ececec;
+border-radius: 0 50px 50px 0;
+}
+.logo-wrap.n02{
+top: 50vh;
+left: 100%;
+height: 50vh;
+background-color: #005018;
+border-radius: 50px 0px 0px 50px;
+}
+
+/* 세이렌호버시 랩박스 */
+h1.logo a:nth-of-type(1) > img:hover
+h1.logo .n02 {
+   left: 0;
+}
+/* **************************************** */
+
+
 h1.logo a:last-child {
    /* 중앙로고박스 */
    left: 50%;
    /* 중앙으로이동( 내부 이미지만큼 늘어난 부모박스) */
    transform: translateX(-50%);
 }
-h1.logo a > img {
+h1.logo a:nth-of-type(1) > img {
    /* 세이렌 */
    width: 40px;
-   padding: 10px;
    width: max(min(10vw, 40px), 30px);
 }
 
-h1.logo a + a img {
+h1.logo a:nth-of-type(2) > img:first-of-type {
    /* 최대크기 200px,최소크기 100px적용 */
    width: max(min(20vw, 150px), 95px);
 }
@@ -47,6 +80,8 @@ aside.tmenu-box {
    /* 수평 방향 중앙 정렬 */
    justify-content: right;
    /* 호버가안되어 줌 */
+   /* 로고박스에 밀려서올림 */
+   z-index: 1;
 }
 .tmenu li a {
    /* 인라인이라 높이적용위해 */
@@ -65,11 +100,14 @@ aside.tmenu-box {
 /* gnb 메뉴 */
 /* 스티키 적용위해 투명 부모박스 만듬 */
 .top-area span {
-   width: 1280px;
-   /* 높이조절 */
+   /* 스티키 영향 높이조절 */
    height: 300vh;
+   /* 인박스너비 채움 */
+   width: 100%;
    position: absolute;
    top: 60px;
+   z-index: -1;
+/* ********************************************* */
 }
 
 nav.gnb {
@@ -77,16 +115,16 @@ nav.gnb {
    background-color: #003b02;
    top: 0px;
    padding: 10px;
-   z-index: 2;
+   z-index: 999;
 }
 /* 잘리지않게  */
-.gnb>li>a:first-of-type {
-   display: inline;}
+.gnb > li > a:first-of-type {
+   display: inline;
+}
 ul.gnb {
    /* 플랙스박스,래핑,플랙스수평적용 되있음 */
    width: 80%;
    margin: 0 auto;
-   
 }
 .gnb li {
    margin: 0 auto;
@@ -126,15 +164,15 @@ ul.gnb a:hover {
    transition: max-height 0.6s ease-in-out;
 }
 /* 서브메뉴 내부랩핑박스 - 플렉스박스 */
-.sub-wrap{
+.sub-wrap {
    display: flex;
 }
 /* 호버시 내용물만큼 높이 줌 */
 /* .gnb .menu:hover .submenu { */
-   /* 최대 높이를 설정하여 내용이 나타나도록 함
+/* 최대 높이를 설정하여 내용이 나타나도록 함
    max heigh값,내용물만큼(다른거)주면 
    오토라그런지 트랜지션 왕복 안먹 */
-   /* height: 300px;
+/* height: 300px;
 } */
 
 .sub-wrap ol {
@@ -210,7 +248,8 @@ ul.gnb a:hover {
    filter: grayscale(100%) brightness(0.8);
 }
 .visualView .bg.center {
-   filter: grayscale(0%) brightness(100%);}
+   filter: grayscale(0%) brightness(100%);
+}
 
 /* 피그캡션배경 */
 .ban-area .visualView .bg::after {
@@ -264,55 +303,55 @@ ul.gnb a:hover {
 }
 /************ 2. 메인영역 ************/
 /* 라인안내영역 배경색,폰트색 */
-.cont-box .col-6:first-child{
-background-color: #000;
-color: #fff;
-
+.line-notice-area > .cont-box > .col-6:first-child {
+   background-color: #000;
+   color: #fff;
 }
-.cont-box .col-6:last-child{
+.line-notice-area > .cont-box > .col-6:last-child {
    background-color: #fcfaf8;
 }
 /* 내부 플렉스 */
-.cont-box .col-6{
+.cont-box .col-6 {
    display: flex;
    justify-content: center;
    align-items: center;
    white-space: nowrap;
-   overflow: hidden;
+   justify-content: space-evenly;
 }
 /* 글씨크기변경 */
-.col-6 h2{
+.col-6 h2 {
    padding-right: 20px;
    font-size: 1.5rem;
    font-weight: bold;
 }
 /* 픽토그램공통 */
-.col-6 a img{
+.col-6 a img {
    width: 25px;
    margin: 0 100px;
 }
 
 /* 애니적용 */
-.col-6 p{
+.col-6 p {
    animation: ntc-ani 5s linear infinite;
 }
 
 @keyframes ntc-ani {
    0% {
-     /* 시작 스타일 */
-     opacity: 0;
-     transform: translateY(-100%);
+      /* 시작 스타일 */
+      opacity: 0;
+      transform: translateY(-100%);
    }
-   10%, 90% {
+   10%,
+   90% {
       /* 중간 스타일 (지연 시간 후) */
       opacity: 1;
       transform: translateY(0);
-    }
-   100% {
-     /* 끝 스타일 */
-     opacity: 0;
-     transform: translateY(100%);
    }
- }
+   100% {
+      /* 끝 스타일 */
+      opacity: 0;
+      transform: translateY(100%);
+   }
+}
 
 /************* 3. 하단영역 *************/

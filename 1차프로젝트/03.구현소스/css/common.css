@@ -185,6 +185,12 @@ ul.gnb {
    width: 80%;
    margin: 0 auto;
 }
+/* 중앙정렬 */
+.gnb>li.menu {
+   text-align: center;
+   width: 20%;
+}
+
 .gnb li {
    margin: 0 auto;
    padding: 5px 0;

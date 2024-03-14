@@ -40,6 +40,8 @@ overflow: hidden;
  .wrap-box > .logo-wrap {
    z-index: 5;
    position: absolute;
+   
+   pointer-events: all;
  }
  
 
@@ -280,14 +282,14 @@ ul.gnb a:hover {
    transition: 1s ease-in-out;
 }
 .ban-area .visualView .img1 {
-   background-image: url(../images/main_ban2.jpg);
+   background: url(../images/main_ban2.jpg) no-repeat right center/cover;
    width: 20%;
    filter: grayscale(100%) brightness(0.8);
 }
 .ban-area .visualView .img2 {
    /* 중앙베너 */
    background-image: url(../images/main_ban1.jpg);
-   width: 60%;
+   width: 80%;
 }
 .ban-area .visualView .img3 {
    background-image: url(../images/main_ban3.jpg);

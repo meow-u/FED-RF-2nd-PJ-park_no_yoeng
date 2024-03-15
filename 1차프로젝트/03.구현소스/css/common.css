@@ -24,62 +24,86 @@ h1.logo a:first-child {
    position: fixed;
 }
 
-/* *************************************랩박스 */
+
+h1.logo a:nth-of-type(2) {
+   /* 중앙로고박스 */
+   left: 50%;
+   /* 중앙으로이동( 내부 이미지만큼 늘어난 부모박스) */
+   transform: translateX(-50%);
+}
+h1.logo a:nth-of-type(1) > img {
+   /* 세이렌 이미지 */
+   width: 40px;
+   width: max(min(10vw, 35px), 30px);
+}
+
+h1.logo a:nth-of-type(2) > img:first-of-type {
+   /* 중앙로고 이미지 */
+   /* 최대크기 200px,최소크기 100px적용 */
+   width: max(min(20vw, 150px), 95px);
+}
+
+/* 랩박스의 부모박스 */
 .wrap-box{
    
 z-index: 5;
-/* 어디서든랩박스 열리게하려고 픽스드 줌 */
+/* 스크롤과 상관없이 열리게 하려고 fixed */
 position: fixed;
+/* 화면영역만큼 */
 width: 100vw;
 height: 100vh;
+/* 트랜지션시 넘치는 부분 숨기기 */
+overflow: hidden;
 /* wrap-box가 마우스 이벤트를 캡처하지 않도록 설정
 다른요소보다 높아서 다른것 호버나 선택 안되어서 줌 */
-pointer-events: none; 
-overflow: hidden;
-}
- .wrap-box > .logo-wrap {
+pointer-events: none; }
+
+/* 랩박스 원본 공통 */
+.wrap-box > .logo-wrap {
+   /* 가려지지않게 */
    z-index: 5;
    position: absolute;
-   
+   /* 자식은 마우스이벤트 가능 */
    pointer-events: all;
- }
- 
+}
 
+/* 랩박스 원본 개별*/
 .logo-wrap.n01{
 left: -100%;
 height: 640px;
 width: 50%;
 background-color: #ececec;
 border-radius: 0 50px 50px 0;
+/* 투명도 0>1트랜지션 원본 */
 opacity: 0;
+/* 트랜지션개별 */
 transition: 0.4s ease-in-out;
-
 }
 .logo-wrap.n02{
-top: 100vh;
-height: 320px;
-width: 50%;
-left: 50%;
-background-color: #005018;
-border-radius: 50px 50px 0px 0px;
-opacity: 0;
-transition: 0.2s ease-in-out 0.4s;
+   top: 100vh;
+   height: 320px;
+   width: 50%;
+   left: 50%;
+   background-color: #005018;
+   border-radius: 50px 50px 0px 0px;
+   opacity: 0;
+   /* 트랜지션개별(시간차이줌) */
+   transition: 0.2s ease-in-out 0.4s;
 }
 .logo-wrap.n03{
-top: 0;
-height: 0px;
-width: 0%;
-left: 100%;
-background-color: #000000;
-/* 안먹음 */
-/* backdrop-filter: blur(100px); */
-border-radius: 50%;
-opacity: 0;
-transition: 0.5s ease-in-out 0.5s;
-
+   top: 0;
+   height: 0px;
+   width: 0%;
+   left: 100%;
+   background-color: #000000;
+   border-radius: 50%;
+   opacity: 0;
+   /* 트랜지션개별(시간차이줌) */
+   transition: 0.5s ease-in-out 0.5s;
 }
+/********************************/
 
-/* 세이렌호버시 랩박스 펼치기 */
+/* 세이렌 호버시 랩박스 펼치기 */
 h1.logo a:nth-of-type(1):hover ~.wrap-box> .n01{
    left: 0;
    opacity: 1;
@@ -93,35 +117,22 @@ h1.logo a:nth-of-type(1):hover ~.wrap-box> .n03{
    left: -10%;
    width: 120%;
    height: 1000px;
-   opacity: 0.7;
+   opacity: 0.5;
    transform-origin: bottom left;
+   /* 안먹음 */
+   /* backdrop-filter: blur(100px); ***********************/
    border-radius: 0%;
+   /* 트랜지션시 블러 */
    filter: blur(22px);
+
+   /* 다른 랩박스보다 뒤로 */
    z-index: 3;
-   scale: 1;
 }
 
 /* **************************************** */
 
 
-h1.logo a:nth-of-type(2) {
-   /* 중앙로고박스 */
-   left: 50%;
-   /* 중앙으로이동( 내부 이미지만큼 늘어난 부모박스) */
-   transform: translateX(-50%);
-}
-h1.logo a:nth-of-type(1) > img {
-   /* 세이렌 */
-   width: 40px;
-   width: max(min(10vw, 35px), 30px);
-}
-
-h1.logo a:nth-of-type(2) > img:first-of-type {
-   /* 최대크기 200px,최소크기 100px적용 */
-   width: max(min(20vw, 150px), 95px);
-}
-
-/* 탑메뉴 */
+/* 최상단 오른쪽 구석 탑메뉴 */
 aside.tmenu-box {
    position: relative;
 }
@@ -150,30 +161,34 @@ aside.tmenu-box {
    color: #ffffff;
 }
 
-/* gnb 메뉴 */
-/* 스티키 적용위해 투명 부모박스 만듬 */
+/* gnb 메뉴 *********************************************/
+/* gnb 메뉴 스티키 적용위해 부모박스 만듬 */
+/* ________________________________ */
 .top-area span {
-   /* 스티키 영향 높이조절 */
+   /* 스티키 영향구역 높이조절 */
    height: 300vh;
    /* 인박스너비 채움 */
    width: 100%;
+   /* 부모자격 */
    position: absolute;
    top: 60px;
-   /* 다덮여서, 다른요소선택위해 */
+   /* 화면이 다 덮여서 다른요소선택위해 */
    pointer-events: none;
-/* ********************************************* */
+/* ________________________________ */
+
 }
 
 nav.gnb {
-   background-image: linear-gradient(45deg, #81719bdb, transparent);
-   box-sizing: border-box;
    width: 100%;
+   /* 스크롤시 부모영역내 상단고정 */
    position: sticky;
-   background-color: #003b02;
    top: 0px;
+   background-image: linear-gradient(45deg, #81719bdb, transparent);
+   background-color: #003b02;
+   box-sizing: border-box;
    padding: 10px;
    z-index: 2;
-   /* span 이벤트x후 얘는 살림 */
+   /* span의 자식요소(네비)는 선택가능하도록 */
    pointer-events: all;
 }
 /* 잘리지않게  */
@@ -181,7 +196,7 @@ nav.gnb {
    display: inline;
 }
 ul.gnb {
-   /* 플랙스박스,래핑,플랙스수평적용 되있음 */
+   /* 플랙스박스적용 되있음 */
    width: 80%;
    margin: 0 auto;
 }
@@ -206,11 +221,10 @@ ul.gnb {
 }
 ul.gnb a:hover {
    color: #ffffff;
-   font-weight: bold;
 }
 
 
-/* 서브메뉴 */
+/* gnb의 서브메뉴 ************************************/
 .submenu {
    position: absolute;
    /* display: flex; */
@@ -225,25 +239,18 @@ ul.gnb a:hover {
    /* 트랜지션 */
    transition: max-height 0.6s ease-in-out;
 }
-/* 서브메뉴 내부랩핑박스 - 플렉스박스 */
+/* 서브메뉴 높이조절되는 랩핑박스 - 플렉스박스 */
 .sub-wrap {
    
    background-image: linear-gradient(90deg, #81719bdb, transparent);
    display: flex;
 }
-/* 호버시 내용물만큼 높이 줌 */
-/* .gnb .menu:hover .submenu { */
-/* 최대 높이를 설정하여 내용이 나타나도록 함
-   max heigh값,내용물만큼(다른거)주면 
-   오토라그런지 트랜지션 왕복 안먹 */
-/* height: 300px;
-} */
 
+
+/* 서브메뉴 내부 ol */
 .sub-wrap ol {
    margin: 20px 0px;
    margin-top: 1vw;
-   /* 첫번째 문자열 띄우려면 ol이 부모역할 하면안댐 */
-   /* position: relative; */
    width: 100%;
    /* 원본 투명도 0 */
    opacity: 0;
@@ -258,7 +265,7 @@ ul.gnb a:hover {
 }
 
 /* .submenu ol li {
-   display: none;
+   display: none;  <- 이걸 주면 트랜지션시 max-height로 높이오토설정이 안됨 
 }
 .gnb .menu:hover .submenu ol li {
    display: block;
@@ -270,6 +277,7 @@ ul.gnb a:hover {
    font-size: 1.1rem;
 }
 
+/* **************************************************** */
 /* 롤링배너영역 */
 .ban-area .visualView {
    /* 정렬: 기본 left */

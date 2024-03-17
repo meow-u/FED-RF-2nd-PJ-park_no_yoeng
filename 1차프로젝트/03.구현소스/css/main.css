@@ -25,13 +25,13 @@ body {
    height: 580px;
 }
 /* 3. 라인안내 영역 */
-.line-notice-area {
+/* .line-notice-area { */
    /* height: 50px; */
-}
+/* } */
 /* 4. 리워드 영역 */
-.rewards-area {
+/* .rewards-area { */
    /* height: 240px; */
-}
+/* } */
 /* 리워드박스 */
 .rewards {
    color: white;

@@ -6,47 +6,224 @@
 @import url(./core.css);
 @import url(./common.css);
 /* 그리드 12 불러오기 */
-@import url(./grid_12_float.css);
+@import url(./grid_12_flex.css);
 
 /* 공사중 표시 */
 body * {
-    outline: 2px dashed #ff9f9f15;
+   outline: 2px dashed #ff9f9f8f;
+}
+body {
+    overflow-y: scroll; /* 세로 스크롤 막대를 항상 표시하여 스크롤 가능한 경우에도 항상 표시됨 */
+    scroll-behavior: smooth; /* 부드러운 스크롤을 활성화함 */
 }
 /* 1.상단영역 */
-.top-area{
-    height: 60px;
+.top-area {
+   height: 60px;
 }
 /* 2. 롤링배너 영역 ( 630?이 한페이지정도 되는듯) */
-.ban-area{
-    height: 580px;
+.ban-area {
+   height: 580px;
 }
 /* 3. 라인안내 영역 */
-.line-notice-area{
-    height: 50px;
+.line-notice-area {
+   /* height: 50px; */
 }
 /* 4. 리워드 영역 */
-.rewards-area{
-    height: 240px;
+.rewards-area {
+   /* height: 240px; */
+}
+/* 리워드박스 */
+.rewards {
+   color: white;
+   width: 100%;
+   height: 100%;
+   background-image: linear-gradient(var(--linner-gradient));
+   background-color: var(--sb-color);
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-align: justify;
+   box-sizing: border-box;
+}
+.rewards img {
+   margin: 0 auto;
+   max-width: 200px;
+}
+.rewards h2 {
+   /* text-align: center; */
+   font-size: 2rem;
+   padding-bottom: 1vw;
+}
+.rewards .col-4 div:nth-of-type(1) > p {
+   font-size: 1.5rem;
+   padding: 1vw 0;
+}
+.rewards .col-4 div:nth-of-type(2) > p {
+   font-size: 1rem;
+   padding: 0.5vw;
+}
+.rewards .button {
+   position: relative;
+   padding: 0.3vw 0.8vw;
+   border: 2px solid #fff;
+   border-radius: 20px;
+   text-align: center;
+   box-sizing: border-box;
+   margin: 0.3vw;
+   display: inline-block;
+
+   top: 50%;
+   translate: 0 -50%;
+}
+.rewards .button.b3 {
+   border-radius: 3px;
+   background-color: #00000035;
+}
+.rewards .button > p {
+   font-size: 1.2rem;
+   white-space: nowrap;
+}
+
+.rewards > .col-3,
+.col-4 {
+   width: 100%;
+   height: 100%;
+   /* margin: 0 auto; */
+   text-align: center;
+   padding: 2vw 0;
+
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.rewards > .col-3:last-child > div {
+   height: 50%;
 }
 /* 5. 뉴스 영역 */
-.news-area{
-    height: 500px;
+.news-area {
+   height: 500px;
 }
 /* 6. 리저브소개 영역 */
-.reserve-area{
-    height: 2000px;
+.reserve-area {
+   height: 2000px;
 }
 /* 7. 상품정보 영역(1개값만 먼저넣음)  
 580이 고정이미지, 1160이 작은썸네일 3개 스크롤 값 */
-.product-area{
-    height: 1160px;
+.product-area {
+   height: 1400px;
+}
+.product-area > .cont-box > .col-6 > .pullbox {
+   box-sizing: border-box;
+   padding: 5vh 0;
+   top: 0;
+   position: sticky;
+   width: 45vw;
+   height: 100vh;
+}
+.pullbox > img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   border-radius:  0 0 40% 0;
+}
+.cont-box > .col-6 > .subbox {
+   display: flex;
+   height: 100%;
+   flex-direction: column;
+   justify-content: space-evenly;
+}
+.cont-box > .col-6 > .subbox a {
+    
+    margin-bottom: 1rem;
+    border-radius: 20px;
+    background-color: #ccc;
+    /* 높이없어야 오토됨 */
+    /* height: 35vh; */
+    width: 20vw;
+    display: block;
+    position: relative;
+
+    overflow: hidden;
+}
+.cont-box .imgbox:nth-of-type(1)>a{
+background-color: var(--fill-color1);
+}
+.cont-box .imgbox:nth-of-type(2)>a{
+background-color: var(--fill-color2);
+}
+.cont-box .imgbox:nth-of-type(3)>a{
+background-color: var(--fill-color3);
+}
+
+
+.cont-box > .col-6 > .subbox a>img {
+    width: 100%;
+    filter: drop-shadow(5px 0px 4px rgba(0, 0, 0, 0.541));
+    transition: 0.3s ease-in-out;
+    scale: 1.1;
+}
+.cont-box > .col-6 > .subbox a>img:hover {
+transform: scale(1.2) rotate(10deg);
+filter: drop-shadow(10px 0px 3px rgba(0, 0, 0, 0.741));
+}
+
+.cont-box > .col-6 > .subbox >.imgbox>p{
+    margin: 0 auto;
+    width: 20vw;
+}
+.cont-box > .col-6 > .subbox >.imgbox>p:first-of-type{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+/* 서브박스 가상요소 */
+.cont-box > .col-6 > .subbox a:before {
+    content: '';
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.579);
+    width: 100%;
+    height: 100%;
+    scale: 0;
+    border-radius: 50%;
+    filter: blur(20px);
+    transform-origin: center center;
+    transition: 0.2s;
+}
+.cont-box > .col-6 > .subbox a:hover:before {
+    scale: 2;
+}
+
+/* 필박스가상요소  */
+.product-area > .cont-box > .col-6 > .pullbox:before {
+    content: 'BEST CHOICE ITEM!';
+    position: absolute;
+    color: #fff;
+    font-size: 5vw;
+    font-weight: bold;
+    padding: 10px;
+    text-shadow: 2px 2px 5px #00000082;
+    z-index: 1;
+}
+/* 2번째 상품목록 */
+#product-area>section:nth-child(2)>.cont-box{
+    flex-direction: row-reverse;
+}
+#product-area>section:nth-child(2)>.cont-box> .col-6 > .pullbox{
+    padding-left: 4vw;
+    width: 49vw;
+}
+#product-area>section:nth-child(2)>.cont-box> .col-6 > .pullbox>img{
+border-radius: 0 0 0 40%;
 }
 /* 어두워지는 화면 */
 /* 8. 스페셜 매장 */
-.special-store-area{
-    height: 1000px;
+.special-store-area {
+   height: 1000px;
 }
 /* 9. 하단 영역 */
-.footer-area{
-    height: 250px;
+.footer-area {
+   height: 250px;
 }

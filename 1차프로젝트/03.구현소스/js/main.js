@@ -17,7 +17,9 @@ for(let i = 0; i<menu.length; i++){
         // 대상 높이값 지정하기
         tg.style.height = mh + 'px';
         tg.style.transition = '.4s ease-in-out';
-        
+
+        this.classList.add('gnbOn');
+        this.querySelector('a').style.color = 'white';
     }; ///마우스 오버 이벤트함수///
 
     menu[i].onmouseleave = function(){
@@ -26,6 +28,8 @@ for(let i = 0; i<menu.length; i++){
         tg.style.height = '0px';
         tg.style.transition = '.4s ease-in-out';
 
+        this.classList.remove('gnbOn');
+        this.querySelector('a').style.color = '#9f9f9f';
     };///마우스 떠날때 이벤트함수///
 
 } /// for ///
@@ -49,15 +53,45 @@ visualView.onmouseleave = function(){
  // 이벤트대상: .sub-wrap .sub-wrap ol:first-of-type
  // 변경대상: .gnb .menu a:first-of-type
  let ol = document.querySelectorAll('.sub-wrap>ol');
- let a = document.querySelectorAll('.gnb .menu>a:first-of-type')
+//  let a = document.querySelectorAll('.gnb .menu>a:first-of-type')
 // console.log('대상확인:',ol,a);
 
  for (let i = 0; i < ol.length; i++){
     // console.log(ol[i]);
     ol[i].onmouseenter = function(){
-        let tg1 = this.parentElement.querySelector('.menu>lia:first-of-type');
-        console.log(tg1);
-        /* 안됌!!!!!!타겟오류! */
-        // tg1.style.color ='white';
+
+        /* [i]인 요소의 상대적인 선택자!! */
+        let gnbname = this.closest('.menu').querySelector('a:first-of-type');
+
+        //(this.closest('.menu').querySelector('a:first-of-type'))는 
+        
+        //이벤트를 트리거한 각 ol[i] 요소를 기준으로 
+        //가장 가까운 조상 요소 중에서 .menu 클래스를 가진 요소의 첫 번째 앵커(<a>) 요소를 선택하므로, 
+        //각 ol[i] 값에 따라 다른 요소를 선택합니다.
+
+        console.log(gnbname);
+        gnbname.style.color ='white';
+        
+        let gnbBg = this.closest('.menu');
+        // console.log(gnbBg);
+        gnbBg.classList.add('gnbOn');
+
+        ol[i].querySelector('a').style.color ='white';
+        ol[i].querySelector('a').classList.add('olOn');
     };
+
+    ol[i].onmouseleave =function(){
+    
+    // 윗 함수에 갇힌 지역변수라 새로 선언
+    let gnbname = this.closest('.menu').querySelector('a:first-of-type');
+    gnbname.style.color ='#9f9f9f';
+
+    let gnbBg = this.closest('.menu');
+    gnbBg.style.backgroundColor ='transparent';
+    gnbBg.classList.remove('gnbOn');
+
+    ol[i].querySelector('a').style.color ='#9f9f9f';
+    ol[i].querySelector('a').classList.remove('olOn');
+    
+};
  }

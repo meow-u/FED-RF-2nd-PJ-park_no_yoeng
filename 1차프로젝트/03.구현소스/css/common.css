@@ -5,14 +5,13 @@
 
 :root {
    --sb-color: #29412a;;
-   --linner-gradient: 45deg, #2d3a45db, transparent;
+   --linear-gradient: 45deg, #2d3a45db, transparent;
    --fill-color1:rgb(246, 224, 224);
    --fill-color2:rgb(214, 231, 236);
    --fill-color3:rgb(207, 210, 233);
 }
 
 /************* 1. 상단영역 *************/
-
 #top-area h1 {
    height: 60px;
    background-color: #3b3b3b;
@@ -234,7 +233,7 @@ nav.gnb {
    /* 스크롤시 부모영역내 상단고정 */
    position: sticky;
    top: 0px;
-   background-image: linear-gradient(var(--linner-gradient));
+   background-image: linear-gradient(var(--linear-gradient));
    background-color: var(--sb-color);
    box-sizing: border-box;
    padding-bottom: 15px;
@@ -321,7 +320,7 @@ ul.gnb a:hover {
 }
 /* 서브메뉴 높이조절되는 랩핑박스 - 플렉스박스 */
 .sub-wrap {
-   background-image: linear-gradient(var(--linner-gradient));
+   background-image: linear-gradient(var(--linear-gradient));
    display: flex;
 }
 
@@ -520,7 +519,7 @@ ul.gnb a:hover {
 /************* 3. 하단영역 *************/
 #footer-area .col-12{
    background-color: var(--sb-color);
-   background-image: linear-gradient(var(--linner-gradient));
+   background-image: linear-gradient(var(--linear-gradient));
    width: 100%;
    height: 100%;
 

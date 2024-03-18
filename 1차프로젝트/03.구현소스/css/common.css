@@ -4,14 +4,19 @@
 /* 공유기능 요소 셋팅 */ /* 상단영역, 하단영역 반복디자인 */
 
 :root {
-   --sb-color: #29412a;;
+   --sb-color: #29412a;
    --linear-gradient: 45deg, #2d3a45db, transparent;
-   --fill-color1:rgb(246, 224, 224);
-   --fill-color2:rgb(214, 231, 236);
-   --fill-color3:rgb(207, 210, 233);
+   --fill-color1: rgb(246, 224, 224);
+   --fill-color2: rgb(214, 231, 236);
+   --fill-color3: rgb(207, 210, 233);
+   --body-color: #f2f0eb;
 }
 
 /************* 1. 상단영역 *************/
+body {
+   background-color: var(--body-color);
+}
+
 #top-area h1 {
    height: 60px;
    background-color: #3b3b3b;
@@ -81,7 +86,7 @@ h1.logo a:nth-of-type(2) > img:first-of-type {
    left: -100%;
    height: 100vh;
    width: 50%;
-   background-color: #ececec;
+   background-color: var(--body-color);
    border-radius: 0 50px 50px 0;
    /* 투명도 0>1트랜지션 원본 */
    opacity: 0;
@@ -459,7 +464,6 @@ ul.gnb a:hover {
    min-height: 50px;
 }
 
-
 /* 라인안내영역 배경색,폰트색 */
 .line-notice-area > .cont-box > .col-6:first-child {
    background-color: #000;
@@ -485,7 +489,7 @@ ul.gnb a:hover {
    margin: 0 auto;
 }
 /* 픽토그램공통 */
-.col-6 a{
+.col-6 a {
    margin: 0 auto;
 }
 .col-6 a img {
@@ -517,14 +521,71 @@ ul.gnb a:hover {
 }
 
 /************* 3. 하단영역 *************/
-#footer-area .col-12{
+/* 푸터전체박스 */
+#footer-area .col-12 {
    background-color: var(--sb-color);
    background-image: linear-gradient(var(--linear-gradient));
    width: 100%;
    height: 100%;
+}
+/* 푸터 위아래 박스 공통 */
+#footer-area .col-12 > .footer {
+   height: 45%;
+   width: 100%;
+}
+/* 상단박스 이미지 */
+.col-12 > .cont1 > img {
+   position: relative;
+   width: 200px;
+   left: 50%;
+
+   translate: -50% -40%;
+}
+/* 하단박스 전체 */
+/* .col-12>.cont2{} */
+
+.col-12 > .cont2 > .info1 {
+   display: flex;
+   justify-content: space-evenly;
+   position: relative;
+   margin: 0 auto;
+   margin-bottom: 1.7%;
+   font-size: 1.2rem;
+   width: 30%;
+}
+.col-12 > .cont2 > .info1:nth-of-type(2){
+   width: 20%;
+}
+.col-12 > .cont2 > .info1:nth-of-type(2)>a{
+   padding: 2% 7%;
+   border-radius: 30px;
+   background-color: rgba(0, 0, 0, 0.158);
+   border: 2px solid #fff;
+   
+}
+
+.col-12 > .cont2 a {
+   color: #fff;
+}
+.col-12 > .cont2 > .info2 {
+   display: flex;
+   justify-content: space-evenly;
+   margin: 0 auto;
+   padding: 2% 0;
+   width: 60%;
+   opacity: 0.8;
+   border-top: 2px solid var(--body-color);
 
 }
-#footer-area .col-12>.footer{
-   height: 50%;
-   width: 100%;
+.col-12 > .cont2 > .info3 {
+   display: flex;
+   justify-content: space-evenly;
+   margin: 0 auto;
+   font-size: 0.7rem;
+   opacity: 0.7;
+}
+.col-12 > .cont2 > .info3>a:first-of-type
+,.info3>a:nth-of-type(4)
+{
+   color: lightgreen;
 }

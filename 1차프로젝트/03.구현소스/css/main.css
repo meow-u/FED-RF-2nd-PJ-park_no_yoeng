@@ -37,7 +37,7 @@ body {
    color: white;
    width: 100%;
    height: 100%;
-   background-image: linear-gradient(var(--linner-gradient));
+   background-image: linear-gradient(var(--linear-gradient));
    background-color: var(--sb-color);
 
    display: flex;
@@ -105,6 +105,16 @@ body {
 .news-area {
    height: 500px;
 }
+.news-area.inbox{
+   
+   width: 100%;
+   left: 50%;
+   translate: -50% 0;
+   position: absolute;
+   background-color: #fff;
+   border-radius: 0 0 30% 30%;
+   padding-bottom: 7%;
+}
 .news-area>.cont-box>.col-12{
    display: flex;
    align-items: center;
@@ -116,8 +126,10 @@ body {
    height: 2000px;
    background: url(../images/reserve_bg.jpg)no-repeat fixed center/cover;
 }
-
-
+.reserve-area >.cont-box{
+background-image: 
+linear-gradient(to bottom,#000 25%,transparent,transparent 60%, var(--body-color)100%);
+};
 /* 7. 상품정보 영역(1개값만 먼저넣음)  
 580이 고정이미지, 1160이 작은썸네일 3개 스크롤 값 */
 .product-area {

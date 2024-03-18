@@ -9,7 +9,7 @@
    --fill-color1: rgb(246, 224, 224);
    --fill-color2: rgb(214, 231, 236);
    --fill-color3: rgb(207, 210, 233);
-   --body-color: #f2f0eb;
+   --body-color: #f6f3f0;
 }
 
 /************* 1. 상단영역 *************/
@@ -549,7 +549,7 @@ ul.gnb a:hover {
    justify-content: space-evenly;
    position: relative;
    margin: 0 auto;
-   margin-bottom: 1.7%;
+   margin-bottom: 0.5%;
    font-size: 1.2rem;
    width: 30%;
 }
@@ -560,6 +560,7 @@ ul.gnb a:hover {
    padding: 2% 7%;
    border-radius: 30px;
    background-color: rgba(0, 0, 0, 0.158);
+   white-space: nowrap;
    border: 2px solid #fff;
    
 }

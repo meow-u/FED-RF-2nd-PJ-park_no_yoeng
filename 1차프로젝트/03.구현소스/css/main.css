@@ -115,10 +115,40 @@ body {
    border-radius: 0 0 30% 30%;
    padding-bottom: 7%;
 }
+/* 플랙스박스 */
 .news-area>.cont-box>.col-12{
    display: flex;
-   align-items: center;
+   /* align-items: center; */
    justify-content: space-between;
+
+   /* 박스 y축 가운데로 이동 */
+   position: relative;
+   top: calc(50% - 260px / 2);
+   /* translate:50% 0; */
+}
+/* 뉴스+캡션 각각 */
+.news-area .col-12>.news {
+flex-shrink: 0;
+padding-left: 5%;
+}
+
+/* 이미지 각각 */
+/* .news-area .col-12 figure img {} */
+
+/* 이미지설명 각각 */
+.news-area .col-12>.news figcaption {
+   font-size: 1.5rem;
+}
+.news-area .col-12 .newstxt>p{
+   
+   flex-shrink: 0;
+   padding: 0 5vw;
+   width: 25vw;
+   font-size: 4rem;
+   font-weight: bold;
+   color: var(--sb-color);
+
+
 }
 
 /* 6. 리저브소개 영역 */
@@ -135,6 +165,11 @@ linear-gradient(to bottom,#000 25%,transparent,transparent 60%, var(--body-color
 .product-area {
    height: 1400px;
 }
+/* 상품영역사이 패딩줌 */
+.product-area.inbox{
+padding: 15% 0;
+}
+/* 상품영역별 왼쪽박스 */
 .product-area > .cont-box > .col-6 > .pullbox {
    box-sizing: border-box;
    padding: 5vh 0;
@@ -143,6 +178,16 @@ linear-gradient(to bottom,#000 25%,transparent,transparent 60%, var(--body-color
    width: 45vw;
    height: 100vh;
 }
+/* 상품영역별 각각의 이미지+캡션 박스 */
+.product-area > .cont-box .col-6 .imgbox {
+   padding: 15% 0;
+
+}
+
+.product-area:nth-child(2) > .cont-box{
+   /* background-image: linear-gradient(to bottom, transparent,var(--sb-color),transparent ); */
+}
+
 .pullbox > img {
    width: 100%;
    height: 100%;

@@ -161,7 +161,7 @@ padding-left: 5%;
 .reserve-area >.cont-box{
 background-image: 
 linear-gradient(to bottom,#000000d0 25%,transparent, var(--body-color)100%);
-};
+}
 
 /* 상단박스부모 */
 .reserve-area >.cont-box>.col-12>.reservebox{
@@ -188,14 +188,26 @@ padding-bottom:5%;
    position: relative;
    width: 100%;
 }
-/* 인포박스부모 */
-/* .reserve-area .infowrap{} */
 
+
+
+/* 인포박스부모 */
+.reserve-area .infowrap{
+   color: #fff;
+   font-size: 2rem;
+
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+   justify-content: center;
+}
 /* 인포박스전체 */
 /* .reserve-area .infowrap>.infobox{} */
 
 /* 인포p박스개별 */
-/* .reserve-area .infowrap>.infobox.b1{} */
+.reserve-area .infowrap>.infobox.b1{
+   width: 40%;
+}
 
 /* 인포박스 p 각각 */
 /* .reserve-area .infowrap>.infobox>p{} */

@@ -225,6 +225,7 @@ padding: 15% 0;
 }
 /* 상품영역별 왼쪽박스 */
 .product-area > .cont-box > .col-6 > .pullbox {
+   /* margin: 30% 0; */
    box-sizing: border-box;
    padding: 5vh 0;
    top: 0;
@@ -234,8 +235,16 @@ padding: 15% 0;
 }
 /* 상품영역별 각각의 이미지+캡션 박스 */
 .product-area > .cont-box .col-6 .imgbox {
-   padding: 15% 0;
+   /* padding: 15% 0; */
 
+}
+
+/* 스티키부모박스 */
+.product-area > .cont-box .col-6 {
+   height: 150%;
+}
+.product-area > .cont-box .col-6 .imgbox:first-child{
+   /* padding-top: 20%; */
 }
 
 .pullbox > img {
@@ -246,9 +255,10 @@ padding: 15% 0;
 }
 .cont-box > .col-6 > .subbox {
    display: flex;
+   gap: 5%;
    height: 100%;
    flex-direction: column;
-   justify-content: space-evenly;
+   justify-content: center;
 }
 .cont-box > .col-6 > .subbox a {
     
@@ -256,8 +266,9 @@ padding: 15% 0;
     border-radius: 20px;
     background-color: #ccc;
     /* 높이없어야 오토됨 */
-    /* height: 35vh; */
-    width: 20vw;
+  
+    height: 35vh;
+    width: 17vw;
     display: block;
     position: relative;
 

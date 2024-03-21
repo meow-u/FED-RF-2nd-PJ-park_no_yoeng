@@ -179,8 +179,8 @@ linear-gradient(to bottom,#000000d0 25%,transparent, var(--body-color)100%);
 
 /* 리저브 탑 로고*/
 .reserve-area >.cont-box>.col-12 img.reserve1{
-width: 90%;
-filter: invert(.4);
+width: 45%;
+filter: invert(.9);
 padding-bottom:5%;
 }
 /* 리저브 탑 이미지 */

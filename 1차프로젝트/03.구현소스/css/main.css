@@ -160,7 +160,7 @@ padding-left: 5%;
 }
 .reserve-area >.cont-box{
 background-image: 
-linear-gradient(to bottom,#000000d0 25%,transparent, var(--body-color)100%);
+linear-gradient(to bottom,#000000 25%,transparent, var(--body-color)100%);
 }
 
 /* 상단박스부모 */

@@ -105,7 +105,7 @@ const scrollableArea = document.querySelector(".news-area.inbox");
 /* 가로스크롤시 변경요소: .news들 */
 const news = document.querySelectorAll(".news");
 
-/* 대상영역 스크롤이벤트 발생시 익명함수실행 */
+/* 대상영역 스크롤이벤트 발생시 이벤트함수실행 */
 scrollableArea.addEventListener("wheel", (event)=>{
    /* event.deltaY :  휠 또는 유사한 장치의 스크롤을 통해 
    발생한 이벤트에서 발생한 "스크롤 양"을 나타냄  */
@@ -114,27 +114,34 @@ scrollableArea.addEventListener("wheel", (event)=>{
       event.preventDefault();
 
       // deltaY 값을 가로 스크롤 값에 누적
+      // scrollBy(수평,수직)
       scrollableArea.scrollBy(event.deltaY, 0);
    }
 
    // 영역의 시작과 끝 설정
-   const AtsideLine =
-      scrollableArea.scrollLeft === 1268 || scrollableArea.scrollLeft === 0;
+   const limitLine =
+   //요소의 가로 스크롤 '위치'를 px단위로 나타내는 속성
+      scrollableArea.scrollLeft >= 1235 || 
+      scrollableArea.scrollLeft === 0;
 
    // 현재 누적 deltaY 값 확인
    console.log(scrollableArea.scrollLeft);
 
-   // 양 끝에 도달했을 때, deltaY 값으로 수평 스크롤
-   // scrollBy(horizontal, vertical)
-   if (AtsideLine) {
+   // 대상영역 양끝 스크롤 도달시
+   // deltaY 값을 세로 스크롤 값에 누적
+   // console.log(event.deltaY)
+   if (limitLine) {
       window.scrollBy(0, event.deltaY);
    }
 
+   //뉴스요소 각각 순회하여 이동적용
    for (var i = 0; i < news.length; i++) {
+      // 공통 트랜지션
       news[i].style.transition = "0.3s";
-
+      // i가 짝수면 양수, 홀수면 음수를 곱함
+      //가로스크롤 위치값과 곱하여  요소 이동 트랜스폼
       news[i].style.transform = `translateY(${
-         scrollableArea.scrollLeft * (i % 2 == 0 ? 0.1 : -0.1)
+         scrollableArea.scrollLeft * (i % 2 == 0 ? 0.07 : -0.07)
       }px)`;
    }
 }); // 이벤트 내부 함수

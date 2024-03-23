@@ -1,0 +1,50 @@
+{
+    "liveServer.settings.port": 5503,
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "comment",
+                "settings": {
+                    "fontStyle": "italic",
+                    "foreground": "#8fd467e8"
+                }
+            },
+            {
+                "scope": [
+                    "punctuation.definition.tag.begin.html",
+                    "punctuation.definition.tag.end.html",
+                    "punctuation.definition.tag.html",
+                    "entity.name.tag",
+                    "meta.tag.block.any.html"
+                ],
+                "settings": {
+                    "foreground": "#97bdfff3"
+                }
+            },
+            {
+                "scope": [
+                    "constant.numeric"
+                ]
+            },
+            {
+                "scope": [
+                    "text"
+                ],
+                "settings": {
+                    "foreground": "#f3efea"
+                }
+            },
+            {
+                "scope": [
+                    "constant.character.entity",
+                    "punctuation.definition.entity"
+                ],
+                "settings": {}
+            }
+        ],
+        "comments": ""
+    },
+    "cSpell.words": [
+        "queryselector"
+    ],
+}

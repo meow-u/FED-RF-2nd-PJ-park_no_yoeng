@@ -8,6 +8,7 @@
 /* 그리드 12 불러오기 */
 @import url(./grid_12_flex.css);
 
+
 /* 공사중 표시 */
 body * {
    outline: 2px dashed #ff9f9f8f;
@@ -107,49 +108,63 @@ body {
 }
 .news-area.inbox{
    
+   position: absolute;
    width: 100%;
    left: 50%;
    translate: -50% 0;
-   position: absolute;
+   
    background-color: #fff;
    border-radius: 0 0 30% 30%;
    padding-bottom: 7%;
+
+   overflow: hidden;
+}
+
+.news-area>.cont-box{
+   translate: 50% 0;
+   
 }
 /* 플랙스박스 */
 .news-area>.cont-box>.col-12{
    display: flex;
-   /* align-items: center; */
-   justify-content: space-between;
 
    /* 박스 y축 가운데로 이동 */
    position: relative;
    top: calc(50% - 260px / 2);
-   /* translate:50% 0; */
 }
-/* 뉴스+캡션 각각 */
+
+/* 뉴스영역 메인글자 */
+.news-area .col-12 .newstxt > p{
+   
+padding: 0 5vw;
+width: 25vw;
+font-size: 4.5rem;
+font-weight: bold;
+color: var(--sb-color);
+}
+/* 뉴스박스공통 (이미지+캡션) */
 .news-area .col-12>.news {
 flex-shrink: 0;
-padding-left: 5%;
+flex-basis: 25%;
+transition: 0.6s;
+}
+/* 개별 위치 이동 */
+.news-area .col-12>.news:nth-of-type(2),.news:nth-of-type(4){
+   translate: 0 -20%;
+}
+.news-area .col-12>.news:nth-of-type(3),.news:nth-of-type(5){
+   translate: 0 20%;
 }
 
-/* 이미지 각각 */
-/* .news-area .col-12 figure img {} */
-
-/* 이미지설명 각각 */
+/* 이미지 */
+.news-area .col-12 img {
+   border-radius: 10%;
+}
+/* 이미지설명 */
 .news-area .col-12>.news figcaption {
    font-size: 1.5rem;
 }
-.news-area .col-12 .newstxt>p{
-   
-   flex-shrink: 0;
-   padding: 0 5vw;
-   width: 25vw;
-   font-size: 4rem;
-   font-weight: bold;
-   color: var(--sb-color);
 
-
-}
 
 /* 6. 리저브소개 영역 */
 

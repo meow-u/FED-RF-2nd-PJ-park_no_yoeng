@@ -10,13 +10,33 @@
 
 /* 공사중 표시 */
 body * {
-  outline: 2px dashed #ff9f9f8f;
+  /* outline: 2px dashed #ff9f9f29; */
 }
 body {
   overflow-y: scroll; /* 세로 스크롤 막대를 항상 표시하여 스크롤 가능한 경우에도 항상 표시됨 */
   scroll-behavior: smooth; /* 부드러운 스크롤을 활성화함 */
 }
 /*________________ 1.상단영역 ________________*/
+body>div:first-child {
+   top: 90%;
+   left: 100%;
+   translate: -100%;
+   border-radius: 100px 0 0 100px;
+   z-index: 10;
+   width: 90px;
+   height: 33px;
+   background-color: #000000db;
+   position: fixed;
+}
+
+body>div:first-child>a {
+   font-size: 1.2rem;
+   margin: 14%;
+   line-height: 33px;
+   color: white;
+}
+
+
 .top-area {
   height: 60px;
 }
@@ -135,16 +155,27 @@ body {
 /* 뉴스영역 메인글자 */
 .news-area .col-12 .newstxt > p {
   
-   height: 15vw;
-   width: 38vw;
-   font-size: 4.5rem;
-   font-weight: bold;
-   color: #ffffff;
-   background-color: var(--sb-color);
-   margin: 0 35px;
-   border-bottom: #fff;
-   overflow: hidden;
-   padding: 10px;
+border-radius: 18px;
+  
+/* height: 15vw; */
+  
+width: 38vw;
+  
+font-size: 4.5rem;
+  
+font-weight: bold;
+  
+color: #ffffff;
+  
+background-color: var(--sb-color);
+  
+margin: 0 35px;
+  
+border-bottom: #fff;
+  
+overflow: hidden;
+  
+padding: 10px;
 }
 
 /* p가상요소 */
@@ -270,30 +301,85 @@ body {
   position: relative;
   width: 100%;
 }
+/* 리저브 별 이미지 */
+.reserve-area > .cont-box > .col-12 img.reserve3 {
+  position: relative;
+  width: 10%;
+  padding: 20px;
+}
 
 /* 인포박스부모 */
 .reserve-area .infowrap {
-  color: #fff;
-  font-size: 2rem;
-
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
+   position: relative;
+   top: 30%;
+   color: #fff;
+   font-size: 2rem;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: space-evenly;
 }
 /* 인포박스전체 */
 /* .reserve-area .infowrap>.infobox{} */
 
-/* 인포p박스개별 */
-.reserve-area .infowrap > .infobox.b1 {
+/* 인포박스개별 */
+.reserve-area .infowrap > .infobox {
+  padding-bottom: 5%;
   width: 40%;
 }
 
-/* 인포박스 p 각각 */
-/* .reserve-area .infowrap>.infobox>p{} */
+/* 인포박스 p */
+.reserve-area .infowrap>.infobox>p{
+   word-break: keep-all;
+   padding: 5% 10%;
+   line-height: 160%;
+   font-size: 2rem;
+   font-weight: bold;
+}
+/* 인포박스 p */
+.reserve-area .infowrap>.infobox.b4{
+   border-radius: 0 250px 250px 0;
+   background-image: linear-gradient(var(--linear-gradient));
+   width: 90%;
+   margin-right: 10%;
+   background-color: var(--sb-color);
+   padding-bottom: 6%;
+}
+/* 인포박스 P 2 */
+.reserve-area .infowrap>.infobox>p:nth-child(2){
+   text-align: justify;
+   font-size: 1.2rem;
+   padding-top: 5%;
+   padding-left: 15%;
+   width: 60%;
+}
 
-/* 인포박스 img 각각 */
-/* .reserve-area .infowrap>.infobox img{} */
+/* 인포박스 img */
+.reserve-area .infowrap>.infobox img{
+   border-radius: 19%;
+   background-color: #000000db;
+   padding: 13% 0;
+   width: 90%;
+   margin: 0 5%;
+}
+/* 인포박스 img 2 */
+.reserve-area .infowrap>.infobox>div:nth-child(2)>img{
+   scale: 0.8;
+   margin-left: -47%;
+   margin-top: -34%;
+}
+
+.reserve-area .infowrap>.infobox.b4 img {
+   border-radius: 0;background-color: transparent;width: 30%;
+}
+
+.reserve-area .infowrap>.infobox.b4>p:nth-child(2) {
+    border-bottom: 2px solid var(--body-color);
+    font-size: 1.4rem;
+    padding: 0;
+    padding-left: 10%;
+    width: 40%;
+}
 
 /*________________ 7. 상품정보 영역  ________________*/
 /*580이 고정이미지, 1160이 작은썸네일 3개 스크롤 값 */
@@ -343,14 +429,11 @@ body {
 .cont-box > .col-6 > .subbox a {
   margin-bottom: 1rem;
   border-radius: 20px;
-  background-color: #ccc;
+  
   /* 높이없어야 오토됨 */
-
-  height: 35vh;
   width: 17vw;
   display: block;
   position: relative;
-
   overflow: hidden;
 }
 .cont-box .imgbox:nth-of-type(1) > a {
@@ -402,7 +485,7 @@ body {
 
 /* 필박스가상요소  */
 .product-area > .cont-box > .col-6 > .pullbox:before {
-  content: "BEST CHOICE ITEM!";
+  content: "Best choice BLEND!";
   position: absolute;
   color: #fff;
   font-size: 5vw;
@@ -410,6 +493,12 @@ body {
   padding: 10px;
   text-shadow: 2px 2px 5px #00000082;
   z-index: 1;
+}
+.product-area:nth-child(2) > .cont-box > .col-6 > .pullbox:before {
+   content: "Best choice DRINK!";
+}
+.product-area:nth-child(3) > .cont-box > .col-6 > .pullbox:before {
+   content: "Best choice FOOD!";
 }
 /* 2번째 상품목록 */
 #product-area > section:nth-child(2) > .cont-box {

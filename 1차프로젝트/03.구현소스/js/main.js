@@ -131,8 +131,14 @@ scrollableArea.addEventListener("wheel", (event)=>{
    // deltaY 값을 세로 스크롤 값에 누적
    // console.log(event.deltaY)
    if (limitLine) {
-      window.scrollBy(0, event.deltaY);
+
+      setTimeout(() => {;
+         //누적된 event.deltaY 값을 초기화하고 싶은데 방법을모름
+         //1초동안 누적된 휠값이 한번에 이동함.
+         window.scrollBy(0, event.deltaY);      
+      }, 0); //일단 0초로 해둠
    }
+   
 
    //뉴스요소 각각 순회하여 이동적용
    for (var i = 0; i < news.length; i++) {

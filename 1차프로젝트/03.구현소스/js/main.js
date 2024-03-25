@@ -1,18 +1,18 @@
 // 메인 js
 
-window.scrollTo({
-   behavior: "smooth",
-});
+// window.scrollTo({
+//    behavior: "smooth",
+// });
 /* ******************************************* */
 // [ 마우스 커서 따라다니기 ]
 // 대상선정 : html
 /* ******************************************* */
 let html = document.querySelector('html');
 let tg = document.querySelector('.cursor');
-html.onmousemove = (e) => {
+window.onmousemove = (e) => {
 tg.style.transition = '0.2s ease-out';
-tg.style.left = e.pageX + 'px';
-tg.style.top = e.pageY + 'px';
+tg.style.left = e.clientX + 'px';
+tg.style.top = e.clientY + 'px';
 };
 
 /* *********************************** */
@@ -108,58 +108,133 @@ for (let i = 0; i < ol.length; i++) {
    };
 }
 
-/******************************************** 
- // [ 뉴스영역에서 스크롤방향  가로로 바꾸기 ]
- *******************************************/
-/* 가로스크롤 대상영역: .news-area.inbox */
-const scrollableArea = document.querySelector(".news-area.inbox");
-/* 가로스크롤시 변경요소: .news들 */
-const news = document.querySelectorAll(".news");
+// 움직일 박스
+const tg0 = document.querySelector('.news-cont');
+const tg1 = document.querySelector('.news-col');
+// 실제 컨텐츠 길이
+let tg1Width = tg1.offsetWidth;
 
-/* 대상영역 스크롤이벤트 발생시 이벤트함수실행 */
-scrollableArea.addEventListener("wheel", (event)=>{
-   /* event.deltaY :  휠 또는 유사한 장치의 스크롤을 통해 
-   발생한 이벤트에서 발생한 "스크롤 양"을 나타냄  */
-   if (event.deltaY !== 0) {
-      // 수직 스크롤이 발생할 때 기본 동작 방지
-      event.preventDefault();
+const tg2 = document.querySelector('.news-area');
+// 보이는박스길이
+let tg2Width = tg2.offsetWidth;
+// 보이는박스높이
+let tg2Height = tg2.offsetHeight;
+// 가용길이 : 전체 가로크기 - 보이는 가로크기 = 실제 이동가능한 길이
+let allowWidth = tg1Width-tg2Width+1500;
+// 스티키부모박스높이
+let allowHeight = tg2Height+allowWidth;
 
-      // deltaY 값을 가로 스크롤 값에 누적
-      // scrollBy(수평,수직)
-      scrollableArea.scrollBy(event.deltaY, 0);
+console.log('실제 컨텐츠 길이:',tg1Width);
+console.log('보이는박스길이:',tg2Width);
+console.log('보이는박스높이:',tg2Height);
+console.log('가용길이:',allowWidth);
+console.log('스티키부모박스높이:',allowHeight);
+
+// 스티키 부모박스
+const tg3 = document.querySelector('#news-area');
+// 스티키 부모박스 높이셋팅!
+tg3.style.height = allowHeight + 'px';
+
+// 보이는 화면에서의 top 위치값 리턴 함수
+const retVal = (x) => x.getBoundingClientRect().top;
+
+// 움직이는 셋팅하기
+window.addEventListener('wheel', () => {
+   let pos = retVal(tg3);
+   console.log(pos);
+   // 200px 만큼 보정하여 움직일 거리 계산한 한계값
+   let limitNum = -allowWidth;
+
+   if(pos > 0){
+      tg0.style.left = '0px';
+   }
+   else if(pos < 0 && pos > limitNum){
+      console.log('작동!');
+      tg0.style.left = pos+'px';
+
+
    }
 
-   // 영역의 시작과 끝 설정
-   const limitLine =
-   //요소의 가로 스크롤 '위치'를 px단위로 나타내는 속성
-      scrollableArea.scrollLeft >= 1235 || 
-      scrollableArea.scrollLeft === 0;
+});
 
-   // 현재 누적 deltaY 값 확인
-   console.log(scrollableArea.scrollLeft);
 
-   // 대상영역 양끝 스크롤 도달시
-   // deltaY 값을 세로 스크롤 값에 누적
-   // console.log(event.deltaY)
-   if (limitLine) {
 
-      setTimeout(() => {;
-         //누적된 event.deltaY 값을 초기화하고 싶은데 방법을모름
-         //1초동안 누적된 휠값이 한번에 이동함.
-         window.scrollBy(0, event.deltaY);      
-      }, 0); //일단 0초로 해둠
-   }
+
+
+// 타임아웃변수
+// let autoT;
+
+// /******************************************** 
+//  // [ 뉴스영역에서 스크롤방향  가로로 바꾸기 ]
+//  *******************************************/
+// /* 가로스크롤 대상영역: .news-area.inbox */
+// const scrollableArea = document.querySelector(".news-area.inbox");
+// /* 가로스크롤시 변경요소: .news들 */
+// const news = document.querySelectorAll(".news");
+
+// const retVal = (x) => x.getBoundingClientRect().top;
+
+// /* 대상영역 스크롤이벤트 발생시 이벤트함수실행 */
+// window.addEventListener("wheel", (event)=>{
+//    let pos = retVal(scrollableArea);
+//    console.log(pos);
+//    /* event.deltaY :  휠 또는 유사한 장치의 스크롤을 통해 
+//    발생한 이벤트에서 발생한 "스크롤 양"을 나타냄  */
+//    if(pos > 200 && scrollableArea.scrollLeft < 1650){
+
+//    }
+//    else if (pos < 200 && pos > -400 && scrollableArea.scrollLeft < 1650 ) {
+//       // 수직 스크롤이 발생할 때 기본 동작 방지
+//       event.preventDefault();
+
+//       console.log(111);
+
+//       // deltaY 값을 가로 스크롤 값에 누적
+//       // scrollBy(수평,수직)
+//       scrollableArea.scrollBy(event.deltaY, 0);
+//    }else if(pos < -400){
+//       scrollableArea.scrollLeft = 1640;
+      
+//       console.log(222);
+//    }
+//    else{
+      
+//       console.log(333);
+//    }
+
+//    // 영역의 시작과 끝 설정
+//    const limitLine =
+//    //요소의 가로 스크롤 '위치'를 px단위로 나타내는 속성
+//       scrollableArea.scrollLeft >= 1235 || 
+//       scrollableArea.scrollLeft === 0;
+
+//    // 현재 누적 deltaY 값 확인
+//    console.log(scrollableArea.scrollLeft);
+
+//    // 대상영역 양끝 스크롤 도달시
+//    // deltaY 값을 세로 스크롤 값에 누적
+//    // console.log(event.deltaY)
+//    // if (limitLine) {
+
+//    //     clearTimeout(autoT);
+
+//    //    autoT = setTimeout(() => {;
+//    //       //누적된 event.deltaY 값을 초기화하고 싶은데 방법을모름
+//    //       //1초동안 누적된 휠값이 한번에 이동함.
+//    //       window.scrollBy(0, event.deltaY);      
+//    //    }, 3000); //일단 0초로 해둠
+//    // }
    
 
-   //뉴스요소 각각 순회하여 이동적용
-   for (var i = 0; i < news.length; i++) {
-      // 공통 트랜지션
-      news[i].style.transition = "0.3s";
-      // i가 짝수면 양수, 홀수면 음수를 곱함
-      //가로스크롤 위치값과 곱하여  요소 이동 트랜스폼
-      news[i].style.transform = `translateY(${
-         scrollableArea.scrollLeft * (i % 2 == 0 ? 0.07 : -0.07)
-      }px)`;
-   }
-}); // 이벤트 내부 함수
+//    //뉴스요소 각각 순회하여 이동적용
+//    for (var i = 0; i < news.length; i++) {
+//       // 공통 트랜지션
+//       news[i].style.transition = "0.3s";
+//       // i가 짝수면 양수, 홀수면 음수를 곱함
+//       //가로스크롤 위치값과 곱하여  요소 이동 트랜스폼
+//       news[i].style.transform = `translateY(${
+//          scrollableArea.scrollLeft * (i % 2 == 0 ? 0.07 : -0.07)
+//       }px)`;
+//    }
+// },{passive:false}); // 이벤트 내부 함수
 

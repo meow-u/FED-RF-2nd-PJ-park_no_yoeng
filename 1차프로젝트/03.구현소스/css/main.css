@@ -7,81 +7,83 @@
 @import url(./common.css);
 /* 그리드 12 불러오기 */
 @import url(./grid_12_flex.css);
-
+html {
+  scroll-behavior: smooth; /* 부드러운 스크롤을 활성화함 */
+}
 /* 공사중 표시 */
 body * {
   /* outline: 2px dashed #ff9f9f29; */
 }
 body {
   overflow-y: scroll; /* 세로 스크롤 막대를 항상 표시하여 스크롤 가능한 경우에도 항상 표시됨 */
-  scroll-behavior: smooth; /* 부드러운 스크롤을 활성화함 */
 }
 /*________________ 1.상단영역 ________________*/
-body>.cursor{
+body > .cursor {
   z-index: 10;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 80px;
   height: 80px;
-  background: url(../images/starbucks-logo-starbucks-icon-transparent-free.png) no-repeat center/cover;
+  background: url(../images/starbucks-logo-starbucks-icon-transparent-free.png)
+    no-repeat center/cover;
   border-radius: 50%;
   animation: logoani 2.5s linear infinite;
   transform-origin: center center;
+  pointer-events: none;
 }
 @keyframes logoani {
-  to{
-transform: rotate(360deg);
+  to {
+    transform: rotate(360deg);
   }
 }
-body>.cursor>.cursorin{
+body > .cursor > .cursorin {
   position: relative;
   width: 40px;
   height: 40px;
   top: 50%;
   left: 50%;
-  translate:-50%-50%;
+  translate: -50%-50%;
   background-color: var(--sb-color);
   border-radius: 50%;
 }
-body>.cursor>.inCircle{
+body > .cursor > .inCircle {
   position: relative;
   width: 40px;
   height: 40px;
   top: 0%;
   left: 50%;
-  translate:-50%-50%;
-  background: url(../images/starbucks-logo-starbucks-icon-transparent-free.png) no-repeat center/80px 80px;
+  translate: -50%-50%;
+  background: url(../images/starbucks-logo-starbucks-icon-transparent-free.png)
+    no-repeat center/80px 80px;
   border-radius: 50%;
   transform-origin: center center;
   animation: logoani2 0.6s ease-in infinite alternate;
 }
 @keyframes logoani2 {
-  to{
-transform:rotateY(90deg);
+  to {
+    transform: rotateY(90deg);
   }
 }
 
-
-body>.fixed {
-   top: 90%;
-   left: 100%;
-   translate: -100%;
-   border-radius: 100px 0 0 100px;
-   z-index: 10;
-   width: 90px;
-   height: 33px;
-   background-color: #000000db;
-   position: fixed;
+body > .fixed {
+  top: 90%;
+  left: 100%;
+  translate: -100%;
+  border-radius: 100px 0 0 100px;
+  z-index: 10;
+  width: 90px;
+  height: 33px;
+  background-color: #000000db;
+  position: fixed;
 }
 
-body>.fixed>a {
+body > .fixed > a {
   font-size: 1.2rem;
   margin: 0 13%;
   line-height: 33px;
   color: #fff;
 }
-
 
 .top-area {
   height: 60px;
@@ -168,17 +170,62 @@ body>.fixed>a {
   height: 50%;
 }
 /*________________ 5. 뉴스 영역 ________________*/
+#news-area {
+  position: relative;
+  height: 1500px;
+}
+#news-area::after {
+  content: '';
+  position: absolute;
+  z-index: -3;
+  width: 1280px;
+  height: 100%;
+  bottom: 0;
+  left: 50%;
+  translate: -50% 0;
+  background-color: #000;
+}
+.news-cont {
+  position: relative;
+  left: 0;
+  transition: 0.6s ease-out;
+}
 .news-area {
   height: 500px;
 }
-.news-area.inbox {
+.news-area::before {
+  content: "";
+  display: block;
   position: absolute;
+  z-index: -1;
+  bottom: 5px;
   width: 100%;
-  left: 50%;
-  translate: -50% 0;
-
-  background-color: var(--body-color);
+  height: 600px;
   border-radius: 0 0 30% 30%;
+  background-color: var(--body-color);
+  /* 옆으로 넘치는부분 가림 */
+  overflow: hidden;
+}
+.news-area::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  z-index: -2;
+  width: 100%;
+  height: 200px;
+  background-color: #000;
+
+  /* 옆으로 넘치는부분 가림 */
+  overflow: hidden;
+}
+.news-area.inbox {
+  position: sticky;
+  top: 0;
+  /* width: 100%;
+  left: 50%;
+  translate: -50% 0; */
+
   padding-bottom: 7%;
 
   /* 옆으로 넘치는부분 가림 */
@@ -200,53 +247,51 @@ body>.fixed>a {
 
 /* 뉴스영역 메인글자 */
 .news-area .col-12 .newstxt > p {
-  
-border-radius: 18px;
-  
-/* height: 15vw; */
-  
-width: 38vw;
-  
-font-size: 4.5rem;
-  
-font-weight: bold;
-  
-color: #ffffff;
-  
-background-color: var(--sb-color);
-  
-margin: 0 35px;
-  
-border-bottom: #fff;
-  
-overflow: hidden;
-  
-padding: 10px;
+  border-radius: 18px;
+
+  /* height: 15vw; */
+
+  width: 38vw;
+
+  font-size: 4.5rem;
+
+  font-weight: bold;
+
+  color: #ffffff;
+
+  background-color: var(--sb-color);
+
+  margin: 0 35px;
+
+  border-bottom: #fff;
+
+  overflow: hidden;
+
+  padding: 10px;
 }
 
 /* p가상요소 */
-.news-area .col-12 .newstxt > p::after{
-   content: '';
-   position: relative;
-   display: block;
-   height: 4px;
-   width: 45%;
-   top: 2%;
-   left: 2%;
-   /* translate: -50% 0; */
-   background-color: #fff;
-   border-radius: 30px 30px 30px 30px;
-   animation: pAni 0.9s ease-in-out infinite ;
-   transform-origin: right center;
+.news-area .col-12 .newstxt > p::after {
+  content: "";
+  position: relative;
+  display: block;
+  height: 4px;
+  width: 45%;
+  top: 2%;
+  left: 2%;
+  /* translate: -50% 0; */
+  background-color: #fff;
+  border-radius: 30px 30px 30px 30px;
+  animation: pAni 0.9s ease-in-out infinite;
+  transform-origin: right center;
+}
 
-   }
+@keyframes pAni {
+  100% {
+    transform: scaleX(0);
+  }
+}
 
-   @keyframes pAni { 
-      100%{
-         transform: scaleX(0);
-      }
-      }
- 
 /* 뉴스박스공통 (이미지+캡션) */
 .news-area .col-12 > .news {
   flex-shrink: 0;
@@ -267,14 +312,12 @@ padding: 10px;
 }
 /* 이미지 a박스 가상요소 */
 .news-area .col-12 figure > a::after {
-
   content: "MORE VIEW";
   position: relative;
   display: block;
   translate: 0 -100%;
   width: 100%;
   height: 100%;
-
 
   color: transparent;
   text-align: center;
@@ -294,16 +337,13 @@ padding: 10px;
   height: 260px;
   box-shadow: inset 0px 0px 50px black;
   background-color: rgba(0, 0, 0, 0.541);
-  
 }
 
 /* 이미지설명 */
 .news-area .col-12 > .news a {
-  
-   font-size: 1.5rem;
-   font-weight: bold;
-   color: var(--sb-color);
-
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--sb-color);
 }
 
 /*________________ 6. 리저브소개 영역 ________________*/
@@ -332,7 +372,7 @@ padding: 10px;
 
   position: relative;
   height: 700px;
-  top: 25%;
+  padding-top: 25%;
   background-color: black;
 }
 
@@ -356,14 +396,14 @@ padding: 10px;
 
 /* 인포박스부모 */
 .reserve-area .infowrap {
-   position: relative;
-   top: 30%;
-   color: #fff;
-   font-size: 2rem;
-   display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
-   justify-content: space-evenly;
+  position: relative;
+  top: 30%;
+  color: #fff;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 /* 인포박스전체 */
 /* .reserve-area .infowrap>.infobox{} */
@@ -375,56 +415,58 @@ padding: 10px;
 }
 
 /* 인포박스 p */
-.reserve-area .infowrap>.infobox>p{
-   word-break: keep-all;
-   padding: 5% 10%;
-   line-height: 160%;
-   font-size: 2rem;
-   font-weight: bold;
+.reserve-area .infowrap > .infobox > p {
+  word-break: keep-all;
+  padding: 5% 10%;
+  line-height: 160%;
+  font-size: 2rem;
+  font-weight: bold;
 }
 /* 인포박스 p */
-.reserve-area .infowrap>.infobox.b4{
-   border-radius: 0 250px 250px 0;
-   background-image: linear-gradient(var(--linear-gradient));
-   width: 90%;
-   margin-right: 10%;
-   background-color: var(--sb-color);
-   padding-bottom: 6%;
+.reserve-area .infowrap > .infobox.b4 {
+  border-radius: 0 250px 250px 0;
+  background-image: linear-gradient(var(--linear-gradient));
+  width: 90%;
+  margin-right: 10%;
+  background-color: var(--sb-color);
+  padding-bottom: 6%;
 }
 /* 인포박스 P 2 */
-.reserve-area .infowrap>.infobox>p:nth-child(2){
-   text-align: justify;
-   font-size: 1.2rem;
-   padding-top: 5%;
-   padding-left: 15%;
-   width: 60%;
+.reserve-area .infowrap > .infobox > p:nth-child(2) {
+  text-align: justify;
+  font-size: 1.2rem;
+  padding-top: 5%;
+  padding-left: 15%;
+  width: 60%;
 }
 
 /* 인포박스 img */
-.reserve-area .infowrap>.infobox img{
-   border-radius: 19%;
-   background-color: #000000db;
-   padding: 13% 0;
-   width: 90%;
-   margin: 0 5%;
+.reserve-area .infowrap > .infobox img {
+  border-radius: 19%;
+  background-color: #000000db;
+  padding: 13% 0;
+  width: 90%;
+  margin: 0 5%;
 }
 /* 인포박스 img 2 */
-.reserve-area .infowrap>.infobox>div:nth-child(2)>img{
-   scale: 0.8;
-   margin-left: -47%;
-   margin-top: -34%;
+.reserve-area .infowrap > .infobox > div:nth-child(2) > img {
+  scale: 0.8;
+  margin-left: -47%;
+  margin-top: -34%;
 }
 
-.reserve-area .infowrap>.infobox.b4 img {
-   border-radius: 0;background-color: transparent;width: 30%;
+.reserve-area .infowrap > .infobox.b4 img {
+  border-radius: 0;
+  background-color: transparent;
+  width: 30%;
 }
 
-.reserve-area .infowrap>.infobox.b4>p:nth-child(2) {
-    border-bottom: 2px solid var(--body-color);
-    font-size: 1.4rem;
-    padding: 0;
-    padding-left: 10%;
-    width: 40%;
+.reserve-area .infowrap > .infobox.b4 > p:nth-child(2) {
+  border-bottom: 2px solid var(--body-color);
+  font-size: 1.4rem;
+  padding: 0;
+  padding-left: 10%;
+  width: 40%;
 }
 
 /*________________ 7. 상품정보 영역  ________________*/
@@ -443,7 +485,7 @@ padding: 10px;
   padding: 5vh 0;
   top: 0;
   position: sticky;
-  width: 45vw;
+  width: 100%;
   height: 100vh;
 }
 /* 상품영역별 각각의 이미지+캡션 박스 */
@@ -475,7 +517,7 @@ padding: 10px;
 .cont-box > .col-6 > .subbox a {
   margin-bottom: 1rem;
   border-radius: 20px;
-  
+
   /* 높이없어야 오토됨 */
   width: 17vw;
   display: block;
@@ -541,10 +583,10 @@ padding: 10px;
   z-index: 1;
 }
 .product-area:nth-child(2) > .cont-box > .col-6 > .pullbox:before {
-   content: "Best choice DRINK!";
+  content: "Best choice DRINK!";
 }
 .product-area:nth-child(3) > .cont-box > .col-6 > .pullbox:before {
-   content: "Best choice FOOD!";
+  content: "Best choice FOOD!";
 }
 /* 2번째 상품목록 */
 #product-area > section:nth-child(2) > .cont-box {
@@ -552,7 +594,7 @@ padding: 10px;
 }
 #product-area > section:nth-child(2) > .cont-box > .col-6 > .pullbox {
   padding-left: 4vw;
-  width: 49vw;
+  width: 100%;
 }
 #product-area > section:nth-child(2) > .cont-box > .col-6 > .pullbox > img {
   border-radius: 0 0 0 40%;

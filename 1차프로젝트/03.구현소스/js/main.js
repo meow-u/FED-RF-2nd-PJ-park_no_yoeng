@@ -3,6 +3,17 @@
 window.scrollTo({
    behavior: "smooth",
 });
+/* ******************************************* */
+// [ 마우스 커서 따라다니기 ]
+// 대상선정 : html
+/* ******************************************* */
+let html = document.querySelector('html');
+let tg = document.querySelector('.cursor');
+html.onmousemove = (e) => {
+tg.style.transition = '0.2s ease-out';
+tg.style.left = e.pageX + 'px';
+tg.style.top = e.pageY + 'px';
+};
 
 /* *********************************** */
 // [ 상단메뉴 오버시 서브메뉴 보이기 ]

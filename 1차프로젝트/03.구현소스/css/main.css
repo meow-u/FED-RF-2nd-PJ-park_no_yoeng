@@ -17,7 +17,53 @@ body {
   scroll-behavior: smooth; /* 부드러운 스크롤을 활성화함 */
 }
 /*________________ 1.상단영역 ________________*/
-body>div:first-child {
+body>.cursor{
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  background: url(../images/starbucks-logo-starbucks-icon-transparent-free.png) no-repeat center/cover;
+  border-radius: 50%;
+  animation: logoani 2.5s linear infinite;
+  transform-origin: center center;
+}
+@keyframes logoani {
+  to{
+transform: rotate(360deg);
+  }
+}
+body>.cursor>.cursorin{
+  position: relative;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  left: 50%;
+  translate:-50%-50%;
+  background-color: var(--sb-color);
+  border-radius: 50%;
+}
+body>.cursor>.inCircle{
+  position: relative;
+  width: 40px;
+  height: 40px;
+  top: 0%;
+  left: 50%;
+  translate:-50%-50%;
+  background: url(../images/starbucks-logo-starbucks-icon-transparent-free.png) no-repeat center/80px 80px;
+  border-radius: 50%;
+  transform-origin: center center;
+  animation: logoani2 0.6s ease-in infinite alternate;
+}
+@keyframes logoani2 {
+  to{
+transform:rotateY(90deg);
+  }
+}
+
+
+body>.fixed {
    top: 90%;
    left: 100%;
    translate: -100%;
@@ -29,11 +75,11 @@ body>div:first-child {
    position: fixed;
 }
 
-body>div:first-child>a {
-   font-size: 1.2rem;
-   margin: 14%;
-   line-height: 33px;
-   color: white;
+body>.fixed>a {
+  font-size: 1.2rem;
+  margin: 0 13%;
+  line-height: 33px;
+  color: #fff;
 }
 
 

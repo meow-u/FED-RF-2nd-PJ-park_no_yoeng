@@ -7,6 +7,13 @@
 @import url(./common.css);
 /* 그리드 12 불러오기 */
 @import url(./grid_12_flex.css);
+
+/* 가상요소 js용 변수 */
+:root {
+  --after-transform: rotate(0deg);
+}
+
+
 html {
   scroll-behavior: smooth; /* 부드러운 스크롤을 활성화함 */
 }
@@ -46,6 +53,7 @@ body > .cursor > .cursorin {
   translate: -50%-50%;
   background-color: var(--sb-color);
   border-radius: 50%;
+  pointer-events: none;
 }
 body > .cursor > .inCircle {
   position: relative;
@@ -59,6 +67,7 @@ body > .cursor > .inCircle {
   border-radius: 50%;
   transform-origin: center center;
   animation: logoani2 0.6s ease-in infinite alternate;
+  pointer-events: none;
 }
 @keyframes logoani2 {
   to {
@@ -175,7 +184,7 @@ body > .fixed > a {
   height: 1500px;
 }
 #news-area::after {
-  content: '';
+  content: "";
   position: absolute;
   z-index: -3;
   width: 1280px;
@@ -397,7 +406,7 @@ body > .fixed > a {
 /* 인포박스부모 */
 .reserve-area .infowrap {
   position: relative;
-  top: 30%;
+  top: 5%;
   color: #fff;
   font-size: 2rem;
   display: flex;
@@ -426,8 +435,8 @@ body > .fixed > a {
 .reserve-area .infowrap > .infobox.b4 {
   border-radius: 0 250px 250px 0;
   background-image: linear-gradient(var(--linear-gradient));
-  width: 90%;
-  margin-right: 10%;
+  width: 70%;
+  margin-right: 30%;
   background-color: var(--sb-color);
   padding-bottom: 6%;
 }
@@ -476,7 +485,7 @@ body > .fixed > a {
 }
 /* 상품영역사이 패딩줌 */
 .product-area.inbox {
-  padding: 15% 0;
+  /* padding: 15% 0; */
 }
 /* 상품영역별 왼쪽박스 */
 .product-area > .cont-box > .col-6 > .pullbox {
@@ -490,29 +499,30 @@ body > .fixed > a {
 }
 /* 상품영역별 각각의 이미지+캡션 박스 */
 .product-area > .cont-box .col-6 .imgbox {
-  /* padding: 15% 0; */
 }
 
 /* 스티키부모박스 */
 .product-area > .cont-box .col-6 {
-  height: 150%;
+  height: 100%;
 }
 .product-area > .cont-box .col-6 .imgbox:first-child {
   /* padding-top: 20%; */
 }
 
 .pullbox > img {
+  aspect-ratio: 1/2;
   width: 100%;
-  height: 100%;
+  max-height: 100%;
   object-fit: cover;
   border-radius: 0 0 40% 0;
 }
 .cont-box > .col-6 > .subbox {
   display: flex;
-  gap: 5%;
   height: 100%;
   flex-direction: column;
-  justify-content: center;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
 }
 .cont-box > .col-6 > .subbox a {
   margin-bottom: 1rem;
@@ -550,6 +560,7 @@ body > .fixed > a {
   width: 20vw;
 }
 .cont-box > .col-6 > .subbox > .imgbox > p:first-of-type {
+  white-space: nowrap;
   font-size: 1.5rem;
   font-weight: bold;
 }
@@ -573,6 +584,7 @@ body > .fixed > a {
 
 /* 필박스가상요소  */
 .product-area > .cont-box > .col-6 > .pullbox:before {
+  width: 70%;
   content: "Best choice BLEND!";
   position: absolute;
   color: #fff;
@@ -581,6 +593,21 @@ body > .fixed > a {
   padding: 10px;
   text-shadow: 2px 2px 5px #00000082;
   z-index: 1;
+}
+.product-area > .cont-box > .col-6 > .pullbox:after {
+  content: "";
+  position: absolute;
+  top: -12%;
+  left: -11%;
+  width: 81%;
+  height: 71%;
+  background: url(../images/circle_text.png) no-repeat center / contain;
+  filter: drop-shadow(1px 0px 0px #333333) opacity(0.7);
+  z-index: 1;
+  transform-origin: center center;
+  transition: 4s ease-in-out;
+  /* js에서 가상요소 트랜스폼주기!!! */
+  transform: var(--after-transform, rotate(0deg));
 }
 .product-area:nth-child(2) > .cont-box > .col-6 > .pullbox:before {
   content: "Best choice DRINK!";
@@ -593,7 +620,11 @@ body > .fixed > a {
   flex-direction: row-reverse;
 }
 #product-area > section:nth-child(2) > .cont-box > .col-6 > .pullbox {
-  padding-left: 4vw;
+  margin-top: -50vh;
+  width: 100%;
+}
+#product-area > section:nth-child(3) > .cont-box > .col-6 > .pullbox {
+  margin-top: -50vh;
   width: 100%;
 }
 #product-area > section:nth-child(2) > .cont-box > .col-6 > .pullbox > img {

@@ -152,6 +152,15 @@ window.addEventListener('wheel', () => {
       console.log('작동!');
       tg0.style.left = pos+'px';
 
+      const news = document.querySelectorAll(".news-col .news");
+      
+      news.forEach((news,idx)=>{
+      news.style.transform = 
+      `
+      translateY(${
+      pos* (idx % 2 == 0 ? 0.05 : -0.07)}px)`;      
+      })///////////for each ///////
+
 
    }
 
@@ -238,3 +247,22 @@ window.addEventListener('wheel', () => {
 //    }
 // },{passive:false}); // 이벤트 내부 함수
 
+
+
+/******************************************** 
+  // [ 상품정보 영역에서 스크롤시 원형이미지 돌리기 ]
+
+  *가상요소의 속성을 사용자정의 변수 등록해서 트랜스폼 주기 
+  *******************************************/
+
+ // 이벤트 대상: #product-area
+ const tgArea = document.querySelector('#product-area');
+ tgArea.addEventListener('wheel', (e) => {
+   /* 변경요소: 가상요소가 속해있는요소들 */
+    const tgCircles = document.querySelectorAll('.pullbox');
+   //  console.log(tgArea,tgCircles,e.deltaY);
+
+    for (const x of tgCircles) {
+        x.style.setProperty('--after-transform', `rotate(${e.deltaY * 1}deg)`);
+    }
+ });

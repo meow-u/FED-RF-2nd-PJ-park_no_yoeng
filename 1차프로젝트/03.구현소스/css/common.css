@@ -10,6 +10,7 @@
    --fill-color2: rgb(214, 231, 236);
    --fill-color3: rgb(207, 210, 233);
    --body-color: #f6f3f0;
+
 }
 
 /************* 1. 상단영역 *************/
@@ -274,6 +275,7 @@ ul.gnb {
 }
 /* 중앙정렬 */
 .gnb > li.menu {
+   white-space: nowrap;
    text-align: center;
    width: 20%;
    transition: 0.5s, background-color 0.5s 0.2s;

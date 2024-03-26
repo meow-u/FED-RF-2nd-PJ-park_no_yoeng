@@ -702,10 +702,10 @@ transform: translate(120%,0%) rotate(-5deg);
   transform: rotate(-25deg);
 }
 .col-12.storebox>.store:nth-child(2).on{
-  transform: rotate(-7deg) translate(0,-40%);
+  transform: rotate(-11deg) translate(0,-30%);
 }
 .col-12.storebox>.store:nth-child(3).on{
-  transform: rotate(7deg) translate(0,-40%);
+  transform: rotate(11deg) translate(0,-30%);
 }
 .col-12.storebox>.store:nth-child(4).on{
   transform: rotate(25deg);

@@ -141,7 +141,7 @@ const retVal = (x) => x.getBoundingClientRect().top;
 // 움직이는 셋팅하기
 window.addEventListener('wheel', () => {
    let pos = retVal(tg3);
-   console.log(pos);
+   // console.log(pos);
    // 200px 만큼 보정하여 움직일 거리 계산한 한계값
    let limitNum = -allowWidth;
 
@@ -266,3 +266,39 @@ window.addEventListener('wheel', () => {
         x.style.setProperty('--after-transform', `rotate(${e.deltaY * 1}deg)`);
     }
  });
+
+ /******************************************** 
+  [ 스패셜매장 영역 탑위치 확인하여 on클래스 넣기 ]
+ *******************************************/
+// 대상선정:  .col-12 storebox
+// 변경요소:  .storeBox>.store 들!!
+const storeBox = document.querySelector('.col-12.storebox');
+const items = document.querySelectorAll('.storebox>.store');
+// console.log(storeBox,items);
+
+// 보이는 화면에서의 top 위치값 리턴 함수
+const topVal = (x) => x.getBoundingClientRect().top;
+
+storeBox.addEventListener('wheel',moveFn);
+
+
+function moveFn(){
+
+   let topval = topVal(storeBox)
+   console.log(topval);
+
+   if(topval<200){
+      items.forEach(ele=>{
+
+         ele.classList.add('on');
+
+      });
+   }  //// if ////
+   else if(topval>200){
+      items.forEach(ele=>{
+
+         ele.classList.remove('on');
+
+      });
+   }
+}////// moveFn 함수

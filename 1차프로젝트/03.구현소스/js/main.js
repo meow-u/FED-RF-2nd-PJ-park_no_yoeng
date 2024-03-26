@@ -287,14 +287,14 @@ function moveFn(){
    let topval = topVal(storeBox)
    console.log(topval);
 
-   if(topval<200){
+   if(topval<220){
       items.forEach(ele=>{
 
          ele.classList.add('on');
 
       });
    }  //// if ////
-   else if(topval>200){
+   else if(topval>220){
       items.forEach(ele=>{
 
          ele.classList.remove('on');

@@ -637,12 +637,26 @@ body > .fixed > a {
 }
 /* 어두워지는 화면 */
 /*________________ 8. 스페셜 매장 ________________*/
+.store-Tit{
+  position: absolute;
+  top:0;
+  color: #fff;
+  font-size: 4vw;
+  padding: 5%;
+}
+.store-Tit.sub {
+  font-size: 1vw;
+  top: 10%;
+}
 .special-store-area {
   height: 1000px;
 }
 
-#special-store-area{
+.special-store-area.inbox{
+  /* 컬러박스부모 */
+  position: relative;
   background-color: #000;
+  overflow: hidden;
 }
 
 /* 카드 부모박스(플랙스) */
@@ -651,34 +665,32 @@ body > .fixed > a {
   align-items: center;
   justify-content: center;
   gap: 5%;
+  
+  margin-top: 18%;
 }
 
 /*카드 div박스 */
 .col-12.storebox>.store{
   background-color: #000;
   flex-shrink: 1;
-  flex-basis: 20%;
+  flex-basis: 18%;
   border-radius: 10%;
   transition: 1s ease-in-out;
-  overflow: hidden;
+  z-index: 1;
   
 }
 /* 개별 모션전 */
 .col-12.storebox>.store:nth-child(1){
 transform: translate(450%,0) rotate(-30deg);
-background-color: red;
 }
 .col-12.storebox>.store:nth-child(2){
 transform: translate(340%,-5%) rotate(-25deg);
-background-color: rgb(255, 196, 0);
 }
 .col-12.storebox>.store:nth-child(3){
 transform: translate(230%,-5%) rotate(-20deg);
-background-color: rgb(239, 255, 10);
 }
 .col-12.storebox>.store:nth-child(4){
 transform: translate(120%,0%) rotate(-5deg);
-background-color: rgb(0, 255, 115);
 }
 
 /* 공통 div on 모션 */
@@ -700,17 +712,46 @@ background-color: rgb(0, 255, 115);
 }
 
 /* 공통 호버 모션 */
-.col-12.storebox>.store.on:hover {
- border-radius: 30% 30% 10% 10%;
- scale: 1.1;
+.col-12.storebox>.store.on:hover a {
+  box-shadow: 0px 0px 20px 5px rgb(0, 103, 24);
+ border-radius: 40% 40% 10% 10%;
+ scale: 1.2;
 }
 .col-12.storebox>.store.on:hover img {
  scale: 1.2;
 }
 
+.col-12.storebox>.store.on:hover .info{
+  opacity: 1;
+}
+.col-12.storebox .info{
+  padding-top: 15%;
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  color: #fff;
+  opacity: 0;
+  text-align: center;
+  transition: 0.3s;
+}
+.col-12.storebox .info>p:first-of-type{
+font-size: 1.5rem;
+}
+.col-12.storebox .info span{
+  display: inline-block;
+  margin: 5% 2%;
+  padding: 3%;
+  border-radius: 30px 30px 30px 30px;
+  border: 2px solid #fff;
+}
 
 /* 카드div박스 이너 a */
 .col-12.storebox>.store>a{
+  transition: 0.3s;
+  display: block;
+  border-radius: 10%;
+  overflow: hidden;
+  
 
 }
 /* 카드내부 이미지 */
@@ -718,6 +759,35 @@ background-color: rgb(0, 255, 115);
 aspect-ratio: 181/266;
 width: 100%;
 transition: 0.3s;
+}
+
+.colorbox{
+  top: 0;
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  transform: scale(0);
+  border-radius: 50%;
+  opacity: 1;
+  transition: 0.5s;
+  filter:blur(30px)
+}
+.col-12.storebox>.store.on:hover~.colorbox{
+  transform: scale(1.3);
+  opacity: 1;
+}
+/* 호버시 배경변겅 */
+.col-12.storebox>.store:nth-child(1).on:hover~.colorbox{
+  background-color: #005a0550;
+}
+.col-12.storebox>.store:nth-child(2).on:hover~.colorbox{
+  background-color: #160447a2;
+}
+.col-12.storebox>.store:nth-child(3).on:hover~.colorbox{
+  background-color: #3f4fff42;
+}
+.col-12.storebox>.store:nth-child(4).on:hover~.colorbox{
+  background-color: #ff3fa93b;
 }
 
 /*________________ 9. 하단 영역 ________________*/

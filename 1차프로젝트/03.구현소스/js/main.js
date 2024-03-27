@@ -299,12 +299,31 @@ function moveFn(){
 
          ele.classList.add('on');
 
+         setTimeout(() => {
+            let bottomTit = document.
+            querySelector('.bottom-Tit');
+            console.log(bottomTit);
+
+            bottomTit.style.transition ='2s';
+            bottomTit.style.opacity ='1';
+            
+         }, 1000);
+
       });
    }  //// if ////
    else if(topval>240){
       items.forEach(ele=>{
 
          ele.classList.remove('on');
+
+         setTimeout(() => {
+            let bottomTit = document.
+            querySelector('.bottom-Tit');
+            console.log(bottomTit);
+
+            bottomTit.style.transition ='2s';
+            bottomTit.style.opacity ='0';
+         }, 1000);
 
       });
    }

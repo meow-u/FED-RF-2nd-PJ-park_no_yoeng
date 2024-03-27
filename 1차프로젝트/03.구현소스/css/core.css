@@ -52,3 +52,24 @@
 .cont-box{
     height: 100%;
 }
+
+/* 스크롤바 디자인 클래스 */
+/* -webkit- 벤더사명(크롬,사파리) 접두어 */
+/* 클래스명 scbar */
+.scbar::-webkit-scrollbar{
+    /* 전체스크롤바 크기변경  */
+    width: 7px;
+}
+.scbar::-webkit-scrollbar-thumb{
+    /* 스크롤바   */
+    width: 7px;
+    background-color: #00461d;
+    border-radius: 5px;
+}
+.scbar::-webkit-scrollbar-track{
+    /* 스크롤바 트랙   */
+    width: 7px;
+    background-color: #ddd;
+    border-radius: 5px;
+}
+

@@ -716,6 +716,7 @@ transform: translate(120%,0%) rotate(-5deg);
   box-shadow: 0px 0px 20px 5px rgb(0, 103, 24);
  border-radius: 40% 40% 10% 10%;
  scale: 1.2;
+
 }
 .col-12.storebox>.store.on:hover img {
  scale: 1.2;
@@ -789,7 +790,18 @@ transition: 0.3s;
 .col-12.storebox>.store:nth-child(4).on:hover~.colorbox{
   background-color: #ff3fa93b;
 }
+/* 스페셜매장 최하단 p,버튼 */
+.colorbox>p{
+  position: absolute;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 2rem;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  
 
+}
 /*________________ 9. 하단 영역 ________________*/
 .footer-area {
   height: 250px;

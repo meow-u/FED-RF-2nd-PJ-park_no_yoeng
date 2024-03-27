@@ -10,10 +10,17 @@
 let html = document.querySelector('html');
 let tg = document.querySelector('.cursor');
 window.onmousemove = (e) => {
+tg.style.opacity ='1';
 tg.style.transition = '0.2s ease-out';
 tg.style.left = e.clientX + 'px';
 tg.style.top = e.clientY + 'px';
 };
+html.onmouseenter = (e) => {
+   tg.style.opacity ='1';
+   };
+html.onmouseleave = (e) => {
+   tg.style.opacity ='0';
+   };
 
 /* *********************************** */
 // [ 상단메뉴 오버시 서브메뉴 보이기 ]
@@ -276,7 +283,7 @@ const storeBox = document.querySelector('.col-12.storebox');
 const items = document.querySelectorAll('.storebox>.store');
 // console.log(storeBox,items);
 
-// 보이는 화면에서의 top 위치값 리턴 함수
+// 보이는 화면에서의 위치값 리턴 함수 getBoundingClientRect()
 const topVal = (x) => x.getBoundingClientRect().top;
 
 storeBox.addEventListener('wheel',moveFn);
@@ -302,3 +309,41 @@ function moveFn(){
       });
    }
 }////// moveFn 함수
+
+/* 스페셜매장 영역 커서효과 */
+storeBox.onmouseenter =()=>{
+   tg.style.scale = '1.2';
+};
+storeBox.onmouseleave =()=>{
+   tg.style.scale = '1';
+};
+ /******************************************** 
+  [ 스패셜매장 개별박스 마우스엔터시 커서 스케일+그림자
+   + 나머지박스 암전환 ]
+ *******************************************/
+ items.forEach(ele=>{
+
+    ele.onmouseenter=()=>{
+       tg.style.scale = '1.5';
+       tg.style.boxShadow ='inset 0px 0px 15px 5px #bdff38'; 
+       
+       /* 개별 items에 마우스올릴시 전체 items효과  */
+       for( x of items){
+          x.style.filter= 'grayscale(5) brightness(0.5)';
+       }
+       ele.style.filter='none';
+    };
+    
+    ele.onmouseleave=()=>{
+       tg.style.scale = '1.2';
+       tg.style.boxShadow ='none'; 
+
+       /* 개별 items에 마우스아웃시 전체 items효과  */
+       for( x of items){
+         x.style.filter= 'none';
+      }
+    };
+
+
+ });
+

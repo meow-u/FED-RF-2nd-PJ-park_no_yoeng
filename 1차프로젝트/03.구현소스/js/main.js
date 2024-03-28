@@ -1,5 +1,18 @@
 // 메인 js
 
+// DOM 선택 객체함수
+const domFn = {
+   qs: (x) => document.querySelector(x),
+   qsEl: (el, x) => el.querySelector(x),
+   qsa: (x) => document.querySelectorAll(x),
+   qsaEl: (el, x) => el.querySelectorAll(x),
+ 
+   // 이벤트셋팅함수
+   addEvt: (ele, evt, fn) => ele.addEventListener(evt, fn),
+ }; /////// domFn 객체 /////////////
+//________________________________________________________________
+
+
 // window.scrollTo({
 //    behavior: "smooth",
 // });
@@ -294,15 +307,24 @@ function moveFn(){
    let topval = topVal(storeBox)
    console.log(topval);
 
+
+
    if(topval<240){
       items.forEach(ele=>{
 
+         /* 카드펼치는 클래스넣기 */
          ele.classList.add('on');
+
+         /* 배경색 칠하기 */
+         document.body.style. backgroundColor = '#000';
+         document.body.style. transition = '2s';
+         
+
 
          setTimeout(() => {
             let bottomTit = document.
             querySelector('.bottom-Tit');
-            console.log(bottomTit);
+            // console.log(bottomTit);
 
             bottomTit.style.transition ='2s';
             bottomTit.style.opacity ='1';
@@ -314,7 +336,11 @@ function moveFn(){
    else if(topval>240){
       items.forEach(ele=>{
 
+          /* 카드펼치는 클래스빼기 */
          ele.classList.remove('on');
+
+         /* 배경색 되돌리기 */
+         document.body.style. backgroundColor = 'transparent';
 
          setTimeout(() => {
             let bottomTit = document.
@@ -324,7 +350,6 @@ function moveFn(){
             bottomTit.style.transition ='2s';
             bottomTit.style.opacity ='0';
          }, 1000);
-
       });
    }
 }////// moveFn 함수

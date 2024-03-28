@@ -499,7 +499,7 @@ ul.gnb a:hover {
 }
 
 /* 애니적용 */
-.col-6 p {
+line-notice-area inbox .col-6 p {
    animation: ntc-ani 5s linear infinite;
 }
 

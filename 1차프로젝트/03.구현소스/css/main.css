@@ -152,6 +152,15 @@ body > .fixed > a {
   display: inline-block;
   top: 50%;
   translate: 0 -50%;
+  cursor: pointer;
+  background: linear-gradient(45deg, rgb(71, 144, 255) ,rgb(255, 106, 230)) no-repeat center;
+  background-size: 0%;
+  transition: .2s ease-in;
+}
+
+.rewards .button:hover{
+  background-size: 100%;
+
 }
 .rewards .button.b3 {
   border-radius: 3px;

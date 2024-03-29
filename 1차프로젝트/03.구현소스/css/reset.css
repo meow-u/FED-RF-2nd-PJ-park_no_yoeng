@@ -53,5 +53,5 @@ img {
 }
 /* em쓰기위해 변경 */
 html{
-    font-size: 10px;
+    font-size: min(10px,1.3vw);
 }

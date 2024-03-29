@@ -99,7 +99,7 @@ body > .fixed > a {
 }
 /*________________ 2. 롤링배너 영역 ( 630? 한페이지정도) ________________*/
 .ban-area {
-  height: 580px;
+  max-height: 580px;
 }
 /*________________ 3. 라인안내 영역 ________________*/
 /* .line-notice-area { */
@@ -124,20 +124,21 @@ body > .fixed > a {
   box-sizing: border-box;
 }
 .rewards img {
+  width: 100%;
   margin: 0 auto;
-  max-width: 200px;
+  aspect-ratio: 247 / 215;
 }
 .rewards h2 {
   /* text-align: center; */
-  font-size: 2rem;
+  font-size: min(2rem,2.5vw);
   padding-bottom: 1vw;
 }
 .rewards .col-4 div:nth-of-type(1) > p {
-  font-size: 1.5rem;
+  font-size: min(1.5rem,1.7vw);
   padding: 1vw 0;
 }
 .rewards .col-4 div:nth-of-type(2) > p {
-  font-size: 1rem;
+  font-size: min(1.2rem, 1.5vw);
   padding: 0.5vw;
 }
 .rewards .button {
@@ -149,7 +150,6 @@ body > .fixed > a {
   box-sizing: border-box;
   margin: 0.3vw;
   display: inline-block;
-
   top: 50%;
   translate: 0 -50%;
 }
@@ -158,7 +158,7 @@ body > .fixed > a {
   background-color: #00000035;
 }
 .rewards .button > p {
-  font-size: 1.2rem;
+  font-size: min(1.2rem,1.5vw);
   white-space: nowrap;
 }
 
@@ -169,10 +169,9 @@ body > .fixed > a {
   /* margin: 0 auto; */
   text-align: center;
   padding: 2vw 0;
-
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .rewards > .col-3:last-child > div {
@@ -181,7 +180,7 @@ body > .fixed > a {
 /*________________ 5. 뉴스 영역 ________________*/
 #news-area {
   position: relative;
-  height: 1500px;
+  max-height: 1500px;
 }
 #news-area::after {
   content: "";
@@ -251,7 +250,8 @@ body > .fixed > a {
 
   /* 박스 y축 가운데로 이동 */
   position: relative;
-  top: calc(50% - 260px / 2);
+  top: 50%;
+  transform: translate(0%,-25%);
 }
 
 /* 뉴스영역 메인글자 */
@@ -311,8 +311,8 @@ body > .fixed > a {
 .news-area .col-12 figure > a {
   overflow: hidden;
   display: block;
-  width: 260px;
-  height: 260px;
+  max-width: 260px;
+  max-height: 260px;
   border-radius: 10%;
 }
 /* 이미지 */
@@ -325,15 +325,10 @@ body > .fixed > a {
   position: relative;
   display: block;
   translate: 0 -100%;
-  width: 100%;
-  height: 100%;
-
-  color: transparent;
   text-align: center;
   line-height: 260px;
   transition: all 0.3s 0.2s;
   border-radius: 10%;
-  background-color: #00000000;
 }
 /* 이미지 a박스 호버시 이미지 */
 .news-area .col-12 a:hover img {
@@ -342,8 +337,8 @@ body > .fixed > a {
 /* 이미지 a박스 호버시 가상요소*/
 .news-area .col-12 a:hover::after {
   color: white;
-  width: 260px;
-  height: 260px;
+  width: 100%;
+  height: 100%;
   box-shadow: inset 0px 0px 50px black;
   background-color: rgba(0, 0, 0, 0.541);
 }
@@ -363,7 +358,7 @@ body > .fixed > a {
 }
 /* 배경설정 */
 .reserve-area {
-  height: 4000px;
+  max-height: 4000px;
   background: url(../images/reserve_bg.jpg) no-repeat fixed center/cover;
 }
 .reserve-area > .cont-box {
@@ -548,7 +543,7 @@ body > .fixed > a {
 /*________________ 7. 상품정보 영역  ________________*/
 /*580이 고정이미지, 1160이 작은썸네일 3개 스크롤 값 */
 .product-area {
-  height: 1400px;
+  max-height: 1400px;
 }
 /* 상품영역사이 패딩줌 */
 .product-area.inbox {
@@ -738,7 +733,7 @@ body > .fixed > a {
   opacity: 0;
 }
 .special-store-area {
-  height: 1000px;
+  max-height: 1000px;
 }
 
 .special-store-area.inbox{

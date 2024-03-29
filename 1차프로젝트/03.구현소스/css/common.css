@@ -369,7 +369,7 @@ ul.gnb a:hover {
    position: relative;
    z-index: 0;
    display: flex;
-   max-height: 580px;
+   height: 90vh;
    overflow: hidden;
 }
 .ban-area .visualView .bg {
@@ -380,19 +380,16 @@ ul.gnb a:hover {
    transition: 1s ease-in-out;
 }
 .ban-area .visualView .img1 {
-   aspect-ratio:  5000/3111;
    background: url(../images/main_ban2.jpg) no-repeat right center/cover;
    width: 20%;
    filter: grayscale(100%) brightness(0.8);
 }
 .ban-area .visualView .img2 {
    /* 중앙베너 */
-   aspect-ratio: 2500/1667;
    background-image: url(../images/main_ban1.jpg);
    width: 80%;
 }
 .ban-area .visualView .img3 {
-   aspect-ratio: 38/27;
    background-image: url(../images/main_ban3.jpg);
    width: 20%;
    filter: grayscale(100%) brightness(0.8);

@@ -99,7 +99,7 @@ body > .fixed > a {
 }
 /*________________ 2. 롤링배너 영역 ( 630? 한페이지정도) ________________*/
 .ban-area {
-  max-height: 580px;
+  height: 90vh;
 }
 /*________________ 3. 라인안내 영역 ________________*/
 /* .line-notice-area { */
@@ -124,7 +124,7 @@ body > .fixed > a {
   box-sizing: border-box;
 }
 .rewards img {
-  width: 100%;
+  width: 80%;
   margin: 0 auto;
   aspect-ratio: 247 / 215;
 }
@@ -180,13 +180,13 @@ body > .fixed > a {
 /*________________ 5. 뉴스 영역 ________________*/
 #news-area {
   position: relative;
-  max-height: 1500px;
+  height: 1500px;
 }
 #news-area::after {
   content: "";
   position: absolute;
   z-index: -3;
-  width: 1280px;
+  width: 100%;
   height: 100%;
   bottom: 0;
   left: 50%;
@@ -322,6 +322,8 @@ body > .fixed > a {
 /* 이미지 a박스 가상요소 */
 .news-area .col-12 figure > a::after {
   content: "MORE VIEW";
+  
+  color: transparent;
   position: relative;
   display: block;
   translate: 0 -100%;
@@ -358,7 +360,7 @@ body > .fixed > a {
 }
 /* 배경설정 */
 .reserve-area {
-  max-height: 4000px;
+  height: 4000px;
   background: url(../images/reserve_bg.jpg) no-repeat fixed center/cover;
 }
 .reserve-area > .cont-box {
@@ -543,7 +545,7 @@ body > .fixed > a {
 /*________________ 7. 상품정보 영역  ________________*/
 /*580이 고정이미지, 1160이 작은썸네일 3개 스크롤 값 */
 .product-area {
-  max-height: 1400px;
+  height: 1400px;
 }
 /* 상품영역사이 패딩줌 */
 .product-area.inbox {
@@ -733,7 +735,7 @@ body > .fixed > a {
   opacity: 0;
 }
 .special-store-area {
-  max-height: 1000px;
+  height: 1000px;
 }
 
 .special-store-area.inbox{

@@ -19,7 +19,7 @@ body {
 }
 
 #top-area h1 {
-   height: 60px;
+   height: 10vh;
    background-color: #3b3b3b;
    width: 100%;
    position: absolute;
@@ -384,7 +384,7 @@ ul.gnb a:hover {
    position: relative;
    z-index: 0;
    display: flex;
-   height: 89vh;
+   height: 100%;
    overflow: hidden;
 }
 .ban-area .visualView .bg {

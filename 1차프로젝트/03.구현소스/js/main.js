@@ -16,6 +16,7 @@ const domFn = {
 //모듈로 분리하기 -미디어쿼리 js
 
 // 요구사항: 화면너비가 1000px이하일때 
+// 무한 슬라이드
 //대상 : .bg
 
 let bgBox = domFn.qs('.visualView');
@@ -27,9 +28,9 @@ let bg = domFn.qsaEl(bgBox,'.bg');
 
 if (window.innerWidth < 1000){
     bgBox.appendChild(bgBox.querySelectorAll('.bg')[0]);
-    console.log('멈춰라')
-    bgBox.style.transition = '0s';
-    bgBox.style.left = '0%';
+    console.log('첫번째이미지순서 맨뒤로넘기기')
+    // bgBox.style.transition = '0s';
+    // bgBox.style.left = '0%';
 }
 
 setInterval(() => {
@@ -44,12 +45,10 @@ setInterval(() => {
       console.log('멈춰라')
       bgBox.style.transition = '0s';
       bgBox.style.left = '0%';
-} 
-
+      } 
     }, 3000);
 
   }
-  
   
 }, 6000);
 
@@ -92,22 +91,6 @@ function resetTrans(){
   bgBox.style.left = '0%';
 }
     
-//    // (1)먼저 왼쪽으로 이동하기
-//    slide.style.left = "-100%";
-//    slide.style.transition = ".6s ease-in-out";
-//
-//    // (2)이동하는 시간 0.6초간 기다림
-//    setTimeout(() => {
-//       // (2-1) 맨앞 li 맨뒤로 이동
-//       slide.appendChild(slide.querySelectorAll("li")[0]);
-//       // 슬라이드 left값이 -100%이므로
-//       slide.style.left = "0";
-//       // (2-2) left값을 0으로 변경
-//       // (2-3) left 트랜지션 없애기
-//       slide.style.transition = "none";
-//    }, 600);
-
-
 
 
 // 메인 js

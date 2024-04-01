@@ -99,7 +99,7 @@ body > .fixed > a {
 }
 /*________________ 2. 롤링배너 영역 ( 630? 한페이지정도) ________________*/
 .ban-area {
-  height: 90vh;
+  height: 89vh;
 }
 /*________________ 3. 라인안내 영역 ________________*/
 /* .line-notice-area { */
@@ -200,7 +200,7 @@ body > .fixed > a {
   bottom: 0;
   left: 50%;
   translate: -50% 0;
-  background-color: #000;
+  /* background-color: #000; */
 }
 .news-cont {
   position: relative;

@@ -212,7 +212,7 @@ aside.tmenu-box {
    position: absolute;
    top: 0;
    right: 0%;
-   width: 200px;
+   width: 22vw;
    /* 수평 방향 중앙 정렬 */
    justify-content: right;
    /* 호버가안되어 줌 */
@@ -226,7 +226,7 @@ aside.tmenu-box {
    padding: 0 5px;
    /* 줄넘김방지 */
    white-space: nowrap;
-   font-size: 1rem;
+   font-size: min(1.2rem,1.5vw);
    font-weight: normal;
 }
 .tmenu li a:hover {
@@ -243,7 +243,7 @@ aside.tmenu-box {
    width: 100%;
    /* 부모자격 */
    position: absolute;
-   top: 60px;
+   top: 10vh;
    /* 화면이 다 덮여서 다른요소선택위해 */
    pointer-events: none;
    /* ________________________________ */

@@ -13,6 +13,7 @@ const domFn = {
 //________________________________________________________________
 
 
+//________________________________________________________________
 //모듈로 분리하기 -미디어쿼리 js
 
 // 요구사항: 화면너비가 1000px이하일때 
@@ -29,14 +30,14 @@ let bg = domFn.qsaEl(bgBox,'.bg');
 if (window.innerWidth < 1000){
     bgBox.appendChild(bgBox.querySelectorAll('.bg')[0]);
     console.log('첫번째이미지순서 맨뒤로넘기기')
-    // bgBox.style.transition = '0s';
-    // bgBox.style.left = '0%';
+    bgBox.style.transition = '0s';
+    bgBox.style.left = '0%';
 }
 
 setInterval(() => {
   if (window.innerWidth < 1000) {
     console.log('움직여라')
-    bgBox.style.transition = '3s ease-out';
+    bgBox.style.transition = '2s ease-out';
     bgBox.style.left = '-100%';
 
     setTimeout(() => {
@@ -91,13 +92,13 @@ function resetTrans(){
   bgBox.style.left = '0%';
 }
     
+//________________________________________________________________
+
 
 
 // 메인 js
 
-/* ******************************************************** */
 
-//________________________________________________________________
 
 /* ******************************************* */
 // [ 마우스 커서 따라다니기 ]

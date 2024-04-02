@@ -101,6 +101,11 @@ body > .fixed > a {
 .ban-area {
   height: 90vh;
 }
+
+/* 넘치는 visualView영역 숨기기 */
+.ban-area.inbox {
+  overflow: hidden;
+}
 /*________________ 3. 라인안내 영역 ________________*/
 /* .line-notice-area { */
 /* height: 50px; */

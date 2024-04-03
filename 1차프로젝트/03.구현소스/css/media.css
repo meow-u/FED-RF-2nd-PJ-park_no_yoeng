@@ -33,6 +33,25 @@ overflow: visible;
     z-index: 1;
 }
 
+/********************** 하단 **********************/
+/* 푸터맨아래 플랙스박스 */
+.col-12 > .cont2 > .info3 {
+    text-align: center;
+    width: 50%;
+    display: flex;
+    margin: 0 auto;
+    font-size: 0.7rem;
+    opacity: 0.7;
+    flex-wrap: wrap;
+    align-content: center;
+ }
+ /* 플랙스박스 자식요소들 */
+ .footer.info3>a {
+    line-height: 2;
+    flex-shrink: 0;
+    flex-basis: 50%;
+ }
+
 }
 
  /***************** 1000 px 이하 미디어 쿼리 종료 *****************/

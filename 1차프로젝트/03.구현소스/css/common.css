@@ -464,7 +464,7 @@ ul.gnb a:hover {
 .ban-area .visualView .bg p {
    /* 내용 */
    position: absolute;
-   font-size: 2rem;
+   font-size: 1.2rem;
    font-weight: normal;
    text-align: left;
    opacity: 0;
@@ -475,6 +475,29 @@ ul.gnb a:hover {
 .ban-area .visualView .bg:hover p {
    opacity: 1;
 }
+
+/* 사진별 a버튼 */
+.bg a {
+   padding: 0.4vw 0.6vw;
+   font-size: min(1.3rem, 1vw);
+   font-weight: normal;
+   color: #fff;
+   background-color: var(--sb-color);
+   border-radius: 1vw;
+   width: 6vw;
+   height: 1.5vw;
+   position: relative;
+   display: block;
+   top: 160%;
+   opacity: 0;
+   
+   text-align: center;
+}
+/* 호버시 a */
+.ban-area .visualView .bg:hover a {
+   opacity: 1;
+}
+
 /************ 2. 메인영역 ************/
 .line-notice-area > .cont-box {
    min-height: 50px;
@@ -539,9 +562,6 @@ line-notice-area inbox .col-6 p {
 /************* 3. 하단영역 *************/
 /* 푸터전체박스 */
 #footer-area .col-12 {
-   background-color: var(--sb-color);
-   background-image: linear-gradient(var(--linear-gradient));
-   width: 100%;
    height: 100%;
 }
 /* 푸터 위아래 박스 공통 */
@@ -594,6 +614,7 @@ line-notice-area inbox .col-6 p {
    border-top: 2px solid var(--body-color);
 
 }
+/* 푸터맨아래 플랙스박스 */
 .col-12 > .cont2 > .info3 {
    display: flex;
    justify-content: space-evenly;

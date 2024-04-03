@@ -63,29 +63,33 @@ function resetTrans(){
   bgBox.innerHTML =`
   
   <div class="bg img1">
-  <span
-    >test
-    <p>
-      adsasdfsfaafasfsa<br />fasfafasfsafsa<br />fasfsafasffassfafa<br />fsfafsafsfasfsf
-    </p></span
-  >
-</div>
-<div class="bg img2 center">
-  <span
-    >test
-    <p>
-      adsasdfsfaafasfsa<br />fasfafasfsafsa<br />fasfsafasffassfafa<br />fsfafsafsfasfsf
-    </p></span
-  >
-</div>
-<div class="bg img3">
-  <span
-    >test
-    <p>
-      adsasdfsfaafasfsa<br />fasfafasfsafsa<br />fasfsafasffassfafa<br />fsfafsafsfasfsf
-    </p></span
-  >
-</div>
+            <span
+              >Speacial<br>
+              'BEAN'
+              <p>
+                최상급 아라비카 원두와<br>50년 이상의 전문적인 로스팅 기술을 통해 <br><br>최상의 풍미를 선사합니다.
+              </p><a href="#">MORE VIEW</a></span
+            >
+            
+          </div>
+          <div class="bg img2 center">
+            <span
+              >Speacial Place<br> 'RESERVE'
+              <p>
+                다채로운 풍미를 가진 최고 품질의 원두,<br> 다양한 추출 방식,<br><br> 여기에 커피 전문가의 이야기를 더해 <br> 특별한 경험을 제공합니다.
+              </p><a href="#">MORE VIEW</a></span
+            >
+          </div>
+          <div class="bg img3">
+            <span
+              >Starbucks<br>
+              'COFFEE'
+              <p>
+                <strong>'커피 이상의 특별한 경험'</strong><br><br>
+                  세계인들의 생활 속에 스며들어 <br>전 세계의 커피 문화를 선도하는 스타벅스의 커피를 소개합니다.
+              </p><a href="#">MORE VIEW</a></span
+            >
+          </div>
   `;
   
   bgBox.style.transition = '0s';

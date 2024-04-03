@@ -949,6 +949,8 @@ transition: 0.3s;
 }
 /*________________ 9. 하단 영역 ________________*/
 .footer-area {
-  height: 250px;
+  background-image: linear-gradient(var(--linear-gradient));
+  background-color: var(--sb-color);
+  padding-bottom: 2vw;
 }
 

@@ -264,7 +264,7 @@ window.addEventListener("scroll", () => {
     console.log("작동!");
     tg0.style.left = pos + "px";
 
-    const news = document.querySelectorAll(".news-col .news");
+    const news = document.querySelectorAll(".news-col .newsbox");
 
     news.forEach((news, idx) => {
       news.style.transform = `
@@ -346,6 +346,7 @@ function moveFn() {
   let h4 = domFn.qs(".store-Tit.sub");
   if (topval <= 500) {
     /* 배경색 칠하기 */
+    console.log(topval);
     document.body.style.backgroundColor = "#000";
     document.body.style.transition = "2s";
     console.log("h2,h4", h2, h4);
@@ -362,10 +363,11 @@ function moveFn() {
     h4.style.opacity = "0";
   }
 
-  if (topval <= 240) {
+  if (topval <= (-110)) {
     items.forEach((ele) => {
       /* 카드펼치는 클래스넣기 */
       ele.classList.add("on");
+      console.log(topval);
 
       setTimeout(() => {
         let bottomTit = document.querySelector(".bottom-Tit");
@@ -376,7 +378,7 @@ function moveFn() {
       }, 1000);
     });
   } //// if ////
-  else if (topval > 240) {
+  else if (topval > (-110)) {
     items.forEach((ele) => {
       /* 카드펼치는 클래스빼기 */
       ele.classList.remove("on");

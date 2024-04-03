@@ -238,7 +238,7 @@ aside.tmenu-box {
 /* ________________________________ */
 .top-area span {
    /* 스티키 영향구역 높이조절 body만큼 */
-   height: 11550px;
+   height: 100%;
    /* 인박스너비 채움 */
    width: 100%;
    /* 부모자격 */
@@ -257,8 +257,9 @@ nav.gnb {
    background-image: linear-gradient(var(--linear-gradient));
    background-color: var(--sb-color);
    box-sizing: border-box;
-   padding-bottom: 15px;
-   padding-top: 5px;
+   /* padding-bottom: 15px; */
+   /* padding-top: 5px; */
+   height: 40px;
    z-index: 2;
    /* span의 자식요소(네비)는 선택가능하도록 */
    pointer-events: all;
@@ -536,7 +537,7 @@ ul.gnb a:hover {
 }
 
 /* 애니적용 */
-line-notice-area inbox .col-6 p {
+.line-notice-area.inbox .col-6> p {
    animation: ntc-ani 5s linear infinite;
 }
 

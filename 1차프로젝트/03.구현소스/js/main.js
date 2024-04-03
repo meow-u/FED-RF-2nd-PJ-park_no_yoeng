@@ -214,7 +214,9 @@ for (let i = 0; i < ol.length; i++) {
     ol[i].querySelector("a").classList.remove("olOn");
   };
 }
-
+ /********************************************
+//  // [ 뉴스영역에서 스크롤방향  가로로 바꾸기 ]
+//  *******************************************/
 // 움직일 박스
 const tg0 = document.querySelector(".news-cont");
 const tg1 = document.querySelector(".news-col");
@@ -246,7 +248,7 @@ tg3.style.height = allowHeight + "px";
 const retVal = (x) => x.getBoundingClientRect().top;
 
 // 움직이는 셋팅하기
-window.addEventListener("wheel", () => {
+window.addEventListener("scroll", () => {
   let pos = retVal(tg3);
   // console.log(pos);
   // 200px 만큼 보정하여 움직일 거리 계산한 한계값
@@ -267,81 +269,6 @@ window.addEventListener("wheel", () => {
   }
 });
 
-// 타임아웃변수
-// let autoT;
-
-// /********************************************
-//  // [ 뉴스영역에서 스크롤방향  가로로 바꾸기 ]
-//  *******************************************/
-// /* 가로스크롤 대상영역: .news-area.inbox */
-// const scrollableArea = document.querySelector(".news-area.inbox");
-// /* 가로스크롤시 변경요소: .news들 */
-// const news = document.querySelectorAll(".news");
-
-// const retVal = (x) => x.getBoundingClientRect().top;
-
-// /* 대상영역 스크롤이벤트 발생시 이벤트함수실행 */
-// window.addEventListener("wheel", (event)=>{
-//    let pos = retVal(scrollableArea);
-//    console.log(pos);
-//    /* event.deltaY :  휠 또는 유사한 장치의 스크롤을 통해
-//    발생한 이벤트에서 발생한 "스크롤 양"을 나타냄  */
-//    if(pos > 200 && scrollableArea.scrollLeft < 1650){
-
-//    }
-//    else if (pos < 200 && pos > -400 && scrollableArea.scrollLeft < 1650 ) {
-//       // 수직 스크롤이 발생할 때 기본 동작 방지
-//       event.preventDefault();
-
-//       console.log(111);
-
-//       // deltaY 값을 가로 스크롤 값에 누적
-//       // scrollBy(수평,수직)
-//       scrollableArea.scrollBy(event.deltaY, 0);
-//    }else if(pos < -400){
-//       scrollableArea.scrollLeft = 1640;
-
-//       console.log(222);
-//    }
-//    else{
-
-//       console.log(333);
-//    }
-
-//    // 영역의 시작과 끝 설정
-//    const limitLine =
-//    //요소의 가로 스크롤 '위치'를 px단위로 나타내는 속성
-//       scrollableArea.scrollLeft >= 1235 ||
-//       scrollableArea.scrollLeft === 0;
-
-//    // 현재 누적 deltaY 값 확인
-//    console.log(scrollableArea.scrollLeft);
-
-//    // 대상영역 양끝 스크롤 도달시
-//    // deltaY 값을 세로 스크롤 값에 누적
-//    // console.log(event.deltaY)
-//    // if (limitLine) {
-
-//    //     clearTimeout(autoT);
-
-//    //    autoT = setTimeout(() => {;
-//    //       //누적된 event.deltaY 값을 초기화하고 싶은데 방법을모름
-//    //       //1초동안 누적된 휠값이 한번에 이동함.
-//    //       window.scrollBy(0, event.deltaY);
-//    //    }, 3000); //일단 0초로 해둠
-//    // }
-
-//    //뉴스요소 각각 순회하여 이동적용
-//    for (var i = 0; i < news.length; i++) {
-//       // 공통 트랜지션
-//       news[i].style.transition = "0.3s";
-//       // i가 짝수면 양수, 홀수면 음수를 곱함
-//       //가로스크롤 위치값과 곱하여  요소 이동 트랜스폼
-//       news[i].style.transform = `translateY(${
-//          scrollableArea.scrollLeft * (i % 2 == 0 ? 0.07 : -0.07)
-//       }px)`;
-//    }
-// },{passive:false}); // 이벤트 내부 함수
 
 /******************************************** 
   // [ 상품정보 영역에서 스크롤시 원형이미지 돌리기 ]
@@ -351,16 +278,17 @@ window.addEventListener("wheel", () => {
 let deltaBox = 0;
 // 이벤트 대상: #product-area
 const tgArea = document.querySelector("#product-area");
-tgArea.addEventListener("wheel", (e) => {
+window.addEventListener("scroll", () => {
   /* 변경요소: 가상요소가 속해있는요소들 */
   const tgCircles = document.querySelectorAll(".pullbox");
-  //  console.log(tgArea,tgCircles,'델타Y:',e.deltaY);
+  //  console.log(tgArea,tgCircles,window.scrollY);
 
-  deltaBox += e.deltaY;
-  //  console.log('누적델타Y:',deltaBox);
+  let scval = window.scrollY;
+  //  console.log('스크롤위치값:',scval);
 
   for (const x of tgCircles) {
-    x.style.setProperty("--after-transform", `rotate(${deltaBox * 0.1}deg)`);
+    //setProperty('속성',값설정) 메서드 :객체(요소)의 속성을 지정된 값으로 설정하거나 새로운 속성을 추가
+    x.style.setProperty("--after-transform", `rotate(${scval * 0.1}deg)`);
   }
 });
 
@@ -376,12 +304,12 @@ console.log("리저브대상:", reserveArea, letters);
 // 보이는 화면에서의 위치값 리턴 함수 getBoundingClientRect()
 const topVal = (x) => x.getBoundingClientRect().top;
 
-window.addEventListener("wheel", letterMoveFn);
+window.addEventListener("scroll", letterMoveFn);
 
 function letterMoveFn() {
   letters.forEach((x) => {
     let topval = topVal(x);
-    console.log(x, topval);
+    // console.log(x, topval);
 
     if (topval <= 800 && topval > 0) {
       // 화면 내에 등장한 경우
@@ -404,7 +332,7 @@ const storeBox = document.querySelector(".col-12.storebox");
 const items = document.querySelectorAll(".storebox>.store");
 // console.log(storeBox,items);
 
-window.addEventListener("wheel", moveFn);
+window.addEventListener("scroll", moveFn);
 
 function moveFn() {
   let topval = topVal(storeBox);

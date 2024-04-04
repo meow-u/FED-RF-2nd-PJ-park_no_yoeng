@@ -12,9 +12,6 @@
   --after-transform: rotate(0deg);
 }
 
-html {
-  scroll-behavior: smooth; /* 부드러운 스크롤을 활성화함 */
-}
 /* 공사중 표시 */
 body * {
   /* outline: 2px dashed #ff9f9f29; */
@@ -22,102 +19,19 @@ body * {
 body {
   /* 스티키gnb바 부모자격 */
   position: relative;
-  overflow-y: scroll; /* 세로 스크롤 막대를 항상 표시하여 스크롤 가능한 경우에도 항상 표시됨 */
+  overflow-y: scroll; 
+  /* 세로 스크롤 막대를 항상 표시하여 스크롤 가능한 경우에도 항상 표시됨 */
 }
-/*________________ 1.상단영역 ________________*/
-body > .cursor {
-  z-index: 10;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 80px;
-  height: 80px;
-  background: url(../images/starbucks-logo-starbucks-icon-transparent-free.png)
-    no-repeat center/cover;
-  border-radius: 50%;
-  animation: logoani 2.5s linear infinite;
-  transform-origin: center center;
-  pointer-events: none;
-}
+/*________________ 1.상단영역 (공통) ________________*/
+/* common.css */
 
-@keyframes logoani {
-  100% {
-    transform: rotate(360deg);
-  }
-}
+/*________________ 2. 롤링배너 영역 (공통) _____________*/
+/* common.css */
 
-body > .cursor > .cursorin {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  top: 50%;
-  left: 50%;
-  translate: -50% -50%;
-  background-color: var(--sb-color);
-  border-radius: 50%;
-  pointer-events: none;
-}
+/*________________ 3. 라인안내 영역 (공통) ________________*/
+/* common.css */
 
-body > .cursor > .inCircle {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  top: 0%;
-  left: 50%;
-  translate: -50% -50%;
-  background: url("../images/starbucks-logo-starbucks-icon-transparent-free.png")
-    center center / 80px 80px no-repeat;
-  border-radius: 50%;
-  transform-origin: center center;
-  animation: 0.6s ease-in 0s infinite alternate none running logoani2;
-  pointer-events: none;
-}
-
-@keyframes logoani2 {
-  100% {
-    transform: rotateY(90deg);
-  }
-}
-
-body > .fixed {
-  top: 90%;
-  left: 100%;
-  translate: -100%;
-  border-radius: 100px 0px 0px 100px;
-  z-index: 10;
-  width: 90px;
-  height: 33px;
-  background-color: rgba(0, 0, 0, 0.86);
-  position: fixed;
-}
-
-body > .fixed > a {
-  font-size: 1.2rem;
-  margin: 0px 13%;
-  line-height: 33px;
-  color: rgb(255, 255, 255);
-}
-
-.top-area {
-  height: 10vh;
-}
-/*________________ 2. 롤링배너 영역 ( 630? 한페이지정도) ________________*/
-.ban-area {
-  height: 90vh;
-}
-
-/* 넘치는 visualView영역 숨기기 */
-.ban-area.inbox {
-  overflow: hidden;
-}
-/*________________ 3. 라인안내 영역 ________________*/
-/* .line-notice-area { */
-/* height: 50px; */
-/* } */
 /*________________ 4. 리워드 영역 ________________*/
-/* .rewards-area { */
-/* height: 240px; */
-/* } */
 /* 리워드박스 */
 .rewards {
   color: white;
@@ -132,9 +46,11 @@ body > .fixed > a {
   box-sizing: border-box;
 }
 
+/* 리워드 스벅로고 */
 .rewards img {
   width: 80%;
   margin: 0px auto;
+  /* 비율유지 */
   aspect-ratio: 247 / 215;
 }
 
@@ -152,7 +68,7 @@ body > .fixed > a {
   font-size: min(1.2rem, 1.5vw);
   padding: 0.5vw;
 }
-
+/* 리워드 버튼 */
 .rewards .button {
   position: relative;
   padding: 0.3vw 0.8vw;
@@ -169,7 +85,7 @@ body > .fixed > a {
     center center / 0% no-repeat;
   transition: all 0.2s ease-in 0s;
 }
-
+/* 버튼호버시 */
 .rewards .button:hover {
   background-size: 100%;
 }
@@ -199,14 +115,15 @@ body > .fixed > a {
   height: 50%;
 }
 /*________________ 5. 뉴스 영역 ________________*/
+
 #news-area {
+  /* 가운데맞춤 */
   left: 50%;
   translate: -50%;
   max-width: 2000px;
-  height: 2184px;
   position: relative;
 }
-
+/* 긴 틈새막는 박스 */
 #news-area::after {
   content: "";
   top: 10%;
@@ -220,10 +137,7 @@ body > .fixed > a {
   background-color: rgb(0, 0, 0);
 }
 
-.news-area {
-  height: 500px;
-}
-
+/* 라운드 밝은 공간부분 */
 .news-area::before {
   content: "";
   display: block;
@@ -237,7 +151,7 @@ body > .fixed > a {
     /* 옆으로 넘치는부분 가림 */
   overflow: hidden;
 }
-
+/* 작은 틈새막는 검정박스 (쌤이봐주신것) */
 .news-area::after {
   content: "";
   display: block;
@@ -252,9 +166,11 @@ body > .fixed > a {
   overflow: hidden;
 }
 
+/* 가로스크롤 위해 스티키적용 */
 .news-area {
   position: sticky;
   top: 0px;
+  height: 500px;
   padding-bottom: 7%;
   
   /* 옆으로 넘치는부분 가림 */
@@ -262,12 +178,12 @@ body > .fixed > a {
 }
 
 
-/* 시작시 오른쪽으로 이동  */
+/* 가로스크롤박스 
+시작시 오른쪽에 위치해있기  */
 .news-area > .news-cont {
   height: 100%;
   translate: 55%;
   position: relative;
-  left: 0px;
   transition: all 0.6s ease-out 0s;
 }
 /* 플랙스박스 */
@@ -275,16 +191,17 @@ body > .fixed > a {
   display: flex;
   position: relative;
   top: 30%;
+  /* 가로화면 줄어들때 같이 줄어들도록 vw씀 */
   width: 300vw;
   gap: 3vw;
 }
 
 
-/* 뉴스영역 메인글자 */
-.news-area .col-12 .newstxt > p {
+/* 뉴스영역 시작 초록글자상자 */
+.newstxt > p {
   border-radius: 18px;
   width: 38vw;
-  font-size: 4.5rem;
+  font-size: min(4.5rem, 6vw);
   font-weight: bold;
   color: rgb(255, 255, 255);
   background-color: var(--sb-color);
@@ -294,7 +211,7 @@ body > .fixed > a {
   padding: 10px;
 }
 
-/* p가상요소 */
+/* p가상요소 애니 게이지바 */
 .news-area .col-12 .newstxt > p::after {
   content: "";
   position: relative;
@@ -308,20 +225,14 @@ body > .fixed > a {
   animation: 0.9s ease-in-out 0s infinite normal none running pAni;
   transform-origin: right center;
 }
-
+/* 게이지바 애니 */
 @keyframes pAni {
   100% {
     transform: scaleX(0);
   }
 }
 
-/* 뉴스박스공통 (이미지+캡션) */
-.news-area .col-12 > .news {
-  flex-shrink: 0;
-  flex-basis: 19%;
-  transition: all 0.6s ease 0s;
-}
-
+/* 뉴스박스의 이미지의 부모박스 */
 .news-area .col-12 figure > a {
   aspect-ratio: 1 / 1;
   overflow: hidden;
@@ -330,8 +241,8 @@ body > .fixed > a {
   max-height: 260px;
   border-radius: 10%;
 }
-/* 이미지 */
 
+/* 이미지 */
 .news-area .col-12 a > img {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -355,8 +266,7 @@ body > .fixed > a {
 .news-area .col-12 a:hover img {
   transform: scale(1.1);
 }
-/* 이미지 a박스 호버시 가상요소*/
-
+/* 이미지 a박스 호버시 가상요소 (캡션박스)*/
 .news-area .col-12 a:hover::after {
   color: white;
   width: 100%;
@@ -365,27 +275,29 @@ body > .fixed > a {
   background-color: rgba(0, 0, 0, 0.54);
 }
 
-/* 이미지설명 */
-.news-area .col-12 > .news a {
+/* 이미지아래 설명 */
+.newsbox a {
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--sb-color);
 }
 
-/* 뉴스박스 부드러운 트랜지션 */
+/* 뉴스박스공통 (이미지+캡션) */
+/* 부드러운 트랜지션 */
 .newsbox {
   transition: all 0.3s linear 0s;
 }
 
-/* 뉴스박스 호버시 트랜스폼 */
+/* 뉴스박스 호버시 위로 트랜스폼 */
+figure {
+  /* 원본에줘서 왕복! */
+  transition: 0.3s 0.1s;
+}
 figure:hover {
   translate: 0 -20%;
   scale: 1.05;
 }
 
-figure {
-  transition: 0.3s 0.1s;
-}
 
 /*________________ 6. 리저브소개 영역 ________________*/
 
@@ -984,9 +896,4 @@ transition: 0.3s;
   }
 }
 /*________________ 9. 하단 영역 ________________*/
-.footer-area {
-  background-image: linear-gradient(var(--linear-gradient));
-  background-color: var(--sb-color);
-  padding-bottom: 2vw;
-}
-
+/* common.css */

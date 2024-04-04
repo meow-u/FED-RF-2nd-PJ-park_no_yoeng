@@ -1,0 +1,6 @@
+common.css의  149줄
+   /* backdrop-filter: blur(100px); ***********************/
+  /* 안먹음 */
+
+
+  

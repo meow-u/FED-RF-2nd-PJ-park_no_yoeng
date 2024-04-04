@@ -3,6 +3,7 @@
 /* 스벅 PJ : 공통 모듈 CSS - common.css */
 /* 공유기능 요소 셋팅 */ /* 상단영역, 하단영역 반복디자인 */
 
+
 :root {
    --sb-color: #29412a;
    --linear-gradient: 45deg, #2d3a45db, transparent;
@@ -13,17 +14,108 @@
 
 }
 
-/************* 1. 상단영역 *************/
+
+
+/*________________ 1.상단영역 ________________*/
+html {
+   scroll-behavior: smooth; /* 부드러운 스크롤을 활성화함 */
+ }
+
 body {
    background-color: var(--body-color);
+   
 }
+
+/* 마우스커서 */
+body > .cursor {
+   z-index: 10;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 80px;
+   height: 80px;
+   background: url(../images/starbucks-logo-starbucks-icon-transparent-free.png)
+     no-repeat center/cover;
+   border-radius: 50%;
+   animation: logoani 2.5s linear infinite;
+   transform-origin: center center;
+   pointer-events: none;
+ }
+ /* 젤큰원 돌리기 */
+ @keyframes logoani {
+   100% {
+     transform: rotate(360deg);
+   }
+ }
+ 
+ /* 젤큰원 가운데 색채우기 */
+ body > .cursor > .cursorin {
+   position: relative;
+   width: 40px;
+   height: 40px;
+   top: 50%;
+   left: 50%;
+   translate: -50% -50%;
+   background-color: var(--sb-color);
+   border-radius: 50%;
+   pointer-events: none;
+ }
+ /* 겹치는 작은원 */
+ body > .cursor > .inCircle {
+   position: relative;
+   width: 40px;
+   height: 40px;
+   top: 0%;
+   left: 50%;
+   translate: -50% -50%;
+   background: url("../images/starbucks-logo-starbucks-icon-transparent-free.png")
+     center center / 80px 80px no-repeat;
+   border-radius: 50%;
+   transform-origin: center center;
+   animation: 0.6s ease-in 0s infinite alternate none running logoani2;
+   pointer-events: none;
+ }
+ 
+ /* 작은원y축돌리기 */
+ @keyframes logoani2 {
+   100% {
+     transform: rotateY(90deg);
+   }
+ }
+ 
+ /* 고정된 탑 앤드버튼 */
+ body > .fixed {
+   top: 90%;
+   left: 100%;
+   translate: -100%;
+   border-radius: 100px 0px 0px 100px;
+   z-index: 10;
+   width: 90px;
+   height: 33px;
+   background-color: rgba(0, 0, 0, 0.86);
+   position: fixed;
+ }
+ 
+ /* 고정버튼 내부글씨 */
+ body > .fixed > a {
+   font-size: 1.2rem;
+   margin: 0px 13%;
+   line-height: 33px;
+   color: rgb(255, 255, 255);
+ }
+ 
+ /* 탑 회색부분 높이 */
+ .top-area {
+   height: 10vh;
+ }
+ 
 
 #top-area h1 {
    height: 10vh;
    background-color: #3b3b3b;
    width: 100%;
    position: absolute;
-   /* 열린랩박스넘침녀 */
+   /* 열린랩박스넘치는부분 */
    overflow: hidden;
 }
 
@@ -116,10 +208,8 @@ h1.logo a:nth-of-type(2) > img:first-of-type {
    /* 트랜지션개별(시간차이줌) */
    transition: 0.5s ease-in-out 0.5s;
 }
-/********************************/
 
-/* 세이렌 또는 열린랩박스 1 호버시 
-1,2,3 랩박스 각각 이동시키기 */
+/* 세이렌 또는 열린랩박스 1 호버시 1,2,3 랩박스 각각 이동시키기 */
 
 /* 세이렌호버시 형제관계 랩박스의 직계자식중 n01, */
 /* 랩박스 호버시 직계자식중 첫번째자식 */
@@ -148,16 +238,14 @@ h1.logo a:nth-of-type(1):hover ~ .wrap-box > .n03,
    /* 둥근것 네모로 화면채우기 */
    border-radius: 0;
    /* 안먹음 */
-   /* backdrop-filter: blur(100px); ***********************/
-   /* 트랜지션시 블러 */
+   /* backdrop-filter: blur(100px);*/
+   /* 트랜지션시 외곽블러 */
    filter: blur(22px);
 }
 .wrap-box:nth-of-type(2) {
    /* 3번째는 1,2뒤로 가도록 */
    z-index: 3;
 }
-
-/* **************************************** */
 
 /* 랩박스 내부 컨텐츠 */
 .box {
@@ -234,15 +322,17 @@ aside.tmenu-box {
 }
 
 /* gnb 메뉴 *********************************************/
+
 /* gnb 메뉴 스티키 적용위해 부모박스 만듬 */
 /* ________________________________ */
 .top-area span {
-   /* 스티키 영향구역 높이조절 body만큼 */
+   /* 스티키 영향구역 높이조절 body만큼(바디가 부모) */
    height: 100%;
    /* 인박스너비 채움 */
    width: 100%;
    /* 부모자격 */
    position: absolute;
+   /* 이게 필요헀음 */
    top: 10vh;
    /* 화면이 다 덮여서 다른요소선택위해 */
    pointer-events: none;
@@ -257,11 +347,10 @@ nav.gnb {
    background-image: linear-gradient(var(--linear-gradient));
    background-color: var(--sb-color);
    box-sizing: border-box;
-   /* padding-bottom: 15px; */
-   /* padding-top: 5px; */
    height: 40px;
    z-index: 2;
-   /* span의 자식요소(네비)는 선택가능하도록 */
+   /* 마우스 막아논 span의 자식요소인 
+   얘(네비)는 선택가능하도록 */
    pointer-events: all;
 }
 /* 잘리지않게  */
@@ -329,7 +418,6 @@ ul.gnb a:hover {
 /* gnb의 서브메뉴 ************************************/
 .submenu {
    position: absolute;
-   /* display: flex; */
    top: 75%;
    /* 보이지않도록 원본 높이 0  */
    height: 0px;
@@ -359,17 +447,10 @@ ul.gnb a:hover {
    /* margin: auto auto; */
 }
 .gnb .menu:hover .submenu ol {
-   /* 호버시  투명도 1 */
+   /* 서브메뉴 내부 ol 호버시  투명도 1 */
    opacity: 1;
    top: 0;
 }
-
-/* .submenu ol li {
-   display: none;  <- 이걸 주면 트랜지션시 max-height로 높이오토설정이 안됨 
-}
-.gnb .menu:hover .submenu ol li {
-   display: block;
-} */
 
 /* 많은 ol의 첫번째 li의 첫번째 a만 선택  */
 .submenu ol > li:first-child > a:first-child {
@@ -377,9 +458,12 @@ ul.gnb a:hover {
    font-size: 1.1rem;
    transition: 0.3s;
 }
+/*________________ 2. 롤링배너 영역 _____________*/
 
-/* **************************************************** */
-/* 롤링배너영역 */
+.ban-area {
+   height: 90vh;
+ }
+
 .ban-area .visualView {
    /* 정렬: 기본 left */
    position: relative;
@@ -388,9 +472,13 @@ ul.gnb a:hover {
    height: 100%;
    overflow: hidden;
 }
+
+/* 넘치는 visualView영역 숨기기 */
+.ban-area.inbox {
+   overflow: hidden;
+ }
+
 .ban-area .visualView .bg {
-   /* flex: 1;  */
-   /* 동일한 크기로 분할 */
    background-position: center;
    background-size: cover;
    transition: 1s ease-in-out;
@@ -415,13 +503,16 @@ ul.gnb a:hover {
    display: block;
    width: 200%;
    scale: 1.1;
+   /* 호버시 어두웠던 필터 none */
    filter: none;
    z-index: 1;
    filter: grayscale(0%) brightness(100%);
 }
+/* js 적용전 다 어둡게 */
 .visualView div {
    filter: grayscale(100%) brightness(0.8);
 }
+/* [ js) '중앙이미지만'오버시 .center 클래스 넣고 빼기 ] */
 .visualView .bg.center {
    filter: grayscale(0%) brightness(100%);
 }
@@ -436,10 +527,11 @@ ul.gnb a:hover {
    opacity: 0.25;
    display: none;
 }
+/* 피그캡션배경 호버시 */
 .ban-area .visualView .bg:hover::after {
    display: block;
 }
-/* 피그캡션 */
+/* 피그캡션 글 */
 .ban-area .visualView .bg span {
    /* 제목 */
    position: absolute;
@@ -499,7 +591,7 @@ ul.gnb a:hover {
    opacity: 1;
 }
 
-/************ 2. 메인영역 ************/
+/*________________ 3. 라인안내 영역 ________________*/
 .line-notice-area > .cont-box {
    min-height: 50px;
 }
@@ -561,6 +653,12 @@ ul.gnb a:hover {
 }
 
 /************* 3. 하단영역 *************/
+.footer-area {
+   background-image: linear-gradient(var(--linear-gradient));
+   background-color: var(--sb-color);
+   padding-bottom: 2vw;
+ }
+ 
 /* 푸터전체박스 */
 #footer-area .col-12 {
    height: 100%;
@@ -628,3 +726,4 @@ ul.gnb a:hover {
 {
    color: lightgreen;
 }
+

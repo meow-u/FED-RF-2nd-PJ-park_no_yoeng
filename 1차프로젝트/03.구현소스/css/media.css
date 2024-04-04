@@ -9,22 +9,14 @@
 
 .ban-area .visualView {
 overflow: visible;
-/* animation: bgAni 5s ease-in-out 4s infinite; */
 }
-    /* 메인베너 애니 */
-       @keyframes bgAni {
-        0% { left: 0; }
-        50% { left: -100%; }
-        66% { left: -200%; }
-        100% { left: 0%; }
-         }
 
  /* 줄어들지않고 영역다채우기 */        
 .ban-area .visualView .bg {
     flex-basis: 100%;
     flex-shrink: 0;
 }
-/* 원래있던 모션 무효화 덮기 !*/
+/* 원래있던 구성 무효화 덮기 !*/
 .visualView .bg:hover {
     display: block;
     width: 100%;

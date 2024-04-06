@@ -1,115 +1,22 @@
+// console.log('1. 모듈로 메인js호출확인');
 
-/* ******************************************************** */
-// DOM 선택 객체함수
-const domFn = {
-  qs: (x) => document.querySelector(x),
-  qsEl: (el, x) => el.querySelector(x),
-  qsa: (x) => document.querySelectorAll(x),
-  qsaEl: (el, x) => el.querySelectorAll(x),
+/* 내함수 js 가져오기 (새이름지음)*/
+import dFn from './my_function.js';
 
-  // 이벤트셋팅함수
-  addEvt: (ele, evt, fn) => ele.addEventListener(evt, fn),
-}; /////// domFn 객체 /////////////
-//________________________________________________________________
+/* 미디어쿼리 js 가져오기 (새이름지음) */
+import mediaJs from './media.js';
+/* 미디어쿼리js 첫호출 */
+mediaJs();
 
-
-//________________________________________________________________
-//모듈로 분리하기 -미디어쿼리 js
-
-// 요구사항: 화면너비가 1000px이하일때 
-// 무한 슬라이드
-//대상 : .bg
-
-let bgBox = domFn.qs('.visualView');
-let bg = domFn.qsaEl(bgBox,'.bg');
-// console.log(bg);
+// 스벅 PJ 메인 JS - main.js //////////////
+/****************************************
+  [ 마우스 커서 따라다니기 ]
+  대상선정 : html
+ ****************************************/
 
 
-
-
-if (window.innerWidth < 1000){
-    bgBox.appendChild(bgBox.querySelectorAll('.bg')[0]);
-    console.log('첫번째이미지순서 맨뒤로넘기기')
-    bgBox.style.transition = '0s';
-    bgBox.style.left = '0%';
-}
-
-setInterval(() => {
-  if (window.innerWidth < 1000) {
-    console.log('움직여라')
-    bgBox.style.transition = '2s ease-out';
-    bgBox.style.left = '-100%';
-
-    setTimeout(() => {
-      if (window.innerWidth < 1000){
-      bgBox.appendChild(bgBox.querySelectorAll('.bg')[0]);
-      console.log('멈춰라')
-      bgBox.style.transition = '0s';
-      bgBox.style.left = '0%';
-      } 
-    }, 3000);
-
-  }
-  
-}, 6000);
-
-addEventListener("resize", (event) => {
-  if(window.innerWidth >= 1000){
-    resetTrans()
-  }
-})
-
-function resetTrans(){
-  bgBox.innerHTML =`
-  
-  <div class="bg img1">
-            <span
-              >Speacial<br>
-              'BEAN'
-              <p>
-                최상급 아라비카 원두와<br>50년 이상의 전문적인 로스팅 기술을 통해 <br><br>최상의 풍미를 선사합니다.
-              </p><a href="#">MORE VIEW</a></span
-            >
-            
-          </div>
-          <div class="bg img2 center">
-            <span
-              >Speacial Place<br> 'RESERVE'
-              <p>
-                다채로운 풍미를 가진 최고 품질의 원두,<br> 다양한 추출 방식,<br><br> 여기에 커피 전문가의 이야기를 더해 <br> 특별한 경험을 제공합니다.
-              </p><a href="#">MORE VIEW</a></span
-            >
-          </div>
-          <div class="bg img3">
-            <span
-              >Starbucks<br>
-              'COFFEE'
-              <p>
-                <strong>'커피 이상의 특별한 경험'</strong><br><br>
-                  세계인들의 생활 속에 스며들어 <br>전 세계의 커피 문화를 선도하는 스타벅스의 커피를 소개합니다.
-              </p><a href="#">MORE VIEW</a></span
-            >
-          </div>
-  `;
-  
-  bgBox.style.transition = '0s';
-  bgBox.style.left = '0%';
-}
-    
-//________________________________________________________________
-
-
-
-// 메인 js
-
-
-
-/* ******************************************* */
-// [ 마우스 커서 따라다니기 ]
-// 대상선정 : html
-/* ******************************************* */
-let html = domFn.qs("html"); /* 문서 */
-let tg = domFn.qs(".cursor"); /* 커서 */
+let html = dFn.qs("html"); /* 문서 */
+let tg = dFn.qs(".cursor"); /* 커서 */
 //윈도우서 마우스 무브시
 window.onmousemove = (e) => {
   tg.style.opacity = "1";
@@ -126,45 +33,51 @@ html.onmouseleave = (e) => {
   tg.style.opacity = "0";
 };
 
-/* *********************************** */
-// [ 상단메뉴 오버시 서브메뉴 보이기 ]
-// 대상선정 : .gnb .menu
-/* *********************************** */
 
-let menu = document.querySelectorAll(".gnb .menu");
+/****************************************
+ [ 상단메뉴 오버시 서브메뉴 보이기 ]
+  대상선정 : .gnb .menu
+ ****************************************/
+
+
+let menu = dFn.qsa(".gnb .menu");
 
 console.log("메뉴개수:", menu.length, menu);
 
 for (let i = 0; i < menu.length; i++) {
   menu[i].onmouseenter = function () {
-    let tg = this.querySelector(".submenu");
+
+    let tg = dFn.qsEl(this,'.submenu');
+    console.log('타겟',tg);
     // 해당 메뉴 하위 서브 속박스 높이값
-    let mh = this.querySelector(".sub-wrap").offsetHeight;
+    let mh = dFn.qsEl(this,'.sub-wrap').offsetHeight;
     console.log("높이:", mh);
     // 대상 높이값 지정하기
     tg.style.height = mh + "px";
     tg.style.transition = ".4s ease-in-out";
 
     this.classList.add("gnbOn");
-    this.querySelector("a").style.color = "white";
+    dFn.qsEl(this,"a").style.color = "white";
   }; ///마우스 오버 이벤트함수///
 
   menu[i].onmouseleave = function () {
-    let tg = this.querySelector(".submenu");
+    let tg = dFn.qsEl(this,".submenu");
     // 대상 높이값 지정하기
     tg.style.height = "0px";
     tg.style.transition = ".4s ease-in-out";
 
     this.classList.remove("gnbOn");
-    this.querySelector("a").style.color = "#9f9f9f";
+    dFn.qsEl(this,"a").style.color = "#9f9f9f";
   }; ///마우스 떠날때 이벤트함수///
 } /// for ///
-/* ******************************************* */
-// [ 중앙이미지만 오버시 .center 클래스 넣고 빼기 ]
-// (밝아지는효과 적용된 클래스)
-/* ******************************************* */
-let visualView = document.querySelector(".visualView");
-let centerImg = document.querySelector(".img2");
+
+
+/****************************************
+  [ 중앙이미지만 오버시 .center 클래스 넣고 빼기 ]
+  (밝아지는효과 적용된 클래스)
+ ****************************************/
+let visualView = dFn.qs('.visualView');
+let centerImg = dFn.qs('.img2');
 
 visualView.onmouseenter = function () {
   centerImg.classList.remove("center");
@@ -174,11 +87,12 @@ visualView.onmouseleave = function () {
 };
 
 /******************************************** 
- // [ 하단 ol오버시 상단메뉴 글씨색 바꾸기 ]
+  [ 하단 ol오버시 상단메뉴 글씨색 바꾸기 ]
  ********************************************/
+
 // 이벤트대상: .sub-wrap .sub-wrap ol:first-of-type
 // 변경대상: .gnb .menu a:first-of-type
-let ol = document.querySelectorAll(".sub-wrap>ol");
+let ol = dFn.qsa(".sub-wrap>ol");
 //  let a = document.querySelectorAll('.gnb .menu>a:first-of-type')
 // console.log('대상확인:',ol,a);
 
@@ -219,8 +133,8 @@ for (let i = 0; i < ol.length; i++) {
   };
 }
  /********************************************
-//  // [ 뉴스영역에서 스크롤방향  가로로 바꾸기 ]
-//  *******************************************/
+ [ 뉴스영역에서 스크롤방향  가로로 바꾸기 ]
+*******************************************/
 // 움직일 박스
 const tg0 = document.querySelector(".news-cont");
 const tg1 = document.querySelector(".news-col");
@@ -233,7 +147,7 @@ let tg2Width = tg2.offsetWidth;
 // 보이는박스높이
 let tg2Height = tg2.offsetHeight;
 // 가용길이 : 전체 가로크기 - 보이는 가로크기 = 실제 이동가능한 길이
-let allowWidth = tg1Width - tg2Width + 1500;
+let allowWidth = tg1Width - tg2Width + 0;
 // 스티키부모박스높이
 let allowHeight = tg2Height + allowWidth;
 
@@ -276,7 +190,6 @@ window.addEventListener("scroll", () => {
 
 /******************************************** 
   // [ 상품정보 영역에서 스크롤시 원형이미지 돌리기 ]
-
   *가상요소의 속성을 사용자정의 변수 등록해서 트랜스폼 주기 
   *******************************************/
 let deltaBox = 0;
@@ -301,8 +214,8 @@ window.addEventListener("scroll", () => {
  *******************************************/
 //대상선정: reserve-area.inbox
 //변경요소: letterItems>p 들
-const reserveArea = domFn.qs(".reserve-area.inbox");
-const letters = domFn.qsa(".letterItems>p");
+const reserveArea = dFn.qs(".reserve-area.inbox");
+const letters = dFn.qsa(".letterItems>p");
 console.log("리저브대상:", reserveArea, letters);
 
 // 보이는 화면에서의 위치값 리턴 함수 getBoundingClientRect()
@@ -342,8 +255,8 @@ function moveFn() {
   let topval = topVal(storeBox);
   // console.log(topval);
 
-  let h2 = domFn.qs(".store-Tit");
-  let h4 = domFn.qs(".store-Tit.sub");
+  let h2 = dFn.qs(".store-Tit");
+  let h4 = dFn.qs(".store-Tit.sub");
   if (topval <= 500) {
     /* 배경색 칠하기 */
     console.log(topval);

@@ -475,6 +475,7 @@ ul.gnb a:hover {
 
 /* 넘치는 visualView영역 숨기기 */
 .ban-area.inbox {
+   position: relative;
    overflow: hidden;
  }
 
@@ -486,7 +487,6 @@ ul.gnb a:hover {
 .ban-area .visualView .img1 {
    background: url(../images/main_ban2.jpg) no-repeat right center/cover;
    width: 20%;
-   filter: grayscale(100%) brightness(0.8);
 }
 .ban-area .visualView .img2 {
    /* 중앙베너 */
@@ -496,7 +496,6 @@ ul.gnb a:hover {
 .ban-area .visualView .img3 {
    background-image: url(../images/main_ban3.jpg);
    width: 20%;
-   filter: grayscale(100%) brightness(0.8);
 }
 /* 호버시 확장 */
 .visualView .bg:hover {
@@ -509,7 +508,7 @@ ul.gnb a:hover {
    filter: grayscale(0%) brightness(100%);
 }
 /* js 적용전 다 어둡게 */
-.visualView div {
+.visualView .bg{
    filter: grayscale(100%) brightness(0.8);
 }
 /* [ js) '중앙이미지만'오버시 .center 클래스 넣고 빼기 ] */
@@ -589,6 +588,33 @@ ul.gnb a:hover {
 /* 호버시 a */
 .ban-area .visualView .bg:hover a {
    opacity: 1;
+}
+
+/* 버튼들 */
+.bg-arr {
+   /* 버튼부모박스 가운데정렬 */
+   left: 50%;
+   translate: -50%;
+   position: absolute;
+   top: 50%;
+   width: 95vw;
+   text-align: center;
+   line-height: 10vw;
+/* 플랙스 */
+   display: flex;
+   justify-content: space-between
+}
+
+.bg-arr button {
+  
+   background-color: #000000bf;
+   color: #fff;
+   border: none;
+   border-radius: 50%;
+   padding: 2vh 2.5vh;
+}
+.bg-arr button p {
+   scale: 1.5 2;
 }
 
 /*________________ 3. 라인안내 영역 ________________*/

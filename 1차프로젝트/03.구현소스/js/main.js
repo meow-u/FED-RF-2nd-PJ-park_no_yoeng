@@ -38,38 +38,57 @@ html.onmouseleave = (e) => {
  [ 상단메뉴 오버시 서브메뉴 보이기 ]
   대상선정 : .gnb .menu
  ****************************************/
+/* 처음로딩후 실행안되니 호출꼭 하기 */
+  gnbType();
+  dFn.addEvt(window, "resize", gnbType);
+  function gnbType() {
+    if (window.innerWidth > 700) {
+      
+      
+      let menu = dFn.qsa(".gnb .menu");
+      
+      console.log("메뉴개수:", menu.length, menu);
+      
+      for (let i = 0; i < menu.length; i++) {
+        menu[i].onmouseenter = function () {
+      
+          let tg = dFn.qsEl(this,'.submenu');
+          console.log('타겟',tg);
+          // 해당 메뉴 하위 서브 속박스 높이값
+          let mh = dFn.qsEl(this,'.sub-wrap').offsetHeight;
+          console.log("높이:", mh);
+          // 대상 높이값 지정하기
+          tg.style.height = mh + "px";
+          tg.style.transition = ".4s ease-in-out";
+      
+          this.classList.add("gnbOn");
+          dFn.qsEl(this,"a").style.color = "white";
+        }; ///마우스 오버 이벤트함수///
+      
+        menu[i].onmouseleave = function () {
+          let tg = dFn.qsEl(this,".submenu");
+          // 대상 높이값 지정하기
+          tg.style.height = "0px";
+          tg.style.transition = ".4s ease-in-out";
+      
+          this.classList.remove("gnbOn");
+          dFn.qsEl(this,"a").style.color = "#9f9f9f";
+        }; ///마우스 떠날때 이벤트함수///
+      } /// for ///
 
 
-let menu = dFn.qsa(".gnb .menu");
+  } /////if//////
+  else {
+  // 700 미만일 때 실행할 코드
+  let menu = dFn.qsa(".gnb .menu");
+  for (let i = 0; i < menu.length; i++) {
+    menu[i].onmouseenter = null;
+    menu[i].onmouseleave = null;
+  }
+  } /////////else//////
+} //////////gnbType 리사이즈 이벤트함수 ///////////
 
-console.log("메뉴개수:", menu.length, menu);
 
-for (let i = 0; i < menu.length; i++) {
-  menu[i].onmouseenter = function () {
-
-    let tg = dFn.qsEl(this,'.submenu');
-    console.log('타겟',tg);
-    // 해당 메뉴 하위 서브 속박스 높이값
-    let mh = dFn.qsEl(this,'.sub-wrap').offsetHeight;
-    console.log("높이:", mh);
-    // 대상 높이값 지정하기
-    tg.style.height = mh + "px";
-    tg.style.transition = ".4s ease-in-out";
-
-    this.classList.add("gnbOn");
-    dFn.qsEl(this,"a").style.color = "white";
-  }; ///마우스 오버 이벤트함수///
-
-  menu[i].onmouseleave = function () {
-    let tg = dFn.qsEl(this,".submenu");
-    // 대상 높이값 지정하기
-    tg.style.height = "0px";
-    tg.style.transition = ".4s ease-in-out";
-
-    this.classList.remove("gnbOn");
-    dFn.qsEl(this,"a").style.color = "#9f9f9f";
-  }; ///마우스 떠날때 이벤트함수///
-} /// for ///
 
 
 /****************************************
@@ -211,19 +230,40 @@ window.addEventListener("scroll", () => {
 
 /******************************************** 
   [ 리저브 영역 탑위치 확인하여 letter 변환 효과 넣기 ]
+  해당영역 이미지도 효과넣기
  *******************************************/
 //대상선정: reserve-area.inbox
 //변경요소: letterItems>p 들
 const reserveArea = dFn.qs(".reserve-area.inbox");
 const letters = dFn.qsa(".letterItems>p");
-console.log("리저브대상:", reserveArea, letters);
+const newsImgs = dFn.qsa('.infobox img')
+const infoTxt = dFn.qsa('.infowrap > [class^="infobox b"]')
+console.log("리저브대상:", reserveArea, letters, newsImgs,'머양>',infoTxt);
 
 // 보이는 화면에서의 위치값 리턴 함수 getBoundingClientRect()
 const topVal = (x) => x.getBoundingClientRect().top;
 
-window.addEventListener("scroll", letterMoveFn);
+window.addEventListener("scroll", transFn);
 
-function letterMoveFn() {
+function transFn() {
+
+/* 이미지 */
+  newsImgs.forEach(x=>{
+    let topval = topVal(x);
+
+    if (topval <= 800 && topval > 0) {
+      // 화면 내에 등장한 경우
+      x.style.transition = '.5s';
+      x.style.transform = `translateY(${topval * -0.02}px)`;
+      x.style.opacity = 1;
+    } else if (topval > 800) {
+      // 화면아래로 벗어난 경우
+      x.style.transform = `translateY(0px)`;
+      x.style.opacity = 0;
+    }
+    
+  });
+/* letter */
   letters.forEach((x) => {
     let topval = topVal(x);
     // console.log(x, topval);
@@ -236,8 +276,24 @@ function letterMoveFn() {
       // 화면아래로 벗어난 경우
       x.style.transform = `translateY(0px) scale(0)`;
       x.style.opacity = 0;
+      x.style.fontStyle = 'italic';
     }
   });
+  /* 설명 */
+  infoTxt.forEach((x) => {
+    let topval = topVal(x);
+
+    if (topval <= 800 && topval > 0) {
+      // 화면 내에 등장한 경우
+      x.style.transition = '2s';
+      x.style.opacity = 1;
+    } else if (topval > 800) {
+      // 화면아래로 벗어난 경우
+      x.style.opacity = 0;
+    }
+
+  })
+
 }
 
 /******************************************** 
@@ -262,7 +318,7 @@ function moveFn() {
     console.log(topval);
     document.body.style.backgroundColor = "#000";
     document.body.style.transition = "2s";
-    console.log("h2,h4", h2, h4);
+    // console.log("h2,h4", h2, h4);
     setTimeout(() => {
       h2.style.opacity = "1";
     }, 400);

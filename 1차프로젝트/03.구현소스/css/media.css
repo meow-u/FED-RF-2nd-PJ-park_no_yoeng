@@ -6,28 +6,52 @@
 
 /***************** 1000 px 이하 미디어 쿼리 시작 *****************/
 @media screen and (max-width: 1000px) {
+  .ban-area .visualView {
+    overflow: visible;
+  }
 
-.ban-area .visualView {
-overflow: visible;
-}
-
- /* 줄어들지않고 영역다채우기 */        
-.ban-area .visualView .bg {
+  /* 줄어들지않고 영역다채우기 */
+  .ban-area .visualView .bg {
     flex-basis: 100%;
     flex-shrink: 0;
-}
-/* 원래있던 구성 무효화 덮기 !*/
-.visualView .bg:hover {
+  }
+  /* 원래있던 구성 무효화 덮기 !*/
+  .visualView .bg:hover {
     display: block;
     width: 100%;
     scale: 1;
     filter: none;
     z-index: 1;
-}
+  }
+  .visualView .bg {
+    filter: none;
+  }
+  /* 버튼보이기 */
+  .bg-arr {
+    display: flex;
+    /* display:visible은 쓸수없음 */
+  }
 
-/********************** 하단 **********************/
-/* 푸터맨아래 플랙스박스 */
-.col-12 > .cont2 > .info3 {
+  /* 리워드영역 */
+  .rewards {
+    flex-direction: column;
+  }
+  /* 리워드 스벅로고 */
+  .rewards img {
+    width: 30%;
+  }
+  .rewards > .col-3,
+  .col-4 {
+    width: 60%;
+  }
+
+  .rewards > .col-3:last-child > div {
+    padding-bottom: 2%;
+  }
+
+  /********************** 하단 **********************/
+  /* 푸터맨아래 플랙스박스 */
+  .col-12 > .cont2 > .info3 {
     text-align: center;
     width: 50%;
     display: flex;
@@ -36,16 +60,114 @@ overflow: visible;
     opacity: 0.7;
     flex-wrap: wrap;
     align-content: center;
- }
- /* 플랙스박스 자식요소들 */
- .footer.info3>a {
+  }
+  /* 플랙스박스 자식요소들 */
+  .footer.info3 > a {
     line-height: 2;
     flex-shrink: 0;
     flex-basis: 50%;
- }
-
+  }
 }
 
- /***************** 1000 px 이하 미디어 쿼리 종료 *****************/
+/***************** 1000 px 이하 미디어 쿼리 종료 *****************/
 
- 
+/***************** 700 px 이하 미디어 쿼리 시작 *****************/
+@media screen and (max-width: 700px) {
+  /* 커서 따라오기 숨기기 */
+  body > .cursor {
+    display: none;
+  }
+
+  /* 네비 */
+  ul.gnb {
+    flex-direction: column;
+    width: auto;
+  }
+  .gnb li {
+    margin-left: auto;
+  }
+  /* 네비메뉴 */
+  nav.gnb {
+    margin-left: auto;
+    overflow: hidden;
+    padding-top: 40px;
+    /* height: auto; */
+    transition: 0.3s;
+  }
+  /*호버(클릭시)네비메뉴열기*/
+  /* nav.gnb:hover {
+    height: 100vh;
+  } */
+  /* 네비메뉴글씨 */
+  .gnb > li > a:first-of-type {
+    font-size: 1.5rem;
+  }
+
+  .gnb > li.menu {
+    width: auto;
+  }
+
+  .gnb > li::after {
+    display: none;
+  }
+
+  /* gnb의 서브메뉴*/
+  .submenu {
+    position: relative;
+    top: auto;
+    margin-top: 4%;
+    width: 100vw;
+  }
+
+  .sub-wrap {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .sub-wrap ol {
+    margin: 0 auto;
+    flex-basis: 50%;
+    padding: 2vw 0;
+    margin-bottom: -2vw;
+    width: 100%;
+    opacity: 1;
+  }
+
+  .gnb li a {
+    width: auto;
+  }
+
+  /* 로고 */
+  h1.logo a:nth-of-type(2) {
+    transform: scale(1.5) translateX(-32%) translateY(11%);
+  }
+  /* gnb박스 틈새 올려매꾸기 */
+  .top-area span {
+    margin-top: -1px;
+  }
+
+
+/* +모양 가상요소 */
+  nav.gnb::before {
+    position: absolute;
+    content: '+';
+    top: 0px;
+    right: 5%;
+    color: #fff;
+    z-index: 10;
+    font-size: 3rem;
+    font-weight: bolder;
+    scale: 1.5;
+    margin-top: -0.5%;
+    padding-bottom: 2%;
+    transform: rotate(0deg);
+    transform-origin: center center;
+    /* 트랜지션 */
+    transition: 0.4s;
+    transform: rotate(var(--gnb-btn-rotate, 0deg));
+}
+
+
+
+}
+/***************** 700 px 이하 미디어 쿼리 종료 *****************/

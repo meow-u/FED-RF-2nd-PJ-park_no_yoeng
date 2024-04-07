@@ -3,4 +3,5 @@ common.css의  149줄
   /* 안먹음 */
 
 
-  
+    /* 왜 이 선언을  export default function () {} 안에서 하면 작동을 이상하게 하지?? */
+        // let bgCont = bgBox.querySelectorAll(".bg");

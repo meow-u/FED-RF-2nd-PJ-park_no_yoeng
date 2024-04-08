@@ -214,6 +214,7 @@ export default function () {
       let allSubmenu = domFn.qsa('.submenu');
       console.log('모든서브메뉴',allSubmenu);
 
+      
       /* 모든서브메뉴닫기 */
       allSubmenu.forEach(ele=>{
         ele.style.height = "0px";

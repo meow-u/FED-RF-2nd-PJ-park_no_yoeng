@@ -8,6 +8,25 @@ import mediaJs from './media.js';
 /* 미디어쿼리js 첫호출 */
 mediaJs();
 
+
+import { footerData } from './data.js';
+
+const fcont = dFn.qs('.footer.cont2');
+console.log(footerData);
+
+let myhcode = '';
+footerData.forEach(v=>{
+  myhcode += `
+  <div class="footer ${v[0]}">${
+    v[1].map(v=>`<a href="#"><div>${v}</div></a>`).join('')
+  }</div>
+
+  `
+})
+
+console.log(myhcode);
+fcont.innerHTML = myhcode;
+
 // 스벅 PJ 메인 JS - main.js //////////////
 /****************************************
   [ 마우스 커서 따라다니기 ]

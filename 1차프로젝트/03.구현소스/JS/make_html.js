@@ -1,6 +1,8 @@
 
 // 데이터 셋팅 파일 불러오기★★ ///
 import * as sbData from "../data/sb_data.js";
+/* 내함수 js 가져오기 (새이름지음)*/
+import dFn from './my_function.js';
 
 export default function () {
 
@@ -15,9 +17,9 @@ export default function () {
 const fcont = dFn.qs('.footer.cont2');
 console.log(sbData.footerData);
 
-let myhcode = '';
+let hcode = '';
 sbData.footerData.forEach(v=>{
-  myhcode += `
+  hcode += `
   <div class="footer ${v[0]}">${
     v[1].map(v=>`<a href="#"><div>${v}</div></a>`).join('')
   }</div>
@@ -25,8 +27,8 @@ sbData.footerData.forEach(v=>{
   `
 })
 
-console.log(myhcode);
-fcont.innerHTML = myhcode;
+console.log(hcode);
+fcont.innerHTML = hcode;
 })();/////////코드 랩핑 ////////////
 
 

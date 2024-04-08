@@ -484,6 +484,9 @@ ul.gnb a:hover {
    display: flex;
    height: 100%;
    overflow: hidden;
+   /* ★★★ 설정안했을때 기본이 left: auto라서 
+   0으로 초기값 해주지 않으면 첫 left 트랜지션이 작동안함  */
+   left:0;
 }
 
 /* 넘치는 visualView영역 숨기기 */

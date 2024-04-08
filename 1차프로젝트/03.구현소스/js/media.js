@@ -101,13 +101,13 @@ export default function () {
     // sts=true면 arr2를 확인하고, sts=false(오토실행)이면 true를 할당
 
     if (isRbtn) {
-      console.log("r버튼! 2초 움직여라");
+      // console.log("r버튼! 2초 움직여라");
       bgBox.style.left = "-100%";
       bgBox.style.transition = "2s ease-out";
 
       setTimeout(() => {
         bgBox.appendChild(bgBox.querySelectorAll(".bg")[0]);
-        console.log("2초기다린뒤 뒤로옮기고 + left 0!!(셋타임아웃)");
+        // console.log("2초기다린뒤 뒤로옮기고 + left 0!!(셋타임아웃)");
         bgBox.style.transition = "0s";
         bgBox.style.left = "0%";
       }, 2000);

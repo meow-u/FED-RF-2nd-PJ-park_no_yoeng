@@ -7,10 +7,10 @@ import dFn from './my_function.js';
 import mediaJs from './media.js';
 /* 미디어쿼리js 첫호출 */
 mediaJs();
+// 데이터 셋팅 파일 불러오기★★ ///
+import {footerData} from '../data/sb_data.js';
 
-
-import { footerData } from './data.js';
-
+console.log(footerData);
 const fcont = dFn.qs('.footer.cont2');
 console.log(footerData);
 
@@ -334,7 +334,7 @@ function moveFn() {
   let h4 = dFn.qs(".store-Tit.sub");
   if (topval <= 500) {
     /* 배경색 칠하기 */
-    console.log(topval);
+    // console.log(topval);
     document.body.style.backgroundColor = "#000";
     document.body.style.transition = "2s";
     // console.log("h2,h4", h2, h4);
@@ -355,7 +355,7 @@ function moveFn() {
     items.forEach((ele) => {
       /* 카드펼치는 클래스넣기 */
       ele.classList.add("on");
-      console.log(topval);
+      // console.log(topval);
 
       setTimeout(() => {
         let bottomTit = document.querySelector(".bottom-Tit");

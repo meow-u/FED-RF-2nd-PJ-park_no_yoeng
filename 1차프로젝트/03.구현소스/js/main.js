@@ -1,26 +1,26 @@
 // console.log('1. 모듈로 메인js호출확인');
 
 /* 내함수 js 가져오기 (새이름지음)*/
-import dFn from './my_function.js';
+import dFn from "./my_function.js";
 
 /* 미디어쿼리 js 가져오기 (새이름지음) */
-import mediaJs from './media.js';
+import mediaJs from "./media.js";
 /* 미디어쿼리js 첫호출 */
 mediaJs();
 // 데이터 셋팅 파일 불러오기★★ ///
-import * as sbData from "../data/sb_data.js";
+//호출필요x  sbData 객체에 모듈의 모든 값과 함수가 포함되어 있기 때문
+import * as sbData from "../data/sb_data.js"; 
+/* html 만들어 뿌려주는 js */
 import makeHtml from "./make_html.js";
-makeHtml();
+makeHtml(); //이런건 호출해야됨! 
 
-console.log(sbData);
-console.log(sbData.footerData);
+window.onload = () => { //페이지와 모든 자원이 로드된 후 해당 함수가 실행
 
 // 스벅 PJ 메인 JS - main.js //////////////
 /****************************************
   [ 마우스 커서 따라다니기 ]
   대상선정 : html
  ****************************************/
-
 
 let html = dFn.qs("html"); /* 문서 */
 let tg = dFn.qs(".cursor"); /* 커서 */
@@ -40,70 +40,61 @@ html.onmouseleave = (e) => {
   tg.style.opacity = "0";
 };
 
-
 /****************************************
  [ 상단메뉴 오버시 서브메뉴 보이기 ]
   대상선정 : .gnb .menu
  ****************************************/
 /* 처음로딩후 실행안되니 호출꼭 하기 */
-  gnbType();
-  dFn.addEvt(window, "resize", gnbType);
-  function gnbType() {
-    if (window.innerWidth > 700) {
-      
-      
-      let menu = dFn.qsa(".gnb .menu");
-      
-      console.log("메뉴개수:", menu.length, menu);
-      
-      for (let i = 0; i < menu.length; i++) {
-        menu[i].onmouseenter = function () {
-      
-          let tg = dFn.qsEl(this,'.submenu');
-          console.log('타겟',tg);
-          // 해당 메뉴 하위 서브 속박스 높이값
-          let mh = dFn.qsEl(this,'.sub-wrap').offsetHeight;
-          console.log("높이:", mh);
-          // 대상 높이값 지정하기
-          tg.style.height = mh + "px";
-          tg.style.transition = ".4s ease-in-out";
-      
-          this.classList.add("gnbOn");
-          dFn.qsEl(this,"a").style.color = "white";
-        }; ///마우스 오버 이벤트함수///
-      
-        menu[i].onmouseleave = function () {
-          let tg = dFn.qsEl(this,".submenu");
-          // 대상 높이값 지정하기
-          tg.style.height = "0px";
-          tg.style.transition = ".4s ease-in-out";
-      
-          this.classList.remove("gnbOn");
-          dFn.qsEl(this,"a").style.color = "#9f9f9f";
-        }; ///마우스 떠날때 이벤트함수///
-      } /// for ///
+gnbType();
+dFn.addEvt(window, "resize", gnbType);
+function gnbType() {
+  if (window.innerWidth > 700) {
+    let menu = dFn.qsa(".gnb .menu");
 
+    console.log("메뉴개수:", menu.length, menu);
 
+    for (let i = 0; i < menu.length; i++) {
+      menu[i].onmouseenter = function () {
+        let tg = dFn.qsEl(this, ".submenu");
+        console.log("타겟", tg);
+        // 해당 메뉴 하위 서브 속박스 높이값
+        let mh = dFn.qsEl(this, ".sub-wrap").offsetHeight;
+        console.log("높이:", mh);
+        // 대상 높이값 지정하기
+        tg.style.height = mh + "px";
+        tg.style.transition = ".4s ease-in-out";
+
+        this.classList.add("gnbOn");
+        dFn.qsEl(this, "a").style.color = "white";
+      }; ///마우스 오버 이벤트함수///
+
+      menu[i].onmouseleave = function () {
+        let tg = dFn.qsEl(this, ".submenu");
+        // 대상 높이값 지정하기
+        tg.style.height = "0px";
+        tg.style.transition = ".4s ease-in-out";
+
+        this.classList.remove("gnbOn");
+        dFn.qsEl(this, "a").style.color = "#9f9f9f";
+      }; ///마우스 떠날때 이벤트함수///
+    } /// for ///
   } /////if//////
   else {
-  // 700 미만일 때 실행할 코드
-  let menu = dFn.qsa(".gnb .menu");
-  for (let i = 0; i < menu.length; i++) {
-    menu[i].onmouseenter = null;
-    menu[i].onmouseleave = null;
-  }
+    // 700 미만일 때 실행할 코드
+    let menu = dFn.qsa(".gnb .menu");
+    for (let i = 0; i < menu.length; i++) {
+      menu[i].onmouseenter = null;
+      menu[i].onmouseleave = null;
+    }
   } /////////else//////
 } //////////gnbType 리사이즈 이벤트함수 ///////////
-
-
-
 
 /****************************************
   [ 중앙이미지만 오버시 .center 클래스 넣고 빼기 ]
   (밝아지는효과 적용된 클래스)
  ****************************************/
-let visualView = dFn.qs('.visualView');
-let centerImg = dFn.qs('.img2');
+let visualView = dFn.qs(".visualView");
+let centerImg = dFn.qs(".img2");
 
 visualView.onmouseenter = function () {
   centerImg.classList.remove("center");
@@ -158,7 +149,7 @@ for (let i = 0; i < ol.length; i++) {
     ol[i].querySelector("a").classList.remove("olOn");
   };
 }
- /********************************************
+/********************************************
  [ 뉴스영역에서 스크롤방향  가로로 바꾸기 ]
 *******************************************/
 // 움직일 박스
@@ -213,7 +204,6 @@ window.addEventListener("scroll", () => {
   }
 });
 
-
 /******************************************** 
   // [ 상품정보 영역에서 스크롤시 원형이미지 돌리기 ]
   *가상요소의 속성을 사용자정의 변수 등록해서 트랜스폼 주기 
@@ -243,9 +233,9 @@ window.addEventListener("scroll", () => {
 //변경요소: letterItems>p 들
 const reserveArea = dFn.qs(".reserve-area.inbox");
 const letters = dFn.qsa(".letterItems>p");
-const newsImgs = dFn.qsa('.infobox img')
-const infoTxt = dFn.qsa('.infowrap > [class^="infobox b"]')
-console.log("리저브대상:", reserveArea, letters, newsImgs,'머양>',infoTxt);
+const newsImgs = dFn.qsa(".infobox img");
+const infoTxt = dFn.qsa('.infowrap > [class^="infobox b"]');
+console.log("리저브대상:", reserveArea, letters, newsImgs, "머양>", infoTxt);
 
 // 보이는 화면에서의 위치값 리턴 함수 getBoundingClientRect()
 const topVal = (x) => x.getBoundingClientRect().top;
@@ -253,14 +243,13 @@ const topVal = (x) => x.getBoundingClientRect().top;
 window.addEventListener("scroll", transFn);
 
 function transFn() {
-
-/* 이미지 */
-  newsImgs.forEach(x=>{
+  /* 이미지 */
+  newsImgs.forEach((x) => {
     let topval = topVal(x);
 
     if (topval <= 800 && topval > 0) {
       // 화면 내에 등장한 경우
-      x.style.transition = '.5s';
+      x.style.transition = ".5s";
       x.style.transform = `translateY(${topval * -0.02}px)`;
       x.style.opacity = 1;
     } else if (topval > 800) {
@@ -268,9 +257,8 @@ function transFn() {
       x.style.transform = `translateY(0px)`;
       x.style.opacity = 0;
     }
-    
   });
-/* letter */
+  /* letter */
   letters.forEach((x) => {
     let topval = topVal(x);
     // console.log(x, topval);
@@ -283,7 +271,7 @@ function transFn() {
       // 화면아래로 벗어난 경우
       x.style.transform = `translateY(0px) scale(0)`;
       x.style.opacity = 0;
-      x.style.fontStyle = 'italic';
+      x.style.fontStyle = "italic";
     }
   });
   /* 설명 */
@@ -292,15 +280,13 @@ function transFn() {
 
     if (topval <= 800 && topval > 0) {
       // 화면 내에 등장한 경우
-      x.style.transition = '2s';
+      x.style.transition = "2s";
       x.style.opacity = 1;
     } else if (topval > 800) {
       // 화면아래로 벗어난 경우
       x.style.opacity = 0;
     }
-
-  })
-
+  });
 }
 
 /******************************************** 
@@ -339,32 +325,41 @@ function moveFn() {
     h4.style.opacity = "0";
   }
 
-  if (topval <= (-110)) {
+  if (topval <= -110) {
     items.forEach((ele) => {
       /* 카드펼치는 클래스넣기 */
       ele.classList.add("on");
       // console.log(topval);
 
       setTimeout(() => {
-        let bottomTit = document.querySelector(".bottom-Tit");
-        // console.log(bottomTit);
+        window.onload = function() { //자꾸 bottomTit이 null 떠서 적용
+          
+          let bottomTit = document.querySelector(".bottom-Tit");
+          console.log("대상", bottomTit);
 
-        bottomTit.style.transition = "2s";
-        bottomTit.style.opacity = "1";
+          bottomTit.style.transition = "2s";
+          bottomTit.style.opacity = "1";
+  
+        }
       }, 1000);
     });
   } //// if ////
-  else if (topval > (-110)) {
+  else if (topval > -110) {
     items.forEach((ele) => {
       /* 카드펼치는 클래스빼기 */
       ele.classList.remove("on");
 
       setTimeout(() => {
-        let bottomTit = document.querySelector(".bottom-Tit");
-        // console.log(bottomTit);
+      
+          window.onload = function() { //자꾸 bottomTit이 null 떠서 적용
 
-        bottomTit.style.transition = "2s";
-        bottomTit.style.opacity = "0";
+          let bottomTit = document.querySelector(".bottom-Tit");
+          console.log("대상", bottomTit);
+
+          bottomTit.style.transition = "2s";
+          bottomTit.style.opacity = "0";
+        }
+
       }, 1000);
     });
   }
@@ -403,3 +398,5 @@ items.forEach((ele) => {
     }
   };
 });
+
+};

@@ -8,24 +8,12 @@ import mediaJs from './media.js';
 /* 미디어쿼리js 첫호출 */
 mediaJs();
 // 데이터 셋팅 파일 불러오기★★ ///
-import {footerData} from '../data/sb_data.js';
+import * as sbData from "../data/sb_data.js";
+import makeHtml from "../JS/make_html.js";
+makeHtml();
 
-console.log(footerData);
-const fcont = dFn.qs('.footer.cont2');
-console.log(footerData);
-
-let myhcode = '';
-footerData.forEach(v=>{
-  myhcode += `
-  <div class="footer ${v[0]}">${
-    v[1].map(v=>`<a href="#"><div>${v}</div></a>`).join('')
-  }</div>
-
-  `
-})
-
-console.log(myhcode);
-fcont.innerHTML = myhcode;
+console.log(sbData);
+console.log(sbData.footerData);
 
 // 스벅 PJ 메인 JS - main.js //////////////
 /****************************************

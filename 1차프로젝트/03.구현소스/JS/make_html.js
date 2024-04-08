@@ -21,9 +21,8 @@ sbData.footerData.forEach(v=>{ //여기서 v는  [ val, [val] ] 각각 총 4개
   // console.log('v',v);
   hcode += `
   <div class="footer ${v[0]}">
-  ${v[1].map(v=>`<a href="#"><div>${v}</div></a>`).join('')}
+  ${v[1].forEach(ele=>{ `<a href="#"><div>${ele}</div></a>` })}
   </div>
-
   `
 })
 

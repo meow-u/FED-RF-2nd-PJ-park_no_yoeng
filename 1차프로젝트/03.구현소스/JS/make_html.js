@@ -1,5 +1,4 @@
-/* 내함수 js 가져오기 (새이름지음)*/
-import dFn from './my_function.js';
+
 // 데이터 셋팅 파일 불러오기★★ ///
 import * as sbData from "../data/sb_data.js";
 
@@ -13,21 +12,21 @@ export default function () {
 // ( ()=>{랩핑할코드} )();   <-즉시실행됨
 
 (()=>{ /////////코드 랩핑 ////////////
-const fcontBox = dFn.qs('.footer.cont2');
+const fcont = dFn.qs('.footer.cont2');
 console.log(sbData.footerData);
 
-let hcode = '';
-sbData.footerData.forEach(v=>{ //여기서 v는  [ val, [val] ] 각각 총 4개
-  // console.log('v',v);
-  hcode += `
-  <div class="footer ${v[0]}">
-  ${v[1].forEach(ele=>{ `<a href="#"><div>${ele}</div></a>` })}
-  </div>
+let myhcode = '';
+sbData.footerData.forEach(v=>{
+  myhcode += `
+  <div class="footer ${v[0]}">${
+    v[1].map(v=>`<a href="#"><div>${v}</div></a>`).join('')
+  }</div>
+
   `
 })
 
-console.log(hcode);
-fcontBox.innerHTML = hcode;
+console.log(myhcode);
+fcont.innerHTML = myhcode;
 })();/////////코드 랩핑 ////////////
 
 

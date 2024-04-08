@@ -737,7 +737,7 @@ ul.gnb a:hover {
 
 .col-12 > .cont2 > .info1 {
    display: flex;
-   justify-content: space-evenly;
+   justify-content: center;
    position: relative;
    margin: 0 auto;
    margin-bottom: 0.5%;
@@ -757,6 +757,7 @@ ul.gnb a:hover {
 }
 
 .col-12 > .cont2 a {
+   padding: 0 2%;
    color: #fff;
 }
 .col-12 > .cont2 > .info2 {

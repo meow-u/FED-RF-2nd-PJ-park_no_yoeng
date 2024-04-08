@@ -9,7 +9,7 @@ import mediaJs from './media.js';
 mediaJs();
 // 데이터 셋팅 파일 불러오기★★ ///
 import * as sbData from "../data/sb_data.js";
-import makeHtml from "../JS/make_html.js";
+import makeHtml from "./make_html.js";
 makeHtml();
 
 console.log(sbData);
@@ -387,7 +387,7 @@ items.forEach((ele) => {
     tg.style.boxShadow = "inset 0px 0px 15px 5px #bdff38";
 
     /* 개별 items에 마우스올릴시 전체 items효과  */
-    for (x of items) {
+    for (let x of items) {
       x.style.filter = "grayscale(5) brightness(0.5)";
     }
     ele.style.filter = "none";
@@ -398,7 +398,7 @@ items.forEach((ele) => {
     tg.style.boxShadow = "none";
 
     /* 개별 items에 마우스아웃시 전체 items효과  */
-    for (x of items) {
+    for (let x of items) {
       x.style.filter = "none";
     }
   };

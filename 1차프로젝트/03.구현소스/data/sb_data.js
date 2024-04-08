@@ -29,8 +29,8 @@ const footerData =
 [
     ["info1",["스타벅스소개","문의하기","사이트맵"]],
     ["info1",["로그인","회원가입","회원가입"]],
-    ["info2",["COMPANY","CORPORATE","PARTNERSHIP"]],
-    ["info3",["개인정보처리방침","영상정보처리기기","홈페이지"]],
+    ["info2",["COMPANY","CORPORATE SALES","PARTNERSHIP","ONLINE COMMUNITY","RECRUIT"]],
+    ["info3",["개인정보처리방침","영상정보처리기기 운영관리 방침","홈페이지 이용약관","위치정보 이용약관","스타벅스 카드 이용약관","신세계 유니버스 클럽 이용약관","비회원 이용약관","My DT Pass 서비스 이용약관","윤리경영 핫라인"]],
 ];
 
 

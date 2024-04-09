@@ -99,11 +99,13 @@ stBox.innerHTML = hcode;
      대상영역 : .subbox.food
 
 ************************************/
-  (()=>{ /////////코드 랩핑 ////////////
+(()=>{ /////////코드 랩핑 ////////////
 const beenBox = dFn.qs('.subbox.been')
 const drinkBox = dFn.qs('.subbox.drink')
 const foodBox = dFn.qs('.subbox.food')
+console.log('대상',beenBox,drinkBox,foodBox);
 
+//beenBox
 let hcode = '';
 sbData.beenData.forEach((v) => {
   
@@ -116,11 +118,92 @@ sbData.beenData.forEach((v) => {
       </div>
    `
 });
-//  console.log(hcode,beenBox);
+//  console.log('원두코드',hcode,beenBox);
  beenBox.innerHTML = hcode
 
-  })();/////////코드 랩핑 끗////////////
+//drinkBox
+//기존 hcode 값지우기
+hcode = '';
+ sbData.drinkData.forEach((v) => {
+  
+  hcode += `
+      <div class="imgbox">
+      <a href="#"
+      ><img src="./images/${v.img}" alt="${v.alt}"/></a>
+      <p>${v.이름}</p>
+      <p>${v.추가정보}</p>
+      </div>
+   `
+});
+//  console.log('음료코드',hcode,drinkBox);
+drinkBox.innerHTML = hcode
+
+//foodBox
+//기존 hcode 값지우기
+hcode = '';
+ sbData.foodData.forEach((v) => {
+  
+  hcode += `
+      <div class="imgbox">
+      <a href="#"
+      ><img src="./images/${v.img}" alt="${v.alt}"/></a>
+      <p>${v.이름}</p>
+      <p>${v.추가정보}</p>
+      </div>
+   `
+});
+ console.log('푸드코드',hcode,foodBox);
+foodBox.innerHTML = hcode
+ })();/////////코드 랩핑 끗////////////
+
+
+/************************************
+     [5) 리저브 영역 데이터 넣기] 
+     대상영역 : .infowrap
+     객체의 type 별로 if문 분기하여
+     별도 작성 하되 전체배열 순서대로 !!
+
+************************************/
+ (()=>{ /////////코드 랩핑 ////////////
+  
+  const reserveBox = dFn.qs('.infowrap')
+
+  let hcode = '';
+sbData.reserveContData.forEach( x => {
+
+  if (x.type === 'text') {
+    // x.content.forEach(text => {});
+
+    hcode += `
+    <div class="infobox ${x.className}">
+    <p>${x.content[0]}</p>
+    <p>${x.content[1]}</p>
+    </div>
+    `;   
+    
+  } //// if ////
+  else if (x.type === 'image') {
+    // x.images.forEach(imgSrc => {});
+    hcode += `
+    <div class="infobox ${x.className}">
+    <div><img src="${x.images[0]}" alt="" /></div>
+    <div><img src="${x.images[1]}" alt="" /></div>
+    </div>
+    `;
+ 
+  } //// else if ////
+
+
+}); ////////// for each ////////////
+console.log('완성된 hcode값:',hcode);
+reserveBox.innerHTML = hcode;
+
+})();/////////코드 랩핑 끗////////////
+
+
+
 
 
   
 }///////////// export default //////////
+

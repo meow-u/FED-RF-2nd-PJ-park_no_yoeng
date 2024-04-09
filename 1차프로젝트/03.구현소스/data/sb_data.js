@@ -192,7 +192,7 @@ const foodData = [
    },
 ];
 
-// 3. 리저브 내용 데이터 
+// 4. 리저브 내용 데이터 
 /************************************* 
     [ 데이터항목 : 리저브영역 텍스트 구성 ]
 *************************************/
@@ -256,33 +256,38 @@ const reserveContData = [
   }
 ];
 
+// 5. 뉴스영역 데이터
+/********************************************* 
+    [ 데이터항목 : 뉴스영역 이미지+텍스트 구성 ]
+*********************************************/
+const newsData = [
+   {
+      class: 'n01',
+      img: 'news1.jpg',
+      alt: 'news1',
+      title: '2월 22일, 리저브 MD 출시',
+   },
+   {
+      class: 'n02',
+      img: 'news2.jpg',
+      alt: 'news2',
+      title: '2월 15일, 스프링 프로모션 MD 출시',
+   },
+   {
+      class: 'n03',
+      img: 'news3.jpg',
+      alt: 'news3',
+      title: '데스크테리어 컬렉션 MD 출시',
+   },
+   {
+      class: 'n04',
+      img: 'news4.jpg',
+      alt: 'news4',
+      title: '2월 22일, 리저브 MD 출시',
+   },
+]
+
 // 데이터 공개하기 ///
 export { footerData, spStoreData, 
   beenData, drinkData, foodData , 
-  reserveContData };
-
-
-//   <div class="newsbox n01">
-//   <figure>
-//     <a href="#"><img src="./images/news1.jpg" alt="" /></a>
-//   </figure>
-//   <a href="#">2월 22일, 리저브 MD 출시</a>
-// </div>
-// <div class="newsbox n02">
-//   <figure>
-//     <a href="#"><img src="./images/news2.jpg" alt="" /></a>
-//   </figure>
-//   <a href="#">2월 15일, 스프링 프로모션 MD 출시</a>
-// </div>
-// <div class="newsbox n03">
-//   <figure>
-//     <a href="#"><img src="./images/news3.jpg" alt="" /></a>
-//   </figure>
-//   <a href="#">데스크테리어 컬렉션 MD 출시 <br /></a>
-// </div>
-// <div class="newsbox n04">
-//   <figure>
-//     <a href="#"><img src="./images/news4.jpg" alt="" /></a>
-//   </figure>
-//   <a href="#">3월 1일, 삼일절 기념 MD 출시</a>
-// </div>
+  reserveContData, newsData };

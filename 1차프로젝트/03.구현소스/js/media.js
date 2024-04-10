@@ -58,13 +58,8 @@ export default function () {
         x.onclick = showSlide; //전달변수없이 실행
       }
 
-      if(overAutoCut) return;
-      overAutoCut = true;
-      setTimeout(() => {
-      overAutoCut = false;
-      }, 5000);
+      
       //자동실행 함수호출 
-      //(리사이징시 계속 누적 호출되지않도록 광실행방지)
       autoSlide();
 
     } ///if///
@@ -133,10 +128,20 @@ export default function () {
 
   // [ 자동실행 함수 ]
   function autoSlide() {
-    if(window.innerWidth <1000)
-    autoI = setInterval(() => {
-      showSlide(false, false);
-    }, 5000); ///3초마다 실행되는 너낌
+
+    //(리사이징시 계속 누적 호출되지않도록 광실행방지)
+    // overAutoCut이 true인 경우 함수 실행을 중단
+    if (overAutoCut) return; 
+    overAutoCut = true;
+    setTimeout(() => {
+      overAutoCut = false;
+    }, 5000);
+
+      autoI = setInterval(() => {
+        if(window.innerWidth <1000)
+        showSlide(false, false);
+      }, 5000); ///3초마다 실행되는 너낌
+
   } ////// autoSlide 함수 //////////
 
   /// [ 인터발 지우기 함수 ]

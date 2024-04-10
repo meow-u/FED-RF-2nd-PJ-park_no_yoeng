@@ -39,12 +39,10 @@ export default function () {
   let overClickCut = false;
   // 광오토금지 변수
   let overAutoCut = false;
-/* ______________________________________________________________________________________ */
-        /* 왜 이 선언을  export default function () {} 안에서 하면 작동을 이상하게 하지??
-        115줄에 작성하면 잘됨  */
-        let bgCont = bgBox.querySelectorAll(".bg"); 
-        console.log('default 펑션에서의 bgCont[0]',bgCont[0]);
-        
+
+  let bgCont = bgBox.querySelectorAll(".bg"); 
+  console.log('default 펑션에서의 bgCont[0]',bgCont[0]);
+  
   handleResize();
   // 윈도우 리사이즈 감시 이벤트 설정
   domFn.addEvt(window, "resize", handleResize);
@@ -135,7 +133,8 @@ export default function () {
 
   // [ 자동실행 함수 ]
   function autoSlide() {
-   autoI = setInterval(() => {
+    if(window.innerWidth <1000)
+    autoI = setInterval(() => {
       showSlide(false, false);
     }, 5000); ///3초마다 실행되는 너낌
   } ////// autoSlide 함수 //////////

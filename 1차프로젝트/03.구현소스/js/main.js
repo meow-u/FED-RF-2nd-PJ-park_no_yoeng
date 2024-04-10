@@ -325,14 +325,15 @@ function moveFn() {
     h4.style.opacity = "0";
   }
 
-  if (topval <= -110) {
+  if (topval <= -110) {           1
     items.forEach((ele) => {
       /* 카드펼치는 클래스넣기 */
       ele.classList.add("on");
-      // console.log(topval);
+      // console.log(topval);!!.
 
       setTimeout(() => {
         window.onload = function() { //자꾸 bottomTit이 null 떠서 적용
+        
           
           let bottomTit = document.querySelector(".bottom-Tit");
           console.log("대상", bottomTit);

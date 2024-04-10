@@ -199,11 +199,13 @@ foodBox.innerHTML = hcode
     let hcode = '';
     sbData.reserveTopData.forEach( x => {
       hcode += `
-      <img
-      class="${x.class}"
-      src="./images/${x.img}"
-      alt="${x.alt}"
-      />    
+      <div>
+        <img
+        class="${x.class}"
+        src="./images/${x.img}"
+        alt="${x.alt}"
+        />
+      </div> 
       `;
     }); ////for each ///
     // console.log(hcode);

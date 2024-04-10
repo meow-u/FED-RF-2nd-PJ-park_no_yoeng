@@ -163,8 +163,27 @@ const tg2 = document.querySelector(".news-area");
 let tg2Width = tg2.offsetWidth;
 // 보이는박스높이
 let tg2Height = tg2.offsetHeight;
+
+
+// _____________________너비 700 이하일때 뉴스영역 스크롤 길이 조절 _____________________
+window.addEventListener('resize',transAllowWidth)
+let transVal = 0;
+transAllowWidth()
+function transAllowWidth() {
+  if(window.innerWidth<700){
+    transVal = 1000;
+  }
+  else {
+    transVal = 0;
+  }
+}
+//_________________________________________________________________________________
+
 // 가용길이 : 전체 가로크기 - 보이는 가로크기 = 실제 이동가능한 길이
-let allowWidth = tg1Width - tg2Width + 0;
+let allowWidth = tg1Width - tg2Width + transVal ;
+
+
+
 // 스티키부모박스높이
 let allowHeight = tg2Height + allowWidth;
 
@@ -192,7 +211,7 @@ window.addEventListener("scroll", () => {
   if (pos > 0) {
     tg0.style.left = "0px";
   } else if (pos < 0 && pos > limitNum) {
-    console.log("작동!");
+    // console.log("작동!");
     tg0.style.left = pos + "px";
 
     const news = document.querySelectorAll(".news-col .newsbox");

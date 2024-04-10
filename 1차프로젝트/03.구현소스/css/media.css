@@ -67,8 +67,23 @@
     flex-shrink: 0;
     flex-basis: 50%;
   }
+
+
+/* 리저브 내용 */
+/* 인포박스부모 */
+.reserve-area .infowrap {
+  flex-direction: column;
+  }
+  /* 기존 50%이었던거 덮기 */
+  .reserve-area .infowrap > .infobox {
+      width: auto;
+  }
+/* 리저브영역 이미지 */
+.reserve-area .infowrap > .infobox img {
+  width: 80vw;
 }
 
+}
 /***************** 1000 px 이하 미디어 쿼리 종료 *****************/
 
 /***************** 700 px 이하 미디어 쿼리 시작 *****************/
@@ -77,7 +92,10 @@
   body > .cursor {
     display: none;
   }
-
+  /* 탑메뉴 */
+  .tmenu li a {
+    /* font-size: 1rem; */
+  }
   /* 네비 */
   ul.gnb {
     flex-direction: column;
@@ -90,7 +108,7 @@
   nav.gnb {
     margin-left: auto;
     overflow: hidden;
-    padding-top: 40px;
+    padding-top: 50px;
     /* height: auto; */
     transition: 0.3s;
   }
@@ -136,8 +154,16 @@
   .gnb li a {
     width: auto;
   }
+  h1.logo > a:first-child {
+    /* 세이렌박스 */
+    padding-top: none;
+  }
 
-  /* 로고 */
+  h1.logo a:nth-of-type(1) > img {
+    /* 세이렌 이미지 */
+    width: 40px;
+  }
+  /* 하얀영어글자로고 */
   h1.logo a:nth-of-type(2) {
     transform: scale(1.5) translateX(-32%) translateY(11%);
   }
@@ -146,46 +172,169 @@
     margin-top: -1px;
   }
 
-
-/* +모양 가상요소 */
+  /* +모양 가상요소 */
   nav.gnb::before {
     position: absolute;
-    content: '+';
-    top: 0px;
+    content: "+";
+    top: 7px;
     right: 5%;
     color: #fff;
     z-index: 10;
     font-size: 3rem;
     font-weight: bolder;
     scale: 1.5;
-    margin-top: -0.5%;
-    padding-bottom: 2%;
+    line-height: 1;
+    /* margin-top: -0.5%; */
+    /* padding-bottom: 2%; */
     transform: rotate(0deg);
     transform-origin: center center;
     /* 트랜지션 */
     transition: 0.4s;
     transform: rotate(var(--gnb-btn-rotate, 0deg));
+  }
+
+  /* 로고 랩박스 */
+  .logo-wrap.n01 {
+    height: auto;
+    width: 80%;
+  }
+
+  .box h2 {
+    font-size: 3.5rem;
+  }
+
+  .box p {
+    font-size: 1.3rem;
+  }
+
+  .logo-wrap.n02 {
+    top: 50vh;
+    height: auto;
+    width: 80%;
+    left: 100%;
+    border-radius: 50px 0px 0px 50px;
+  }
+  /* 세이렌호버시 형제관계 랩박스의 직계자식중 n02, */
+  /* 랩박스 호버시 직계자식중 두번번째자식 */
+  h1.logo a:nth-of-type(1):hover ~ .wrap-box > .n02,
+  .wrap-box:first-of-type:hover > .logo-wrap:nth-child(2) {
+    left: 20%;
+  }
+  /* 라인안내 */
+
+  .line-notice-area .cont-box .col-6 {
+    padding: 1.5vh 0px;
+    flex-direction: column;
+  }
+  .col-6 h2 {
+    padding-right: 0px;
+  }
+
+  /* 배너이미지 가상요소  */
+  .ban-area .visualView .bg span {
+    left: 20%;
+  }
+  .ban-area .visualView .bg p {
+    font-size: 1.5rem;
+    width: 50vw;
+  }
+
+  /* 배너이미지 버튼 */
+  /* 사진별 a버튼 */
+  .bg a {
+    padding: 1vw 3vw;
+    font-size: 2rem;
+    height: auto;
+    
+    width: fit-content;
+    top: -220%;
+    /* left: 15%; */
+  }
+
+
+  .rewards > .col-3, .col-4 {
+    width: auto;
+  }
+
+/* 리워드 스벅로고 */
+  .rewards img {
+    width: 50%;
+}
+ .rewards h2 {
+    font-size: 2rem;
+    padding-bottom: 1vh;
 }
 
-/* 로고 랩박스 */
-.logo-wrap.n01 {
-  height: 50vh;
-  width: 80%;
+/* 리워드 하단글씨 */
+.rewards .col-4 div:nth-of-type(1) > p,.rewards .col-4 div:nth-of-type(2) > p{
+  font-size: 1.5rem;
+  padding-bottom: 5%;
+}
+.rewards>div {
+  width: 85%;
+}
+/* 리워드버튼 */
+.rewards .button > p {
+  font-size: 2rem;
 }
 
-.box h2 {
-  font-size: 3.5rem;}
-
-
-.box p {
-  font-size: 1.3rem;
+.rewards .button {
+  padding: 1vw 3vw;
+  border: 2px solid rgb(255, 255, 255);
+}
+/* 마지막버튼 패딩 */
+.rewards .button.b3 {
+  margin-bottom: 10%;
 }
 
-.logo-wrap.n02 {
-  top: 45vh;
-  width: 80%;
-  left: 20%;
+  /* 뉴스영역 */
+  /* 라운드 밝은 공간부분 */
+
+ section.news-area.inbox,.news-area::before {
+  height: 450px;
+  border-radius: 0px 0px 100px 100px;
+ }
+
+ /* 리저브탑이미지 */
+ .reserve-area > .cont-box > .col-12 img.reserve1 {
+  width: 80%
+  }
+  .reserve-area > .cont-box > .col-12 img.reserve2 {
+      width: 200%;
+  }
+  
+/* 리저브내용이미지 */
+  .reserve-area .infowrap > .infobox img {
+    width: 100vw;
 }
 
-}
-/***************** 700 px 이하 미디어 쿼리 종료 *****************/
+
+/* 리저브마지막초록박스 */
+.reserve-area .infowrap > .infobox.b4 {
+
+  border-radius: 0 0 0 0;
+  
+      margin: 10% 0;
+      padding-top: 5%;
+      padding-bottom: 10%;
+      margin-right: 0%;
+      text-align: center;
+      width: 100%;
+    }
+  
+  /* 인포박스 p */
+  .reserve-area .infowrap > .infobox  p {
+    font-size: 1.4rem;
+  }
+  
+  .reserve-area .infowrap > .infobox.b4 > p:nth-child(2) {
+    font-size: 1.1rem;
+    margin: 0 auto;
+    width: 49%;
+    text-align: center;
+    border-bottom:none;
+    
+    padding-left: 0%;
+  }
+
+} /***************** 700 px 이하 미디어 쿼리 종료 *****************/

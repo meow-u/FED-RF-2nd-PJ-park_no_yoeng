@@ -171,10 +171,15 @@ body {
   position: sticky;
   top: 0px;
   height: 500px;
-  padding-bottom: 7%;
+  /* padding-bottom: 7%; */
   
   /* 옆으로 넘치는부분 가림 */
   overflow: hidden;
+}
+/* 내부 각각뉴스 잘리지않도록 뉴스박스 보라드 적용 */
+section.news-area.inbox {
+  height: 600px;
+  border-radius: 0px 0px 30% 30%;
 }
 
 
@@ -193,7 +198,7 @@ body {
   top: 30%;
   /* 가로화면 줄어들때 같이 줄어들도록 vw씀 */
   width: 300vw;
-  gap: 3vw;
+  gap: 5vw;
 }
 
 
@@ -307,7 +312,8 @@ figure:hover {
 }
 /* 배경설정 */
 .reserve-area {
-  height: 4000px;
+  /* height: 4000px; */
+  /* height: 600vw; */
   background: url(../images/reserve_bg.jpg) no-repeat fixed center/cover;
 }
 .reserve-area > .cont-box {
@@ -323,38 +329,44 @@ figure:hover {
 .reserve-area > .cont-box > .col-12 > .reservebox {
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-
   position: relative;
-  height: 700px;
   padding-top: 25%;
-  background-color: black;
+  overflow: hidden;
 }
 
 /* 리저브 탑 로고*/
 .reserve-area > .cont-box > .col-12 img.reserve1 {
+  position: relative;
   width: 45%;
   filter: invert(0.9);
-  padding-bottom: 5%;
+  /* padding-bottom: 5%; */
 }
 /* 리저브 탑 이미지 */
 .reserve-area > .cont-box > .col-12 img.reserve2 {
   position: relative;
   width: 100%;
+  
 }
 /* 리저브 별 이미지 */
 .reserve-area > .cont-box > .col-12 img.reserve3 {
   position: relative;
   width: 10%;
-  padding: 20px;
+}
+
+
+.reservebox>div {
+  padding-bottom: 5%;
+  flex-basis: 100%;
+}
+
+.reservebox img {
+  left: 50%;
+  translate: -50% 0px;
 }
 
 /* 인포박스부모 */
 .reserve-area .infowrap {
   position: relative;
-  top: 5%;
   color: #fff;
   font-size: 2rem;
   display: flex;
@@ -367,7 +379,7 @@ figure:hover {
 
 /* 인포박스개별 */
 .reserve-area .infowrap > .infobox {
-  padding-bottom: 5%;
+  padding-bottom: 15%;
   width: 40%;
 }
 
@@ -399,17 +411,20 @@ figure:hover {
 
 /* 인포박스 img */
 .reserve-area .infowrap > .infobox img {
-  border-radius: 19%;
+  /* border-radius: 19%; */
+  width: 100%;
+  scale: 0.9;
   background-color: #000000db;
-  padding: 13% 0;
-  width: 90%;
-  margin: 0 5%;
+  /* padding: 13% 0; */
+  position: relative;
+  left: 50%;
+  translate: -50%;
 }
 /* 인포박스 img 2 */
 .reserve-area .infowrap > .infobox > div:nth-child(2) > img {
-  scale: 0.8;
-  margin-left: -47%;
-  margin-top: -34%;
+  /* scale: 0.8; */
+  /* margin-left: -47%;
+  margin-top: -34%; */
 }
 
 .reserve-area .infowrap > .infobox.b4 img {
@@ -526,7 +541,7 @@ figure:hover {
   width: 100%;
   max-height: 100%;
   object-fit: cover;
-  border-radius: 0px 0px 40%;
+  border-radius: 0px 10px 40%;
 }
 
 .cont-box > .col-6 > .subbox {

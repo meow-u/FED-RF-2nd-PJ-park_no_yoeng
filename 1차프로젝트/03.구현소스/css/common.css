@@ -768,6 +768,7 @@ ul.gnb a:hover {
    width: 60%;
    opacity: 0.8;
    border-top: 2px solid var(--body-color);
+   flex-wrap: wrap;
 
 }
 /* 푸터맨아래 플랙스박스 */

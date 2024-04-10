@@ -60,7 +60,7 @@ export default function () {
 
       
       //자동실행 함수호출 
-      autoSlide();
+      // autoSlide();
 
     } ///if///
 
@@ -96,7 +96,7 @@ export default function () {
     if (isRbtn) {
       // console.log("r버튼! 2초 움직여라");
       bgBox.style.left = "-100%";
-      bgBox.style.transition = "2s ease-out";
+      bgBox.style.transition = "1s ease-in-out";
 
       setTimeout(() => {
         bgBox.appendChild(bgBox.querySelectorAll(".bg")[0]);
@@ -119,7 +119,7 @@ export default function () {
       setTimeout(() => {
         console.log("2초동안 left 0!!");
         bgBox.style.left = "0%";
-        bgBox.style.transition = "2s ease-out";
+        bgBox.style.transition = "1s ease-in-out";
       }, 0); //left를 두번바꾸므로 비동기화 위해서 타임아웃걸음
     } /// isRbtn else ///
   } //////////// showSlide 이벤트함수 //////////
@@ -155,7 +155,7 @@ export default function () {
     autoT = setTimeout(() => {
       //3.  2초후 아무작동도 안하면 너비확인후 인터발호출
       if (window.innerWidth < 1000) {
-      autoSlide();
+      // autoSlide();
       }
     }, 2000); //결과적으론 클릭이벤2초후 5초뒤실행
   } //// clearAuto ///////////////

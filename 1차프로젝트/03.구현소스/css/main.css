@@ -510,6 +510,7 @@ figure:hover {
 /*580이 고정이미지, 1160이 작은썸네일 3개 스크롤 값 */
 .product-area {
   height: 1400px;
+  /* height: auto; */
 }
 
 

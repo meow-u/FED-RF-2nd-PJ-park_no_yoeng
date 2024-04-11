@@ -650,6 +650,7 @@ ul.gnb a:hover {
 /*________________ 3. 라인안내 영역 ________________*/
 .line-notice-area > .cont-box {
    min-height: 50px;
+   flex-direction: row;
 }
 
 /* 라인안내영역 배경색,폰트색 */
@@ -663,7 +664,7 @@ ul.gnb a:hover {
 /* 내부 플렉스 */
 .line-notice-area .cont-box .col-6 {
    display: flex;
-   width: 50vw;
+   width: 50%;
    justify-content: center;
    align-items: center;
    white-space: nowrap;

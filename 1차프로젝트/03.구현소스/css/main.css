@@ -309,6 +309,7 @@ figure:hover {
 /* letter 부모자격 */
 .reserve-area.inbox{
   position: relative;
+  overflow: hidden;
 }
 /* 배경설정 */
 .reserve-area {
@@ -612,7 +613,7 @@ figure:hover {
   color: var(--sb-color);
   text-align: center;
   margin: 0px auto;
-  width: 20vw;
+  /* width: 20vw; */
 }
 
 .cont-box > .col-6 > .subbox > .imgbox > p:first-of-type {

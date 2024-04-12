@@ -741,12 +741,14 @@ ul.gnb a:hover {
    justify-content: center;
    position: relative;
    margin: 0 auto;
-   margin-bottom: 0.5%;
    font-size: 1.2rem;
    width: 30%;
+   gap: 5px;
+   margin-bottom: 0.5%;
 }
 .col-12 > .cont2 > .info1:nth-of-type(2){
    width: 20%;
+   margin-bottom: 1.5%;
 }
 .col-12 > .cont2 > .info1:nth-of-type(2)>a{
    padding: 2% 7%;
@@ -758,7 +760,7 @@ ul.gnb a:hover {
 }
 
 .col-12 > .cont2 a {
-   padding: 0 2%;
+   white-space: nowrap;
    color: #fff;
 }
 .col-12 > .cont2 > .info2 {

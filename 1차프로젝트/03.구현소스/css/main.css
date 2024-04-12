@@ -715,7 +715,7 @@ figure:hover {
   opacity: 0;
 }
 .special-store-area {
-  height: 1000px;
+  height: 1300px;
 }
 
 .special-store-area.inbox{
@@ -761,8 +761,9 @@ transform: translate(120%,0%) rotate(-5deg);
 }
 
 /* 공통 div on 모션 */
-.col-12.storebox>.store.on{
+.col-12.storebox>.store.on .info{
   transform: translate(0,0);
+  z-index: 100;
 }
 /* div 개별 on 모션 */
 .col-12.storebox>.store:nth-child(1).on{

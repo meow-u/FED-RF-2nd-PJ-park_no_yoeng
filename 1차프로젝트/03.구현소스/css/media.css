@@ -6,6 +6,18 @@
 
 /***************** 1000 px 이하 미디어 쿼리 시작 *****************/
 @media screen and (max-width: 1000px) {
+  
+  /* ****************** */
+  /* x축 스크롤없앰 -> html,body에 줄때
+  하위 박스중 sticky박스가 작동하지 않음!
+  따라서 body>* 박스에 이것을 준다! */
+  body>* {
+    /* 이거키면 하단푸터로고 없어짐; */
+    /* overflow-x: hidden; */
+  }
+  /* ****************** */
+  
+
   .ban-area .visualView {
     overflow: visible;
   }
@@ -82,6 +94,33 @@
 .reserve-area .infowrap > .infobox img {
   width: 80vw;
 }
+
+
+/* 스페셜스토어영역 */
+.col-12.storebox>.store:nth-child(2).on {
+  transform: translate(-30%, -80%) rotate(-0deg);
+}
+
+.col-12.storebox>.store:nth-child(3).on {
+  transform: translate(25%, -80%) rotate(-0deg);
+}
+
+.col-12.storebox>.store:nth-child(1).on {
+  transform: translate(70%, 50%) rotate(-0deg);
+}
+
+.col-12.storebox>.store:nth-child(4).on {
+  transform: translate(-70%, 50%) rotate(0deg);
+}
+
+
+.col-12.storebox>.store.on {
+  scale: 1.3;
+}
+
+
+
+
 
 }
 /***************** 1000 px 이하 미디어 쿼리 종료 *****************/
@@ -340,7 +379,6 @@
 
   /*________________ 8. 스페셜 매장 ________________*/
 .store-Tit{
-  top:2%;
   font-size: 5rem;
 }
 .store-Tit.sub {
@@ -359,6 +397,19 @@
 .col-12.storebox{
   margin-top: -80%;
 }
+
+/* 글자영역 */
+.store-Tit{
+  width: 50%;
+}
+.store-Tit.sub {
+  width: 50%;
+    top: -5%;
+    left: 40%;
+}
+
+
+
 } /***************** 700 px 이하 미디어 쿼리 종료 *****************/
 
 /***************** 500 px 이하 미디어 쿼리 시작 *****************/
@@ -465,5 +516,10 @@ margin-top:-50%;
 
 .col-12.storebox {
   margin-top: -35%;
+}
+
+/* 원형떔에 가로스크롤생김 */
+.pullbox {
+  overflow: hidden;
 }
 } /***************** 500 px 이하 미디어 쿼리 종료 *****************/

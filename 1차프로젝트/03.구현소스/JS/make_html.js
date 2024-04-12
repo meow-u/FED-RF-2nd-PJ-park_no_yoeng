@@ -89,21 +89,29 @@ const stBox = dFn.qs('.storebox')
 console.log(stBox);
 let hcode = ''; 
 sbData.spStoreData.forEach((v,idx) => {
-
+/*  href="#" 잠시뻄클릭안되게 */
   hcode += `
   <div class="store ${v[0]}">
-              <a href="#">
+              <a>
                 <img src="./images/store${idx+1}.png" alt="매장${idx}" />
               </a>
               <div class="info">
                 <p>${v[1].지점}</p>
                 <p>${v[1].소개}</p>
-                <span>>${v[1].태그1}</span>
+                <span>${v[1].태그1}</span>
                 <span>${v[1].태그2}</span>
               </div>
             </div>
   `;
 })
+hcode += 
+`
+<div class="colorbox"></div>
+<div class="bottom-Tit">
+  <p>더 많은 스타벅스 스페셜 스토어 정보를 <br />확인하세요</p>
+  <div><a href="">MORE VIEW</a></div>
+</div>
+`;
 // console.log(hcode);
 stBox.innerHTML = hcode;
 })();////////코드랩핑 끗//////////

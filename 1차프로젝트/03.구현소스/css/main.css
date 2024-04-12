@@ -309,11 +309,10 @@ figure:hover {
 /* letter 부모자격 */
 .reserve-area.inbox{
   position: relative;
-  overflow: hidden;
 }
 /* 배경설정 */
 .reserve-area {
-  /* height: 4000px; */
+  height: 280vw;
   /* height: 600vw; */
   background: url(../images/reserve_bg.jpg) no-repeat fixed center/cover;
 }
@@ -510,7 +509,7 @@ figure:hover {
 /*________________ 7. 상품정보 영역  ________________*/
 /*580이 고정이미지, 1160이 작은썸네일 3개 스크롤 값 */
 .product-area {
-  height: 1400px;
+  height: 160vw;
   /* height: auto; */
 }
 
@@ -715,7 +714,7 @@ figure:hover {
   opacity: 0;
 }
 .special-store-area {
-  height: 1300px;
+  height: 1000px;
 }
 
 .special-store-area.inbox{
@@ -738,7 +737,7 @@ figure:hover {
 
 /*카드 div박스 */
 .col-12.storebox>.store{
-  background-color: #000;
+  background-color: #ffffff00;
   flex-shrink: 1;
   flex-basis: 18%;
   border-radius: 10%;
@@ -782,7 +781,7 @@ transform: translate(120%,0%) rotate(-5deg);
 /* 공통 호버 모션 */
 .col-12.storebox>.store.on:hover a {
   box-shadow: 0px 0px 20px 5px rgb(0, 103, 24);
- border-radius: 40% 40% 10% 10%;
+  border-radius: 100px 100px 10% 10%;
  scale: 1.2;
 
 }
@@ -792,6 +791,7 @@ transform: translate(120%,0%) rotate(-5deg);
 
 .col-12.storebox>.store.on:hover .info{
   opacity: 1;
+  white-space: nowrap;
 }
 .col-12.storebox .info{
   padding-top: 15%;
@@ -802,6 +802,8 @@ transform: translate(120%,0%) rotate(-5deg);
   opacity: 0;
   text-align: center;
   transition: 0.3s;
+  
+  pointer-events: none;
 }
 .col-12.storebox .info>p:first-of-type{
 font-size: 1.5rem;
@@ -839,7 +841,9 @@ transition: 0.3s;
   border-radius: 50%;
   opacity: 1;
   transition: 0.5s;
-  filter:blur(30px)
+  filter:blur(30px);
+  /* 스크롤생겨서 걍왼쪽에붙임 오버플로히든주기 복잡함 */
+  translate: -15%;
 }
 .col-12.storebox>.store.on:hover~.colorbox{
   transform: scale(1.3);
@@ -870,19 +874,31 @@ transition: 0.3s;
 
 .bottom-Tit a{
   
-  box-shadow: 0px 0px 30px gainsboro;
-  position: relative;
-  display: inline-block;
-  background-color: var(--sb-color);
-  color: #fff;
-  margin-top: 5%;
-  line-height: 150%;
-  border-radius: 100px;
-  font-weight: bold;
-  font-size: 3rem;
-  padding: 0 5%;
-  border: none;
-  transition: 0.3s;
+box-shadow: 0px 0px 30px gainsboro;
+  
+position: relative;
+  
+display: inline-block;
+  
+background-color: #17171738;
+  
+color: #fff;
+  
+margin-top: 5%;
+  
+line-height: 150%;
+  
+border-radius: 100px;
+  
+font-weight: bold;
+  
+font-size: 3rem;
+  
+padding: 0 5%;
+  
+border: none;
+  
+transition: 0.3s;
 }
 
 .bottom-Tit a:before{

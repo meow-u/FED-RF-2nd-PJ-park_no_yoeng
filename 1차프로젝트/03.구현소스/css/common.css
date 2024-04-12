@@ -257,7 +257,7 @@ h1.logo a:nth-of-type(1):hover ~ .wrap-box > .n03,
 }
 .wrap-box:nth-of-type(2) {
    /* 3번째는 1,2뒤로 가도록 */
-   z-index: 3;
+   z-index: 4;
 }
 
 /* 랩박스 내부 컨텐츠 */
@@ -361,7 +361,7 @@ nav.gnb {
    background-color: var(--sb-color);
    box-sizing: border-box;
    height: 40px;
-   z-index: 2;
+   z-index: 3;
    /* 마우스 막아논 span의 자식요소인 
    얘(네비)는 선택가능하도록 */
    pointer-events: all;
@@ -710,6 +710,11 @@ ul.gnb a:hover {
 }
 
 /************* 3. 하단영역 *************/
+
+div#footer-area {
+   position: relative;
+   translate: 0 25%;
+}
 .footer-area {
    background-image: linear-gradient(var(--linear-gradient));
    background-color: var(--sb-color);

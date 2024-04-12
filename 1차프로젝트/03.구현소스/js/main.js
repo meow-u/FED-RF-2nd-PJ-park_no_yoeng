@@ -327,7 +327,7 @@ function moveFn() {
   let h4 = dFn.qs(".store-Tit.sub");
   if (topval <= 500) {
     /* 배경색 칠하기 */
-    // console.log(topval);
+    console.log(topval);
     document.body.style.backgroundColor = "#000";
     document.body.style.transition = "2s";
     // console.log("h2,h4", h2, h4);
@@ -348,20 +348,17 @@ function moveFn() {
     items.forEach((ele) => {
       /* 카드펼치는 클래스넣기 */
       ele.classList.add("on");
-      // console.log(topval);!!.
+      
+      
 
-      setTimeout(() => {
-        window.onload = function() { //자꾸 bottomTit이 null 떠서 적용
-        
-          
+
           let bottomTit = document.querySelector(".bottom-Tit");
           console.log("대상", bottomTit);
+          console.log(topval);
 
-          bottomTit.style.transition = "2s";
+          bottomTit.style.transition = "2s 1s";
           bottomTit.style.opacity = "1";
-  
-        }
-      }, 1000);
+
     });
   } //// if ////
   else if (topval > -110) {
@@ -369,18 +366,14 @@ function moveFn() {
       /* 카드펼치는 클래스빼기 */
       ele.classList.remove("on");
 
-      setTimeout(() => {
-      
-          window.onload = function() { //자꾸 bottomTit이 null 떠서 적용
+
 
           let bottomTit = document.querySelector(".bottom-Tit");
           console.log("대상", bottomTit);
 
-          bottomTit.style.transition = "2s";
+          bottomTit.style.transition = "2s 1s";
           bottomTit.style.opacity = "0";
-        }
 
-      }, 1000);
     });
   }
 } ////// moveFn 함수

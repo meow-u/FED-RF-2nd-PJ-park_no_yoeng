@@ -1,6 +1,9 @@
+/* 데이터 셋팅 파일 - html 만들어 뿌려주는 js */
 
-// 데이터 셋팅 파일 불러오기★★ ///
+// 데이터 파일 불러오기★★ ///
+//호출필요x  sbData 객체 호출시 모듈의 모든 값과 함수가 포함되어 있기 때문
 import * as sbData from "../data/sb_data.js";
+
 /* 내함수 js 가져오기 (새이름지음)*/
 import dFn from './my_function.js';
 

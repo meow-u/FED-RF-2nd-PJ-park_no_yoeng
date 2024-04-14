@@ -209,8 +209,8 @@ const drinkData = [
     idx: 4,
     img: "drink16_big.jpg",
     alt: "4번음료",
-    이름: "핑크 드링크 위드 딸기 아사이 스타벅스 리프레셔",
-    추가정보: "Pink Drink with Strawberry Acai Starbucks Refresher",
+    이름: "핑크 딸기 아사이 리프레셔",
+    추가정보: "Pink Drink with Strawberry Acai Refresher",
   },
 ];
 

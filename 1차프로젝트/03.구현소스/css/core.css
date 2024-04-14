@@ -19,6 +19,11 @@
     font-family: 'Nanum Gothic', sans-serif;
 */
 /***************** 공통 클래스 *****************/
+
+body{
+    /* 글자체 */
+    font-family: "Noto Sans KR", Malgun Gothic, dotum, "돋움", Arial, AppleGothic, Sans-serif;
+}
 /* 중앙속박스 */
 .inbox{
     /* 최대가로크기 */

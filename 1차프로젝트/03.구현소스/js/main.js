@@ -5,12 +5,9 @@ import dFn from "./my_function.js";
 
 /* 미디어쿼리 js 가져오기 (새이름지음) */
 import mediaJs from "./media.js";
-// 데이터 셋팅 파일 불러오기★★ ///
-//호출필요x  sbData 객체에 모듈의 모든 값과 함수가 포함되어 있기 때문
-import * as sbData from "../data/sb_data.js"; 
-/* html 만들어 뿌려주는 js */
+/* 데이터 셋팅 파일 불러오기 - html 만들어 뿌려주는 js */
 import makeHtml from "./make_html.js";
-makeHtml(); //이런건 호출해야됨! 
+makeHtml(); 
 
 /* 미디어쿼리js 첫호출 */
 mediaJs(); // 이건 html 구성요소가 다 불러진다음에 적용해야 하는 기능함수임!!

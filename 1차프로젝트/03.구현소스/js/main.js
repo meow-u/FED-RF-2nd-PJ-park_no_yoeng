@@ -1,176 +1,25 @@
-// console.log('1. 모듈로 메인js호출확인');
+// 스벅 PJ 메인 JS - main.js //////////////
 
-/* 공통 내함수 js 가져오기 (새이름지음)*/
-import dFn from "./my_function.js";
-/* 공통 미디어쿼리 js 가져오기 (새이름지음) */
-import mediaJs from "./media.js";
-
+console.log('1. 모듈로 메인js호출확인');
 
 // 공통처리함수 불러오기(html 공통영역) :가상먼저 처리한다!
 import setElement from "./common.js";
 setElement(); // 공통함수호출 !!!
 
+// 내함수 js 가져오기 (새이름지음)
+import dFn from "./my_function.js";
 
-/* 데이터 셋팅 파일 불러오기(공통 반복 데이터) - 
-반복 html 만들어 뿌려주는 js (공통html 호출이후가능) */
-import make_Com_html from "./make_Com_html.js";
-make_Com_html(); 
-
-/* 데이터 셋팅 파일 불러오기(메인 반복 데이터) - 반복 html */
+// 데이터 셋팅 파일 불러오기(메인 반복 데이터) - 반복 html 
 import make_Main_html from "./make_Main_html.js";
 make_Main_html(); 
 
 
-/* 공통 미디어쿼리js 첫호출: html 구성요소가 다 불러진다음 적용해야 함. 요소 동적기능용 */
-mediaJs(); 
-
 
 window.onload = () => { //페이지와 모든 자원이 로드된 후 해당 함수가 실행
 
-// 스벅 PJ 메인 JS - main.js //////////////
-/****************************************
-  [ 마우스 커서 따라다니기 ]
-  대상선정 : html
- ****************************************/
-
-let html = dFn.qs("html"); /* 문서 */
-let tg = dFn.qs(".cursor"); /* 커서 */
-//윈도우서 마우스 무브시
-window.onmousemove = (e) => {
-  tg.style.opacity = "1";
-  tg.style.transition = "0.2s ease-out";
-  tg.style.left = e.clientX + "px";
-  tg.style.top = e.clientY + "px";
-};
-//문서에 마우스 앤터시
-html.onmouseenter = (e) => {
-  tg.style.opacity = "1";
-};
-//문서에 마우스 떠날시
-html.onmouseleave = (e) => {
-  tg.style.opacity = "0";
-};
-
-/****************************************
- [ 상단메뉴 오버시 서브메뉴 보이기 ]
-  대상선정 : .gnb .menu
- ****************************************/
-/* 처음로딩후 실행안되니 호출꼭 하기 */
-gnbType();
-dFn.addEvt(window, "resize", gnbType);
-function gnbType() {
-  if (window.innerWidth > 700) {
-    let menu = dFn.qsa(".gnb .menu");
 
 
-    /* *******이건플랙스박스 정렬때문에 넣은것**** */
-    console.log('700초과');
-    let gnbFlex =dFn.qs('nav.gnb')
-    console.log('gnbFlex',gnbFlex);
-    gnbFlex.style.alignItems = 'center'; 
-    /* *********** */
-    
-
-    console.log("메뉴개수:", menu.length, menu);
-
-    for (let i = 0; i < menu.length; i++) {
-      menu[i].onmouseenter = function () {
-        let tg = dFn.qsEl(this, ".submenu");
-        console.log("타겟", tg);
-        // 해당 메뉴 하위 서브 속박스 높이값
-        let mh = dFn.qsEl(this, ".sub-wrap").offsetHeight;
-        console.log("높이:", mh);
-        // 대상 높이값 지정하기
-        tg.style.height = mh + "px";
-        tg.style.transition = ".4s ease-in-out";
-
-        this.classList.add("gnbOn");
-        dFn.qsEl(this, "a").style.color = "white";
-      }; ///마우스 오버 이벤트함수///
-
-      menu[i].onmouseleave = function () {
-        let tg = dFn.qsEl(this, ".submenu");
-        // 대상 높이값 지정하기
-        tg.style.height = "0px";
-        tg.style.transition = ".4s ease-in-out";
-
-        this.classList.remove("gnbOn");
-        dFn.qsEl(this, "a").style.color = "#9f9f9f";
-      }; ///마우스 떠날때 이벤트함수///
-    } /// for ///
-  } /////if//////
-  else {
-    // 700 미만일 때 실행할 코드
-    let menu = dFn.qsa(".gnb .menu");
-    for (let i = 0; i < menu.length; i++) {
-      menu[i].onmouseenter = null;
-      menu[i].onmouseleave = null;
-    }
-  } /////////else//////
-} //////////gnbType 리사이즈 이벤트함수 ///////////
-
-/****************************************
-  [ 중앙이미지만 오버시 .center 클래스 넣고 빼기 ]
-  (밝아지는효과 적용된 클래스)
- ****************************************/
-let visualView = dFn.qs(".visualView");
-let centerImg = dFn.qs(".img2");
-
-visualView.onmouseenter = function () {
-  centerImg.classList.remove("center");
-};
-visualView.onmouseleave = function () {
-  centerImg.classList.add("center");
-};
-
-/******************************************** 
-  [ 하단 ol오버시 상단메뉴 글씨색 바꾸기 ]
- ********************************************/
-
-// 이벤트대상: .sub-wrap .sub-wrap ol:first-of-type
-// 변경대상: .gnb .menu a:first-of-type
-let ol = dFn.qsa(".sub-wrap>ol");
-//  let a = document.querySelectorAll('.gnb .menu>a:first-of-type')
-// console.log('대상확인:',ol,a);
-
-for (let i = 0; i < ol.length; i++) {
-  // console.log(ol[i]);
-  ol[i].onmouseenter = function () {
-    /* [i]인 요소의 상대적인 선택자!! */
-    let gnbname = this.closest(".menu").querySelector("a:first-of-type");
-
-    //(this.closest('.menu').querySelector('a:first-of-type'))는
-
-    //이벤트를 트리거한 각 ol[i] 요소를 기준으로
-    //가장 가까운 조상 요소 중에서 .menu 클래스를 가진 요소의 첫 번째 앵커(<a>) 요소를 선택하므로,
-    //각 ol[i] 값에 따라 다른 요소를 선택
-
-    console.log(gnbname);
-    gnbname.style.color = "white";
-
-    let gnbBg = this.closest(".menu");
-    // console.log(gnbBg);
-    gnbBg.classList.add("gnbOn");
-
-    ol[i].querySelector("a").style.color = "white";
-    ol[i].querySelector("a").classList.add("olOn");
-  };
-
-  ol[i].onmouseleave = function () {
-    // 윗 함수에 갇힌 지역변수라 새로 선언
-    let gnbname = this.closest(".menu").querySelector("a:first-of-type");
-    gnbname.style.color = "#9f9f9f";
-
-    let gnbBg = this.closest(".menu");
-    gnbBg.style.backgroundColor = "transparent";
-    gnbBg.classList.remove("gnbOn");
-
-    ol[i].querySelector("a").style.color = "#9f9f9f";
-    ol[i].querySelector("a").classList.remove("olOn");
-  };
-}
-
-
+  (()=>{ ///////// 코드랩핑 시작 
 /********************************************
  [ 뉴스영역에서 스크롤방향  가로로 바꾸기 ]
 *******************************************/
@@ -186,8 +35,11 @@ let tg2Width = tg2.offsetWidth;
 // 보이는박스높이
 let tg2Height = tg2.offsetHeight;
 
-
-// _____________________너비 700 이하일때 뉴스영역 스크롤 길이 조절 _____________________
+/******************************** 
+ 뉴스영역 스크롤 길이 
+ 가로사이즈에따라 유동적 조절
+ ********************************/
+// 너비 700 이하일때 뉴스영역 스크롤 길이 조절
 window.addEventListener('resize',transAllowWidth)
 let transVal = 0;
 transAllowWidth()
@@ -199,12 +51,9 @@ function transAllowWidth() {
     transVal = 0;
   }
 }
-//_________________________________________________________________________________
 
 // 가용길이 : 전체 가로크기 - 보이는 가로크기 = 실제 이동가능한 길이
 let allowWidth = tg1Width - tg2Width + transVal ;
-
-
 
 // 스티키부모박스높이
 let allowHeight = tg2Height + allowWidth;
@@ -236,6 +85,10 @@ window.addEventListener("scroll", () => {
     // console.log("작동!");
     tg0.style.left = pos + "px";
 
+
+    /************************************ 
+     * 가로스크롤양에 비례하여 짝/홀수시 뉴스박스들 위아래 이동
+     ************************************/
     const news = document.querySelectorAll(".news-col .newsbox");
 
     news.forEach((news, idx) => {
@@ -244,14 +97,16 @@ window.addEventListener("scroll", () => {
     }); ///////////for each ///////
   }
 });
+})(); ///////// 코드랩핑 끝
 
+
+(()=>{///////// 코드랩핑 시작
 /******************************************** 
   // [ 상품정보 영역에서 스크롤시 원형이미지 돌리기 ]
   *가상요소의 속성을 사용자정의 변수 등록해서 트랜스폼 주기 
   *******************************************/
-let deltaBox = 0;
-// 이벤트 대상: #product-area
-const tgArea = document.querySelector("#product-area");
+// 이벤트 대상: window
+// const tgArea = document.querySelector("#product-area");
 window.addEventListener("scroll", () => {
   /* 변경요소: 가상요소가 속해있는요소들 */
   const tgCircles = document.querySelectorAll(".pullbox");
@@ -265,14 +120,16 @@ window.addEventListener("scroll", () => {
     x.style.setProperty("--after-transform", `rotate(${scval * 0.1}deg)`);
   }
 });
+})();///////// 코드랩핑 끝
 
+(()=>{///////// 코드랩핑 시작
 /******************************************** 
   [ 리저브 영역 탑위치 확인하여 letter 변환 효과 넣기 ]
   해당영역 이미지도 효과넣기
  *******************************************/
-//대상선정: reserve-area.inbox
+//이벤트 대상선정: window
 //변경요소: letterItems>p 들
-const reserveArea = dFn.qs(".reserve-area.inbox");
+// const reserveArea = dFn.qs(".reserve-area.inbox");
 const letters = dFn.qsa(".letterItems>p");
 const newsImgs = dFn.qsa(".infobox img");
 const infoTxt = dFn.qsa('.infowrap > [class^="infobox b"]');
@@ -329,7 +186,11 @@ function transFn() {
     }
   });
 }
+})();///////// 코드랩핑 끝
 
+
+
+(()=>{///////// 코드랩핑 시작
 /******************************************** 
   [ 스패셜매장 영역 탑위치 확인하여 on클래스 넣기 ]
  *******************************************/
@@ -342,6 +203,8 @@ const items = document.querySelectorAll(".storebox>.store");
 window.addEventListener("scroll", moveFn);
 
 function moveFn() {
+  // 보이는 화면에서의 위치값 리턴 함수 getBoundingClientRect()
+const topVal = (x) => x.getBoundingClientRect().top;
   let topval = topVal(storeBox);
   // console.log(topval);
 
@@ -402,9 +265,11 @@ function moveFn() {
 
 /* 스페셜매장 영역 커서효과 */
 storeBox.onmouseenter = () => {
+  let tg = dFn.qs(".cursor"); /* 커서 */
   tg.style.scale = "1.2";
 };
 storeBox.onmouseleave = () => {
+  let tg = dFn.qs(".cursor"); /* 커서 */
   tg.style.scale = "1";
 };
 /******************************************** 
@@ -413,6 +278,7 @@ storeBox.onmouseleave = () => {
  *******************************************/
 items.forEach((ele) => {
   ele.onmouseenter = () => {
+    let tg = dFn.qs(".cursor"); /* 커서 */
     tg.style.scale = "1.5";
     tg.style.boxShadow = "inset 0px 0px 15px 5px #bdff38";
 
@@ -424,6 +290,7 @@ items.forEach((ele) => {
   };
 
   ele.onmouseleave = () => {
+    let tg = dFn.qs(".cursor"); /* 커서 */
     tg.style.scale = "1.2";
     tg.style.boxShadow = "none";
 
@@ -433,5 +300,6 @@ items.forEach((ele) => {
     }
   };
 });
+})();///////// 코드랩핑 끝
 
 };

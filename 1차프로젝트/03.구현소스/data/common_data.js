@@ -93,7 +93,7 @@ banArea:`
                 여기에 커피 전문가의 이야기를 더해 <br />
                 특별한 경험을 제공합니다.
               </p>
-              <a href="#">MORE VIEW</a></span
+              <a href="#reserve-area">MORE VIEW</a></span
             >
           </div>
           <div class="bg img3">

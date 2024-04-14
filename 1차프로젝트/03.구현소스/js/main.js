@@ -4,13 +4,22 @@
 import dFn from "./my_function.js";
 /* 공통 미디어쿼리 js 가져오기 (새이름지음) */
 import mediaJs from "./media.js";
+
+
 // 공통처리함수 불러오기(html 공통영역) :가상먼저 처리한다!
 import setElement from "./common.js";
 setElement(); // 공통함수호출 !!!
 
-/* 데이터 셋팅 파일 불러오기(메인데이터 포함) - 반복 html 만들어 뿌려주는 js (공통html 호출이후가능. 공통데이터도 있음) */
-import makeHtml from "./make_html.js";
-makeHtml(); 
+
+/* 데이터 셋팅 파일 불러오기(공통 반복 데이터) - 
+반복 html 만들어 뿌려주는 js (공통html 호출이후가능) */
+import make_Com_html from "./make_Com_html.js";
+make_Com_html(); 
+
+/* 데이터 셋팅 파일 불러오기(메인 반복 데이터) - 반복 html */
+import make_Main_html from "./make_Main_html.js";
+make_Main_html(); 
+
 
 /* 미디어쿼리js 첫호출: html 구성요소가 다 불러진다음 적용해야 함. 요소 동적기능용 */
 mediaJs(); 

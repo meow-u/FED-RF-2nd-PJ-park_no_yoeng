@@ -10,67 +10,9 @@ import dFn from './my_function.js';
 export default function () {
 
 
-/************************************
-     [0) gnb 메뉴 데이터 넣기] 
-     대상영역 : .gnb fbx
-     대상데이터 : gnbMenuData
- ************************************/
-
-     (()=>{ /////////코드 랩핑 ////////////
-      const gnbBox = dFn.qs('.gnb.fbx');
-      
-      let hcode = '';
-      sbData.gnbMenuData.forEach( v => {
-        hcode += `
-          <li class="menu">
-            <a href="#">${v.mainMenu}</a>
-            <!-- 서브메뉴 -->
-            <div class="submenu">
-              <div class="sub-wrap">
-                ${v.subMenus.map(sub => `
-                  <ol>
-                    ${sub.map(x => `<li><a href="#">${x}</a></li>`).join('\n')}
-                  </ol>
-                `).join('')}
-              </div>
-            </div>
-          </li>
-        `;
-      });
-    
-      // console.log(hcode);
-      gnbBox.innerHTML = hcode;
-      })();/////////코드 랩핑 끗////////////
-
 
 /************************************
-     [1) 하단영역 메뉴 데이터 넣기] 
-     대상영역 : .footer.cont2
-     대상데이터 : sbData.footerData
- ************************************/
-// ( ()=>{랩핑할코드} )();   <-즉시실행됨
-
-(()=>{ /////////코드 랩핑 ////////////
-const footBox = dFn.qs('.footer.cont2');
-console.log(sbData.footerData);
-
-let hcode = '';
-sbData.footerData.forEach(v=>{
-  hcode += `
-  <div class="footer ${v[0]}">${
-    v[1].map(v=>`<a href="#"><div>${v}</div></a>`).join('')
-  }</div>
-
-  `
-})
-
-// console.log(hcode);
-footBox.innerHTML = hcode;
-})();/////////코드 랩핑 끗////////////
-
-
-/************************************
-     [2) 스페셜매장 메뉴 데이터 넣기] 
+     [0) 스페셜매장 메뉴 데이터 넣기] 
      대상영역 : .store-Tit.sub / .storebox
      대상데이터 : sbData.spStoreData
  ************************************/
@@ -120,7 +62,7 @@ stBox.innerHTML = hcode;
 })();////////코드랩핑 끗//////////
 
 /************************************
-     [3) 글자 하나씩 돌려 출력하기] 
+     [1) 글자 하나씩 돌려 출력하기] 
      대상영역 : .letterItems
 ************************************/
 
@@ -202,7 +144,7 @@ foodBox.innerHTML = hcode
 
 
 /************************************
-     [5-1) 리저브 영역 상단 데이터 넣기] 
+     [2-1) 리저브 영역 상단 데이터 넣기] 
      대상영역 : .reservebox
 ************************************/
 (()=>{ /////////코드 랩핑 ////////////
@@ -225,7 +167,7 @@ foodBox.innerHTML = hcode
 
 
 /************************************
-     [5) 리저브 영역 데이터 넣기] 
+     [2-2) 리저브 영역 데이터 넣기] 
      대상영역 : .infowrap
      같은 포이치를 돌면서
      객체의 type 값 별로 if문 분기하여
@@ -270,7 +212,7 @@ reserveBox.innerHTML = hcode;
 
 
 /************************************
-    [5) 뉴스 영역 데이터 넣기] 
+    [3) 뉴스 영역 데이터 넣기] 
     대상영역 : .newstxt
 ************************************/
 (()=>{ /////////코드 랩핑 ////////////
@@ -295,27 +237,6 @@ hcode += `
 });/////////// for each ///////////
   // console.log(hcode);
     newBox.innerHTML = hcode;
-})();/////////코드 랩핑 끗////////////
-
-
-/************************************
-    [5) snsbox 아이콘 데이터 넣기] 
-    대상영역 : .sns-box
-************************************/
-(()=>{ /////////코드 랩핑 ////////////
-  const iconBox = dFn.qs('.sns-box');
-  let hcode = `<ol>`;
-sbData.iconData.forEach( v=>{
-hcode += `
-<!-- ${Object.keys(v)} -->
-<li>
-  <a class="${v[Object.keys(v)]}" href="#"></a>
-</li>
-`;
-});/////////// for each ///////////
-hcode += `</ol>`;
-  console.log(hcode);
-    iconBox.innerHTML = hcode;
 })();/////////코드 랩핑 끗////////////
 
 

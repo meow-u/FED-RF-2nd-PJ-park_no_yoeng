@@ -2,8 +2,6 @@
 const comData = {
 // 1. 상단영역 코드
 topArea:`
-<!-- 1. 상단 영역  -->
-<div id="top-area">
       <header class="top-area inbox">
         <h2 class="temp-tit">1. 상단 영역</h2>
         <!-- 1-1. 탑메뉴 -->
@@ -68,12 +66,9 @@ topArea:`
           </nav>
         </span>
       </header>
-    </div>
 `,
 // 2. 배너영역 코드
 banArea:`
-<!-- 2. 롤링배너 영역 -->
-<div id="ban-area">
       <section class="ban-area inbox">
         <h2 class="temp-tit">2. 롤링배너 영역</h2>
         <div class="visualView">
@@ -119,12 +114,9 @@ banArea:`
           <button class="arr2"><p>&gt;</p></button>
         </div>
       </section>
-    </div>
 `,
 // 2. 라인안내영역 코드
 lineNoticeArea:`
-<!-- 3. 라인안내 영역 -->
-<div id="line-notice-area">
       <section class="line-notice-area inbox">
         <h2 class="temp-tit">3. 라인안내 영역</h2>
         <div class="cont-box">
@@ -144,13 +136,10 @@ lineNoticeArea:`
           </div>
         </div>
       </section>
-    </div>
 `,
 
-// 5. 하단영역 코드
+// 4. 하단영역 코드
 footerArea:`
-<!-- 9. 하단 영역 -->
-<div id="footer-area">
       <footer class="footer-area inbox">
         <h2 class="temp-tit">9. 하단영역</h2>
         <div class="cont-box">
@@ -164,7 +153,6 @@ footerArea:`
           </div>
         </div>
       </footer>
-    </div>
 `,
 
 }; /////////////// comData 객체 ///////////////

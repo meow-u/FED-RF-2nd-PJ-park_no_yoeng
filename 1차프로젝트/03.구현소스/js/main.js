@@ -2,15 +2,18 @@
 
 /* 내함수 js 가져오기 (새이름지음)*/
 import dFn from "./my_function.js";
-
-/* 미디어쿼리 js 가져오기 (새이름지음) */
+/* 공통 미디어쿼리 js 가져오기 (새이름지음) */
 import mediaJs from "./media.js";
-/* 데이터 셋팅 파일 불러오기 - html 만들어 뿌려주는 js */
+// 공통처리함수 불러오기(html 공통영역) :가상먼저 처리한다!
+import setElement from "./common.js";
+setElement(); // 공통함수호출 !!!
+
+/* 데이터 셋팅 파일 불러오기(메인데이터 포함) - 반복 html 만들어 뿌려주는 js (공통html 호출이후가능. 공통데이터도 있음) */
 import makeHtml from "./make_html.js";
 makeHtml(); 
 
-/* 미디어쿼리js 첫호출 */
-mediaJs(); // 이건 html 구성요소가 다 불러진다음에 적용해야 하는 기능함수임!!
+/* 미디어쿼리js 첫호출: html 구성요소가 다 불러진다음 적용해야 함. 요소 동적기능용 */
+mediaJs(); 
 
 
 window.onload = () => { //페이지와 모든 자원이 로드된 후 해당 함수가 실행

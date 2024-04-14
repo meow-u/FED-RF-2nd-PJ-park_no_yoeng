@@ -31,7 +31,7 @@ bgBtns.forEach(ele => {
   ele.style.display = 'none';
 });
 
-bgBox1.style.background = 'url(./images/coffee_banner3.jpg) no-repeat right center/cover';
+bgBox1.style.background = 'url(./images/coffee_banner3.jpg) no-repeat center center /cover';
 bgBox2.style.background = 'url(./images/coffee_banner1.jpg) no-repeat right center/cover';
 bgBox3.style.background = 'url(./images/coffee_banner2.jpg) no-repeat right center/cover';
 

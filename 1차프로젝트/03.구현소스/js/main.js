@@ -5,14 +5,16 @@ import dFn from "./my_function.js";
 
 /* 미디어쿼리 js 가져오기 (새이름지음) */
 import mediaJs from "./media.js";
-/* 미디어쿼리js 첫호출 */
-mediaJs();
 // 데이터 셋팅 파일 불러오기★★ ///
 //호출필요x  sbData 객체에 모듈의 모든 값과 함수가 포함되어 있기 때문
 import * as sbData from "../data/sb_data.js"; 
 /* html 만들어 뿌려주는 js */
 import makeHtml from "./make_html.js";
 makeHtml(); //이런건 호출해야됨! 
+
+/* 미디어쿼리js 첫호출 */
+mediaJs(); // 이건 html 구성요소가 다 불러진다음에 적용해야 하는 기능함수임!!
+
 
 window.onload = () => { //페이지와 모든 자원이 로드된 후 해당 함수가 실행
 
@@ -50,6 +52,15 @@ dFn.addEvt(window, "resize", gnbType);
 function gnbType() {
   if (window.innerWidth > 700) {
     let menu = dFn.qsa(".gnb .menu");
+
+
+    /* *******이건플랙스박스 정렬때문에 넣은것**** */
+    console.log('700초과');
+    let gnbFlex =dFn.qs('nav.gnb')
+    console.log('gnbFlex',gnbFlex);
+    gnbFlex.style.alignItems = 'center'; 
+    /* *********** */
+    
 
     console.log("메뉴개수:", menu.length, menu);
 

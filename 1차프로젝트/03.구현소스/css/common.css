@@ -200,8 +200,8 @@ h1.logo a:nth-of-type(2) > img:first-of-type {
    transition: 0.4s ease-in-out;
 }
 .logo-wrap.n02 {
+   height: 100%;
    top: 100vh;
-   height: 100vh;
    width: 50%;
    left: 50%;
    background-color: var(--sb-color);
@@ -234,8 +234,8 @@ h1.logo a:nth-of-type(1):hover ~ .wrap-box > .n01,
 /* 세이렌호버시 형제관계 랩박스의 직계자식중 n02, */
 /* 랩박스 호버시 직계자식중 두번번째자식 */
 h1.logo a:nth-of-type(1):hover ~ .wrap-box > .n02,
-.wrap-box:first-of-type:hover > .logo-wrap:nth-child(2) {
-   top: 50vh;;
+.wrap-box:first-of-type:hover > .logo-wrap.n02 {
+   top: 50vh;
    opacity: 1;
 }
 /* 세이렌호버시 형제관계 랩박스의 직계자식중 n03, */
@@ -276,13 +276,14 @@ h1.logo a:nth-of-type(1):hover ~ .wrap-box > .n03,
    color: white;
 }
 .box h2 {
+   white-space: nowrap;
    font-size: min(4rem,4.5vw);
    padding: 1rem 0;
 }
 .box p {
    padding-top: 3vh;
    width: 100%;
-   font-size: min(1.5rem,1.6vw);
+   font-size: min(1.3rem,1.6vw);
    /* 단어줄바꿈 */
    /* word-wrap: break-word; */
    /* 텍스트가 양쪽 정렬되어 요소의 가로폭 전체에 걸쳐 균등하게 분포 */
@@ -352,7 +353,11 @@ aside.tmenu-box {
    /* ________________________________ */
 }
 
+
 nav.gnb {
+   display: flex;
+   align-items: center;
+
    width: 100%;
    /* 스크롤시 부모영역내 상단고정 */
    position: sticky;
@@ -431,7 +436,7 @@ ul.gnb a:hover {
 /* gnb의 서브메뉴 ************************************/
 .submenu {
    position: absolute;
-   top: 75%;
+   top: 85%;
    /* 보이지않도록 원본 높이 0  */
    height: 0px;
    overflow: hidden;

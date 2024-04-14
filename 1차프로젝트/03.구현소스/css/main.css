@@ -22,6 +22,10 @@ body {
   overflow-y: scroll; 
   /* 세로 스크롤 막대를 항상 표시하여 스크롤 가능한 경우에도 항상 표시됨 */
 }
+
+.temp-tit {
+  display: none;
+}
 /*________________ 1.상단영역 (공통) ________________*/
 /* common.css */
 
@@ -287,6 +291,11 @@ section.news-area.inbox {
   color: var(--sb-color);
 }
 
+.newsbox a:nth-child(2) {
+  display: block;
+  text-align: center;
+}
+
 /* 뉴스박스공통 (이미지+캡션) */
 /* 부드러운 트랜지션 */
 .newsbox {
@@ -404,7 +413,8 @@ figure:hover {
 .reserve-area .infowrap > .infobox > p:nth-child(2) {
   text-align: justify;
   font-size: 1.2rem;
-  padding-top: 5%;
+  padding: 0;
+  padding-top: 0%;
   padding-left: 15%;
   width: 60%;
 }

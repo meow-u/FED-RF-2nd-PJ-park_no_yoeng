@@ -191,6 +191,12 @@ export default function () {
 
     if (window.innerWidth < 700) {
       console.log('700미만 확인!')
+
+      let gnbFlex =domFn.qs('nav.gnb')
+      console.log('gnbFlex',gnbFlex);
+      gnbFlex.style.alignItems = 'flex-start'; 
+
+
     let gnbMenu = domFn.qsa(".gnb .menu");
     console.log('gnb개별',gnbMenu);
     gnbMenu.forEach(ele=>{

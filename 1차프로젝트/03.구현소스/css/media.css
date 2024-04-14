@@ -365,16 +365,15 @@ font-size: 7vw;
   }
 
   .box p {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 
-  .logo-wrap.n02 {
-    top: 50vh;
-    height: auto;
+  h1.logo a:nth-of-type(1):hover ~ .wrap-box > .n02, .wrap-box:first-of-type:hover > .logo-wrap.n02 {
+    top: 60vh;
     width: 80%;
     left: 100%;
     border-radius: 50px 0px 0px 50px;
-  }
+}
   /* 세이렌호버시 형제관계 랩박스의 직계자식중 n02, */
   /* 랩박스 호버시 직계자식중 두번번째자식 */
   h1.logo a:nth-of-type(1):hover ~ .wrap-box > .n02,
@@ -542,7 +541,9 @@ font-size: 7vw;
     top: 62%;
     width: 80vw;
 }
-
+.box h2 {
+  padding-top: 0px;
+}
 
 } /***************** 700 px 이하 미디어 쿼리 종료 *****************/
 
@@ -570,6 +571,10 @@ font-size: 7vw;
 }
 .store-Tit.sub {
     top: -8%;
+}
+
+.box.b01 h2 {
+  padding-top: 40px;
 }
 }
 /***************** 600 px 이하 미디어 쿼리 종료 *****************/
@@ -722,13 +727,23 @@ font-size: 7vw;
     top: 95%;
 }
 
+
+/* 랩박스 */
+.box p {
+  font-size: 1.0rem;
+}
 } /***************** 500 px 이하 미디어 쿼리 종료 *****************/
 
 
 /***************** 400 px 이하 미디어 쿼리 시작 *****************/
 @media screen and (max-width: 400px) {
+  h2.store-Tit {
+    top: 7%;
+}
+
   .store-Tit.sub {
-    top: -5%;
+    font-size: min(3vw, 1.3rem);
+    top: 5%;
   }
   .bottom-Tit {
     top: 85%;
@@ -737,5 +752,10 @@ font-size: 7vw;
 .col-12.storebox > .store.on:hover~.bottom-Tit {
   display:none;
  }
+
+ .box h2 {
+  font-size: 2.5rem;
 }
+}
+
 /***************** 400 px 이하 미디어 쿼리 종료 *****************/

@@ -24,10 +24,10 @@ section.coffeeMenu {
 }
 
 /* 네비 */
-nav {
+section.coffeeMenu nav {
   text-align: center;
 }
-.nav ol {
+section.coffeeMenu nav ol {
   height: 0;
   position: relative;
   /* top: 100%; */
@@ -37,17 +37,17 @@ nav {
   overflow: hidden;
 }
 
-nav li {
+section.coffeeMenu nav li {
   position: relative;
 }
 
-nav a {
+section.coffeeMenu nav a {
   display: block;
   padding: 10px 20px;
   text-decoration: none;
 }
 
-nav li:hover > ol {
+section.coffeeMenu nav li:hover > ol {
   height: 30px;
 }
 
@@ -101,7 +101,7 @@ h2.constTit {
 }
 @media screen and (max-width: 600px) {
 
-    nav {
+    section.coffeeMenu nav {
     font-size: 1.3rem;
 }
     
@@ -113,7 +113,7 @@ h2.constTit {
     align-items: center;
     flex-wrap: wrap;
   }
-  section.coffeeMenu nav {
+  section.coffeeMenu section.coffeeMenu nav {
     width: 100%;
   }
 }

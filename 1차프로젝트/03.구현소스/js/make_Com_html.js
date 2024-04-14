@@ -83,7 +83,7 @@ hcode += `
 `;
 });/////////// for each ///////////
 hcode += `</ol>`;
-  console.log(hcode);
+  // console.log(hcode);
     iconBox.innerHTML = hcode;
 })();/////////코드 랩핑 끗////////////
 }///////////// export default //////////

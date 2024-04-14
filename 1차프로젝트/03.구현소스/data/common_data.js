@@ -18,7 +18,7 @@ topArea:`
           <a href="#">
             <img src="./images/logo.png" alt="세이렌 로고" />
           </a>
-          <a href="#">
+          <a href="index.html">
             <img src="./images/toplogo_letter.png" alt="Starbucks로고" />
           </a>
           <div class="wrap-box inbox">
@@ -80,7 +80,7 @@ banArea:`
                 최상급 아라비카 원두와<br />50년 이상의 전문적인 로스팅 기술을
                 통해 <br /><br />최상의 풍미를 선사합니다.
               </p>
-              <a href="#">MORE VIEW</a></span
+              <a href="sub1_coffeeBean.html">MORE VIEW</a></span
             >
           </div>
           <div class="bg img2 center">

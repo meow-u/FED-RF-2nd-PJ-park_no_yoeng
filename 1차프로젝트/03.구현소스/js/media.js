@@ -59,8 +59,8 @@ export default function () {
       }
 
       
-      //자동실행 함수호출 
-      // autoSlide();
+      //자동실행 함수호출  여기가 시작지점!!!
+      autoSlide();
 
     } ///if///
 

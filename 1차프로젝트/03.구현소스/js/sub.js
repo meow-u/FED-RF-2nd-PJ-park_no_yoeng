@@ -16,11 +16,6 @@ setElement(); // 공통함수호출 !!!
 import make_Com_html from "./make_Com_html.js";
 make_Com_html(); 
 
-/* 데이터 셋팅 파일 불러오기(메인 반복 데이터) - 반복 html */
-import make_Main_html from "./make_Main_html.js";
-make_Main_html(); 
-
-
 /* 공통 미디어쿼리js 첫호출: html 구성요소가 다 불러진다음 적용해야 함. 요소 동적기능용 */
 mediaJs(); 
 
@@ -169,8 +164,6 @@ for (let i = 0; i < ol.length; i++) {
     ol[i].querySelector("a").classList.remove("olOn");
   };
 }
-
-
 /********************************************
  [ 뉴스영역에서 스크롤방향  가로로 바꾸기 ]
 *******************************************/

@@ -22,6 +22,8 @@
     />
     <!-- 메인 CSS만 연결(공통css는 내부import됨) -->
     <link rel="stylesheet" href="./css/main.css" />
+    <!-- 서브 CSS 연결 (덮어쓰기) -->
+    <link rel="stylesheet" href="./css/sub_coffee.css" />
     <!-- 미디어쿼리 CSS(메인css 아래) -->
     <link rel="stylesheet" href="./css/media.css" />
     <!-- 모듈 메인JS -->
@@ -43,8 +45,76 @@
     <div id="ban-area"></div>
     <!-- 3. 라인안내 영역 -->
     <div id="line-notice-area"></div>
+    <!-- _______________________________ -->
+    <!-- 4. 커피서브 영역 -->
+    <div id="sub-coffee-area">
+      <section class="sub-coffee-area inbox">
+        <aside>
+          <h2 class="tit">1.커피 메뉴 영역</h2>
+          <div>
+            <a href="">HOME</a>&gt; <a href="">COFFEE</a>&gt;
+            <a href="">커피</a>
+          </div>
+        </aside>
+        <section class="coffeeMenu">
+          <nav>
+            <ul class="nav">
+              <li><a class="liTit">MENU</a></li>
+              <li>
+                <a href="#">COFFEE</a>
+                <ol>
+                  <li><a href="#">커피</a></li>
+                  <li><a href="#">블론드 로스트</a></li>
+                  <li><a href="#">미디엄 로스트</a></li>
+                  <li><a href="#">다크 로스트</a></li>
+                  <li><a href="#">리저브 원두</a></li>
+                </ol>
+              </li>
+              <li>
+                <a href="#">DRINK</a>
+                <ol>
+                  <li><a href="#">음료</a></li>
+                  <li><a href="#">콜드 브루</a></li>
+                  <li><a href="#">에스프레소</a></li>
+                  <li><a href="#">스타벅스 리프레셔</a></li>
+                  <li><a href="#">브루드 커피</a></li>
+                  <li><a href="#">프라푸치노</a></li>
+                  <li><a href="#">블렌디드</a></li>
+                  <li><a href="#">스타벅스 피지오</a></li>
+                  <li><a href="#">티(티바나)</a></li>
+                  <li><a href="#">스타벅스 주스(병음료)</a></li>
+                  <li><a href="#">기타 제조 음료</a></li>
+                </ol>
+              </li>
+              <li>
+                <a href="#">FOOD</a>
+                <ol>
+                  <li><a href="#">상품</a></li>
+                  <li><a href="#">머그</a></li>
+                  <li><a href="#">글라스</a></li>
+                  <li><a href="#">플라스틱 텀블러</a></li>
+                  <li><a href="#">스테인리스 텀블러</a></li>
+                  <li><a href="#">보온병</a></li>
+                  <li><a href="#">액세서리</a></li>
+                  <li><a href="#">선물세트</a></li>
+                  <li><a href="#">커피 용품</a></li>
+                  <li><a href="#">패키지 티(티바나)</a></li>
+                  <li><a href="#">시럽</a></li>
+                </ol>
+              </li>
+            </ul>
+          </nav>
 
-    <!-- 9. 하단 영역 -->
+          <div class="cont-box">
+            <div class="col-10"> </div>
+          </div>
+        </section>
+      </section>
+    </div>
+
+    <!-- _______________________________ -->
+
+    <!-- 하단 영역 -->
     <div id="footer-area"></div>
   </body>
 </html>

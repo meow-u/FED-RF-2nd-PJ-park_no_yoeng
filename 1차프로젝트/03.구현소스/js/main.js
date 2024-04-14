@@ -10,7 +10,7 @@ setElement(); // 공통함수호출 !!!
 import dFn from "./my_function.js";
 
 // 데이터 셋팅 파일 불러오기(메인 반복 데이터) - 반복 html 
-import make_Main_html from "./make_Main_html.js";
+import make_Main_html from "./make_main_html.js";
 make_Main_html(); 
 
 

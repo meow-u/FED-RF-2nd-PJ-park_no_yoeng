@@ -9,6 +9,9 @@ setElement(); // 공통함수호출 !!!
 // 내함수 js 가져오기 (새이름지음)
 import dFn from "./my_function.js";
 
+// 서브메뉴 데이타 불러오기
+import * as SubMenuData from "../data/sub_menu_data.js";
+console.log(SubMenuData);
 
 window.onload = () => { //페이지와 모든 자원이 로드된 후 해당 함수가 실행
 (()=>{///////코드랩핑 시작
@@ -34,7 +37,34 @@ bgBox3.style.background = 'url(./images/coffee_banner2.jpg) no-repeat right cent
 
 })();///////코드랩핑 끝
 
+(()=>{///////코드랩핑 시작
+/***************************************** 
+ 서브 반복데이터 넣기
+ * 대상영역: #sub-coffee-area .col-12
+ *****************************************/
+let beanArea = dFn.qs('#sub-coffee-area .col-10');
+console.log(beanArea);
 
+
+let hcode = '<h2 class="constTit">COFFEE</h2>';
+SubMenuData.beanData.forEach((v) => {
+  
+  hcode += `
+      <div class="imgbox">
+      <a href="#"
+      ><img src="./images/${v.img}.png" alt="${v.alt}"/></a>
+      <p>${v.이름}</p>
+      <p>${v.추가정보}</p>
+      </div>
+   `
+});
+ console.log('원두코드',hcode,beanArea);
+
+ beanArea.innerHTML = hcode
+
+
+
+})();///////코드랩핑 끝
 
 
 }; ////////// onload 함수 ////////////

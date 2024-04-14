@@ -10,10 +10,31 @@ setElement(); // 공통함수호출 !!!
 import dFn from "./my_function.js";
 
 
-
-
 window.onload = () => { //페이지와 모든 자원이 로드된 후 해당 함수가 실행
 (()=>{///////코드랩핑 시작
+/***************************************** 
+ 공통배너에 서브이미지 넣기
+ * 대상영역: .ban-area .visualView .img
+ *****************************************/
+let bgBtns = dFn.qsa('.visualView a');
+// let bgBoxAll = dFn.qsa('.visualView .bg');
+let bgBox1 = dFn.qs('.visualView .img1');
+let bgBox2 = dFn.qs('.visualView .img2');
+let bgBox3 = dFn.qs('.visualView .img3');
+// console.log(bgBox1,bgBtns,bgBoxAll);
+
+//버튼없애기
+bgBtns.forEach(ele => {
+  ele.style.display = 'none';
+});
+
+bgBox1.style.background = 'url(./images/coffee_banner3.jpg) no-repeat right center/cover';
+bgBox2.style.background = 'url(./images/coffee_banner1.jpg) no-repeat right center/cover';
+bgBox3.style.background = 'url(./images/coffee_banner2.jpg) no-repeat right center/cover';
 
 })();///////코드랩핑 끝
+
+
+
+
 }; ////////// onload 함수 ////////////

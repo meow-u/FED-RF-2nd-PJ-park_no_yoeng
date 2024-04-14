@@ -233,11 +233,19 @@ font-size: 7vw;
 }
 
 .bottom-Tit {
-    scale: 1;
-    top: 66%;
+    scale: 0.8;
+    top: 62%;
 }
 }
 /***************** 900 px 이하 미디어 쿼리 종료 *****************/
+
+/***************** 800 px 이하 미디어 쿼리 시작 *****************/
+@media screen and (max-width: 800px) {
+  .bottom-Tit {
+    top: 90%;
+}
+}
+/***************** 800 px 이하 미디어 쿼리 종료 *****************/
 
 /***************** 700 px 이하 미디어 쿼리 시작 *****************/
 @media screen and (max-width: 700px) {
@@ -521,24 +529,50 @@ font-size: 7vw;
   .reserve-area.inbox > .cont-box > .col-12 {
     overflow: hidden;
   }
+
+  .special-store-area {
+    height: 1000px;
+}
+
+.col-12.storebox > .store:nth-child(3).on {
+    transform: translate(25%, -40%) rotate(-34deg);
+}
+
+.bottom-Tit {
+    top: 62%;
+    width: 80vw;
+}
+
+
 } /***************** 700 px 이하 미디어 쿼리 종료 *****************/
 
 /***************** 650 px 이하 미디어 쿼리 시작 *****************/
 @media screen and (max-width: 650px) {
-  .store-Tit.sub {
-    
+  h2.store-Tit {
+    top: -3%;
+    left: 55%;
+}
+.store-Tit.sub {
     left: 0;
     width: 100%;
-    top: -10%;
-  }
+    top: -13%;
+}
 
-  h2.store-Tit {
-    
-    top: -5%;
-    left: 0;
-  }
+
 }
 /***************** 650 px 이하 미디어 쿼리 종료 *****************/
+
+
+/***************** 600 px 이하 미디어 쿼리 시작 *****************/
+@media screen and (max-width: 600px) {
+  h2.store-Tit {
+    left:0%;
+}
+.store-Tit.sub {
+    top: -8%;
+}
+}
+/***************** 600 px 이하 미디어 쿼리 종료 *****************/
 
 /***************** 500 px 이하 미디어 쿼리 시작 *****************/
 @media screen and (max-width: 500px) {
@@ -641,4 +675,67 @@ font-size: 7vw;
   .pullbox {
     overflow: hidden;
   }
+
+
+  /* 카드 */
+
+  .bottom-Tit {
+    top: 100%;
+}
+
+  /* 펼쳤을떄 */
+  .col-12.storebox > .store:nth-child(2).on {
+    transform: translate(-30%, 40%) rotate(-5deg);
+  }
+
+  .col-12.storebox > .store:nth-child(3).on {
+    transform: translate(25%, 40%) rotate(-34deg);
+  }
+
+  .col-12.storebox > .store:nth-child(1).on {
+    transform: translate(70%, 150%) rotate(-23deg);
+  }
+
+  .col-12.storebox > .store:nth-child(4).on {
+    transform: translate(-70%, 150%) rotate(-5deg);
+  }
+
+  /* 호버시 */
+  .col-12.storebox > .store:nth-child(2).on:hover {
+    transform: translate(-30%, 40%) rotate(0deg);
+  }
+
+  .col-12.storebox > .store:nth-child(3).on:hover {
+    transform: translate(25%, 40%) rotate(0deg);
+  }
+
+  .col-12.storebox > .store:nth-child(1).on:hover {
+    transform: translate(70%, 150%) rotate(0deg);
+  }
+
+  .col-12.storebox > .store:nth-child(4).on:hover {
+    transform: translate(-70%, 150%) rotate(0deg);
+  }
+
+  .bottom-Tit {
+    scale: 0.7;
+    top: 95%;
+}
+
 } /***************** 500 px 이하 미디어 쿼리 종료 *****************/
+
+
+/***************** 400 px 이하 미디어 쿼리 시작 *****************/
+@media screen and (max-width: 400px) {
+  .store-Tit.sub {
+    top: -5%;
+  }
+  .bottom-Tit {
+    top: 85%;
+}
+
+.col-12.storebox > .store.on:hover~.bottom-Tit {
+  display:none;
+ }
+}
+/***************** 400 px 이하 미디어 쿼리 종료 *****************/

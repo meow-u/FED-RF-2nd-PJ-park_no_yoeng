@@ -135,6 +135,8 @@ h2.constTit {
 }
 
 .imgbox img {
+  
+  border-radius: 10px 10px 10px 50px;
   width: 100%;
   transition: all 0.2s ease-in-out 0s;
 }

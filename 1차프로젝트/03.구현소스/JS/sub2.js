@@ -133,4 +133,53 @@ console.log('높이값확인',isOpen);
 })();///////코드랩핑 끝
 
 
+
+  /***************************************** 
+   * 서브배너에 내용바꿔넣기 
+   * 대상영역: .visualView>.bg.img1>span
+ *****************************************/
+  (()=>{///////코드랩핑 시작
+    let bg1 = dFn.qs('.visualView>.bg.img1');
+    let bg2 = dFn.qs('.visualView>.bg.img2');
+    let bg3 = dFn.qs('.visualView>.bg.img3');
+  
+    console.log('글자대상!!',bg1,bg2,bg3);
+  
+    bg2.innerHTML= `
+    <span>
+    Starbucks<br/>
+    'Cold Brew'
+    <p>
+    부드러운 목 넘김과 완벽한 밸런스에 커피 본연의 단맛을 경험할 수 있습니다..
+    </p>
+  </span
+  >
+    `;
+    bg1.innerHTML= `
+    <span>
+    Starbucks<br/>
+    'Caffe Latte'
+    <p>
+    풍부하고 진한 에스프레소가 신선한 스팀 밀크를 만나 부드러워진 커피
+    </p>
+  </span
+  >
+    `;
+  
+    bg3.innerHTML= `
+    <span>
+    Starbucks<br/>
+    'FOOD'
+    <p>
+    고소한 마스카포네 치즈 크림에 촉촉한 커피 시트가 입안을 감싸는 기분 좋은 느낌
+    </p>
+  </span
+  >
+    `;
+  
+  
+  
+  })();///////코드랩핑 끝
+
+
 }; ////////// onload 함수 ////////////

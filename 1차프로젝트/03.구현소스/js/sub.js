@@ -84,6 +84,7 @@ console.log('메뉴클릭',this);
 
 
 let tg = dFn.qsEl(this,'ol');
+// 값이 null이면 리턴함 값이 할당되어있으면 무조건 true
 if(!tg) return;
 
  // 해당 메뉴 하위 서브 속박스 높이값
@@ -94,9 +95,8 @@ if(!tg) return;
  let isOpen = this.offsetHeight;
 console.log('높이값확인',isOpen);
 
-// nav박스 스티키 적용하고싶습니다!!!! /* ******************************* */
-//삼항연산자 사용 모르겠습니다!!!!!
-//  if(this.classList.contains('ol')? isOpen <= 35 : false){ ?????????
+
+//  if(this.classList.contains('이건 클래스만')
  if(isOpen <= 35){
   
   
@@ -138,27 +138,25 @@ console.log('높이값확인',isOpen);
    * 대상영역: .visualView>.bg.img1>span
  *****************************************/
 (()=>{///////코드랩핑 시작
-  let span1 = dFn.qs('.visualView>.bg.img1>span');
-  let p1 = dFn.qs('.visualView>.bg.img1>span>p');
-  let span2 = dFn.qs('.visualView>.bg.img2>span');
-  let p2 = dFn.qs('.visualView>.bg.img2>span>p');
-  let span3 = dFn.qs('.visualView>.bg.img3>span');
-  let p3 = dFn.qs('.visualView>.bg.img3>span>p');
+  let bg1 = dFn.qs('.visualView>.bg.img1');
+  let bg2 = dFn.qs('.visualView>.bg.img2');
+  let bg3 = dFn.qs('.visualView>.bg.img3');
 
-  // console.log('글자대상!!',span1,p1,span2,p2,span3,p3);
+  console.log('글자대상!!',bg1,bg2,bg3);
 
-  span1.innerHTML= '갸라도스'
+  bg2.innerHTML= `
+  <span>
+  Arabica<br/>
+  'BEAN'
+  <p>
+  스타벅스는 풍부한 풍미와 세련된 바디감과 산미를 가지고 있는<br<br>
+고지대에서 생산된 아라비카 커피만 구매합니다.
+  </p>
+</span
+>
+  
+  `;
 
-
-
-
-  // 참고~~~~ 
-  // <span>Starbucks<br/>'COFFEE'
-  // <p>
-  //   <strong>'커피 이상의 특별한 경험'</strong><br /><br />
-  //   세계인들의 생활 속에 스며들어 <br />전 세계의 커피 문화를
-  //   선도하는 스타벅스의 커피를 소개합니다.
-  // </p>
 
 
 })();///////코드랩핑 끝

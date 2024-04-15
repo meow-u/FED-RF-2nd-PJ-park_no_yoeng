@@ -238,8 +238,8 @@ const topVal = (x) => x.getBoundingClientRect().top;
 
 
           let bottomTit = document.querySelector(".bottom-Tit");
-          console.log("대상", bottomTit);
-          console.log(topval);
+          // console.log("대상", bottomTit);
+          // console.log(topval);
 
           bottomTit.style.transition = "2s 1s";
           bottomTit.style.opacity = "1";

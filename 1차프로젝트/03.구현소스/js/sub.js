@@ -133,4 +133,35 @@ console.log('높이값확인',isOpen);
 })();///////코드랩핑 끝
 
 
+  /***************************************** 
+   * 서브배너에 내용바꿔넣기 
+   * 대상영역: .visualView>.bg.img1>span
+ *****************************************/
+(()=>{///////코드랩핑 시작
+  let span1 = dFn.qs('.visualView>.bg.img1>span');
+  let p1 = dFn.qs('.visualView>.bg.img1>span>p');
+  let span2 = dFn.qs('.visualView>.bg.img2>span');
+  let p2 = dFn.qs('.visualView>.bg.img2>span>p');
+  let span3 = dFn.qs('.visualView>.bg.img3>span');
+  let p3 = dFn.qs('.visualView>.bg.img3>span>p');
+
+  // console.log('글자대상!!',span1,p1,span2,p2,span3,p3);
+
+  span1.innerHTML= '갸라도스'
+
+
+
+
+  // 참고~~~~ 
+  // <span>Starbucks<br/>'COFFEE'
+  // <p>
+  //   <strong>'커피 이상의 특별한 경험'</strong><br /><br />
+  //   세계인들의 생활 속에 스며들어 <br />전 세계의 커피 문화를
+  //   선도하는 스타벅스의 커피를 소개합니다.
+  // </p>
+
+
+})();///////코드랩핑 끝
+
+
 }; ////////// onload 함수 ////////////

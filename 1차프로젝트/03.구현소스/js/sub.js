@@ -39,7 +39,7 @@ bgBox3.style.background = 'url(./images/coffee_banner2.jpg) no-repeat right cent
 
 (()=>{///////코드랩핑 시작
 /***************************************** 
- 서브 반복데이터 넣기
+ 서브 커피상품 반복데이터 넣기
  * 대상영역: #sub-coffee-area .col-12
  *****************************************/
 let beanArea = dFn.qs('#sub-coffee-area .col-10');
@@ -58,10 +58,75 @@ SubMenuData.beanData.forEach((v) => {
       </div>
    `
 });
- console.log('원두코드',hcode,beanArea);
+//  console.log('원두코드',hcode,beanArea);
 
  beanArea.innerHTML = hcode
 
+})();///////코드랩핑 끝
+
+/***************************************** 
+ 메뉴클릭시 서브메뉴 높이값대로 여닫기
+ 이벤트대상들: .ul.nav>li
+ 확인대상: 대상의 하위  ol
+ 
+ *****************************************/
+(()=>{///////코드랩핑 시작
+  let menu = dFn.qsa('ul.nav>li');
+  // console.log(menu);
+
+menu.forEach(ele=>{ 
+  ele.onclick = subOpen;
+
+}); ////foreach////
+
+function subOpen (e){//////////////
+console.log('메뉴클릭',this);
+
+
+let tg = dFn.qsEl(this,'ol');
+
+ // 해당 메뉴 하위 서브 속박스 높이값
+ let mh = tg.offsetHeight;
+ console.log('타겟',tg,"타겟높이:", mh,);
+
+
+ let isOpen = this.offsetHeight;
+console.log('높이값확인',isOpen);
+
+// nav박스 스티키 적용하고싶습니다!!!! /* ******************************* */
+//삼항연산자 사용 모르겠습니다!!!!!
+//  if(this.classList.contains('ol')? isOpen <= 35 : false){ ?????????
+ if(isOpen <= 35){
+  
+  
+//열린거 먼저 다 초기화 + 박스색 글씨색 복구
+   menu.forEach(ele=>{
+    ele.style.height = '35px';
+    ele.style.background='transparent';
+    dFn.qsEl(ele,'a').style.color = '#222';
+
+    
+    this.style.background= 'var(--sb-color)';
+    this.style.borderRadius='0px 25px 0px 0px';
+    let thisInA = dFn.qsEl(this,'a');
+    thisInA.style.color= '#fff';
+
+    this.style.height = mh + 'px';
+   });   
+  } ///// if /////
+
+ else if(isOpen > 35){
+
+  this.style.background= 'transparent';
+    let thisInA = dFn.qsEl(this,'a');
+    thisInA.style.color= '#222';
+
+  this.style.height = '0px';
+ }
+
+
+
+}////클릭 이벤트 함수 /////////////
 
 
 })();///////코드랩핑 끝

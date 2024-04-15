@@ -249,6 +249,12 @@ font-size: 7vw;
 
 /***************** 700 px 이하 미디어 쿼리 시작 *****************/
 @media screen and (max-width: 700px) {
+
+  h1.logo a:nth-of-type(2) > img:first-of-type {
+    /* 중앙로고 이미지 */
+    width: max(min(16vw, 150px), 95px);
+ }
+
   /* 커서 따라오기 숨기기 */
   body > .cursor {
     display: none;

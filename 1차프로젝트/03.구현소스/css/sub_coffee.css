@@ -27,8 +27,25 @@ section.coffeeMenu {
 section.coffeeMenu nav {
   text-align: center;
 }
+/* 메인메뉴li */
+section.coffeeMenu nav li {
+  position: relative;
+  overflow: hidden;
+  height: 35px;
+  transition: 0.2s ease-in-out;
+}
+
+
+/* 첫메뉴 li */
+section.coffeeMenu nav a.liTit{
+  font-weight: bold;
+  font-size: 1.3rem;
+  border-bottom: 2px solid #222;
+  padding-bottom: 5px;
+}
+
+/* 서브메뉴 ol */
 section.coffeeMenu nav ol {
-  height: 0;
   position: relative;
   /* top: 100%; */
   left: 0;
@@ -37,19 +54,44 @@ section.coffeeMenu nav ol {
   overflow: hidden;
 }
 
-section.coffeeMenu nav li {
-  position: relative;
+section.coffeeMenu nav ol li:hover>a{
+  font-weight: bold;
 }
 
 section.coffeeMenu nav a {
+  font-size: 1.3rem;
+  white-space: nowrap;
   display: block;
   padding: 10px 20px;
   text-decoration: none;
 }
 
-section.coffeeMenu nav li:hover > ol {
-  height: 30px;
+/* 네비메뉴 호버시 */
+/* section.coffeeMenu nav li:hover > ol {
+  height: auto; */
+  
+  aside{
+    display: flex;
+
+
+  }
+
+
+/* 상단타이틀 */
+aside * {
+  flex-basis: 100%;
+  background-color: var(--sb-color);
+  color: #fff;
+  margin: 0 auto;
+  font-size: 1.3rem;
+  font-weight: normal;
+  padding: 1% 0.5%;
 }
+aside>div{
+  font-weight: normal;
+
+}
+
 
 /* 그리드박스 */
 section.sub-coffee-area.inbox .col-10 {
@@ -60,6 +102,28 @@ section.sub-coffee-area.inbox .col-10 {
   grid-gap: 1vw;
 }
 
+/* 그리스박스 상단 타이틀 */
+h2.constTit{
+  font-size: 1.7rem;
+  color: var(--sb-color);
+} 
+
+/* 상품개별박스 */
+.cont-box .imgbox> a {
+  border-radius: 10px 10px 10px 50px;
+}
+
+/* 박스호버시 */
+.imgbox > a:hover {
+  transform:
+  translate(0%,-7%) rotate(-5deg);
+  transition: 0.3s ease-in-out;
+}
+
+
+div.imgbox>p:first-of-type{
+  font-size: 1.3rem;
+}
 
 h2.constTit {
     grid-column: 1 / 5;
@@ -79,6 +143,7 @@ h2.constTit {
     transform: scale(1.1) rotate(10deg) translate(0%,-7%);
     filter: drop-shadow(rgba(0, 0, 0, 0.74) 10px 0px 3px);
 }
+
 
 /***************** 1000 px 이하 미디어 쿼리 시작 *****************/
 @media screen and (max-width: 1000px) {
@@ -102,6 +167,8 @@ h2.constTit {
 @media screen and (max-width: 600px) {
 
     section.coffeeMenu nav {
+      
+    width: 100%;
     font-size: 1.3rem;
 }
     

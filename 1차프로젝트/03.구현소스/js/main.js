@@ -282,9 +282,18 @@ items.forEach((ele) => {
     tg.style.scale = "1.5";
     tg.style.boxShadow = "inset 0px 0px 15px 5px #bdff38";
 
+    let footerBtn= dFn.qs('.bottom-Tit');
+    console.log(footerBtn);
+
     /* 개별 items에 마우스올릴시 전체 items효과  */
     for (let x of items) {
       x.style.filter = "grayscale(5) brightness(0.5)";
+
+      /* 버튼숨기기 */
+      let bottomTit = document.querySelector(".bottom-Tit");
+      // console.log("대상", bottomTit);
+      bottomTit.style.transition = '0.2s ease-in';
+      bottomTit.style.opacity = '0';
     }
     ele.style.filter = "none";
   };
@@ -297,6 +306,11 @@ items.forEach((ele) => {
     /* 개별 items에 마우스아웃시 전체 items효과  */
     for (let x of items) {
       x.style.filter = "none";
+
+      /* 버튼보이기 */
+      let bottomTit = document.querySelector(".bottom-Tit");
+      console.log("대상", bottomTit);
+      bottomTit.style.opacity = '1';
     }
   };
 });

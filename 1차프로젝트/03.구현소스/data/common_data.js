@@ -105,7 +105,7 @@ banArea:`
                 세계인들의 생활 속에 스며들어 <br />전 세계의 커피 문화를
                 선도하는 스타벅스의 커피를 소개합니다.
               </p>
-              <a href="#">MORE VIEW</a></span
+              <a href="sub2_drink.html">MORE VIEW</a></span
             >
           </div>
         </div>

@@ -75,7 +75,7 @@ section.coffeeMenu nav a {
 /* section.coffeeMenu nav li:hover > ol {
   height: auto; */
   
-  aside{
+  section.sub-coffee-area.inbox>aside{
     display: flex;
 
 
@@ -83,7 +83,7 @@ section.coffeeMenu nav a {
 
 
 /* 상단타이틀 */
-aside * {
+section.sub-coffee-area.inbox>aside * {
   flex-basis: 100%;
   background-color: var(--sb-color);
   color: #fff;
@@ -92,7 +92,7 @@ aside * {
   font-weight: normal;
   padding: 1% 0.5%;
 }
-aside>div{
+section.sub-coffee-area.inbox>aside>div{
   font-weight: normal;
 
 }

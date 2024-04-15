@@ -1,107 +1,216 @@
 // 스벅 PJ sub 데이터 JS - sub_cf_menu_data.js
 
-
-
 /************************************
- * 커피 서브메뉴 데이터 
+ * 커피 서브메뉴 데이터
  ************************************/
 const beanData = [
-  {
+   {
       idx: 1,
       img: "pack_cf1_small",
       alt: "1번원두",
       이름: "1번원두",
       추가정보: "starbucks bean",
-  },
-  {
+   },
+   {
       idx: 2,
       img: "pack_cf2_small",
       alt: "2번원두",
       이름: "2번원두",
       추가정보: "starbucks bean",
-  },
-  {
+   },
+   {
       idx: 3,
       img: "pack_cf3_small",
       alt: "3번원두",
       이름: "3번원두",
       추가정보: "starbucks bean",
-  },
-  {
+   },
+   {
       idx: 4,
       img: "pack_cf4_small",
       alt: "4번원두",
       이름: "4번원두",
       추가정보: "starbucks bean",
-  },
-  {
+   },
+   {
       idx: 5,
       img: "pack_cf5_small",
       alt: "5번원두",
       이름: "5번원두",
       추가정보: "starbucks bean",
-  },
-  {
+   },
+   {
       idx: 6,
       img: "pack_cf6_small",
       alt: "6번원두",
       이름: "6번원두",
       추가정보: "starbucks bean",
-  },
-  {
+   },
+   {
       idx: 7,
       img: "pack_cf7_small",
       alt: "7번원두",
       이름: "7번원두",
       추가정보: "starbucks bean",
-  },
-  {
+   },
+   {
       idx: 8,
       img: "pack_cf8_small",
       alt: "8번원두",
       이름: "8번원두",
       추가정보: "starbucks bean",
-  },
-  {
+   },
+   {
       idx: 9,
       img: "pack_cf9_small",
       alt: "9번원두",
       이름: "9번원두",
       추가정보: "starbucks bean",
-  },
-  {
+   },
+   {
       idx: 10,
       img: "pack_cf10_small",
       alt: "10번원두",
       이름: "10번원두",
       추가정보: "starbucks bean",
-  },
-  {
+   },
+   {
       idx: 11,
       img: "pack_cf11_small",
       alt: "11번원두",
       이름: "11번원두",
       추가정보: "starbucks bean",
-  },
-  {
+   },
+   {
       idx: 12,
       img: "pack_cf12_small",
       alt: "12번원두",
       이름: "12번원두",
       추가정보: "starbucks bean",
-  },
-  {
+   },
+   {
       idx: 13,
       img: "pack_cf13_small",
       alt: "13번원두",
       이름: "13번원두",
       추가정보: "starbucks bean",
-  }
+   },
 ];
 
+const drinkData = [
+   {
+      idx: 1,
+      img: "drink01_small",
+      alt: "1번음료",
+      이름: "1번음료",
+      추가정보: "starbucks drink",
+   },
+   {
+      idx: 2,
+      img: "drink02_small",
+      alt: "2번음료",
+      이름: "2번음료",
+      추가정보: "starbucks drink",
+   },
+   {
+      idx: 3,
+      img: "drink03_small",
+      alt: "3번음료",
+      이름: "3번음료",
+      추가정보: "starbucks drink",
+   },
+   {
+      idx: 4,
+      img: "drink04_small",
+      alt: "4번음료",
+      이름: "4번음료",
+      추가정보: "starbucks drink",
+   },
+   {
+      idx: 5,
+      img: "drink05_small",
+      alt: "5번음료",
+      이름: "5번음료",
+      추가정보: "starbucks drink",
+   },
+   {
+      idx: 6,
+      img: "drink06_small",
+      alt: "6번음료",
+      이름: "6번음료",
+      추가정보: "starbucks drink",
+   },
+   {
+      idx: 7,
+      img: "drink07_small",
+      alt: "7번음료",
+      이름: "7번음료",
+      추가정보: "starbucks drink",
+   },
+   {
+      idx: 8,
+      img: "drink08_small",
+      alt: "8번음료",
+      이름: "8번음료",
+      추가정보: "starbucks drink",
+   },
+   {
+      idx: 9,
+      img: "drink09_small",
+      alt: "9번음료",
+      이름: "9번음료",
+      추가정보: "starbucks drink",
+   },
+   {
+      idx: 10,
+      img: "drink10_small",
+      alt: "10번음료",
+      이름: "10번음료",
+      추가정보: "starbucks drink",
+   },
+   {
+      idx: 11,
+      img: "drink11_small",
+      alt: "11번음료",
+      이름: "11번음료",
+      추가정보: "starbucks drink",
+   },
+   {
+      idx: 12,
+      img: "drink12_small",
+      alt: "12번음료",
+      이름: "12번음료",
+      추가정보: "starbucks drink",
+   },
+   {
+      idx: 13,
+      img: "drink13_small",
+      alt: "13번음료",
+      이름: "13번음료",
+      추가정보: "starbucks drink",
+   },
+   {
+      idx: 14,
+      img: "drink14_small",
+      alt: "14번음료",
+      이름: "14번음료",
+      추가정보: "starbucks drink",
+   },
+   {
+      idx: 15,
+      img: "drink15_small",
+      alt: "15번음료",
+      이름: "15번음료",
+      추가정보: "starbucks drink",
+   },
+   {
+      idx: 16,
+      img: "drink16_small",
+      alt: "16번음료",
+      이름: "16번음료",
+      추가정보: "starbucks drink",
+   },
+];
 console.log(beanData); // 결과 확인용
 
-
-  export {
-    beanData,
-  }
+export { beanData, drinkData};

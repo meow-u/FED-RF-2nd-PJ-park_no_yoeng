@@ -84,6 +84,7 @@ console.log('메뉴클릭',this);
 
 
 let tg = dFn.qsEl(this,'ol');
+if(!tg) return;
 
  // 해당 메뉴 하위 서브 속박스 높이값
  let mh = tg.offsetHeight;

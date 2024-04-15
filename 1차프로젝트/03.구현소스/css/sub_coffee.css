@@ -22,6 +22,11 @@
 section.coffeeMenu {
   display: flex;
 }
+section.coffeeMenu .nav {
+  position: sticky;
+  top: 0;
+}
+
 
 /* 네비 */
 section.coffeeMenu nav {

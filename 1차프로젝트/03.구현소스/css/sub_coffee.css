@@ -20,6 +20,8 @@
 
 /* 플랙스박스 */
 section.coffeeMenu {
+  
+  overflow: hidden;
   display: flex;
 }
 section.coffeeMenu .nav {

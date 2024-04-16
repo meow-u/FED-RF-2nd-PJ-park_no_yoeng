@@ -155,7 +155,7 @@ export default function () {
     autoT = setTimeout(() => {
       //3.  2초후 아무작동도 안하면 너비확인후 인터발호출
       if (window.innerWidth < 1000) {
-      // autoSlide();
+      autoSlide();
       }
     }, 2000); //결과적으론 클릭이벤2초후 5초뒤실행
   } //// clearAuto ///////////////

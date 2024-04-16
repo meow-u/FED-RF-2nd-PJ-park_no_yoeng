@@ -17,6 +17,8 @@ body * {
   /* outline: 2px dashed #ff9f9f29; */
 }
 body {
+  /* 서브모바일상품호버시 스크롤생겨서막음 */
+  overflow: hidden;
   /* 스티키gnb바 부모자격 */
   position: relative;
   overflow-y: scroll; 

@@ -11,7 +11,7 @@ import ComMediaJs from "./media.js";
 
 /* 데이터 셋팅 파일 불러오기(공통 반복 데이터) - 
 반복 html 만들어 뿌려주는 js (공통html 호출이후가능) */
-import make_Com_html from "./make_com_html.js";
+import make_Com_html from "./make_SFom_html.js";
 
 
 //////////////////////////////////////////////////////////

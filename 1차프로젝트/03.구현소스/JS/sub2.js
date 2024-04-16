@@ -122,7 +122,7 @@ console.log('높이값확인',isOpen);
     let thisInA = dFn.qsEl(this,'a');
     thisInA.style.color= '#222';
 
-  this.style.height = '0px';
+  this.style.height = '35px';
  }
 
 

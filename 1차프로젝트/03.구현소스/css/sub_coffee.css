@@ -26,13 +26,19 @@ section.coffeeMenu {
 }
 section.coffeeMenu .nav {
   position: sticky;
-  top: 0;
+  top: 90px;
 }
 
 
 /* 네비 */
 section.coffeeMenu nav {
   text-align: center;
+}
+
+section.sub-coffee-area.inbox>aside{
+  position: sticky;
+  top: 40px;
+  z-index: 4;
 }
 /* 메인메뉴li */
 section.coffeeMenu nav li {

@@ -551,6 +551,12 @@ font-size: 7vw;
   padding-top: 0px;
 }
 
+section.sub-coffee-area.inbox>aside{
+  position: sticky;
+  top: 50px;
+  z-index: 4;
+}
+
 } /***************** 700 px 이하 미디어 쿼리 종료 *****************/
 
 /***************** 650 px 이하 미디어 쿼리 시작 *****************/
@@ -732,6 +738,16 @@ font-size: 7vw;
 /* 랩박스 */
 .box p {
 font-size: 1.0rem;
+}
+
+
+/* 모바일 서브메뉴스티키 */
+section.coffeeMenu>nav{
+background-color: var(--body-color);
+position: sticky;
+top: 75px;
+z-index: 4;
+border-radius: 0px 0px 10px 10px;
 }
 }
 /***************** 600 px 이하 미디어 쿼리 종료 *****************/

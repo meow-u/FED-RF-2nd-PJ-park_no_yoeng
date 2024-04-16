@@ -196,7 +196,7 @@ video {
 /* 랩박스 원본 공통 */
 .wrap-box > .logo-wrap {
    /* 가려지지않게 */
-   z-index: 5;
+   z-index: 10;
    position: absolute;
    /* 자식은 마우스이벤트 가능 */
    pointer-events: all;
@@ -270,9 +270,13 @@ h1.logo a:nth-of-type(1):hover ~ .wrap-box > .n03,
    /* 트랜지션시 외곽블러 */
    filter: blur(22px);
 }
+/* 1,2번째 */
+.wrap-box:nth-of-type(1) {
+   z-index: 6;
+}
 .wrap-box:nth-of-type(2) {
    /* 3번째는 1,2뒤로 가도록 */
-   z-index: 4;
+   z-index: 5;
 }
 
 /* 랩박스 내부 컨텐츠 */

@@ -555,7 +555,7 @@ font-size: 7vw;
 
 section.sub-coffee-area.inbox>aside{
   position: sticky;
-  top: 50px;
+  top: 49px;
   z-index: 3;
 }
 

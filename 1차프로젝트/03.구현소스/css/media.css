@@ -750,6 +750,7 @@ position: sticky;
 top: 75px;
 z-index: 3;
 border-radius: 0px 0px 10px 10px;
+box-shadow: 0px 0px 30px #00000078;
 }
 }
 /***************** 600 px 이하 미디어 쿼리 종료 *****************/

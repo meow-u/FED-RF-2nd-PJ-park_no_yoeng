@@ -387,7 +387,7 @@ nav.gnb {
    background-color: var(--sb-color);
    box-sizing: border-box;
    height: 40px;
-   z-index: 3;
+   z-index: 4;
    /* 마우스 막아논 span의 자식요소인 
    얘(네비)는 선택가능하도록 */
    pointer-events: all;

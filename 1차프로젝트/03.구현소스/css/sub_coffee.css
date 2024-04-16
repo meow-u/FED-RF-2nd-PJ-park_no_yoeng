@@ -38,7 +38,7 @@ section.coffeeMenu nav {
 section.sub-coffee-area.inbox>aside{
   position: sticky;
   top: 40px;
-  z-index: 4;
+  z-index: 3;
 }
 /* 메인메뉴li */
 section.coffeeMenu nav li {

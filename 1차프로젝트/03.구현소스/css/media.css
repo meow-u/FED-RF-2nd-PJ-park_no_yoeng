@@ -582,164 +582,159 @@ font-size: 7vw;
 .box.b01 h2 {
   padding-top: 40px;
 }
+/***************** 상품정보영역 *****************/
+.cont-box {
+  height: 60%;
+  flex-direction: column;
 }
-/***************** 600 px 이하 미디어 쿼리 종료 *****************/
-
-/***************** 500 px 이하 미디어 쿼리 시작 *****************/
-@media screen and (max-width: 500px) {
-  /***************** 상품정보영역 *****************/
-  .cont-box {
-    height: 60%;
-    flex-direction: column;
-  }
-  /* 스티키부모박스 */
-  .product-area > .cont-box .col-6 {
-    flex-basis: 90%;
-    flex-shrink: 0;
-  }
-
-  .product-area > .cont-box > .col-6 > .pullbox {
-    height: 70vh;
-  }
-
-  #product-area > section:nth-child(2) > .cont-box > .col-6 > .pullbox > img {
-    border-radius: 10px 0px 0px 40%;
-  }
-
-  .product-area {
-    height: 1800px;
-  }
-
-  /* 상품영역별 왼쪽박스 */
-  .product-area > .cont-box > .col-6 > .pullbox {
-    padding: 49px 0;
-  }
-
-  .product-area > .cont-box .col-6:nth-of-type(2) {
-    flex-basis: 100%;
-    height: auto;
-  }
-
-  /* 이미지박스 */
-  .product-area > .cont-box .col-6 .imgbox {
-    padding-bottom: 5%;
-    flex-basis: 50%;
-    flex-shrink: 0;
-  }
-
-  /* 기존값제거 */
-  #product-area > section:nth-child(2) > .cont-box > .col-6 > .pullbox {
-    margin-top: auto;
-  }
-  #product-area > section:nth-child(3) > .cont-box > .col-6 > .pullbox {
-    margin-top: auto;
-  }
-
-  /* 이미지플랙스박스 */
-  #product-area .product-area > .cont-box > .col-6 > .subbox {
-    height: auto;
-    justify-content: center;
-    gap: 5% 0%;
-  }
-  .product-area:nth-child(1) > .cont-box > .col-6 > .subbox {
-    margin-top: 0;
-  }
-
-  .cont-box > .col-6 > .subbox {
-    height: 100%;
-    align-content: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  #product-area > section:nth-child(2) > .cont-box {
-    flex-direction: column;
-  }
-
-  /* 이미지크기 */
-  .cont-box > .col-6 > .subbox a {
-    width: 90%;
-  }
-
-  /* 2,3영역 마진 떙김 */
-  .product-area.inbox:nth-of-type(2),
-  .product-area.inbox:nth-of-type(3) {
-    margin-top: -50%;
-  }
-
-  /* 필박스가상요소  */
-  .product-area > .cont-box > .col-6 > .pullbox::before {
-    font-size: 5rem;
-  }
-
-  /* 가상요소 원 */
-  .product-area > .cont-box > .col-6 > .pullbox::after {
-    top: 3%;
-    left: -17%;
-    height: 60%;
-  }
-  .col-12.storebox {
-    margin-top: -35%;
-  }
-
-  /* 원형떔에 가로스크롤생김 */
-  .pullbox {
-    overflow: hidden;
-  }
-
-
-  /* 카드 */
-
-  .bottom-Tit {
-    top: 100%;
+/* 스티키부모박스 */
+.product-area > .cont-box .col-6 {
+  flex-basis: 90%;
+  flex-shrink: 0;
 }
 
-  /* 펼쳤을떄 */
-  .col-12.storebox > .store:nth-child(2).on {
-    transform: translate(-30%, 40%) rotate(-5deg);
-  }
+.product-area > .cont-box > .col-6 > .pullbox {
+  height: 70vh;
+}
 
-  .col-12.storebox > .store:nth-child(3).on {
-    transform: translate(25%, 40%) rotate(-34deg);
-  }
+#product-area > section:nth-child(2) > .cont-box > .col-6 > .pullbox > img {
+  border-radius: 10px 0px 0px 40%;
+}
 
-  .col-12.storebox > .store:nth-child(1).on {
-    transform: translate(70%, 150%) rotate(-23deg);
-  }
+.product-area {
+  height: 1800px;
+}
 
-  .col-12.storebox > .store:nth-child(4).on {
-    transform: translate(-70%, 150%) rotate(-5deg);
-  }
+/* 상품영역별 왼쪽박스 */
+.product-area > .cont-box > .col-6 > .pullbox {
+  padding: 49px 0;
+}
 
-  /* 호버시 */
-  .col-12.storebox > .store:nth-child(2).on:hover {
-    transform: translate(-30%, 40%) rotate(0deg);
-  }
+.product-area > .cont-box .col-6:nth-of-type(2) {
+  flex-basis: 100%;
+  height: auto;
+}
 
-  .col-12.storebox > .store:nth-child(3).on:hover {
-    transform: translate(25%, 40%) rotate(0deg);
-  }
+/* 이미지박스 */
+.product-area > .cont-box .col-6 .imgbox {
+  padding-bottom: 5%;
+  flex-basis: 50%;
+  flex-shrink: 0;
+}
 
-  .col-12.storebox > .store:nth-child(1).on:hover {
-    transform: translate(70%, 150%) rotate(0deg);
-  }
+/* 기존값제거 */
+#product-area > section:nth-child(2) > .cont-box > .col-6 > .pullbox {
+  margin-top: auto;
+}
+#product-area > section:nth-child(3) > .cont-box > .col-6 > .pullbox {
+  margin-top: auto;
+}
 
-  .col-12.storebox > .store:nth-child(4).on:hover {
-    transform: translate(-70%, 150%) rotate(0deg);
-  }
+/* 이미지플랙스박스 */
+#product-area .product-area > .cont-box > .col-6 > .subbox {
+  height: auto;
+  justify-content: center;
+  gap: 5% 0%;
+}
+.product-area:nth-child(1) > .cont-box > .col-6 > .subbox {
+  margin-top: 0;
+}
 
-  .bottom-Tit {
-    scale: 0.7;
-    top: 95%;
+.cont-box > .col-6 > .subbox {
+  height: 100%;
+  align-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#product-area > section:nth-child(2) > .cont-box {
+  flex-direction: column;
+}
+
+/* 이미지크기 */
+.cont-box > .col-6 > .subbox a {
+  width: 90%;
+}
+
+/* 2,3영역 마진 떙김 */
+.product-area.inbox:nth-of-type(2),
+.product-area.inbox:nth-of-type(3) {
+  margin-top: -50%;
+}
+
+/* 필박스가상요소  */
+.product-area > .cont-box > .col-6 > .pullbox::before {
+  font-size: 5rem;
+}
+
+/* 가상요소 원 */
+.product-area > .cont-box > .col-6 > .pullbox::after {
+  top: 3%;
+  left: -17%;
+  height: 60%;
+}
+.col-12.storebox {
+  margin-top: -35%;
+}
+
+/* 원형떔에 가로스크롤생김 */
+.pullbox {
+  overflow: hidden;
+}
+
+
+/* 카드 */
+
+.bottom-Tit {
+  top: 100%;
+}
+
+/* 펼쳤을떄 */
+.col-12.storebox > .store:nth-child(2).on {
+  transform: translate(-30%, 40%) rotate(-5deg);
+}
+
+.col-12.storebox > .store:nth-child(3).on {
+  transform: translate(25%, 40%) rotate(-34deg);
+}
+
+.col-12.storebox > .store:nth-child(1).on {
+  transform: translate(70%, 150%) rotate(-23deg);
+}
+
+.col-12.storebox > .store:nth-child(4).on {
+  transform: translate(-70%, 150%) rotate(-5deg);
+}
+
+/* 호버시 */
+.col-12.storebox > .store:nth-child(2).on:hover {
+  transform: translate(-30%, 40%) rotate(0deg);
+}
+
+.col-12.storebox > .store:nth-child(3).on:hover {
+  transform: translate(25%, 40%) rotate(0deg);
+}
+
+.col-12.storebox > .store:nth-child(1).on:hover {
+  transform: translate(70%, 150%) rotate(0deg);
+}
+
+.col-12.storebox > .store:nth-child(4).on:hover {
+  transform: translate(-70%, 150%) rotate(0deg);
+}
+
+.bottom-Tit {
+  scale: 0.7;
+  top: 95%;
 }
 
 
 /* 랩박스 */
 .box p {
-  font-size: 1.0rem;
+font-size: 1.0rem;
 }
-} /***************** 500 px 이하 미디어 쿼리 종료 *****************/
-
+}
+/***************** 600 px 이하 미디어 쿼리 종료 *****************/
 
 /***************** 400 px 이하 미디어 쿼리 시작 *****************/
 @media screen and (max-width: 400px) {

@@ -181,5 +181,33 @@ console.log('높이값확인',isOpen);
   
   })();///////코드랩핑 끝
 
+    /***************************************** 
+   * 서브페이지 상위 li 클릭시 형제요소 li닫기 
+   * 이벤트대상: .liTit
+   * 변경대상: 위와동일~li
+ *****************************************/
+(()=>{///////코드랩핑 시작
+  const liTit = dFn.qs('.liTit');
+  console.log('대장li :',liTit);
+  
+  liTit.onclick = ()=>{
+  let otherLis = dFn.qsa('section.coffeeMenu ul.nav>li:nth-child(n+2):nth-child(-n+4)');
+  console.log('otherLis :',otherLis);
+  // section.coffeeMenu ul.nav>li:nth-child(2),section.coffeeMenu ul.nav>li:nth-child(3),section.coffeeMenu ul.nav>li:nth-child(4)
+  //2~4까지 ->>> section.coffeeMenu ul.nav>li:nth-child(n+2):nth-child(-n+4)
+  otherLis.forEach((x)=>{
+   if(x.offsetHeight!='0'){
+      x.style.height='0px'
+    }else{
+      x.style.height='35px'
+    }
+  });/////foreach//////
+  
+  
+  
+  }; ////////onclick///////
+  
+  })();///////코드랩핑 끝
+
 
 }; ////////// onload 함수 ////////////

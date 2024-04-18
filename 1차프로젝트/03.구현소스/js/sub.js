@@ -167,17 +167,19 @@ const liTit = dFn.qs('.liTit');
 console.log('대장li :',liTit);
 
 liTit.onclick = ()=>{
-let otherLis = dFn.qsa('section.coffeeMenu ul.nav>li:nth-child(2),section.coffeeMenu ul.nav>li:nth-child(3),section.coffeeMenu ul.nav>li:nth-child(4)');
+let otherLis = dFn.qsa('section.coffeeMenu ul.nav>li:nth-child(n+2):nth-child(-n+4)');
 console.log('otherLis :',otherLis);
-
-/* ******************* */
+// section.coffeeMenu ul.nav>li:nth-child(2),section.coffeeMenu ul.nav>li:nth-child(3),section.coffeeMenu ul.nav>li:nth-child(4)
+//2~4까지 ->>> section.coffeeMenu ul.nav>li:nth-child(n+2):nth-child(-n+4)
 otherLis.forEach((x)=>{
- if(x.height!='0px'){
+ if(x.offsetHeight!='0'){
     x.style.height='0px'
   }else{
     x.style.height='35px'
   }
 });/////foreach//////
+
+
 
 }; ////////onclick///////
 

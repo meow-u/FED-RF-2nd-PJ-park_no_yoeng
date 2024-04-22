@@ -124,10 +124,10 @@ window.addEventListener("scroll", () => {
   if (pos > 0) {
     tg0.style.left = "0px";
     //****** 영역아웃 감시함수 호출 *******
-    overrideTrackTime("exit")
+    overrideRangeStatus("exit")
   } else if (pos < 0 && pos > limitNum) {
     //****** 영역진입 감시함수 호출 *******
-    overrideTrackTime("enter")
+    overrideRangeStatus("enter")
     // console.log("작동!",pos);
     tg0.style.left = pos + "px";
 
@@ -144,7 +144,7 @@ window.addEventListener("scroll", () => {
   }
   else{
      //****** 영역아웃 감시함수 호출 *******
-    overrideTrackTime("exit")
+    overrideRangeStatus("exit")
   }
 });
 })(); ///////// 코드랩핑 끝

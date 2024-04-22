@@ -74,8 +74,6 @@ const retVal = (x) => x.getBoundingClientRect().top;
 
 //******************구글애널리틱스 감시함수********************** */
 
-
-
 function trackAreaEntry() {
   entryTime = new Date();
   //진입시간 찍기
@@ -98,18 +96,18 @@ function trackAreaExit() {
 // 영역 진입 시간
 var entryTime;
 var timerStatus = false;
-function overrideTrackTime(inRange){
-  if(timerStatus === false && inRange === 'exit'){
+function overrideRangeStatus(RangeStatus){
+  if(timerStatus === false && RangeStatus === 'exit'){
     //
   }
-  else if(timerStatus === false && inRange === 'enter'){
+  else if(timerStatus === false && RangeStatus === 'enter'){
     trackAreaEntry()
     timerStatus = true;
   }
-  else if(timerStatus && inRange === 'enter'){
+  else if(timerStatus && RangeStatus === 'enter'){
     //
   }
-  else if(timerStatus && inRange === 'exit'){
+  else if(timerStatus && RangeStatus === 'exit'){
     trackAreaExit()
     timerStatus = false;
   }

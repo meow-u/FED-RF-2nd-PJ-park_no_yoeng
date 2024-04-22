@@ -72,6 +72,50 @@ tg3.style.height = allowHeight + "px";
 // 보이는 화면에서의 top 위치값 리턴 함수
 const retVal = (x) => x.getBoundingClientRect().top;
 
+//******************구글애널리틱스 감시함수********************** */
+
+
+
+function trackAreaEntry() {
+  entryTime = new Date();
+  //진입시간 찍기
+  console.log('진입시간:',entryTime);
+}
+
+function trackAreaExit() {
+  var exitTime = new Date();
+  var stayTime = exitTime.getTime() - entryTime.getTime(); // 머문 시간(밀리초)
+
+  gtag('event', 'stayInTime', {
+    time: stayTime
+  });
+
+    //나간시간,체류시간 찍기
+    console.log('퇴장시간:',exitTime,'머문시간:',stayTime, 'ms');
+}
+//******************구글애널리틱스 감시함수 ********************* */
+
+// 영역 진입 시간
+var entryTime;
+var timerStatus = false;
+function overrideTrackTime(inRange){
+  if(timerStatus === false && inRange === 'exit'){
+    //
+  }
+  else if(timerStatus === false && inRange === 'enter'){
+    trackAreaEntry()
+    timerStatus = true;
+  }
+  else if(timerStatus && inRange === 'enter'){
+    //
+  }
+  else if(timerStatus && inRange === 'exit'){
+    trackAreaExit()
+    timerStatus = false;
+  }
+   
+}
+
 // 움직이는 셋팅하기
 window.addEventListener("scroll", () => {
   let pos = retVal(tg3);
@@ -81,8 +125,12 @@ window.addEventListener("scroll", () => {
 
   if (pos > 0) {
     tg0.style.left = "0px";
+    //****** 영역아웃 감시함수 호출 *******
+    overrideTrackTime("exit")
   } else if (pos < 0 && pos > limitNum) {
-    // console.log("작동!");
+    //****** 영역진입 감시함수 호출 *******
+    overrideTrackTime("enter")
+    // console.log("작동!",pos);
     tg0.style.left = pos + "px";
 
 
@@ -95,6 +143,10 @@ window.addEventListener("scroll", () => {
       news.style.transform = `
       translateY(${pos * (idx % 2 == 0 ? 0.05 : -0.07)}px)`;
     }); ///////////for each ///////
+  }
+  else{
+     //****** 영역아웃 감시함수 호출 *******
+    overrideTrackTime("exit")
   }
 });
 })(); ///////// 코드랩핑 끝

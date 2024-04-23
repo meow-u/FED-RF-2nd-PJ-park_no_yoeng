@@ -6,9 +6,143 @@
 
 /* 0. 전체 레이아웃 영역별 셋팅 */
 
-/* 1. 상단영역 */
+/* ***************상단영역*************** */
+#top-area {
+    position: relative;
+    z-index: 10;
+    padding-bottom: 20px;
+    background: linear-gradient(180deg, rgb(0 35 128 / 49%) 30%, transparent);
+}
 
-/* 2. 배너영역 */
+#top-area a {
+  color: #fff;
+}
 
+/* 상단랩박스 정렬 */
+.wrapbox.inbox.fxb {
+  justify-content: space-between;
+  padding: 20px 0;
+}
+/* 로고박스 */
+.wrapbox.inbox.fxb > h2 > a {
+    display: block;
+    max-width: 150px;
+    margin: 0 auto;
+    transition: 0.2s ease-out; /* 트랜지션 추가 */
+    transform-origin: bottom;
+    transform: perspective(110px);
+    /* 애니 */
+    animation: logo 1.5s ease-out 0.5s forwards;
+  }
+  
+  /* 로딩로고애니 */
+  @keyframes logo {
+    
+    0% {
+        background-color: none;
+      transform-origin: top;
+      opacity: 1;
+      transform: perspective(0px) rotateX(30deg);
+    }
+    100% {
+      opacity: 1;
+      transform: auto;
+    }
+  }
+  /* 로고호버시 변환 */
+  .wrapbox.inbox.fxb > h2:hover > a {
+    
+    filter: drop-shadow(2px 2px 6px aqua);
+    rotate: 10deg;
+    scale: 1.1;
+    /* transform: perspective(110px) rotateX(-30deg); */
+  }
 
-/* 8. 하단영역 */
+/* 로고박스이미지 */
+.wrapbox.inbox.fxb img {
+  width: 100%;
+}
+
+/* 소셜박스 */
+.social-box li {
+  margin: 0.7vw;
+  padding: 1vw;
+  border: 2px solid silver;
+  border-radius: 30%;
+  transition: 0.2s;
+}
+/* 소셜박스호버시 */
+.social-box li:hover{
+    filter: drop-shadow(2px 2px 6px aqua);
+}
+/* 소셜박스 노랩 */
+.social-box.col-3 > ul {
+  flex-wrap: nowrap;
+}
+/* 소셜박스 이미지 */
+.social-box a {
+  filter: contrast(0) brightness(2);
+  display: block;
+  scale: 2;
+}
+
+/* 탑메뉴 왼쪽끝보내기 */
+.search-box.col-3 > ul {
+  justify-content: flex-end;
+}
+.search-box > ul > li {
+  margin: 1vw;
+}
+
+/* 네비 정렬 */
+nav.gnb-box.inbox.fxb {
+  justify-content: center;
+}
+/* 네비 사이 마진 */
+nav ul.fxb li + li {
+  padding-left: 3vw;
+}
+/* 네비 글씨 */
+nav ul > li > a {
+    /* 가상요소부모자격 */
+  position: relative;
+  font-size: 1.5rem;
+  transition: 0.2s;
+}
+
+/* 네비 글씨 가상요소 */
+nav ul > li > a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transform-origin: center;
+    transform: scaleX(0);
+    
+    filter: blur(1px);
+    transition: 0.2s ease-out;
+}
+nav ul > li > a:hover{
+    transform: rotate(15deg);
+}
+/* 개별컬러설정 */
+nav ul > li:nth-child(1) > a::after{
+    border-bottom: 3px solid aqua;
+}
+nav ul > li:nth-child(2) > a::after{
+    border-bottom: 3px solid rgb(149, 255, 0);
+}
+nav ul > li:nth-child(3) > a::after{
+    border-bottom: 3px solid rgb(252, 103, 255);
+}
+/* 호버시 가상요소 가로스케일 */
+nav ul > li > a:hover::after{
+    transform: scaleX(1);
+}
+
+/* ***************하단영역*************** */
+#footer-area {
+  height: 10vh;
+}

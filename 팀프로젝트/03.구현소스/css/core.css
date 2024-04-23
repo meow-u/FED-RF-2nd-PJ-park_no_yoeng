@@ -23,6 +23,10 @@ html{
     /* rem단위 계산편의를 위함 */
 }
 body{
+    /* 임시높이 */
+    height: 300vh;
+    /* 배경 */
+    background: url(../images/star_night.jpg) no-repeat fixed left / cover;
     /* 글자체 */
     font-family: "Noto Sans KR", Malgun Gothic, dotum, "돋움", Arial, AppleGothic, Sans-serif;
 }
@@ -39,7 +43,7 @@ body{
 .inbox{
     /* 최대가로크기 */
     max-width: 1360px;
-    padding: 0 20px;
+    /* padding: 0 20px; */
     /* 블록박스 중앙정렬 -> 마.영.오! */
     margin: 0 auto;    
 }
@@ -51,7 +55,7 @@ body{
 }
 
 /* 플렉스박스 클래스 */
-.fx-box{
+.fxb{
     display: flex;
     flex-wrap: wrap;
 }

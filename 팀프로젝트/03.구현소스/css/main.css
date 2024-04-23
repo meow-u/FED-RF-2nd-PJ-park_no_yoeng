@@ -4,6 +4,22 @@
 /* 웹폰트CDN */
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Single+Day&family=Sunflower:wght@500&display=swap");
 
+/* 리셋, 코아, 커먼 공통 외부CSS 합치기 */
+@import url(./reset.css);
+@import url(./core.css);
+@import url(./common.css);
+/* 그리드 12 불러오기 */
+@import url(./grid_12_flex.css);
+body{
+    overflow-x: hidden;
+}
+/* 공사중 표시 */
+body * {
+    outline: 1px dashed #cccccc15;
+}
+/* 메인파트 전체박스 */
+
+
 /* 
 font-family: 'Bebas Neue', cursive;
 font-family: 'Single Day', cursive;
@@ -17,7 +33,66 @@ html {
     font-size: 10px;
     /* rem계산시 쉽도록 10px */
 }
-body {
+/* body { */
+    /* overflow: hidden; */
+/* } */
+
+
+
+/* ***************배너영역*************** */
+#ban-area{
+/* height: 10vh; */
+}
+.ban-area inbox col-12{
+    height: 100vh;
+    width: 100vw;
+}
+
+/* 비디오부모박스 */
+.ban-area.inbox.col-12 {
+    /* 하단넘침 숨기기 x축 더넘쳐서 바디에 숨김줌 */
+    
+    border-radius: 0px 0px 100px 100px;
     overflow: hidden;
-    font-family: "Bebas Neue", "Single Day";
+    position: absolute;
+    top: 0;
+    z-index: 0;
+}
+
+/* 영역채우기 */
+video.video {
+    scale: 1.5;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+
+/* ***************메인영역*************** */
+#main-area{
+    height: 10vh;
+}
+
+/* 로딩애니 */
+.intro_section {
+    background: url(../images/star_night.jpg) no-repeat fixed left / cover;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    z-index: 15;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: star 2.5s linear  1s forwards;
+}
+
+@keyframes star {
+    0%{
+        opacity: 1;
+    }100%{
+        opacity: 0;
+        pointer-events: none;
+    }
 }

@@ -158,13 +158,26 @@ section.content-area {
 
 /* 컨텐츠소개 메인텍스트 (오토되게만져야함) */
 h2.main-tit {
-    position: relative;
-    width: 100%;
+    padding: 0 3.3%;
+    position: absolute;
+    width: auto;
     color: #fff;
-    text-align: center;
-    translate: 0 40vh;
-    font-size: min(10rem,30vw);
+    font-size: 13vw;
+    left: 0%;
     text-wrap: nowrap;
+    animation: tit-ani 7s linear infinite;
+}
+h2.main-tit:nth-of-type(2){
+    left: -100%;
+}
+
+@keyframes tit-ani {
+    from{
+        translate: 0% 0;
+    }
+    to{
+        translate:100% 0;
+    }
 }
 
 /* 텍스트박스부모 */

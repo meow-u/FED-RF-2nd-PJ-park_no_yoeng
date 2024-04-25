@@ -6,8 +6,8 @@
 
 /* 리셋, 코아, 커먼 공통 외부CSS 합치기 */
 @import url(./reset.css);
-@import url(./core.css);
-@import url(./common.css);
+@import url(./main_core.css);
+@import url(./main_common.css);
 /* 그리드 12 불러오기 */
 @import url(./grid_12_flex.css);
 body{
@@ -81,7 +81,7 @@ video.video {
 
 /* 로딩애니 */
 .intro_section {
-    background: url(../images/star_night.jpg) no-repeat fixed left / cover;
+    background: url(../main_images/star_night.jpg) no-repeat fixed left / cover;
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -146,7 +146,7 @@ video.video {
 .content-area.inbox{
     width: 100%;
     aspect-ratio: 850/1416;
-    background: url(../images/star_sword.jpg) no-repeat center /cover;
+    background: url(../main_images/star_sword.jpg) no-repeat center /cover;
 }
 
 section.content-area {

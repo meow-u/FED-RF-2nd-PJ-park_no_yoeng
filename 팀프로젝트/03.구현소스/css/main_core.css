@@ -26,7 +26,7 @@ body{
     /* 임시높이 */
     height: 300vh;
     /* 배경 */
-    background: url(../images/star_night.jpg) no-repeat fixed left / cover;
+    background: url(../main_images/star_night.jpg) no-repeat fixed left / cover;
     /* 글자체 */
     font-family: "Noto Sans KR", Malgun Gothic, dotum, "돋움", Arial, AppleGothic, Sans-serif;
 }

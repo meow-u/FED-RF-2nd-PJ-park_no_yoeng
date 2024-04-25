@@ -8,178 +8,335 @@
 
 /* ***************상단영역*************** */
 #top-area {
-   position: fixed;
-   width: 100%;
-   z-index: 10;
-   padding-bottom: 20px;
-   background: linear-gradient(180deg, rgb(0 35 128 / 49%) 30%, transparent);
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  padding-bottom: 20px;
+  background: linear-gradient(180deg, rgb(0 35 128 / 49%) 30%, transparent);
 }
 
 #top-area a {
-   text-shadow: 1px 1px 1px black;
-   color: #fff;
+  text-shadow: 1px 1px 1px black;
+  color: #fff;
 }
 
 /* 상단랩박스 정렬 */
 .wrapbox.inbox.fxb {
    justify-content: space-between;
-   padding: 20px 0;
+   padding-top: 20px;
+   padding-bottom: 10px;
 }
 /* 로고박스 */
 .wrapbox.inbox.fxb > h2 > a {
+   position: relative;
+   z-index: 100;
    display: block;
    max-width: 150px;
    margin: 0 auto;
    transition: 0.2s ease-out; /* 트랜지션 추가 */
    transform-origin: bottom;
    transform: perspective(110px);
-   /* 애니 */
+  /* 애니 */
    animation: logo 1.5s ease-out 0.5s forwards;
 }
 
+
 /* 로딩로고애니 */
 @keyframes logo {
-   0% {
-      background-color: none;
-      transform-origin: top;
-      opacity: 1;
-      transform: perspective(0px) rotateX(30deg);
-   }
-   100% {
-      opacity: 1;
-      transform: auto;
-   }
+  0% {
+   
+   filter: drop-shadow(2px 2px 6px aqua);
+    background-color: none;
+    transform-origin: top;
+    opacity: 1;
+    transform: perspective(0px) rotateX(30deg);
+  }
+  100% {
+    opacity: 1;
+    transform: auto;
+  }
 }
 /* 로고호버시 변환 */
 .wrapbox.inbox.fxb > h2:hover > a {
-   filter: drop-shadow(2px 2px 6px aqua);
-   rotate: 10deg;
-   scale: 1.1;
-   /* transform: perspective(110px) rotateX(-30deg); */
+  filter: drop-shadow(2px 2px 6px aqua);
+  /* rotate: 10deg; */
+  /* scale: 1.1; */
+  /* transform: perspective(110px) rotateX(-30deg); */
 }
 
 /* 로고박스이미지 */
 .wrapbox.inbox.fxb img {
-   width: 100%;
+  width: 100%;
 }
+/* ****************************** */
 
 /* 소셜박스 */
 .social-box li {
-   margin: 0.7vw;
-   padding: 1vw;
-   border: 2px solid silver;
-   border-radius: 30%;
-   transition: 0.2s;
+  margin: 0.7vw;
+  padding: 1vw;
+  border: 2px solid silver;
+  border-radius: 30%;
+  transition: 0.2s;
 }
 /* 소셜박스호버시 */
 .social-box li:hover {
-   filter: drop-shadow(2px 2px 6px aqua);
+  filter: drop-shadow(2px 2px 6px aqua);
 }
 /* 소셜박스 노랩 */
 .social-box.col-3 > ul {
-   flex-wrap: nowrap;
+  flex-wrap: nowrap;
 }
 /* 소셜박스 이미지 */
-.social-box a {
-   filter: contrast(0) brightness(2);
-   display: block;
-   scale: 2;
+#top-area .social-box a {
+  filter: contrast(0) brightness(2);
+  display: block;
+  scale: 2;
+  /* a일괄적용된것 여기만 덮기 */
+  text-shadow: none;
 }
 
+/* ****************************** */
 /* 탑메뉴 왼쪽끝보내기 */
 .search-box.col-3 > ul {
-   justify-content: flex-end;
+  justify-content: flex-end;
 }
 .search-box > ul > li {
-   margin: 1vw;
+  margin: 1vw;
 }
 
-/* 네비 정렬 */
-nav.gnb-box.inbox.fxb {
-   justify-content: center;
+/* 탑메뉴 가상요소 공통  */
+.search-box.col-3 > ul > li > a::before {
+  left: 50%;
+  translate: -50%;
+  position: relative;
+  content: "";
+  display: inline-block;
+  height: 100%;
+  aspect-ratio: 1/1;
 }
+/* 검색버튼 */
+.search-box.col-3 > ul > li:first-of-type > a::before {
+  background: url(https://static-mh.content.disney.io/matterhorn/assets/starwars/navigation/SW_Nav_Search-74ab820c48e2.svg)
+    no-repeat center center/contain;
+}
+/* 로그인버튼 */
+.search-box.col-3 > ul > li:last-of-type > a::before {
+  background: url(https://static-mh.content.disney.io/matterhorn/assets/starwars/navigation/SW_Oneid_User-85043c6786ab.svg)
+    no-repeat center center/contain;
+}
+.social-box.col-3>ul::after {
+   height: 25px;
+   width: 25px;
+   content: "";
+   position: relative;
+   display: inline-block;
+   background: url(https://lumiere-a.akamaihd.net/v1/images/sw_nav_kids_937ed58b.svg?region=0%2C0%2C40%2C15) no-repeat center / contain;
+}
+
+
+/* ****************************** */
+/* 네비 정렬 */
+nav.gnb-box.inbox{
+   background: linear-gradient(45deg, transparent 25%, rgb(0 0 0), transparent 75%);
+}
+
 /* 네비 사이 마진 */
 nav ul.fxb li + li {
-   padding-left: 3vw;
+  padding-left: 3vw;
 }
 /* 네비 글씨 */
 nav ul > li > a {
-   /* 가상요소부모자격 */
-   position: relative;
-   font-size: 1.5rem;
-   transition: 0.2s;
+  /* 가상요소부모자격 */
+  position: relative;
+  font-size: 1.5rem;
+  transition: 0.2s;
 }
 
 /* 네비 글씨 가상요소 */
 nav ul > li > a::after {
-   content: "";
-   display: block;
-   position: absolute;
-   width: 100%;
-   height: 100%;
-   top: 0;
-   transform-origin: center;
-   transform: scaleX(0);
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  transform-origin: center;
+  transform: scaleX(0);
 
-   filter: blur(1px);
-   transition: 0.2s ease-out;
+  filter: blur(1px);
+  transition: 0.2s ease-out;
 }
 nav ul > li > a:hover {
-   transform: rotate(15deg);
+  transform: rotate(15deg);
 }
 /* 개별컬러설정 */
 nav ul > li:nth-child(1) > a::after {
-   border-bottom: 3px solid aqua;
+  border-bottom: 3px solid aqua;
 }
 nav ul > li:nth-child(2) > a::after {
-   border-bottom: 3px solid rgb(149, 255, 0);
+  border-bottom: 3px solid rgb(149, 255, 0);
 }
 nav ul > li:nth-child(3) > a::after {
-   border-bottom: 3px solid rgb(252, 103, 255);
+  border-bottom: 3px solid rgb(252, 103, 255);
 }
 /* 호버시 가상요소 가로스케일 */
 nav ul > li > a:hover::after {
-   transform: scaleX(1);
+  transform: scaleX(1);
 }
 
 /* ***************하단영역*************** */
 #footer-area {
-   color: #fff;
+  color: #fff;
+  position: relative;
+  bottom: -100%;
+  height: 10vh;
+}
+
+/* ********4-1.푸터 상단박스******** */
+.footer_inner1{
+   padding-top: 30vh;
+  }
+
+  /* 하단배너 */
+.visualView{
    position: relative;
-   bottom: -100%;
-   height: 10vh;
+   aspect-ratio: 3000/1481;
+   width: 100%;
+   z-index: 0;
+   
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
 }
-/* 푸터하단박스 */
+/* 이미지박스 공통 */
+.visualimg{
+   width: 100%;
+   background-position: left;
+   background-size: cover;
+   transition: 0.3s ease-in-out;
+   filter: brightness(0.6);
+   border-radius: 100px 20px 0 0;
+}
+/* 이미지박스 개별 */
+.visualimg:first-of-type{
+   background-image: url(../main_images/sub1.png);
+   border-radius: none;
+}
+.visualimg:nth-of-type(2){
+   background-image: url(../main_images/sub2.png);
+}
+.visualimg:last-of-type{
+   background-image: url(../main_images/sub3.png);
+}
+
+/* 겉박스호버시 10% */
+.visualView.fxb:hover>.visualimg{
+   width: 10%;
+
+}
+/* 상위선택자로 덮기 -> 호버된요소 크기키움 */
+section.footer_inner1 .visualView .visualimg:hover {
+   transform: scaleX(10deg);
+   filter: brightness(1.1);
+   width: 100%;
+}
+.visualimg>span{
+   opacity: 0;
+} 
+/* 이미지 호버시 글씨 */
+.visualimg:hover>span {
+   position: absolute;
+   top: 20%;
+   left: 50%;
+   color: #fff;
+   font-size: 3rem;
+   font-weight: bold;
+   opacity: 1;
+   transition: opacity 1s ease 0.5s;
+   z-index: 1;
+   padding: 20px;
+}
+/* 상위선택자로 덮기 -> 마지막 이미지 글씨크기 변경 */
+.footer_inner1 .visualimg:nth-of-type(3):hover>span {
+   color: #000;
+}
+.visualimg>span>p:first-of-type{
+   width: 90%;
+   font-size: 1.2rem;
+}
+.visualimg>span>p:last-of-type{
+   width: 90%;
+   line-height: 1.5;
+   text-align: justify;
+   font-size: 1.5rem;
+   padding: 10px 0;
+}
+.visualimg>span>a{
+   font-size: 1.5rem;
+   color: #fff;
+   background-color: #000;
+   border-radius: 100px;
+   border: 1px solid #fade4b;
+   padding: 3px 7%
+}
+
+/* ********4-2.푸터 하단박스******** */
 .footer_inner2 {
-   background-color: rgba(0, 0, 0, 0.5);
-   padding: 3% 0%;
+   height: 200px;
+   background: linear-gradient(45deg, rgb(0 35 128 / 49%), transparent), black;
+   padding-top: 1%;
+   padding-bottom: 3%;
    box-sizing: border-box;
 }
-.footer_cont.fxb > h2 {
-   flex-basis: 30%;
+
+.footer_cont.fxb {
+   display: flex;
+   justify-content: space-evenly;
 }
+ul.footer_info.footer_info2 {
+    margin: 0 auto;
+    padding: 10px 0px;
+    text-align: center;
+}
+
 .footer_address {
-   box-sizing: border-box;
-   flex-basis: 70%;
-   padding: 1vw;
+  box-sizing: border-box;
+  flex-basis: 70%;
+  padding: 1vw;
 }
 
 ul.footer_info.fxb li {
-   padding-right: 1vw;
+  padding-right: 1vw;
 }
 
 /* 푸터로고 이미지부모 */
 .footer_cont.fxb > h2 > a {
-   display: inline-block;
-   position: relative;
-   width: 100%;
-   height: 100%;
+  display: inline-block;
+  position: relative;
+  max-width: 200px;
+  height: 100%;
 }
 /* 이미지 */
 .footer_cont.fxb > h2 img {
-   position: relative;
-   top: 50%;
-   translate: 0 -50%;
+  position: relative;
+  top: 50%;
+  translate: 0 -50%;
+  text-align: center;
+  width: 100%;
+}
+
+/* 푸터 텍스트박스 1 */
+ul.footer_info.fxb {
+   font-size: 1.2rem;
+}
+/*푸터 텍스트박스 2 */
+ul.footer_info.footer_info2 {
+   margin: 0 auto;
+   padding: 10px 0px;
    text-align: center;
-   width: 100%;
+}
+/* 푸터 텍스트박스 3*/
+p.copyright {
+   font-size: 1.1rem;
+   text-align: center;
 }

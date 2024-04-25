@@ -24,7 +24,7 @@ html{
 }
 body{
     /* 임시높이 */
-    height: 300vh;
+    /* height: 300vh; */
     /* 배경 */
     background: url(../main_images/star_night.jpg) no-repeat fixed left / cover;
     /* 글자체 */
@@ -42,7 +42,7 @@ body{
 /* 중앙속박스 */
 .inbox{
     /* 최대가로크기 */
-    max-width: 1360px;
+    max-width: 1600px;
     /* padding: 0 20px; */
     /* 블록박스 중앙정렬 -> 마.영.오! */
     margin: 0 auto;    
@@ -58,6 +58,7 @@ body{
 .fxb{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* 파트박스 */

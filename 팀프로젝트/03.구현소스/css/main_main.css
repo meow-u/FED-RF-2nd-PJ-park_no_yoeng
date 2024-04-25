@@ -86,7 +86,7 @@ video.video {
     background-position: center;
     width: 100%;
     height: 100vh;
-    z-index: 15;
+    z-index: 10;
     position: absolute;
     top: 0;
     left: 0;
@@ -145,14 +145,26 @@ video.video {
 /* ***************컨텐츠영역*************** */
 .content-area.inbox{
     width: 100%;
-    aspect-ratio: 850/1416;
-    background: url(../main_images/star_sword.jpg) no-repeat center /cover;
 }
 
+ /* *************3-1. 컨텐츠영역(세계관)************* */
+ 
 section.content-area {
-    width: 100%;
-
+    aspect-ratio: 1600 / 2124;
+    background: linear-gradient(180deg, #15072b,transparent 15%, black), url(../main_images/star_sword.png) no-repeat center/cover;
+    /* width: 100%; */
     display: flex;
+}
+
+/* 컨텐츠소개 메인텍스트 (오토되게만져야함) */
+h2.main-tit {
+    position: relative;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    translate: 0 40vh;
+    font-size: min(10rem,30vw);
+    text-wrap: nowrap;
 }
 
 /* 텍스트박스부모 */
@@ -171,6 +183,8 @@ section.content-area {
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    flex-grow: 0;
+    height: fit-content;
 }
 
 /* 텍스트박스 */
@@ -184,4 +198,12 @@ section.content-area {
     padding: 5% 0;
     font-size: 1.3rem;
     text-align: justify;
+}
+
+/* *************3-1. 컨텐츠영역(뉴스)************* */
+.news-area{
+    background:linear-gradient(180deg, #000000 50% ,transparent);
+    width: 100%;
+    /* 임시 */
+    height: 100vh;
 }

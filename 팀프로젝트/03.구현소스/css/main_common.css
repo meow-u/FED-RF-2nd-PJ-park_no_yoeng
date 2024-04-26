@@ -282,7 +282,7 @@ section.footer_inner1 .visualView .visualimg:hover {
 
 /* ********4-2.푸터 하단박스******** */
 .footer_inner2 {
-   height: 200px;
+   /* height: 200px; */
    background: linear-gradient(45deg, rgb(0 35 128 / 49%), transparent), black;
    padding-top: 1%;
    padding-bottom: 3%;

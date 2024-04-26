@@ -145,7 +145,7 @@ video.video {
 /* ***************컨텐츠영역*************** */
 .content-area.inbox{
     width: 100%;
-overflowX:hidden;
+    overflow-x: hidden;
 }
 
  /* *************3-1. 컨텐츠영역(세계관)************* */
@@ -157,15 +157,15 @@ section.content-area {
     display: flex;
 }
 
-/* 컨텐츠소개 메인텍스트 (오토되게만져야함) */
+/* 컨텐츠소개 메인텍스트  */
 h2.main-tit {
+    white-space: nowrap;
     padding: 0 3.3%;
     position: absolute;
     width: auto;
     color: #fff;
     font-size: 13vw;
     left: 0%;
-    text-wrap: nowrap;
     animation: tit-ani 7s linear infinite;
 }
 h2.main-tit:nth-of-type(2){

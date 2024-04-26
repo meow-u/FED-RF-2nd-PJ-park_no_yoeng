@@ -4,6 +4,24 @@
 
 /* 공유기능 요소 셋팅 */
 
+/* 검정버튼 */
+.btn {
+  text-align: center;
+  display: inline-block;
+  width: 100px;
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: #000;
+  border-radius: 100px;
+  border: 1px solid #fade4b;
+  padding: 3px 5%;
+}
+/* 노랑버튼 */
+.btn.yellow {
+  color: #222;
+  background-color: #fade4b;
+}
+
 /* 0. 전체 레이아웃 영역별 셋팅 */
 
 /* ***************상단영역*************** */
@@ -271,22 +289,13 @@ section.footer_inner1 .visualView .visualimg:hover {
    font-size: 1.5rem;
    padding: 10px 0;
 }
-.visualimg>span>a{
-   font-size: 1.5rem;
-   color: #fff;
-   background-color: #000;
-   border-radius: 100px;
-   border: 1px solid #fade4b;
-   padding: 3px 7%
-}
 
 /* ********4-2.푸터 하단박스******** */
 .footer_inner2 {
    /* height: 200px; */
-   background: linear-gradient(45deg, rgb(0 35 128 / 49%), transparent), black;
-   padding-top: 1%;
-   padding-bottom: 3%;
-   box-sizing: border-box;
+    background: linear-gradient(45deg, rgb(0 35 128 / 49%), transparent), black;
+    padding: 5% 0;
+    box-sizing: border-box;
 }
 
 .footer_cont.fxb {

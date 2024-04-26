@@ -10,15 +10,17 @@
 @import url(./main_common.css);
 /* 그리드 12 불러오기 */
 @import url(./grid_12_flex.css);
-body{
-    overflow-x: hidden;
+/* 팀 공통 CSS */
+/* @import url(./core.css); */
+
+body {
+   overflow-x: hidden;
 }
 /* 공사중 표시 */
 body * {
-    outline: 1px dashed #cccccc15;
+   outline: 1px dashed #cccccc15;
 }
 /* 메인파트 전체박스 */
-
 
 /* 
 font-family: 'Bebas Neue', cursive;
@@ -28,196 +30,313 @@ font-family: 'Sunflower', sans-serif;
  */
 
 html {
-    scroll-behavior: smooth;
-    /* #아이디명 스크롤 이동시 부드럽게 애니메이션 이동함! */
-    font-size: 10px;
-    /* rem계산시 쉽도록 10px */
+   scroll-behavior: smooth;
+   /* #아이디명 스크롤 이동시 부드럽게 애니메이션 이동함! */
+   font-size: 10px;
+   /* rem계산시 쉽도록 10px */
 }
 /* body { */
-    /* overflow: hidden; */
+/* overflow: hidden; */
 /* } */
 
-
-
 /* ***************배너영역*************** */
-#ban-area{
-    height: 100vh;
+#ban-area {
+   height: 100vh;
 }
-.ban-area inbox col-12{
-    height: 100vh;
-    width: 100vw;
+.ban-area inbox col-12 {
+   height: 100vh;
+   width: 100vw;
 }
 
 /* 비디오부모박스 */
 .ban-area.inbox.col-12 {
-    /* 하단넘침 숨기기
+   /* 하단넘침 숨기기
     x축 더넘쳐서 바디에 숨김줌 */
-    left: 50%;
-    translate: -50% 0;
-    width: 100%;
-    height: 100%;
-    
-    /* border-radius: 0px 0px 100px 100px; */
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    z-index: 0;
+   left: 50%;
+   translate: -50% 0;
+   width: 100%;
+   height: 100%;
+
+   /* border-radius: 0px 0px 100px 100px; */
+   overflow: hidden;
+   position: absolute;
+   top: 0;
+   z-index: 0;
 }
 
 /* 영역채우기 */
 video.video {
-    scale: 1.4;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-
+   scale: 1.4;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
 }
 
-
 /* ***************메인영역*************** */
-#main-area{
-    /* height: 10vh; */
+#main-area {
+   /* height: 10vh; */
 }
 
 /* 로딩애니 */
 .intro_section {
-    background: url(../main_images/star_night.jpg) no-repeat fixed left / cover;
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 100vh;
-    z-index: 10;
-    position: absolute;
-    top: 0;
-    left: 0;
-    animation: star 2.5s linear  1s forwards;
+   background: url(../main_images/star_night.jpg) no-repeat fixed left / cover;
+   background-size: cover;
+   background-position: center;
+   width: 100%;
+   height: 100vh;
+   z-index: 10;
+   position: absolute;
+   top: 0;
+   left: 0;
+   animation: star 2.5s linear 1s forwards;
 }
 
 @keyframes star {
-    0%{
-        opacity: 1;
-    }100%{
-        opacity: 0;
-        pointer-events: none;
-    }
+   0% {
+      opacity: 1;
+   }
+   100% {
+      opacity: 0;
+      pointer-events: none;
+   }
 }
 
 /* 마우스드래그  */
 .ban-area .scroll_induce {
-    border: 2px solid rgb(255, 255, 255);
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 50px;
-    position: absolute;
-    z-index: 100;
-    width: 20px;
-    height: 30px;
+   border: 2px solid rgb(255, 255, 255);
+   bottom: 40px;
+   left: 50%;
+   transform: translateX(-50%);
+   border-radius: 50px;
+   position: absolute;
+   z-index: 100;
+   width: 20px;
+   height: 30px;
 }
 .ban-area .scroll_induce::before {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    content: "";
-    top: 4px;
-    width: 2px;
-    height: 8px;
-    background-color: rgb(255, 255, 255);
-    animation: scrollMove 2s infinite;
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   content: "";
+   top: 4px;
+   width: 2px;
+   height: 8px;
+   background-color: rgb(255, 255, 255);
+   animation: scrollMove 2s infinite;
 }
 
 @keyframes scrollMove {
-    0% {
-        -webkit-transform: translate(-50%, 0);
-        opacity: 0;
-    }
-    40% {
-        opacity: 1;
-    }
-    80% {
-        -webkit-transform: translate(-50%, 8px);
-        opacity: 0;
-    }
-    100% {
-        opacity: 0;
-    }
+   0% {
+      -webkit-transform: translate(-50%, 0);
+      opacity: 0;
+   }
+   40% {
+      opacity: 1;
+   }
+   80% {
+      -webkit-transform: translate(-50%, 8px);
+      opacity: 0;
+   }
+   100% {
+      opacity: 0;
+   }
 }
 /* ***************컨텐츠영역*************** */
-.content-area.inbox{
-    width: 100%;
-    overflow-x: hidden;
+.content-area.inbox {
+   width: 100%;
+   overflow-x: hidden;
 }
 
- /* *************3-1. 컨텐츠영역(세계관)************* */
- 
+/* *************3-1. 컨텐츠영역(세계관)************* */
+
 section.content-area {
-    aspect-ratio: 1600 / 2124;
-    background: linear-gradient(180deg, #15072b,transparent 15%, black), url(../main_images/star_sword.png) no-repeat center/cover;
-    /* width: 100%; */
-    display: flex;
+   aspect-ratio: 1600 / 2124;
+   background: linear-gradient(180deg, #15072b, transparent 15%, black),
+      url(../main_images/star_sword.png) no-repeat center/cover;
+   /* width: 100%; */
+   display: flex;
+   flex-wrap: wrap;
 }
 
-/* 컨텐츠소개 메인텍스트  */
-h2.main-tit {
-    white-space: nowrap;
-    padding: 0 3.3%;
-    position: absolute;
-    width: auto;
-    color: #fff;
-    font-size: 13vw;
-    left: 0%;
-    animation: tit-ani 7s linear infinite;
+/* 움직이는 글씨  */
+h2.move_tit {
+   /* text-shadow: 2px 0 aqua, -2px 0 aqua, 0px -2px aqua, 0px 2px aqua; */
+   white-space: nowrap;
+   padding: 0 1.5%;
+   position: absolute;
+   width: auto;
+   color: #fff;
+   font-size: 11vw;
+   left: 0%;
+   animation: tit-ani 7s linear infinite;
 }
-h2.main-tit:nth-of-type(2){
-    left: -100%;
+/* 움직이는 글씨2 */
+h2.move_tit:nth-of-type(2) {
+   left: -100%;
 }
 
 @keyframes tit-ani {
-    from{
-        translate: 0% 0;
-    }
-    to{
-        translate:100% 0;
-    }
+   from {
+      translate: 0% 0;
+   }
+   to {
+      translate: 100% 0;
+   }
+}
+
+/* 대표제목 */
+section.content-area > div:nth-of-type(2) {
+   color: #fff;
+   font-size: min(6rem, 7vw);
+   left: 50%;
+   translate: -50% 45vh;
+   text-align: center;
+   position: absolute;
+   width: auto;
+   white-space: nowrap;
+}
+h2.main_tit {
+   text-shadow: 0 0 10px black;
+   height: 100%;
+   width: 100%;
 }
 
 /* 텍스트박스부모 */
 .txt-content {
-    text-shadow: 0px 2px 5px #00000078;
-    position: relative;
-    top: 50vh;
-    line-height: 1.5;
-    padding: 1%;
-    background: #000000b5;
-    display: flex;
-    width: 300px;
-    margin: 10% auto;
-    color: #fff;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    flex-grow: 0;
-    height: fit-content;
+   text-shadow: 0px 2px 5px #00000078;
+   position: relative;
+   top: 50vh;
+   line-height: 1.5;
+   padding: 30px 15px;
+   background: #000000b5;
+   display: flex;
+   width: 300px;
+   margin: 10% auto;
+   color: #fff;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   border-radius: 10px;
+   flex-grow: 0;
+   height: fit-content;
 }
 
 /* 텍스트박스 */
-.txt-content>h2 {
-    
-    text-align: center;
-    font-size: 2.5rem;
+.txt-content > h2 {
+   text-align: center;
+   font-size: 2.5rem;
 }
 
-.txt-content>span {
-    padding: 5% 0;
-    font-size: 1.3rem;
-    text-align: justify;
+.txt-content > span {
+   padding: 5% 0;
+   font-size: 1.3rem;
+   text-align: justify;
 }
 
 /* *************3-1. 컨텐츠영역(뉴스)************* */
-.news-area{
-    background:linear-gradient(180deg, #000000 50% ,transparent);
+.news-area {
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 10px;
+    background: linear-gradient(180deg, #000000 50%, transparent);
     width: 100%;
-    /* 임시 */
-    height: 100vh;
+    color: #fff;
 }
+/* 왼쪽영역 */
+.left-wrap {
+    box-sizing: border-box;
+    padding: 10px;
+    flex: 1;
+    flex-basis: 40%;
+}
+
+/* 오른쪽영역 */
+.right-wrap {
+    height: 85%;
+    box-sizing: border-box;
+    padding: 10px;
+   display: flex;
+   flex-basis: 60%;
+}
+/* 왼쪽박스 */
+.left-box {
+    width: 100%;
+    padding: 0 1%;
+}
+/* 오른쪽박스 */
+.right-box {
+    width: 100%;
+
+    padding: 5% 1%;
+    padding-bottom: 0%;
+}
+
+/* 왼쪽이미지 */
+.left-box > .left-img {
+    aspect-ratio: 960 / 680;
+    background: url(../main_images/news01.jpg) no-repeat center / cover;
+    width: 100%;
+}
+/* 오른쪽이미지 */
+.right-box > .news-img {
+   aspect-ratio: 960/540;
+   width: 100%;
+}
+/* 오른쪽이미지개별 */
+.right-box:nth-of-type(1) > .news-img {
+   background: url(../main_images/news02.jpg) no-repeat center / cover;
+}
+.right-box:nth-of-type(2) > .news-img {
+   background: url(../main_images/news03.jpg) no-repeat center / cover;
+}
+.right-box:nth-of-type(3) > .news-img {
+   background: url(../main_images/news04.jpg) no-repeat center / cover;
+}
+
+/* 왼쪽제목 */
+.left-box>h2 {
+    font-size: 1.5rem;
+}
+/* 오른쪽 제목  */
+.right-wrap>h4 {
+    font-size: 1.2rem;
+    position: absolute;
+}
+/* 버튼박스 */
+.btnbox {
+    margin-left: auto;
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* 버튼 */
+.news-area.box.fxb>a {
+    margin: 10px;
+    position: relative;
+}
+/* <section class="news-area">
+<div class="news-area box">
+   <div class="left-wrap">
+      <div class="left-box">
+         <h2>left박스제목</h2>
+         <div class="left-img"></div>
+      </div>
+   </div>
+   <div class="rigth-wrap">
+      <h4>right박스제목</h4>
+      <div class="right-box">
+         <div class="news-img"></div>
+         <p class="info"></p>
+      </div>
+      <div class="right-box">
+         <div class="news-img"></div>
+         <p class="info"></p>
+      </div>
+      <div class="right-box">
+         <div class="news-img"></div>
+         <p class="info"></p>
+      </div>
+   </div>
+</div>
+</section> */

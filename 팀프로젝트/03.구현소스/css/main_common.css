@@ -24,7 +24,15 @@
   color: #222;
   background-color: #fade4b;
 }
-
+.btn:hover{
+  border: 1px solid #fff;
+}
+.btn.yellow:hover{
+background-color: #FFF075;
+color: #000;
+border: 1px solid #fade4b;
+transition: .4s;
+}
 /* 0. 전체 레이아웃 영역별 셋팅 */
 
 /* ***************상단영역*************** */
@@ -72,21 +80,24 @@
     opacity: 1;
     transform: perspective(0px) rotateX(30deg);
   }
-  100% {
+  85% {
+    filter: drop-shadow(0px 0px 6px aqua);
     opacity: 1;
     transform: auto;
   }
+  100%{
+    filter: drop-shadow(0px 0px 0px aqua);
+
+  }
 }
 /* 로고호버시 변환 */
-.wrapbox.inbox.fxb > h2:hover > a {
+.wrapbox.inbox.fxb img:hover {
   filter: drop-shadow(2px 2px 6px aqua);
-  /* rotate: 10deg; */
-  /* scale: 1.1; */
-  /* transform: perspective(110px) rotateX(-30deg); */
 }
 
 /* 로고박스이미지 */
 .wrapbox.inbox.fxb img {
+  transition: 0.15s;
   width: 100%;
 }
 /* ****************************** */

@@ -30,7 +30,7 @@
 .btn.yellow:hover{
 background-color: #FFF075;
 color: #000;
-border: 1px solid #fade4b;
+  border: 1px solid #fade4b;
 transition: .4s;
 }
 /* 0. 전체 레이아웃 영역별 셋팅 */
@@ -140,7 +140,7 @@ transition: .4s;
 }
 
 /* 탑메뉴 가상요소 공통  */
-.search-box.col-3 > ul > li > a::before {
+.search-box.col-4 > ul > li > a::before {
   left: 50%;
   translate: -50%;
   position: relative;
@@ -150,12 +150,12 @@ transition: .4s;
   aspect-ratio: 1/1;
 }
 /* 검색버튼 */
-.search-box.col-3 > ul > li:first-of-type > a::before {
+.search-box.col-4 > ul > li:first-of-type > a::before {
   background: url(https://static-mh.content.disney.io/matterhorn/assets/starwars/navigation/SW_Nav_Search-74ab820c48e2.svg)
     no-repeat center center/contain;
 }
 /* 로그인버튼 */
-.search-box.col-3 > ul > li:last-of-type > a::before {
+.search-box.col-4 > ul > li:last-of-type > a::before {
   background: url(https://static-mh.content.disney.io/matterhorn/assets/starwars/navigation/SW_Oneid_User-85043c6786ab.svg)
     no-repeat center center/contain;
 }

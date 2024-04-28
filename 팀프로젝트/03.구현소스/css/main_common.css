@@ -6,15 +6,18 @@
 
 /* 검정버튼 */
 .btn {
+  line-height: 2;
   text-align: center;
-  display: inline-block;
+  display: block;
   width: 100px;
+  height: 30px;
   font-size: 1.5rem;
   color: #fff;
   background-color: #000;
   border-radius: 100px;
   border: 1px solid #fade4b;
-  padding: 3px 5%;
+  padding: 3px 10px;
+  margin: 0 10px;
 }
 /* 노랑버튼 */
 .btn.yellow {
@@ -87,11 +90,14 @@
   width: 100%;
 }
 /* ****************************** */
+.social-box.col-4>ul {
+  justify-content: flex-start;
+}
 
 /* 소셜박스 */
 .social-box li {
-  margin: 0.7vw;
-  padding: 1vw;
+  margin: 5px;
+  padding: 10px;
   border: 2px solid silver;
   border-radius: 30%;
   transition: 0.2s;
@@ -115,7 +121,7 @@
 
 /* ****************************** */
 /* 탑메뉴 왼쪽끝보내기 */
-.search-box.col-3 > ul {
+.search-box.col-4>ul {
   justify-content: flex-end;
 }
 .search-box > ul > li {
@@ -143,6 +149,7 @@
     no-repeat center center/contain;
 }
 .social-box.col-3>ul::after {
+  padding: 10px;
    height: 25px;
    width: 25px;
    content: "";
@@ -202,99 +209,20 @@ nav ul > li > a:hover::after {
   transform: scaleX(1);
 }
 
-/* ***************하단영역*************** */
+
+
+/* ********4.공통 하단영역******** */
 #footer-area {
-  color: #fff;
-  position: relative;
   bottom: -100%;
-  height: 10vh;
 }
 
-/* ********4-1.푸터 상단박스******** */
-.footer_inner1{
-   padding-top: 30vh;
-  }
-
-  /* 하단배너 */
-.visualView{
-   position: relative;
-   aspect-ratio: 3000/1481;
-   width: 100%;
-   z-index: 0;
-   
-   display: flex;
-   flex-direction: row;
-   flex-wrap: nowrap;
-}
-/* 이미지박스 공통 */
-.visualimg{
-   width: 100%;
-   background-position: left;
-   background-size: cover;
-   transition: 0.3s ease-in-out;
-   filter: brightness(0.6);
-   border-radius: 100px 20px 0 0;
-}
-/* 이미지박스 개별 */
-.visualimg:first-of-type{
-   background-image: url(../main_images/sub1.png);
-   border-radius: none;
-}
-.visualimg:nth-of-type(2){
-   background-image: url(../main_images/sub2.png);
-}
-.visualimg:last-of-type{
-   background-image: url(../main_images/sub3.png);
+.footer-area{
+  color: #fff;
+  background: linear-gradient(45deg, rgb(0 35 128 / 49%), transparent), black;
 }
 
-/* 겉박스호버시 10% */
-.visualView.fxb:hover>.visualimg{
-   width: 10%;
-
-}
-/* 상위선택자로 덮기 -> 호버된요소 크기키움 */
-section.footer_inner1 .visualView .visualimg:hover {
-   transform: scaleX(10deg);
-   filter: brightness(1.1);
-   width: 100%;
-}
-.visualimg>span{
-   opacity: 0;
-} 
-/* 이미지 호버시 글씨 */
-.visualimg:hover>span {
-   position: absolute;
-   top: 20%;
-   left: 50%;
-   color: #fff;
-   font-size: 3rem;
-   font-weight: bold;
-   opacity: 1;
-   transition: opacity 1s ease 0.5s;
-   z-index: 1;
-   padding: 20px;
-}
-/* 상위선택자로 덮기 -> 마지막 이미지 글씨크기 변경 */
-.footer_inner1 .visualimg:nth-of-type(3):hover>span {
-   color: #000;
-}
-.visualimg>span>p:first-of-type{
-   width: 90%;
-   font-size: 1.2rem;
-}
-.visualimg>span>p:last-of-type{
-   width: 90%;
-   line-height: 1.5;
-   text-align: justify;
-   font-size: 1.5rem;
-   padding: 10px 0;
-}
-
-/* ********4-2.푸터 하단박스******** */
 .footer_inner2 {
-   /* height: 200px; */
-    background: linear-gradient(45deg, rgb(0 35 128 / 49%), transparent), black;
-    padding: 5% 0;
+  
     box-sizing: border-box;
 }
 
@@ -302,16 +230,10 @@ section.footer_inner1 .visualView .visualimg:hover {
    display: flex;
    justify-content: space-evenly;
 }
-ul.footer_info.footer_info2 {
-    margin: 0 auto;
-    padding: 10px 0px;
-    text-align: center;
-}
-
 .footer_address {
   box-sizing: border-box;
   flex-basis: 70%;
-  padding: 1vw;
+  padding: 40px 10px;
 }
 
 ul.footer_info.fxb li {
@@ -341,8 +263,11 @@ ul.footer_info.fxb {
 /*푸터 텍스트박스 2 */
 ul.footer_info.footer_info2 {
    margin: 0 auto;
-   padding: 10px 0px;
+   padding: 25px 0px;
    text-align: center;
+}
+ul.footer_info.footer_info2>li>p.title {
+  display: inline-block;
 }
 /* 푸터 텍스트박스 3*/
 p.copyright {

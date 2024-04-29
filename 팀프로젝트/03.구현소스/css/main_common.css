@@ -271,6 +271,11 @@ ul.footer_info.fxb li {
 ul.footer_info.fxb {
    font-size: 1.2rem;
 }
+/* 푸터 텍스트 1 */
+ul.footer_info.fxb .title {
+  color: #fff;
+}
+
 /*푸터 텍스트박스 2 */
 ul.footer_info.footer_info2 {
    margin: 0 auto;

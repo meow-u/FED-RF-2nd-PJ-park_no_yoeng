@@ -61,7 +61,7 @@
   .visualView {
     flex-direction: column;
     aspect-ratio: auto;
-    height: 700px;
+    height: 600px;
     justify-content: space-evenly;
   }
   .visualimg {
@@ -117,6 +117,7 @@
 /********* 최대사이즈 850px 이하 끝 *********/
 
 /********* 최대사이즈 850px 이하 시작 *********/
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 450px) {
+
 }
 /********* 최대사이즈 850px 이하 끝 *********/

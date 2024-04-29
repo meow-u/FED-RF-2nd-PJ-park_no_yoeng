@@ -103,6 +103,9 @@ html {
 
 /* 비디오부모박스 */
 .ban-area.col-12 {
+  
+  /* 배너랩박스숨기기 */
+  overflow: hidden;
   height: 100%;
   margin: 0px auto;
 }
@@ -357,6 +360,7 @@ section.news-area > .right-wrap > .item-box > .series-img {
   aspect-ratio: 1688 / 2500;
   border-radius: 5px;
   min-width: 143.33px;
+  
 }
 
 
@@ -375,15 +379,14 @@ section.news-area > .right-wrap > .item-box > .series-img {
 /* 버튼박스 */
 .btnbox {
   margin: 50px auto;
-  flex-basis: 50%;
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 /* 버튼 */
-.news-area.box.fxb > a {
-  margin: 10px;
-  position: relative;
+.right-wrap .btn {
+  margin-bottom: 10px;
 }
 
 /* 뉴스 오른쪽박스 제목 */
@@ -485,13 +488,14 @@ section.news-area > .right-wrap > .item-box:nth-of-type(8) > .series-img {
 }
 /* 버튼부모박스 */
 section.news-area > .right-wrap .btnbox {
-  flex-basis: 30%;
-  scale: 1.5;
+  /* flex-basis: 30%;
+  scale: 1.5; */
 }
 /* 버튼 */
 
 section.news-area > .right-wrap .btn {
   width: 130px;
+  margin-bottom: 10px;
 }
 
 /* *************3-4 컨텐츠영역(하단배너)************* */
@@ -500,7 +504,7 @@ section.news-area > .right-wrap .btn {
 }
 /* 하단배너 */
 .visualView {
-  border-radius: 60px 60px 20px 20px;
+  border-radius: 5% 5% 1% 1%;
   overflow: hidden;
   position: relative;
   aspect-ratio: 3000 / 1481;
@@ -511,6 +515,7 @@ section.news-area > .right-wrap .btn {
 }
 /* 이미지박스 공통 */
 .visualimg {
+  height: 100%;
   width: 100%;
   background-position: left center;
   background-size: cover;
@@ -566,6 +571,8 @@ section.visualView-ban .visualView .visualimg:hover {
 }
 
 .visualimg > span > p:last-of-type {
+  
+  /* word-break: break-all; */
   width: 90%;
   line-height: 1.5;
   text-align: justify;

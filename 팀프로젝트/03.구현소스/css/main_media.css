@@ -131,6 +131,24 @@
   padding: 10px 0px;
 }
 
+.blur-wrap::after {
+  
+  width: 25%;
+}
+
+.visualimg:hover > span {
+
+  padding: 3% 5%;
+}
+
+/* 최하단버튼 */
+.visualimg .btn {
+
+  left: auto;
+  translate: 0%;
+}
+
+
 }
 /********* 최대사이즈 850px 이하 끝 *********/
 
@@ -178,6 +196,7 @@
   pointer-events: all;
 }
 .social-box.col-4:hover ul{
+  pointer-events: all;
   height: 220px;
 }
 .social-box.col-4:hover::after{
@@ -185,6 +204,28 @@
   filter: drop-shadow(2px 2px 6px aqua);
 }
 
+.search-box.col-4>ul{
+scale: 1.2;
+}
 
 }
 /********* 최대사이즈 700px 이하 끝 *********/
+
+/********* 최대사이즈 500px 이하 시작 *********/
+@media screen and (max-width: 500px) {
+  .news-area {
+
+    padding: 10px 10px;}
+}
+/********* 최대사이즈 500px 이하 끝 *********/
+
+
+
+
+
+
+/********* 최대사이즈 500px 이하 시작 *********/
+@media screen and (max-width: 500px) {
+  /* 매인하단 배너 여기수졍 */
+}
+/********* 최대사이즈 500px 이하 끝 *********/

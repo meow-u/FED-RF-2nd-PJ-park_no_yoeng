@@ -245,11 +245,15 @@
 
   .visualimg:nth-of-type(3) a.btn {
     top: 65%;
-}
+  }
 
-section.news-area > .right-wrap > .item-box {
-  flex: 1;
-     }
+  section.news-area > .right-wrap > .item-box {
+    flex: 1;
+  }
+
+  .txt-content {
+    margin: 100px 20px;
+  }
 }
 /********* 최대사이즈 550px 이하 끝 *********/
 
@@ -261,28 +265,26 @@ section.news-area > .right-wrap > .item-box {
 
   .visualView {
     height: 400px;
-}
+  }
 
-.visualimg .btn {
-  top: 48%;
-}
-
+  .visualimg .btn {
+    top: 48%;
+  }
 }
 /********* 최대사이즈 500px 이하 끝 *********/
 
 /********* 최대사이즈 450px 이하 시작 *********/
 @media screen and (max-width: 450px) {
   section.news-area > .right-wrap > .item-box {
-    flex:1;
-}
+    flex: 1;
+  }
 
-section.news-area > .right-wrap > .item-box:nth-of-type(1) > .series-img {
-background: url(../main_images/series_01.jpg) center top / cover no-repeat;
-}
+  section.news-area > .right-wrap > .item-box:nth-of-type(1) > .series-img {
+    background: url(../main_images/series_01.jpg) center top / cover no-repeat;
+  }
 
-section.news-area > .right-wrap > .item-box > .series-img {
-aspect-ratio: 320 / 226;
-}
-
+  section.news-area > .right-wrap > .item-box > .series-img {
+    aspect-ratio: 320 / 226;
+  }
 }
 /********* 최대사이즈 450px 이하 끝 *********/

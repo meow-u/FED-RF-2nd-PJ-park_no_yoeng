@@ -274,6 +274,8 @@ h2.main_tit {
 }
 /* 텍스트박스부모 */
 .txt-content {
+  
+  backdrop-filter: hue-rotate(60deg);
   margin: 100px 50px;
   text-shadow: rgba(0, 0, 0, 0.47) 0px 2px 5px;
   position: relative;

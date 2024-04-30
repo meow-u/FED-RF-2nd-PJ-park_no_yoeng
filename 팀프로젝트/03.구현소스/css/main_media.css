@@ -139,5 +139,52 @@
   .left-wrap, .right-wrap { 
     padding: 10px 0px;
 }
+
+
+.social-box.col-4>ul>li {
+  flex-basis: 50%;
+}
+
+.social-box.col-4>ul{
+  
+  position: absolute;
+  padding-top: 40px;
+  height: 0px;
+  /* height: 220px; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  overflow: hidden;
+  transition: 0.2s ease-out;
+}
+/* 가상요소 부모박스 클릭안되게 */
+.social-box.col-4 {
+  pointer-events: none;
+}
+/* 가상요소 (클릭all) */
+.social-box.col-4::after {
+  padding: 7px;
+  line-height: 0.5;
+  top: 20px;
+  aspect-ratio: 1 / 1;
+  position: absolute;
+  content: '+';
+  color: #fff;
+  font-size: 5rem;
+  font-weight: bold;
+  transition: 0.2s ease-out;
+  pointer-events: all;
+}
+.social-box.col-4:hover ul{
+  height: 220px;
+}
+.social-box.col-4:hover::after{
+  rotate: 225deg;
+  filter: drop-shadow(2px 2px 6px aqua);
+}
+
+
 }
 /********* 최대사이즈 700px 이하 끝 *********/

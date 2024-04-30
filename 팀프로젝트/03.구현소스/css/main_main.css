@@ -6,12 +6,13 @@
 
 /* 리셋, 코아, 커먼 공통 외부CSS 합치기 */
 @import url(./reset.css);
-@import url(./main_core.css);
 @import url(./main_common.css);
 /* 그리드 12 불러오기 */
 @import url(./grid_12_flex.css);
 /* 팀 공통 CSS */
 @import url(./core.css);
+/* 메인코어 (공통 충돌 보정+ 추가공통요소) */
+@import url(./main_core.css);
 body {
   overflow-x: hidden;
 }
@@ -329,7 +330,7 @@ h2.main_tit {
   justify-content: center;
 }
 /* 뉴스의오른쪽영역은 패딩조절 */
-.news-area.box.fxb>.right-wrap {
+.news-area.box.fx-box>.right-wrap {
   padding: 10px 0px;
 }
 
@@ -403,7 +404,7 @@ section.news-area > .right-wrap > .item-box > .series-img {
   font-size: 1.8rem;
   position: absolute;
   left: 0;
-  padding: 0 60px;
+  padding: 0 10px;
 }
 /* 뉴스 아이템박스 텍스트 */
 .right-wrap p.info {
@@ -445,6 +446,10 @@ section.news-area > .right-wrap > h4 {
 section.news-area > .right-wrap p.info {
   font-size: 1.3rem;
   white-space: nowrap;
+}
+/* 마지막상자 텍스트 줄넘김 방지로 줄임 */
+strong.title-topic:last-of-type {
+  font-size: 1.6rem;
 }
 
 section.news-area > .right-wrap > .item-box {
@@ -498,7 +503,7 @@ section.news-area > .right-wrap .btnbox {
 /* 버튼 */
 
 section.news-area > .right-wrap .btn {
-  width: 130px;
+  width: 140px;
   margin-bottom: 10px;
 }
 
@@ -539,7 +544,7 @@ section.news-area > .right-wrap .btn {
   background-image: url("../main_images/sub3.png");
 }
 /* 겉박스호버시 10% */
-.visualView.fxb:hover > .visualimg {
+.visualView.fx-box:hover > .visualimg {
   width: 10%;
 }
 /* 상위선택자로 덮기 -> 호버된요소 크기키움 */

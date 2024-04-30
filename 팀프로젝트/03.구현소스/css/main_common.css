@@ -6,13 +6,17 @@
 
 /* 검정버튼 */
 .btn {
+  /* 공통셋팅 */
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #ffe400;
+  text-decoration: none;
+
   line-height: 2;
   text-align: center;
   display: block;
   width: 100px;
   height: 30px;
-  font-size: 1.5rem;
-  color: #fff;
   background-color: #000;
   border-radius: 100px;
   border: 1px solid #fade4b;
@@ -24,14 +28,15 @@
   color: #222;
   background-color: #fade4b;
 }
-.btn:hover{
+.btn:hover {
+  color: #fff;
   border: 1px solid #fff;
 }
-.btn.yellow:hover{
-background-color: #FFF075;
-color: #000;
+.btn.yellow:hover {
+  background-color: #fff075;
+  color: #000;
   border: 1px solid #fade4b;
-transition: .4s;
+  transition: 0.4s;
 }
 /* 0. 전체 레이아웃 영역별 셋팅 */
 
@@ -50,31 +55,29 @@ transition: .4s;
 }
 
 /* 상단랩박스 정렬 */
-.wrapbox.inbox.fxb {
-   justify-content: space-between;
-   padding-top: 20px;
-   padding-bottom: 10px;
+.wrapbox.inbox.fx-box {
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 /* 로고박스 */
-.wrapbox.inbox.fxb > h2 > a {
-   position: relative;
-   z-index: 100;
-   display: block;
-   max-width: 150px;
-   margin: 0 auto;
-   transition: 0.2s ease-out; /* 트랜지션 추가 */
-   transform-origin: bottom;
-   transform: perspective(110px);
+.wrapbox.inbox.fx-box > h2 > a {
+  position: relative;
+  z-index: 100;
+  display: block;
+  max-width: 150px;
+  margin: 0 auto;
+  transition: 0.2s ease-out; /* 트랜지션 추가 */
+  transform-origin: bottom;
+  transform: perspective(110px);
   /* 애니 */
-   animation: logo 1.5s ease-out 0.5s forwards;
+  animation: logo 1.5s ease-out 0.5s forwards;
 }
-
 
 /* 로딩로고애니 */
 @keyframes logo {
   0% {
-   
-   filter: drop-shadow(2px 2px 6px aqua);
+    filter: drop-shadow(2px 2px 6px aqua);
     background-color: none;
     transform-origin: top;
     opacity: 1;
@@ -85,23 +88,22 @@ transition: .4s;
     opacity: 1;
     transform: auto;
   }
-  100%{
+  100% {
     filter: drop-shadow(0px 0px 0px aqua);
-
   }
 }
 /* 로고호버시 변환 */
-.wrapbox.inbox.fxb img:hover {
+.wrapbox.inbox.fx-box img:hover {
   filter: drop-shadow(2px 2px 6px aqua);
 }
 
 /* 로고박스이미지 */
-.wrapbox.inbox.fxb img {
+.wrapbox.inbox.fx-box img {
   transition: 0.15s;
   width: 100%;
 }
 /* ****************************** */
-.social-box.col-4>ul {
+.social-box.col-4 > ul {
   justify-content: flex-start;
 }
 
@@ -130,9 +132,11 @@ transition: .4s;
   text-shadow: none;
 }
 
+
+
 /* ****************************** */
 /* 탑메뉴 왼쪽끝보내기 */
-.search-box.col-4>ul {
+.search-box.col-4 > ul {
   justify-content: flex-end;
 }
 .search-box > ul > li {
@@ -159,25 +163,30 @@ transition: .4s;
   background: url(https://static-mh.content.disney.io/matterhorn/assets/starwars/navigation/SW_Oneid_User-85043c6786ab.svg)
     no-repeat center center/contain;
 }
-.social-box.col-3>ul::after {
+.social-box.col-3 > ul::after {
   padding: 10px;
-   height: 25px;
-   width: 25px;
-   content: "";
-   position: relative;
-   display: inline-block;
-   background: url(https://lumiere-a.akamaihd.net/v1/images/sw_nav_kids_937ed58b.svg?region=0%2C0%2C40%2C15) no-repeat center / contain;
+  height: 25px;
+  width: 25px;
+  content: "";
+  position: relative;
+  display: inline-block;
+  background: url(https://lumiere-a.akamaihd.net/v1/images/sw_nav_kids_937ed58b.svg?region=0%2C0%2C40%2C15)
+    no-repeat center / contain;
 }
-
 
 /* ****************************** */
 /* 네비 정렬 */
-nav.gnb-box.inbox{
-   background: linear-gradient(45deg, transparent 25%, rgb(0 0 0), transparent 75%);
+nav.gnb-box.inbox {
+  background: linear-gradient(
+    45deg,
+    transparent 25%,
+    rgb(0 0 0),
+    transparent 75%
+  );
 }
 
 /* 네비 사이 마진 */
-nav ul.fxb li + li {
+nav ul.fx-box li + li {
   padding-left: 3vw;
 }
 /* 네비 글씨 */
@@ -220,26 +229,25 @@ nav ul > li > a:hover::after {
   transform: scaleX(1);
 }
 
-
-
 /* ********4.공통 하단영역******** */
 #footer-area {
   bottom: -100%;
+  z-index: 100;
+    position: relative;
 }
 
-.footer-area{
+.footer-area {
   color: #fff;
   background: linear-gradient(45deg, rgb(0 35 128 / 49%), transparent), black;
 }
 
 .footer_inner2 {
-  
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-.footer_cont.fxb {
-   display: flex;
-   justify-content: space-evenly;
+.footer_cont.fx-box {
+  display: flex;
+  justify-content: space-evenly;
 }
 .footer_address {
   box-sizing: border-box;
@@ -247,19 +255,21 @@ nav ul > li > a:hover::after {
   padding: 40px 10px;
 }
 
-ul.footer_info.fxb li {
+ul.footer_info.fx-box li {
   padding-right: 1vw;
 }
 
 /* 푸터로고 이미지부모 */
-.footer_cont.fxb > h2 > a {
+.footer_cont.fx-box > h2 > a {
   display: inline-block;
   position: relative;
   max-width: 200px;
   height: 100%;
 }
 /* 이미지 */
-.footer_cont.fxb > h2 img {
+.footer_cont.fx-box > h2 img {
+  
+  padding: 10px 0;
   position: relative;
   top: 50%;
   translate: 0 -50%;
@@ -268,25 +278,25 @@ ul.footer_info.fxb li {
 }
 
 /* 푸터 텍스트박스 1 */
-ul.footer_info.fxb {
-   font-size: 1.2rem;
+ul.footer_info.fx-box {
+  font-size: 1.2rem;
 }
 /* 푸터 텍스트 1 */
-ul.footer_info.fxb .title {
+ul.footer_info.fx-box .footer-menu {
   color: #fff;
 }
 
 /*푸터 텍스트박스 2 */
 ul.footer_info.footer_info2 {
-   margin: 0 auto;
-   padding: 25px 0px;
-   text-align: center;
+  margin: 0 auto;
+  padding: 25px 0px;
+  text-align: center;
 }
-ul.footer_info.footer_info2>li>p.title {
+ul.footer_info.footer_info2 > li > p.footer-menu {
   display: inline-block;
 }
 /* 푸터 텍스트박스 3*/
 p.copyright {
-   font-size: 1.1rem;
-   text-align: center;
+  font-size: 1.1rem;
+  text-align: center;
 }

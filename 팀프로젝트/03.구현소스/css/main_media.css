@@ -15,7 +15,7 @@
   }
 
   .left-wrap {
-    padding: 10px 50px;
+    padding: 10px 15px;
     flex-basis: 100%;
   }
 
@@ -113,11 +113,31 @@
   .visualimg > span > p:last-of-type {
     text-align: end;
   }
+
+  /* 시리즈줄라인 */
+  section.news-area > .right-wrap > .item-box {
+    flex-basis: calc(100% / 2);
+}
+
+.item-box:nth-of-type(3) {
+  
+  flex-basis: 100%;
+}
+.item-box {
+  flex-basis: calc(100% / 2);
+}
+
+.news-area.box.fxb {
+  padding: 10px 0px;
+}
+
 }
 /********* 최대사이즈 850px 이하 끝 *********/
 
-/********* 최대사이즈 850px 이하 시작 *********/
-@media screen and (max-width: 450px) {
-
+/********* 최대사이즈 700px 이하 시작 *********/
+@media screen and (max-width: 700px) {
+  .left-wrap, .right-wrap { 
+    padding: 10px 0px;
 }
-/********* 최대사이즈 850px 이하 끝 *********/
+}
+/********* 최대사이즈 700px 이하 끝 *********/

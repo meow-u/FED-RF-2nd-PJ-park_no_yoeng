@@ -328,10 +328,14 @@ h2.main_tit {
   flex-wrap: wrap;
   justify-content: center;
 }
+/* 뉴스의오른쪽영역은 패딩조절 */
+.news-area.box.fxb>.right-wrap {
+  padding: 10px 0px;
+}
+
 /* 왼쪽박스 */
 .left-box {
   width: 100%;
-  padding: 0px 1%;
 }
 /* 오른쪽박스 */
 .item-box {

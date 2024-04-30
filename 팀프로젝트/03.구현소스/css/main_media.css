@@ -210,7 +210,6 @@
   }
   .social-box.col-4:hover ul {
     pointer-events: all;
-    height: 220px;
   }
   .social-box.col-4:hover::after {
     rotate: 225deg;
@@ -269,6 +268,10 @@
 
   .visualimg .btn {
     top: 48%;
+  }
+
+  .cursor {
+    display: none;
   }
 }
 /********* 최대사이즈 500px 이하 끝 *********/

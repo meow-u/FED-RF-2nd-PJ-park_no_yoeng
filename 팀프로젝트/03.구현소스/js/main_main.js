@@ -9,6 +9,8 @@ console.log('1. 모듈로 메인js호출확인');
 
 // 내함수 js 가져오기 (새이름지음)
 import mFn from "./my_function.js";
+import comFn from "./main_common.js";
+comFn();
 
 // 데이터 셋팅 파일 불러오기(메인 반복 데이터) - 반복 html 
 
@@ -101,6 +103,7 @@ mFn.addEvt(videoControl,'click',()=>{
    txtBox.forEach(x=>{
     x.style.opacity = '0';
     x.style.transition = '1s ease-out';
+    x.style.boxShadow = "0px 0px 40px #00ffff7a";
     revealOnViewport(x);
     });
 

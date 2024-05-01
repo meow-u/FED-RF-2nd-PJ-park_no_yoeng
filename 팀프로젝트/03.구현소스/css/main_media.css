@@ -290,5 +290,11 @@
   section.news-area > .right-wrap > .item-box > .series-img {
     aspect-ratio: 320 / 226;
   }
+ 
+  nav ul > li > a {
+    position: relative;
+    font-size: 1.4rem;
+    transition: 0.2s;
+}
 }
 /********* 최대사이즈 450px 이하 끝 *********/

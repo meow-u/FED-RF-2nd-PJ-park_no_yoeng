@@ -29,11 +29,16 @@ export default function comFn(){
 
 
   // //이벤트대상
-  // const tg = dFn.qs('.social-box.col-4');
+  const tg = dFn.qs('.social-box.col-4');
   // //변경대상
-  // const ele = dFn.qs('ul.fx-box');
-  // tg.onclick = () =>{
-  //   ele.classList.toggle('on');
+  const ele = dFn.qs('ul.fx-box');
+  tg.onclick = () =>{
+    ele.classList.toggle('on');
+    // tg.style.rotate = '225deg';
+    // tg.style.filter = 'drop-shadow(2px 2px 6px aqua)';
   // };
+  }
+
+
 
 }; ////// comFn 공통기능 함수 /////////

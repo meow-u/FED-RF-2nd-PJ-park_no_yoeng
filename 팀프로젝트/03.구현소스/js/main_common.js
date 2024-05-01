@@ -28,10 +28,12 @@ export default function comFn(){
   })(); ///////// 코드랩핑 끝
 
 
-  const tg = dFn.qs('.social-box.col-4');
-  const ele = dFn.qs('ul.fx-box');
-  tg.onclick = () =>{
-    ele.classList.toggle('on');
-  };
+  // //이벤트대상
+  // const tg = dFn.qs('.social-box.col-4');
+  // //변경대상
+  // const ele = dFn.qs('ul.fx-box');
+  // tg.onclick = () =>{
+  //   ele.classList.toggle('on');
+  // };
 
 }; ////// comFn 공통기능 함수 /////////

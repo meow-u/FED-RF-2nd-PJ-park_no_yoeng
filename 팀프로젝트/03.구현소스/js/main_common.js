@@ -45,20 +45,37 @@ export default function comFn() {
 
     let isClicked = false;
     tg.onclick = () => {
-      if(window.innerWidth <=700){// 화면너비 700미만일때만 실행
+      if (window.innerWidth <= 700) {
+        // 화면너비 700미만일때만 실행
 
-      ele.classList.toggle("on");
-      if (!isClicked) {
-        tg.style.setProperty("--transform", "rotate(225deg)");
-        tg.style.setProperty("--filter", "drop-shadow(2px 2px 6px aqua)");
-        isClicked = true;
-      } else if (isClicked) {
-        tg.style.setProperty("--transform", "rotate(0deg)");
-        tg.style.setProperty("--filter", "drop-shadow(0px 0px 0px aqua)");
-        isClicked = false;
-      }
+        ele.classList.toggle("on");
+        if (!isClicked) {
+          console.log(ele.classList.contains("on"));
+          tg.style.setProperty("--transform", "rotate(225deg)");
+          tg.style.setProperty("--filter", "drop-shadow(2px 2px 6px aqua)");
+          isClicked = true;
+        } else if (isClicked) {
+          tg.style.setProperty("--transform", "rotate(0deg)");
+          tg.style.setProperty("--filter", "drop-shadow(0px 0px 0px aqua)");
+          isClicked = false;
+        }
+      } //window if
 
-    }//window if
+
     };
+      window.addEventListener("click", hiddenMenu);
+
+
+  function hiddenMenu(e) {
+    if (ele.classList.contains("on") && !tg.contains(e.target)) { //  && !tg.contains(e.target) 핵심 : tg가 이벤트타켓이 아닐때
+      tg.style.setProperty("--transform", "rotate(0deg)");
+      tg.style.setProperty("--filter", "drop-shadow(0px 0px 0px aqua)");
+      isClicked = false;
+      ele.classList.remove("on");
+      clickEventAdded = false;
+      window.removeEventListener("click", hiddenMenu);
+    }
+  }
+
   })(); ///////// 코드랩핑 끝
 } ////// comFn 공통기능 함수 /////////

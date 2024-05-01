@@ -8,9 +8,9 @@
 @import url("./grid_12_flex.css");
 
 /* 가상요소 js용 변수 */
-:root {
+/* :root {
   --after-transform: rotate(0deg);
-}
+} */
 
 /* 공사중 표시 */
 body * {

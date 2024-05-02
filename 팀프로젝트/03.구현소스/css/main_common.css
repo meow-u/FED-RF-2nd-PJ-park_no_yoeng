@@ -117,7 +117,7 @@
 }
 
 /* js로 toggle */
-div#top-area ul.fx-box.on {
+header#top-area ul.fx-box.on {
   height: 220px;
 }
 

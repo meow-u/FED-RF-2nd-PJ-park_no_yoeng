@@ -3,7 +3,7 @@
 
 /* 팀 공통 core 충돌 보정 (팀core 아래서호출) */
 html {
-  text-align: -webkit-auto;
+  /* text-align: -webkit-auto; */
 }
 
 .fx-box {
@@ -13,12 +13,12 @@ html {
 }
 
 img {
-  border-radius: 0;
+  /* border-radius: 0; */
 }
 
 a {
-  font-size: 1rem;
-  color: #fff;
+  /* font-size: 1rem; */
+  /* color: #fff; */
 }
 
 /* 별도추가 */

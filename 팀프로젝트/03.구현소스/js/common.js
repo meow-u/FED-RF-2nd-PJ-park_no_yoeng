@@ -1,25 +1,21 @@
 // 스타워즈PJ 공통처리 JS - common.js
 import dFn from "./my_function.js";
-
 console.log('1. common js호출확인');
 
-/* 공통html 데이터가져오기 */
-import comData from '../data/main_common_data.js';
-/* 데이터 셋팅 파일 불러오기(공통 반복 데이터) - (공통 html 호출이후가능) */
-// import make_Com_html from "./make_com_html.js";
+/* 공통html 데이터 가져오기 */
+//호출필요x  sbData 객체 호출시 모듈의 모든 값과 함수가 포함되어 있기 때문
+import * as comData from "../data/common_data.js";
 
 //////////////////////////////////////////////////////////
 export default function setElement () {
 
   /* 공통html 넣기 */
   // 1. 상단영역 코드
-  // dFn.qs('#top-area').innerHTML = comData.topArea;
+  dFn.qs('#top-area').innerHTML = comData.htmlData.topArea;
 
   // 2. 하단영역 코드
-  // dFn.qs('#footer-area').innerHTML = comData.footerArea;
+  dFn.qs('#footer-area').innerHTML = comData.htmlData.footerArea;
   
-  // 공통반복 데이터 호출
-  // make_Com_html(); 
 
   
   // 공통 기능처리 함수 호출하기 - onload: 페이지와 모든 자원이 로드된 후 해당 함수가 실행

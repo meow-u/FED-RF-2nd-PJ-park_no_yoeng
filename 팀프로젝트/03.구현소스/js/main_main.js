@@ -3,15 +3,12 @@
 console.log("1. 모듈로 메인js호출확인");
 
 // 공통처리함수 불러오기(html 공통영역구조 +공통데이터) :가상먼저 처리한다!
-import setElement from "./main_common.js";
+import setElement from "./common.js";
 setElement();
 // 공통함수호출 !!!
 
 // 내함수 js 가져오기 (새이름지음)
 import mFn from "./my_function.js";
-
-// 데이터 셋팅 파일 불러오기(메인 반복 데이터) - 반복 html
-
 
 window.onload = () => {
   //페이지와 모든 자원이 로드된 후 해당 함수가 실행

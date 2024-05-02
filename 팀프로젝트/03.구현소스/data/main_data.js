@@ -176,6 +176,11 @@ const visualData = [
         <span class="info"
           >${v.info}</span></div>
       `).join('')}
+      <div class="btnbox">
+        <a class="btn" href="###">VIEW ALL</a>
+        <a class="btn yellow" href="###">WATCH TRAILER▶</a>
+      </div>
+    </div>
       `,
       visualViewArea:`
       

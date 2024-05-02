@@ -1,7 +1,37 @@
 // 스타워즈PJ 공통처리 JS - common.js
 import dFn from "./my_function.js";
 
-export default function comFn() {
+console.log('1. common js호출확인');
+
+/* 공통html 데이터가져오기 */
+// import comData from '../data/main_common_data.js';
+/* 데이터 셋팅 파일 불러오기(공통 반복 데이터) - (공통 html 호출이후가능) */
+// import make_Com_html from "./make_com_html.js";
+
+//////////////////////////////////////////////////////////
+export default function setElement () {
+
+  /* 공통html 넣기 */
+  // 1. 상단영역 코드
+  // dFn.qs('#top-area').innerHTML = comData.topArea;
+
+  // 2. 하단영역 코드
+  // dFn.qs('#footer-area').innerHTML = comData.footerArea;
+  
+  // 공통반복 데이터 호출
+  // make_Com_html(); 
+
+  
+  // 공통 기능처리 함수 호출하기 - onload: 페이지와 모든 자원이 로드된 후 해당 함수가 실행
+  window.onload = comFn()
+  
+  }  ///////////// 공통 setElement 함수 ////////////////////
+  
+
+
+
+function comFn() {
+
   /****************************************
   [ 마우스 커서 따라다니기 ]
   대상선정 : html
@@ -82,4 +112,5 @@ export default function comFn() {
   }
 
   })(); ///////// 코드랩핑 끝
+
 } ////// comFn 공통기능 함수 /////////

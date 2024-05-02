@@ -4,7 +4,7 @@
 
 /* 0. 전체 레이아웃 영역별 셋팅 */
 
-/* ***************상단영역*************** */
+/* *****************************(공통)상단영역***************************** */
 
 /* 커서 */
 .cursor {
@@ -217,7 +217,7 @@ nav ul > li > a:hover::after {
   transform: scaleX(1);
 }
 
-/* ********4.공통 하단영역******** */
+/* **************************** (공통)하단영역 **************************** */
 #footer-area {
   bottom: -100%;
   z-index: 100;
@@ -288,3 +288,88 @@ p.copyright {
   font-size: 1.1rem;
   text-align: center;
 }
+
+/* 상하단 공통 CSS  */
+nav ul.fx-box ,#footer-area .fx-box {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+/* *************************상하단 공통 미디어 쿼리************************* */
+@media screen and (max-width: 700px) {
+
+  .social-box.col-4 > ul > li {
+    flex-basis: 50%;
+  }
+
+  .social-box.col-4 > ul {
+    position: absolute;
+    padding-top: 40px;
+    height: 0px;
+    /* height: 220px; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    overflow: hidden;
+    transition: 0.2s ease-out;
+    pointer-events: all;
+  }
+
+  /* 소셜박스위치 상세수정 */
+  /* 소셜박스 위치상세수정 */
+
+  a.fa-solid.fa-play {
+    translate: 3px;
+  }
+
+  a.fa-brands.fa-youtube {
+    translate: -1px;
+  }
+
+  a.fa-brands.fa-instagram {
+    translate: 1px;
+  }
+
+  .social-box.col-4 > ul > li {
+    flex-basis: 50%;
+    aspect-ratio: 1 / 1;
+  }
+
+  /* 가상요소 부모박스 클릭안되게 */
+  .social-box.col-4 {
+    pointer-events: none;
+  }
+  /* 가상요소 (클릭all) */
+  .social-box.col-4::after {
+    padding: 7px;
+    line-height: 0.5;
+    top: 20px;
+    aspect-ratio: 1 / 1;
+    position: absolute;
+    content: "+";
+    color: #fff;
+    font-size: 5rem;
+    font-weight: bold;
+    transition: 0.2s ease-out;
+    pointer-events: all;
+
+  /* js에서 가상요소 변경하기!!! */
+  transform: var(--transform, rotate(0deg));
+  filter: var(--filter , drop-shadow(0px 0px 0px aqua));
+  }
+  .search-box.col-4 > ul {
+    scale: 1.2;
+  }
+}
+/********* 최대사이즈 700px 이하 끝 *********/
+/********* 최대사이즈 500px 이하 시작 *********/
+@media screen and (max-width: 500px) {
+  .cursor {
+    display: none;
+  }
+}
+/********* 최대사이즈 500px 이하 끝 *********/
+

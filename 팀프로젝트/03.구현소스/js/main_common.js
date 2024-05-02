@@ -38,9 +38,9 @@ export default function comFn() {
  ****************************************/
   (() => {
     ///////// 코드랩핑 시작
-    // //이벤트대상
+    // //이벤트대상 (가상요소부모)
     const tg = dFn.qs(".social-box.col-4");
-    // //변경대상
+    // //변경대상 (소셜메뉴박스)
     const ele = dFn.qs("ul.fx-box");
 
     let isClicked = false;
@@ -64,10 +64,14 @@ export default function comFn() {
 
     };
       window.addEventListener("click", hiddenMenu);
-
+/********************************************** 
+    ele(소셜박스)가 on 일때  
+    가상요소 외 나머지영역 클릭하면 닫기
+ **********************************************/
 
   function hiddenMenu(e) {
-    if (ele.classList.contains("on") && !tg.contains(e.target)) { //  && !tg.contains(e.target) 핵심 : tg가 이벤트타켓이 아닐때
+    if (ele.classList.contains("on") && !tg.contains(e.target)) { 
+      //  && !tg.contains(e.target) 핵심 : tg가 이벤트타켓(클릭영역)이 아닐때
       tg.style.setProperty("--transform", "rotate(0deg)");
       tg.style.setProperty("--filter", "drop-shadow(0px 0px 0px aqua)");
       isClicked = false;

@@ -9,11 +9,11 @@
 ********************************/
 // 1-1. 소셜박스 데이터
 const socialLinks = [
-    { class: "fa-brands fa-instagram", text: "인스타그램" },
-    { class: "fa-brands fa-facebook", text: "페이스북" },
-    { class: "fa-brands fa-twitter", text: "트위터" },
-    { class: "fa-brands fa-youtube", text: "유튜브" },
-    { class: "fa-solid fa-play", text: "네이버 TV" }
+    { class: "fa-brands fa-instagram", text: "인스타그램" , href: "https://www.instagram.com"},
+    { class: "fa-brands fa-facebook", text: "페이스북" , href: "https://www.facebook.com"},
+    { class: "fa-brands fa-twitter", text: "트위터" , href: "https://www.twitter.com"},
+    { class: "fa-brands fa-youtube", text: "유튜브" , href: "https://www.youtube.com"},
+    { class: "fa-solid fa-play", text: "네이버 TV" , href: "test-sub.html"},
 ];
 // 1-2. 검색박스 데이터
 const searchBox = ['Search','Login'];
@@ -56,7 +56,7 @@ const footerinfo = [
             <div class="social-box col-4">
                <ul class="fx-box">
                 ${socialLinks.map(v=>`
-                <li><a href="#" class="fa ${v.class}"><span class="ir">${v.text}</span></a></li></li>
+                <li><a href="${v.href}" target="_blank" class="fa ${v.class}"><span class="ir">${v.text}</span></a></li></li>
                 `).join('')}
                </ul>
             </div>

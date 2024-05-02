@@ -5,7 +5,22 @@ console.log("1. 모듈로 메인js호출확인");
 // 공통처리함수 불러오기(html 공통영역구조 +공통데이터) :가상먼저 처리한다!
 import setElement from "./common.js";
 setElement();
-// 공통함수호출 !!!
+/* html main영역구조 + 공통데이터 불러오기 */
+import * as mainData from "../data/main_data.js";
+
+
+(()=>{
+  // Main html 데이터 불러오기
+  const contBox= mFn.qs('section.content-area');
+  const newsBox= mFn.qs('section.news-area');
+  const visualBox= mFn.qs('.visualView-ban.inbox')
+  //  3-1. 컨텐츠영역(세계관)
+  contBox.innerHTML = mainData.htmlData.secContentArea;
+  //  3-2. 뉴스영역(뉴스,시리즈)
+  newsBox.innerHTML = mainData.htmlData.newsArea;
+  //  3-3. 3-3.메인 하단 배너 박스
+  visualBox.innerHTML = mainData.htmlData.visualViewArea;
+})();
 
 // 내함수 js 가져오기 (새이름지음)
 import mFn from "./my_function.js";

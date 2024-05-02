@@ -4,7 +4,7 @@ import dFn from "./my_function.js";
 console.log('1. common js호출확인');
 
 /* 공통html 데이터가져오기 */
-// import comData from '../data/main_common_data.js';
+import comData from '../data/main_common_data.js';
 /* 데이터 셋팅 파일 불러오기(공통 반복 데이터) - (공통 html 호출이후가능) */
 // import make_Com_html from "./make_com_html.js";
 

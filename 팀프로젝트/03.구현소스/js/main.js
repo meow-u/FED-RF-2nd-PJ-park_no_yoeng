@@ -69,6 +69,83 @@ window.onload = () => {
         }, 100);
       }
     } ///moveBan//
+
+  /********************************************
+   [ 메인배너 드래그시 left값 이동하기 ]
+  이벤트 /변경대상: .ban_wrap 
+  드래그 시작값 , 끝날값 양/음수에 따라 left값이동
+  *******************************************/
+  mFn.addEvt(banner,'touchstart',dragBan);
+  mFn.addEvt(banner,'touchend',dragBan);
+
+  function dragBan(e){
+    console.log(screenX, screenY)
+  } /////// dragBan /////////
+
+
+
+
+
+
+/*  // (1) 터치스타트 이벤트 함수연결하기
+  mFn.addEvt(dtg, "touchstart", (e) => {
+    // 0. 자동넘김 멈춤함수 호출하기
+    // clearAuto();
+    // 자동호출을 지우기만 해서 자동시작안함!
+    clearInterval(autoI);
+    clearTimeout(autoT);
+
+    // 드래그 상태값 true로 변경!
+    dTrue();
+    // 첫번째 위치포인트 셋팅!
+    firstPoint(e);
+    // 단독할당되지 않고 내부 함수호출로 연결되어있으므로
+    // 이벤트 전달을 토스해줘야 한다!(전달변수 e)
+
+    // z-index 전역변수(zNum) 숫자를 1씩 높이기
+    // dtg.style.zIndex = ++zNum;
+
+    // // console.log("터치스타트!", dragSts);
+  }); ///////// touchstart //////////
+
+  // (2) 터치엔드 이벤트 함수연결하기
+  mFn.addEvt(dtg, "touchend", () => {
+    // 0. 자동넘김 멈춤함수 호출하기
+    clearAuto();
+
+    // 드래그 상태값 false로 변경!
+    dFalse();
+    // 마지막 위치포인트 셋팅!
+    lastPoint();
+
+    // 드래그 슬라이드 이동함수 호출!
+    moveDragSlide();
+
+    // // console.log("터치엔드!", dragSts);
+  }); ///////// touchend //////////
+
+  // (3) 터치무브 이벤트 함수연결하기
+  mFn.addEvt(dtg, "touchmove", dMove);
+  //////////// touchmove ///////////// */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   })(); ///////// 코드랩핑 끝
 
   /********************************************

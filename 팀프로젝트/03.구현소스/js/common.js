@@ -3,7 +3,7 @@ import dFn from "./my_function.js";
 console.log('1. common js호출확인');
 
 /* 공통html 데이터 가져오기 */
-//호출필요x  sbData 객체 호출시 모듈의 모든 값과 함수가 포함되어 있기 때문
+//호출필요x  comData 객체 호출시 모듈의 모든 값과 함수가 포함되어 있기 때문
 import * as comData from "../data/common_data.js";
 
 //////////////////////////////////////////////////////////

@@ -77,6 +77,7 @@ function comFn() {
         ele.classList.toggle("on");
         if (!isClicked) {
           console.log(ele.classList.contains("on"));
+          /* 사용자정의변수 가상요소 속성 변경 */
           tg.style.setProperty("--transform", "rotate(225deg)");
           tg.style.setProperty("--filter", "drop-shadow(2px 2px 6px aqua)");
           isClicked = true;

@@ -8,12 +8,11 @@ setElement();
 /* html main영역구조 + 공통데이터 불러오기 */
 import * as mainData from "../data/main_data.js";
 
-
-(()=>{
+(() => {
   // Main html 데이터 불러오기
-  const contBox= mFn.qs('section.content-area');
-  const newsBox= mFn.qs('section.news-area');
-  const visualBox= mFn.qs('.visualView-ban.inbox')
+  const contBox = mFn.qs("section.content-area");
+  const newsBox = mFn.qs("section.news-area");
+  const visualBox = mFn.qs(".visualView-ban.inbox");
   //  3-1. 컨텐츠영역(세계관)
   contBox.innerHTML = mainData.htmlData.secContentArea;
   //  3-2. 뉴스영역(뉴스,시리즈)
@@ -35,10 +34,14 @@ window.onload = () => {
 *******************************************/
   (() => {
     ///////// 코드랩핑 시작
+    let goLeft = false;
+
     const banner = mFn.qs(".ban_wrap");
     const btns = mFn.qsa(".banbtn");
     let txt = mFn.qs(".pageInfo");
 
+    let banImg = mFn.qs('.blur-wrap>img');
+    const video = mFn.qs(".video");
     const videoControl = mFn.qs(".video_control");
     let isClick = false;
 
@@ -56,95 +59,92 @@ window.onload = () => {
       }, 400);
 
       if (txt.innerText === "01 / 02") {
+
         txt.innerText = "02 / 02";
         banner.style.left = "-100%";
         /* 동영상컨트롤러 */
         videoControl.style.display = "none";
-      } else {
+        setTimeout(() => {
+          banImg.style.scale = '1.1';
+        }, 400);
+          banner.style.setProperty('--transition','0.3s 0.8s');
+          banner.style.setProperty('--scale','1');
+          banner.style.setProperty('--opacity','1');
+
+      } else if(txt.innerText === "02 / 02") {
         txt.innerText = "01 / 02";
         banner.style.left = "-0%";
         /* 동영상컨트롤러 */
         setTimeout(() => {
           videoControl.style.display = "block";
+          /* 비디오재생 처음부터 */
+          video.currentTime = 0;
         }, 100);
+        setTimeout(() => {
+          banImg.style.scale = '1';
+        }, 400);
+          banner.style.setProperty('--transition','0s 0.1s');
+          banner.style.setProperty('--scale','0.9');
+          banner.style.setProperty('--opacity','0');
       }
     } ///moveBan//
 
-  /********************************************
+    /********************************************
    [ 메인배너 드래그시 left값 이동하기 ]
   이벤트 /변경대상: .ban_wrap 
   드래그 시작값 , 끝날값 양/음수에 따라 left값이동
   *******************************************/
-  mFn.addEvt(banner,'touchstart',dragBan);
-  mFn.addEvt(banner,'touchend',dragBan);
 
-  function dragBan(e){
-    console.log(screenX, screenY)
-  } /////// dragBan /////////
+    let touchStartX = 0; // 터치시작 값
+    let touchEndX = 0; // 터치끝 값
+    let diffX = 0; // 드래그한 양/음수값
 
+    mFn.addEvt(banner, "touchstart", (e) => {
+      touchStartX = e.touches[0].clientX;
+      console.log("터치시작:", touchStartX);
+    });
+    mFn.addEvt(banner, "touchend", (e) => {
+      touchEndX = e.changedTouches[0].clientX;
+      console.log("터치끝:", touchEndX);
+      touchMoveBan();
+    });
 
+    function touchMoveBan() {
+      diffX = touchEndX - touchStartX;
+      console.log("차이값:", diffX);
 
-
-
-
-/*  // (1) 터치스타트 이벤트 함수연결하기
-  mFn.addEvt(dtg, "touchstart", (e) => {
-    // 0. 자동넘김 멈춤함수 호출하기
-    // clearAuto();
-    // 자동호출을 지우기만 해서 자동시작안함!
-    clearInterval(autoI);
-    clearTimeout(autoT);
-
-    // 드래그 상태값 true로 변경!
-    dTrue();
-    // 첫번째 위치포인트 셋팅!
-    firstPoint(e);
-    // 단독할당되지 않고 내부 함수호출로 연결되어있으므로
-    // 이벤트 전달을 토스해줘야 한다!(전달변수 e)
-
-    // z-index 전역변수(zNum) 숫자를 1씩 높이기
-    // dtg.style.zIndex = ++zNum;
-
-    // // console.log("터치스타트!", dragSts);
-  }); ///////// touchstart //////////
-
-  // (2) 터치엔드 이벤트 함수연결하기
-  mFn.addEvt(dtg, "touchend", () => {
-    // 0. 자동넘김 멈춤함수 호출하기
-    clearAuto();
-
-    // 드래그 상태값 false로 변경!
-    dFalse();
-    // 마지막 위치포인트 셋팅!
-    lastPoint();
-
-    // 드래그 슬라이드 이동함수 호출!
-    moveDragSlide();
-
-    // // console.log("터치엔드!", dragSts);
-  }); ///////// touchend //////////
-
-  // (3) 터치무브 이벤트 함수연결하기
-  mFn.addEvt(dtg, "touchmove", dMove);
-  //////////// touchmove ///////////// */
+      if (Math.abs(diffX) > 50) {
+        //최소 슬라이드범위( + / - 50)
+        if (diffX < 0) {// 0보다 작을때 left -100%
+          moveBan();
+          // moveBannerLeft();
+        } else if (diffX > 0) {// 0보다 클때 left 0%
+          moveBan();
+          // moveBannerRight();
+        }
+      } ///if///
+    } ////// touchMoveBan 함수 ///
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  //   function moveBannerRight() {
+  //     if (txt.innerText === "02 / 02") {
+  //         txt.innerText = "01 / 02";
+  //         banner.style.left = "0%";
+  //         /* 동영상컨트롤러 */
+  //         setTimeout(() => {
+  //             videoControl.style.display = "block";
+  //         }, 100);
+  //     }
+  // }
+  
+  // function moveBannerLeft() {
+  //     if (txt.innerText === "01 / 02") {
+  //         txt.innerText = "02 / 02";
+  //         banner.style.left = "-100%";
+  //         /* 동영상컨트롤러 */
+  //         videoControl.style.display = "none";
+  //     }
+  // }
 
   })(); ///////// 코드랩핑 끝
 
@@ -156,7 +156,7 @@ window.onload = () => {
 *****************************************/
   (() => {
     ///////// 코드랩핑 시작
-    const video = mFn.qs(".video");
+    const video = mFn.qs(".video"); 
     const videoControl = mFn.qs(".video_control");
 
     mFn.addEvt(videoControl, "click", () => {

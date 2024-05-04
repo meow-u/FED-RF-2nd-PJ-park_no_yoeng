@@ -40,7 +40,7 @@ window.onload = () => {
     const btns = mFn.qsa(".banbtn");
     let txt = mFn.qs(".pageInfo");
 
-    let banImg = mFn.qs('.blur-wrap>img');
+    let banImg = mFn.qs(".blur-wrap>img");
     const video = mFn.qs(".video");
     const videoControl = mFn.qs(".video_control");
     let isClick = false;
@@ -59,19 +59,17 @@ window.onload = () => {
       }, 400);
 
       if (txt.innerText === "01 / 02") {
-
         txt.innerText = "02 / 02";
         banner.style.left = "-100%";
         /* 동영상컨트롤러 */
         videoControl.style.display = "none";
         setTimeout(() => {
-          banImg.style.scale = '1.1';
+          banImg.style.scale = "1.1";
         }, 400);
-          banner.style.setProperty('--transition','0.3s 0.8s');
-          banner.style.setProperty('--scale','1');
-          banner.style.setProperty('--opacity','1');
-
-      } else if(txt.innerText === "02 / 02") {
+        banner.style.setProperty("--transition", "0.3s 0.8s");
+        banner.style.setProperty("--scale", "1");
+        banner.style.setProperty("--opacity", "1");
+      } else if (txt.innerText === "02 / 02") {
         txt.innerText = "01 / 02";
         banner.style.left = "-0%";
         /* 동영상컨트롤러 */
@@ -81,11 +79,11 @@ window.onload = () => {
           video.currentTime = 0;
         }, 100);
         setTimeout(() => {
-          banImg.style.scale = '1';
+          banImg.style.scale = "1";
         }, 400);
-          banner.style.setProperty('--transition','0s 0.1s');
-          banner.style.setProperty('--scale','0.9');
-          banner.style.setProperty('--opacity','0');
+        banner.style.setProperty("--transition", "0s 0.1s");
+        banner.style.setProperty("--scale", "0.9");
+        banner.style.setProperty("--opacity", "0");
       }
     } ///moveBan//
 
@@ -115,37 +113,17 @@ window.onload = () => {
 
       if (Math.abs(diffX) > 50) {
         //최소 슬라이드범위( + / - 50)
-        if (diffX < 0) {// 0보다 작을때 left -100%
+        if (diffX < 0) {
+          // 0보다 작을때 left -100%
           moveBan();
           // moveBannerLeft();
-        } else if (diffX > 0) {// 0보다 클때 left 0%
+        } else if (diffX > 0) {
+          // 0보다 클때 left 0%
           moveBan();
           // moveBannerRight();
         }
       } ///if///
     } ////// touchMoveBan 함수 ///
-
-
-  //   function moveBannerRight() {
-  //     if (txt.innerText === "02 / 02") {
-  //         txt.innerText = "01 / 02";
-  //         banner.style.left = "0%";
-  //         /* 동영상컨트롤러 */
-  //         setTimeout(() => {
-  //             videoControl.style.display = "block";
-  //         }, 100);
-  //     }
-  // }
-  
-  // function moveBannerLeft() {
-  //     if (txt.innerText === "01 / 02") {
-  //         txt.innerText = "02 / 02";
-  //         banner.style.left = "-100%";
-  //         /* 동영상컨트롤러 */
-  //         videoControl.style.display = "none";
-  //     }
-  // }
-
   })(); ///////// 코드랩핑 끝
 
   /********************************************
@@ -156,7 +134,7 @@ window.onload = () => {
 *****************************************/
   (() => {
     ///////// 코드랩핑 시작
-    const video = mFn.qs(".video"); 
+    const video = mFn.qs(".video");
     const videoControl = mFn.qs(".video_control");
 
     mFn.addEvt(videoControl, "click", () => {
@@ -196,7 +174,7 @@ window.onload = () => {
   revealOnViewport(newsRbox);
 
   /* 화면등장시 보이기 추상화 함수 */
-  function revealOnViewport(targetElement) {
+  function revealOnViewport(target) {
     const observer = new IntersectionObserver((ele) => {
       ele.forEach((ele) => {
         if (ele.isIntersecting) {
@@ -207,6 +185,39 @@ window.onload = () => {
       });
     });
 
-    observer.observe(targetElement);
+    observer.observe(target);
   }
 })(); ///////// 코드랩핑 끝
+
+/********************************************
+ [ 시리즈이미지 클릭시 toggle로 on넣어 포스터 보기/닫기]
+  이벤트 대상: .item-box
+      변경대상: .item-box
+*******************************************/
+(() => {
+  const imgBox = mFn.qsa(".right-wrap.second .item-box");
+  console.log(imgBox);
+  imgBox.forEach((ele,idx) => {
+    mFn.addEvt(ele, "click", ()=>showPoster(ele,idx));
+  }); ////////forEach//////
+
+  function showPoster(ele,idx) {
+    console.log("클릭됨",idx);
+    ele.classList.toggle("on");
+    // on 될때마다 opacity값을 css의 초기값으로 설정 
+    ele.style.setProperty('--opacity', '0');
+    
+    ele.style.setProperty('--content1', `"${mainData.seriesData[idx].title}"`);
+    ele.style.setProperty('--content2', `"${mainData.seriesData[idx].info}"`);
+    ele.style.setProperty('--bg-image', `url(../main_images/${mainData.seriesData[idx].src})`);
+    setTimeout(() => {//비동기처리 (css transition 적용시간을 위한 대기시간주기)
+      ele.style.setProperty('--opacity', '1');
+    }, 0);
+
+    
+  }
+
+})(); ///////// 코드랩핑 끝
+
+
+

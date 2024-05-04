@@ -62,42 +62,58 @@
 //3-3 시리즈데이터
 const seriesData = [
   {
+    idx:1,
     imgClass: 'series-img hover-img',
+    src: 'series_01.jpg',
     title: 'Tales of the Empire',
     info: 'A journey into the fearsome Galactic Empire through the eyes of two warriors on divergent paths.'
   },
   {
+    idx:2,
     imgClass: 'series-img hover-img',
+    src: 'series_02.jpg',
     title: 'The Acolyte',
     info: 'An investigation into a shocking crime spree pits a respected Jedi Master against a dangerous warrior from his past.'
   },
   {
+    idx:3,
     imgClass: 'series-img hover-img',
+    src: 'series_03.jpg',
     title: 'Ahsoka',
     info: 'Former Jedi Knight Ahsoka Tano investigates an emerging threat to a vulnerable galaxy.'
   },
   {
+    idx:4,
     imgClass: 'series-img hover-img',
+    src: 'series_04.jpg',
     title: 'The Mandalorian',
     info: 'After the fall of the Empire, a lone Mandalorian makes his way through the lawless galaxy with his foundling, Grogu.'
   },
   {
+    idx:5,
     imgClass: 'series-img hover-img',
+    src: 'series_05.jpg',
     title: 'Andor',
     info: 'In a dangerous era, Cassian Andor embarks on a path destined to turn him into a rebel hero.'
   },
   {
+    idx:6,
     imgClass: 'series-img hover-img',
+    src: 'series_06.jpg',
     title: 'Tales of the Jedi',
     info: 'Tales built around Jedi from the prequel era, featuring Ahsoka Tano, Count Dooku, and others.'
   },
   {
+    idx:7,
     imgClass: 'series-img hover-img',
+    src: 'series_07.jpg',
     title: 'Obi-Wan Kenobi',
     info: 'During the reign of the Empire, Obi-Wan Kenobi embarks on a crucial mission.'
   },
   {
+    idx:8,
     imgClass: 'series-img hover-img',
+    src: 'series_08.jpg',
     title: 'The Book of Boba Fett',
     info: 'Go inside The Book of BobaFett, now streaming on Disney+, with episode guides, Databank entries, and a bounty of in-depth articles.'
   }
@@ -152,7 +168,7 @@ const visualData = [
       </div>
       <div class="right-wrap">
         <h4>More News + Features</h4>
-        ${newsItemData.map(v=>`
+        ${newsItemData.map((v)=>`
         <div class="item-box">
         <div class="series-img hover-img"></div>
         <p class="info">
@@ -167,7 +183,7 @@ const visualData = [
       </div>
     </div>
     <!-- 한번더붙임 -->
-    <div class="right-wrap">
+    <div class="right-wrap second">
       <h4 class="title-sub2">ALL series</h4>
       ${seriesData.map(v=>`
       <div class="item-box">

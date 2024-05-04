@@ -209,9 +209,9 @@
     transition: 0.2s ease-out;
     pointer-events: all;
 
-  /* js에서 가상요소 변경하기!!! */
-  transform: var(--transform, rotate(0deg));
-  filter: var(--filter , drop-shadow(0px 0px 0px aqua));
+    /* js에서 가상요소 변경하기!!! */
+    transform: var(--transform, rotate(0deg));
+    filter: var(--filter, drop-shadow(0px 0px 0px aqua));
   }
   .search-box.col-4 > ul {
     scale: 1.2;
@@ -220,6 +220,44 @@
   section.news-area > .right-wrap > h4 {
     padding: 0 10px;
   }
+
+  /* 클릭시 포스터가상요소 */
+  .item-box.on::before , .news-box.on::before {
+    background: #000000d3 var(--bg-image) no-repeat 50% 30px / auto 70%;
+    padding-left: 0;
+    justify-content: center;
+    align-items: baseline;
+    padding-bottom: 0;
+    padding-top: calc(30px + 70vh);
+  }
+
+  .item-box.on::after ,.news-box.on::after {
+    text-align: center;
+    left: 50%;
+    translate: -50%;
+    width: 80%;
+    top:calc(30px + 80vh);
+}
+
+/* 보정 */
+.news-box.on::before {
+  
+  font-size: min(3rem,7.9vw);
+  padding: 0 5%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.83) 60%), #000000d3 var(--bg-image) no-repeat 50% 30px / auto 70%;
+  padding-top: calc(30px + 50vh);
+}
+
+.news-box.on::after {
+  
+  font-size: 1.5rem;
+  height: 130px;
+  overflow-y: scroll;
+  text-align: justify;
+  width: 90%;
+  top: calc(30px + 70vh);
+
+}
 }
 /********* 최대사이즈 700px 이하 끝 *********/
 
@@ -286,11 +324,11 @@
   section.news-area > .right-wrap > .item-box > .series-img {
     aspect-ratio: 320 / 226;
   }
- 
+
   nav ul > li > a {
     position: relative;
     font-size: 1.4rem;
     transition: 0.2s;
-}
+  }
 }
 /********* 최대사이즈 450px 이하 끝 *********/

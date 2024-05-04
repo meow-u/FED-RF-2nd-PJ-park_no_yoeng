@@ -195,29 +195,58 @@ window.onload = () => {
       변경대상: .item-box
 *******************************************/
 (() => {
-  const imgBox = mFn.qsa(".right-wrap.second .item-box");
-  console.log(imgBox);
-  imgBox.forEach((ele,idx) => {
-    mFn.addEvt(ele, "click", ()=>showPoster(ele,idx));
+  const newBox = mFn.qsa(".news-box");
+  const posterBox = mFn.qsa(".right-wrap.second .item-box");
+  const newsItem = mainData.newsItemData;
+  console.log('mainData.newsItemData',newsItem);
+
+  let isNews = false;
+  console.log(posterBox, newBox);
+  /* 뉴스 */
+  newBox.forEach((ele, idx) => {
+    mFn.addEvt(ele, "click", () => showItem(ele, idx));
+  }); ////////forEach//////
+  /* 포스터 */
+  posterBox.forEach((ele, idx) => {
+    mFn.addEvt(ele, "click", () => showItem(ele, idx));
   }); ////////forEach//////
 
-  function showPoster(ele,idx) {
-    console.log("클릭됨",idx);
+  function showItem(ele, idx) {
+    console.log("클릭됨", idx);
     ele.classList.toggle("on");
-    // on 될때마다 opacity값을 css의 초기값으로 설정 
-    ele.style.setProperty('--opacity', '0');
-    
-    ele.style.setProperty('--content1', `"${mainData.seriesData[idx].title}"`);
-    ele.style.setProperty('--content2', `"${mainData.seriesData[idx].info}"`);
-    ele.style.setProperty('--bg-image', `url(../main_images/${mainData.seriesData[idx].src})`);
-    setTimeout(() => {//비동기처리 (css transition 적용시간을 위한 대기시간주기)
-      ele.style.setProperty('--opacity', '1');
+    // on 될때마다 opacity값을 css의 초기값으로 설정
+    ele.style.setProperty("--opacity", "0");
+
+    if (ele.classList.contains("news-box")) {
+      
+      console.log("뉴스",idx);
+      console.log('mainData.newsItemData',newsItem);
+      
+      if (newsItem[idx]) { // newsItem이 undefined나 null이 아닌 경우에만 실행
+      ele.style.setProperty(
+        "--content1",`"${mainData.newsItemData[idx].tit}"`
+      );
+      ele.style.setProperty(
+        "--content2",`"${mainData.newsItemData[idx].info}"`
+      );
+      ele.style.setProperty(
+        "--bg-image",`url(../main_images/${mainData.newsItemData[idx].src})`
+      );}
+
+    } else {
+      ele.style.setProperty(
+        "--content1",
+        `"${mainData.seriesData[idx].title}"`
+      );
+      ele.style.setProperty("--content2", `"${mainData.seriesData[idx].info}"`);
+      ele.style.setProperty(
+        "--bg-image",
+        `url(../main_images/${mainData.seriesData[idx].src})`
+      );
+    }
+    setTimeout(() => {
+      //비동기처리 (css transition 적용시간을 위한 대기시간주기)
+      ele.style.setProperty("--opacity", "1");
     }, 0);
-
-    
-  }
-
+  } /////showPoster/////
 })(); ///////// 코드랩핑 끝
-
-
-

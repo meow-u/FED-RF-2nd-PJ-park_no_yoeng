@@ -47,17 +47,45 @@
         description: 'Star Wars is the hugely popular American space opera film series created by George Lucas. It has become a massive cultural phenomenon, transcending just movies by expanding across various media like TV shows, books, and comics. Star Wars represents American culture itself and has cultivated one of the largest fan bases worldwide, especially in the United States.'
       }
     ];
+
+    /* 
+slice()
+
+기존 배열을 건드리지 않고, 지정된 범위의 요소를 복사하여 새로운 배열을 반환합니다.
+array.slice(start, end) 형태로 사용합니다.
+start 인덱스부터 end 인덱스 전까지의 요소를 복사합니다.
+
+
+splice()
+
+기존 배열 자체를 수정합니다.
+array.splice(start, deleteCount, item1, item2, ...) 형태로 사용합니다.
+start 인덱스부터 deleteCount 개수만큼의 요소를 제거합니다.
+제거된 위치에 item1, item2, ... 등의 새로운 요소를 추가할 수 있습니다.
+
+
+
+따라서 slice(1)은 기존 배열을 건드리지 않고, 인덱스 1부터 배열 끝까지의 요소를 복사하여 새로운 배열을 반환합니다.
+반면에 splice(1)은 기존 배열에서 인덱스 1부터 시작하여 요소를 제거하기 시작합니다. 이때 deleteCount를 지정하지 않으면 인덱스 1부터 배열의 끝까지 모든 요소를 제거합니다.
+예를 들어, const arr = [1, 2, 3, 4, 5];라는 배열이 있다면:
+
+arr.slice(1) 결과는 [2, 3, 4, 5]이 됩니다. 원본 배열은 변경되지 않습니다.
+arr.splice(1) 결과는 [2, 3, 4, 5]이 되지만, 원본 배열은 [1]로 변경됩니다. */
+
 //3-2 뉴스아이템데이터
     const newsItemData = [
-      {info: 
-        'The Hunt for Jedi Is on in Marvel\'s Star Wars: Inquisitors - Exclusive Reveal'
-      },
-      {info: 
-        'Disneyland After Dark: Star Wars Nite Kicks Off Tonight'
-      },
-      {info: 
-        'New LEGO Star Wars Ultimate Collector Series TIE Interceptor Revealed'
-      }
+      {tit: '12 Star Wars Movie Poster Designs Found Only in Japan',
+        src: 'news01.jpg',
+        info:`Many Star Wars collectors have long coveted items produced exclusively for fans and audiences in Japan, be it toys, food premiums, apparel items, or posters.  During the original trilogy era of the late ‘70s and early ‘80s, marketing teams around the world were often given broad latitude to create Star Wars poster campaigns to suit local tastes and sensibilities, resulting in a rich variety of advertising imagery. This tradition shifted during the era of the prequels, however, when the same key advertising imagery was utilized across all markets around the globe, with the exception of — interestingly — the US, which did not enjoy the expanded poster campaigns seen in Europe and Asia. There has been a return in recent years to some regionally exclusive poster designs, including in Japan, again giving fans and collectors an opportunity to add a truly unique poster to their collection. As Star Wars Celebration heads back to Japan in 2025, StarWars.com is revisiting some of those rarities.The following 12 Japanese Star Wars movie posters feature designs and/or illustrations used nowhere else in the world, making them especially appealing to fans wishing to collect each unique poster from a specific title (or every title!). You will notice that prequel posters are conspicuously absent from the list, as there were no poster graphics created exclusively for Japan during that era.`},
+      {tit: 'The Hunt for Jedi Is on in Marvel\'s Star Wars: Inquisitors - Exclusive Reveal',
+        src: 'news02.jpg',
+        info:`The final season of Star Wars: The Bad Batch is here! In Bad Batch Declassified, we’ll explore our favorite moments from each episode, available only on Disney+. Armor up and join us for the ride. Spoiler warning: This article discusses details and plot points from the Star Wars: The Bad Batch episode, “Into the Breach.” If there are two things the Bad Batch are really good at, it’s breaking in — and breaking out. With Omega in the custody of Dr. Hemlock at Mount Tantiss, her Clone Force 99 brothers are concerned only with getting her back. In “Into the Breach,” they come up with a plan to sneak aboard an Imperial station and steal the facility’s coordinates; difficult, to be sure, but the team thankfully has an ex-vice admiral up its collective sleeve. Yet as they devise this covert op, Omega proves to be ever the Batcher herself — already plotting as escape for herself and Hemlock’s other captive children. A great dual-caper tale, here are five highlights.`},
+      {tit: 'Disneyland After Dark: Star Wars Nite Kicks Off Tonight',
+        src: 'news03.jpg',
+        info:`“The Jedi cannot help who they are. Their compassion leaves a trail.” The Grand Inquisitor’s words in Obi-Wan Kenobi form the cold heart of Marvel’s upcoming Star Wars: Inquisitors, which StarWars.com is excited to reveal. A new miniseries kicking off July 3 from writer Rodney Barnes and artist Ramon Rosanas, Inquisitors follows the Empire’s Jedi hunters as they narrow in on a new target: Tensu Run, a survivor of Order 66 looking to spread hope and rebuild the Jedi Order. He has won the attention of Darth Vader, who is determined to have Tensu killed at any cost. Check out Nick Bradshaw’s cover for issue #1, along with variants by Alex Maleev and the legendary Walt Simonson, in the gallery below.`},
+      {tit: 'New LEGO Star Wars Ultimate Collector Series TIE Interceptor Revealed',
+        src: 'news04.jpg',
+        info:`The wait is almost over. Disneyland After Dark: Star Wars Nite is back starting tonight with a celebration fit for a Naboo queen! Set for the evenings of April 16, April 18, April 23, April 25, and April 30 as well as May 2, May 7, and May 9, the special event encompasses the weeks around Star Wars Day, on May the 4th, with a private party inside Disneyland from 9 p.m. to 1 a.m. each night. The adventure begins at Disneyland Park with mix-in starting at 6 p.m., and no theme park reservation required. Take on the Trade Federation in a meeting with Queen Amidala from Star Wars: The Phantom Menace or study the philosophy of the Force with Ahsoka Tano, Anakin Skywalker’s former Padawan from Ahsoka. Galactic encounters abound throughout the park where you can cross paths with Ewoks in Critter Country, BB-8 rolling through Frontierland, Darth Maul, Darth Vader, and Emperor Palpatine in Tomorrowland, and a host of other denizens in Star Wars: Galaxy’s Edge including Hera Syndulla, Chopper, the Mandalorian and Grogu, and more! Enjoy a tasting menu from around the galaxy as you sample an adorable Grogu Candy Apple, a Galactic Princess Sundae fit for Princess Leia, a Level 1313 Loaded Bowl, Wookiee Funnel Cake, and more! Join the Resistance at a Lightsaber Meet-up with Rey and watch out for the March of the First Order, led by Captain Phasma and her stormtroopers. Fly the Millennium Falcon and join the fight against evil with access to ride Millennium Falcon: Smugglers Run, Rise of the Resistance, and other attractions. Learn the ways of the Jedi and the art of defense in the Lightsaber Instructional demonstration. Forge a custom lightsaber at Savi’s Workshop or build your own droid counterpart at the Droid Depot. Shop for other exclusive merchandise including a pullover hoodie and trading pin and the first to market May the 4th collection available for early release. And finish the evening by taking in a show by the cantina crooners Figrin D’an and the Modal Nodes around the Rivers of America.`}
     ];
 //3-3 시리즈데이터
 const seriesData = [
@@ -161,18 +189,18 @@ const visualData = [
       newsArea:`
       <div class="news-area box fx-box">
       <div class="left-wrap">
-        <div class="left-box">
+        <div class="left-box news-box">
           <h2>12 Star Wars Movie Poster Designs Found Only in Japan</h2>
           <div class="left-img hover-img"></div>
         </div>
       </div>
       <div class="right-wrap">
         <h4>More News + Features</h4>
-        ${newsItemData.map((v)=>`
-        <div class="item-box">
+        ${newsItemData.slice(1).map((v)=>`
+        <div class="item-box news-box">
         <div class="series-img hover-img"></div>
         <p class="info">
-         ${v.info}
+         ${v.tit}
         </p>
       </div>
         `).join('')}

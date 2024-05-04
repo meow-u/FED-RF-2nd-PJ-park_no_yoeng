@@ -596,7 +596,7 @@ section.visualView-ban .visualView .visualimg:hover {
 }
 
 /* 시리즈영역 클릭시 보일 가상요소( js로 on줘서 보이게하기) */
-.item-box.on::before {
+.item-box.on::before , .news-box.on::before {
  
   content: var(--content1);
   position: fixed;
@@ -618,7 +618,7 @@ section.visualView-ban .visualView .visualimg:hover {
   opacity: var(--opacity);
 }
 
-.item-box.on::after{
+.item-box.on::after , .news-box.on::after{
 
   content:  var(--content2);
   position: fixed;
@@ -627,6 +627,30 @@ section.visualView-ban .visualView .visualimg:hover {
   width: 40%;
   z-index: 1000;
   font-size: 1.3rem;
+  line-height: 1.5;
   transition: opacity 0.3s;
   opacity: var(--opacity);
+}
+
+/* 보정 */
+.news-box.on::before{
+  
+  font-size: min(3rem, 4vw);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.83) 60%), #000000d3 var(--bg-image) no-repeat 100% center / auto 100vh;
+  white-space: pre-line;
+  padding-top: 10vh;
+  padding-right: 5%;
+  align-items: baseline;
+}
+.news-box.on::after{
+
+  height: 400px;
+  font-size: 1.5rem;
+  overflow-y: scroll;
+  /* 스크롤바안보이게 (스크롤가능) */
+  scrollbar-width: none;
+  text-align: justify;
+  top: 32vh;
+  left: 50%;
+  width: 45%;
 }

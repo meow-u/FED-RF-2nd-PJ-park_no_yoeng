@@ -636,7 +636,8 @@ section.visualView-ban .visualView .visualimg:hover {
 .news-box.on::before{
   
   font-size: min(3rem, 4vw);
-  background: linear-gradient(to right, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.83) 60%), #000000d3 var(--bg-image) no-repeat 100% center / auto 100vh;
+ 
+  background: linear-gradient(to right, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.83) 60%), #000000d3 var(--bg-image) no-repeat -50vh center / auto 100vh;
   white-space: pre-line;
   padding-top: 10vh;
   padding-right: 5%;

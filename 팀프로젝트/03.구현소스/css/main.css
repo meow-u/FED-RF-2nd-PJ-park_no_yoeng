@@ -622,6 +622,7 @@ section.visualView-ban .visualView .visualimg:hover {
 
   content:  var(--content2);
   position: fixed;
+  text-align: justify;
   top: 50%;
   left: 50%;
   width: 40%;

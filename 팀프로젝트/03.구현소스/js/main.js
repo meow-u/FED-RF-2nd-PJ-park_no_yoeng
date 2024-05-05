@@ -198,10 +198,9 @@ window.onload = () => {
   const newBox = mFn.qsa(".news-box");
   const posterBox = mFn.qsa(".right-wrap.second .item-box");
   const newsItem = mainData.newsItemData;
-  console.log('mainData.newsItemData',newsItem);
+  // console.log('mainData.newsItemData',newsItem);
 
-  let isNews = false;
-  console.log(posterBox, newBox);
+  // console.log(posterBox, newBox);
   /* 뉴스 */
   newBox.forEach((ele, idx) => {
     mFn.addEvt(ele, "click", () => showItem(ele, idx));
@@ -220,7 +219,7 @@ window.onload = () => {
     if (ele.classList.contains("news-box")) {
       
       console.log("뉴스",idx);
-      console.log('mainData.newsItemData',newsItem);
+      // console.log('mainData.newsItemData',newsItem);
       
       if (newsItem[idx]) { // newsItem이 undefined나 null이 아닌 경우에만 실행
       ele.style.setProperty(
@@ -238,7 +237,7 @@ window.onload = () => {
         "--content1",
         `"${mainData.seriesData[idx].title}"`
       );
-      ele.style.setProperty("--content2", `"${mainData.seriesData[idx].info}"`);
+      ele.style.setProperty("--content2", `'${mainData.seriesData[idx].detail}'`);
       ele.style.setProperty(
         "--bg-image",
         `url(../main_images/${mainData.seriesData[idx].src})`
@@ -246,6 +245,10 @@ window.onload = () => {
     }
     setTimeout(() => {
       //비동기처리 (css transition 적용시간을 위한 대기시간주기)
+
+      //기존 열려있는 건 투명도 0처리
+      newBox.forEach(ele=>{ele.style.setProperty("--opacity", "0");})
+      posterBox.forEach(ele=>{ele.style.setProperty("--opacity", "0");})
       ele.style.setProperty("--opacity", "1");
     }, 0);
   } /////showPoster/////

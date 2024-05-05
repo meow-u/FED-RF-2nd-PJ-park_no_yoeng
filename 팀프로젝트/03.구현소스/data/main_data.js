@@ -94,56 +94,64 @@ const seriesData = [
     imgClass: 'series-img hover-img',
     src: 'series_01.jpg',
     title: 'Tales of the Empire',
-    info: 'A journey into the fearsome Galactic Empire through the eyes of two warriors on divergent paths.'
+    info: 'A journey into the fearsome Galactic Empire through the eyes of two warriors on divergent paths.',
+    detail: 'Rating: TV-PG Release Date: May 4, 2024 Genre: Animation, Anthology, Science Fiction Journey into the fearsome Galactic Empire through the eyes of two warriors on divergent paths, set during different eras. After losing everything, young Morgan Elsbeth navigates the expanding Imperial world toward a path of vengeance, while former Jedi Barriss Offee does what she must to survive a rapidly changing galaxy. The choices they make will define their destinies.'
   },
   {
     idx:2,
     imgClass: 'series-img hover-img',
     src: 'series_02.jpg',
     title: 'The Acolyte',
-    info: 'An investigation into a shocking crime spree pits a respected Jedi Master against a dangerous warrior from his past.'
+    info: 'An investigation into a shocking crime spree pits a respected Jedi Master against a dangerous warrior from his past.',
+    detail:'Rating: TV-14 Release Date: June 4, 2024 Genre: Mystery, Science Fiction An investigation into a shocking crime spree pits a respected Jedi Master against a dangerous warrior from his past. As more clues emerge, they travel down a dark path where sinister forces reveal all is not what it seems…'
   },
   {
     idx:3,
     imgClass: 'series-img hover-img',
     src: 'series_03.jpg',
     title: 'Ahsoka',
-    info: 'Former Jedi Knight Ahsoka Tano investigates an emerging threat to a vulnerable galaxy.'
+    info: 'Former Jedi Knight Ahsoka Tano investigates an emerging threat to a vulnerable galaxy.',
+    detail:'Rating: TV-14 Release Date: August 22, 2023 Genre: Action, Adventure, Science Fiction Set after the fall of the Empire, "Ahsoka" follows the former Jedi knight Ahsoka Tano as she investigates an emerging threat to a vulnerable galaxy.'
   },
   {
     idx:4,
     imgClass: 'series-img hover-img',
     src: 'series_04.jpg',
     title: 'The Mandalorian',
-    info: 'After the fall of the Empire, a lone Mandalorian makes his way through the lawless galaxy with his foundling, Grogu.'
+    info: 'After the fall of the Empire, a lone Mandalorian makes his way through the lawless galaxy with his foundling, Grogu.',
+    detail:'Rating: TV-14 Release Date: November 12, 2019 Genre: Action, Adventure, Science Fiction After the fall of the Empire, a lone Mandalorian makes his way through the lawless galaxy with his foundling, Grogu.'
   },
   {
     idx:5,
     imgClass: 'series-img hover-img',
     src: 'series_05.jpg',
     title: 'Andor',
-    info: 'In a dangerous era, Cassian Andor embarks on a path destined to turn him into a rebel hero.'
+    info: 'In a dangerous era, Cassian Andor embarks on a path destined to turn him into a rebel hero.',
+    detail:'Rating: TV-14 Release Date: September 21, 2022 Genre: Action, Adventure, Science Fiction In a dangerous era, Cassian Andor embarks on a path destined to turn him into a rebel hero. Original series now streaming, only on Disney+. Directed By Toby Haynes, Susanna White, Benjamin Caron Written By Tony Gilroy, Dan Gilroy, Stephen Schiff, Beau Willimon'
   },
   {
     idx:6,
     imgClass: 'series-img hover-img',
     src: 'series_06.jpg',
     title: 'Tales of the Jedi',
-    info: 'Tales built around Jedi from the prequel era, featuring Ahsoka Tano, Count Dooku, and others.'
+    info: 'Tales built around Jedi from the prequel era, featuring Ahsoka Tano, Count Dooku, and others.',
+    detail:'Rating: TV-PG Release Date: October 26, 2022 Genre: Animation, Anthology, Science Fiction A six-episode event featuring parables built around Jedi from the prequel era. Journey into the lives of two distinctly different Jedi — Ahsoka Tano and Count Dooku. Each will be put to the test as they make choices that will define their destinies.'
   },
   {
     idx:7,
     imgClass: 'series-img hover-img',
     src: 'series_07.jpg',
     title: 'Obi-Wan Kenobi',
-    info: 'During the reign of the Empire, Obi-Wan Kenobi embarks on a crucial mission.'
+    info: 'During the reign of the Empire, Obi-Wan Kenobi embarks on a crucial mission.',
+    detail:'Rating: TV-14 Release Date: May 27, 2022 Genre: Action, Adventure, Science Fiction During the reign of the Empire, Obi-Wan Kenobi embarks on a crucial mission. Directed By Deborah Chow'
   },
   {
     idx:8,
     imgClass: 'series-img hover-img',
     src: 'series_08.jpg',
     title: 'The Book of Boba Fett',
-    info: 'Go inside The Book of BobaFett, now streaming on Disney+, with episode guides, Databank entries, and a bounty of in-depth articles.'
+    info: 'Go inside The Book of BobaFett, now streaming on Disney+, with episode guides, Databank entries, and a bounty of in-depth articles.',
+    detail:'Rating: TV-14 Release Date: December 29, 2021 Genre: Action, Adventure, Science Fiction Go inside The Book of Boba Fett, now streaming on Disney+, with episode guides, Databank entries, and a bounty of in-depth articles.'
   }
 ];
 //3-4 비주얼배너 데이터

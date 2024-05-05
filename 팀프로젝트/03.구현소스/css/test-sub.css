@@ -2,7 +2,7 @@
 /* 스타워즈 PJ : 서브 페이지 CSS - sub.css */
 
 
-/* 리셋, 코아, 커먼 공통 외부CSS 합치기 */
+/* 리셋, 코아, 커먼 ,그리드12 공통 외부CSS 합치기 */
 @import url(./reset.css);
 /* 팀 공통 CSS */
 @import url(./core.css);

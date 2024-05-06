@@ -245,7 +245,8 @@
 /* 보정 */
 .news-box.on::before {
   
-  font-size: min(3rem,7.9vw);
+ 
+  font-size: min(2.3rem,7.9vw);
   padding: 0 5%;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.83) 60%), #000000d3 var(--bg-image) no-repeat 50% 30px / auto 70%;
   padding-top: calc(30px + 50vh);
@@ -254,13 +255,13 @@
 .news-box.on::after {
   
 
+
   font-size: 1.5rem;
-  height: 178px;
+  height: 24vh;
   overflow-y: scroll;
   text-align: justify;
   width: 90%;
-  top: auto;
-  bottom: 4vh;
+  top: calc(30px + 65vh);
 
 }
 }

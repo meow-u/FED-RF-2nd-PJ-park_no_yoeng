@@ -232,7 +232,10 @@
   }
 
   .item-box.on::after ,.news-box.on::after {
-    text-align: center;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    text-align: justify;
+    height: 11vh;
     left: 50%;
     translate: -50%;
     width: 80%;
@@ -242,7 +245,7 @@
 /* 보정 */
 .news-box.on::before {
   
-  font-size: min(3rem,7.9vw);
+  font-size: min(2.3rem,7.9vw);
   padding: 0 5%;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.83) 60%), #000000d3 var(--bg-image) no-repeat 50% 30px / auto 70%;
   padding-top: calc(30px + 50vh);
@@ -250,12 +253,14 @@
 
 .news-box.on::after {
   
+
   font-size: 1.5rem;
-  height: 130px;
+  height: 110px;
   overflow-y: scroll;
   text-align: justify;
   width: 90%;
-  top: calc(30px + 70vh);
+  top: auto;
+  bottom: 4vh;
 
 }
 }

@@ -646,7 +646,8 @@ section.visualView-ban .visualView .visualimg:hover {
 }
 .news-box.on::after{
 
-  height: 400px;
+  
+  height: 296px;
   font-size: 1.5rem;
   overflow-y: scroll;
   /* 스크롤바안보이게 (스크롤가능) */

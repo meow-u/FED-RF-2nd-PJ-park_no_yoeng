@@ -324,7 +324,7 @@
   }
 
   section.news-area > .right-wrap > .item-box:nth-of-type(1) > .series-img {
-    background: url(../main_images/series_01.jpg) center top / cover no-repeat;
+    background: url(../images/main_images/series_01.jpg) center top / cover no-repeat;
   }
 
   section.news-area > .right-wrap > .item-box > .series-img {

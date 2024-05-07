@@ -235,13 +235,13 @@ window.onload = () => {
       ele.style.setProperty(
         "--content2",`"${mainData.newsItemData[idx].info}"`);
       ele.style.setProperty(
-        "--bg-image",`url(../main_images/${mainData.newsItemData[idx].src})`);
+        "--bg-image",`url(../images/main_images/${mainData.newsItemData[idx].src})`);
 
     } else {
       console.log("시리즈영역");
       ele.style.setProperty("--content1",`"${mainData.seriesData[idx].title}"`);
       ele.style.setProperty("--content2", `'${mainData.seriesData[idx].detail}'`);
-      ele.style.setProperty("--bg-image",`url(../main_images/${mainData.seriesData[idx].src})`);
+      ele.style.setProperty("--bg-image",`url(../images/main_images/${mainData.seriesData[idx].src})`);
     }
     setTimeout(() => {
       //비동기처리 (css transition 적용시간을 위한 대기시간주기)

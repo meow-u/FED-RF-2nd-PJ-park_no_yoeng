@@ -84,7 +84,7 @@ html {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url(../main_images/news04.jpg) no-repeat center/ cover;
+  background: url(../images/main_images/news04.jpg) no-repeat center/ cover;
   filter: blur(50px);
 }
 /* 이미지박스 */
@@ -214,7 +214,7 @@ video.video {
 
 /* 로딩애니 */
 .intro_section {
-  background: url(../main_images/star_night.jpg) no-repeat fixed left / cover;
+  background: url(../images/main_images/star_night.jpg) no-repeat fixed left / cover;
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -246,7 +246,7 @@ video.video {
 section.content-area {
   aspect-ratio: 1600 / 2124;
   background: linear-gradient(rgb(21, 7, 43), transparent 40%, black),
-    url("../main_images/star_sword.png") center center / cover no-repeat;
+    url("../images/main_images/star_sword.png") center center / cover no-repeat;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -353,7 +353,7 @@ h2.main_tit {
 .left-box > .left-img {
   border-radius: 5px;
   aspect-ratio: 960 / 680;
-  background: url("../main_images/news01.jpg") center center / cover no-repeat;
+  background: url("../images/main_images/news01.jpg") center center / cover no-repeat;
   width: 100%;
 }
 /* 오른쪽이미지 */
@@ -375,15 +375,15 @@ section.news-area > .right-wrap > .item-box > .series-img {
 
 /* 아이템 이미지개별 */
 .item-box:nth-of-type(1) > .series-img {
-  background: url("../main_images/news02.jpg") center center / cover no-repeat;
+  background: url("../images/main_images/news02.jpg") center center / cover no-repeat;
 }
 
 .item-box:nth-of-type(2) > .series-img {
-  background: url("../main_images/news03.jpg") center center / cover no-repeat;
+  background: url("../images/main_images/news03.jpg") center center / cover no-repeat;
 }
 
 .item-box:nth-of-type(3) > .series-img {
-  background: url("../main_images/news04.jpg") center center / cover no-repeat;
+  background: url("../images/main_images/news04.jpg") center center / cover no-repeat;
 }
 /* 버튼박스 */
 .btnbox {
@@ -461,42 +461,42 @@ section.news-area > .right-wrap > .item-box {
 }
 /* 개별이미지 */
 section.news-area > .right-wrap > .item-box:nth-of-type(1) > .series-img {
-  background: url("../main_images/series_01.jpg") center center / cover
+  background: url("../images/main_images/series_01.jpg") center center / cover
     no-repeat;
 }
 
 section.news-area > .right-wrap > .item-box:nth-of-type(2) > .series-img {
-  background: url("../main_images/series_02.jpg") center center / cover
+  background: url("../images/main_images/series_02.jpg") center center / cover
     no-repeat;
 }
 
 section.news-area > .right-wrap > .item-box:nth-of-type(3) > .series-img {
-  background: url("../main_images/series_03.jpg") center center / cover
+  background: url("../images/main_images/series_03.jpg") center center / cover
     no-repeat;
 }
 
 section.news-area > .right-wrap > .item-box:nth-of-type(4) > .series-img {
-  background: url("../main_images/series_04.jpg") center center / cover
+  background: url("../images/main_images/series_04.jpg") center center / cover
     no-repeat;
 }
 
 section.news-area > .right-wrap > .item-box:nth-of-type(5) > .series-img {
-  background: url("../main_images/series_05.jpg") center center / cover
+  background: url("../images/main_images/series_05.jpg") center center / cover
     no-repeat;
 }
 
 section.news-area > .right-wrap > .item-box:nth-of-type(6) > .series-img {
-  background: url("../main_images/series_06.jpg") center center / cover
+  background: url("../images/main_images/series_06.jpg") center center / cover
     no-repeat;
 }
 
 section.news-area > .right-wrap > .item-box:nth-of-type(7) > .series-img {
-  background: url("../main_images/series_07.jpg") center center / cover
+  background: url("../images/main_images/series_07.jpg") center center / cover
     no-repeat;
 }
 
 section.news-area > .right-wrap > .item-box:nth-of-type(8) > .series-img {
-  background: url("../main_images/series_08.jpg") center center / cover
+  background: url("../images/main_images/series_08.jpg") center center / cover
     no-repeat;
 }
 /* 버튼부모박스 */
@@ -537,15 +537,15 @@ section.news-area > .right-wrap .btn {
 }
 /* 이미지박스 개별 */
 .visualimg:first-of-type {
-  background-image: url("../main_images/sub1.png");
+  background-image: url("../images/main_images/sub1.png");
 }
 
 .visualimg:nth-of-type(2) {
-  background-image: url("../main_images/sub2.png");
+  background-image: url("../images/main_images/sub2.png");
 }
 
 .visualimg:last-of-type {
-  background-image: url("../main_images/sub3.png");
+  background-image: url("../images/main_images/sub3.png");
 }
 /* 겉박스호버시 0.1초 뒤 10% */
 .visualView.fx-box:hover > .visualimg {

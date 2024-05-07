@@ -63,7 +63,7 @@ const footerinfo = [
             <!-- 1-2.로고 -->
             <h2 class="col-4">
                <a href="index.html"
-                  ><img src="./main_images/logo_w.png" alt="스타워즈로고"
+                  ><img src="./images/main_images/logo_w.png" alt="스타워즈로고"
                /></a>
             </h2>
             <!-- 1-3. 로그인&검색박스 -->
@@ -89,7 +89,7 @@ const footerinfo = [
     <div class="footer_cont fx-box">
       <h2>
         <a href="###">
-          <img src="./main_images/logo_w.png" alt="스타워즈로고" />
+          <img src="./images/main_images/logo_w.png" alt="스타워즈로고" />
         </a>
       </h2>
 

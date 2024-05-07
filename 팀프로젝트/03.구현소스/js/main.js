@@ -212,45 +212,47 @@ window.onload = () => {
   }); ////////forEach//////
 
   function showItem(ele, idx) {
+    //////////////////////////////////////////////////////
+    window.addEventListener('scroll',changeScroll,false);
+    function changeScroll(e) {
+      e.preventDefault();
+      console.log('기본스크롤막기')
+    }
+    //////////////////////////////////////////////////////
     console.log("클릭됨", idx);
+
     ele.classList.toggle("on");
-    // on 될때마다 opacity값을 css의 초기값으로 설정
+    // 클릭 될때마다 opacity값을 css의 초기값으로 설정(꼬임차단)
     ele.style.setProperty("--opacity", "0");
 
     if (ele.classList.contains("news-box")) {
       
-      console.log("뉴스",idx);
+      console.log("뉴스영역");
       // console.log('mainData.newsItemData',newsItem);
       
-      if (newsItem[idx]) { // newsItem이 undefined나 null이 아닌 경우에만 실행
       ele.style.setProperty(
-        "--content1",`"${mainData.newsItemData[idx].tit}"`
-      );
+        "--content1",`"${mainData.newsItemData[idx].tit}"`);
       ele.style.setProperty(
-        "--content2",`"${mainData.newsItemData[idx].info}"`
-      );
+        "--content2",`"${mainData.newsItemData[idx].info}"`);
       ele.style.setProperty(
-        "--bg-image",`url(../main_images/${mainData.newsItemData[idx].src})`
-      );}
+        "--bg-image",`url(../main_images/${mainData.newsItemData[idx].src})`);
 
     } else {
-      ele.style.setProperty(
-        "--content1",
-        `"${mainData.seriesData[idx].title}"`
-      );
+      console.log("시리즈영역");
+      ele.style.setProperty("--content1",`"${mainData.seriesData[idx].title}"`);
       ele.style.setProperty("--content2", `'${mainData.seriesData[idx].detail}'`);
-      ele.style.setProperty(
-        "--bg-image",
-        `url(../main_images/${mainData.seriesData[idx].src})`
-      );
+      ele.style.setProperty("--bg-image",`url(../main_images/${mainData.seriesData[idx].src})`);
     }
     setTimeout(() => {
       //비동기처리 (css transition 적용시간을 위한 대기시간주기)
 
-      //기존 열려있는 건 투명도 0처리
+      //기존 열려있는게 있다면 투명도 0처리 후 클릭요소만 투명도 1주기
       newBox.forEach(ele=>{ele.style.setProperty("--opacity", "0");})
       posterBox.forEach(ele=>{ele.style.setProperty("--opacity", "0");})
       ele.style.setProperty("--opacity", "1");
     }, 0);
+
+
   } /////showPoster/////
+
 })(); ///////// 코드랩핑 끝

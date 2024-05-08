@@ -201,6 +201,8 @@ window.onload = () => {
   const newsItem = mainData.newsItemData;
   // console.log('mainData.newsItemData',newsItem);
 
+
+
   // console.log(posterBox, newBox);
   /* 뉴스 */
   newBox.forEach((ele, idx) => {
@@ -211,17 +213,24 @@ window.onload = () => {
     mFn.addEvt(ele, "click", () => showItem(ele, idx));
   }); ////////forEach//////
 
+  
   function showItem(ele, idx) {
-    //////////////////////////////////////////////////////
-    window.addEventListener('scroll',changeScroll,false);
-    function changeScroll(e) {
-      e.preventDefault();
-      console.log('기본스크롤막기')
-    }
-    //////////////////////////////////////////////////////
+  
     console.log("클릭됨", idx);
 
     ele.classList.toggle("on");
+
+    // "on" 클래스가 추가되었을 때만 스크롤 잠금
+    if (ele.classList.contains("on")) {
+      document.body.style.overflow = 'hidden';
+
+    } else {
+      document.body.style.overflowX = 'hidden';
+      document.body.style.overflowY = 'auto';
+    }
+
+
+
     // 클릭 될때마다 opacity값을 css의 초기값으로 설정(꼬임차단)
     ele.style.setProperty("--opacity", "0");
 

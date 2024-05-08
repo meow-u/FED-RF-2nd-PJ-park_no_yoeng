@@ -8,16 +8,11 @@
 @import url(./grid_12_flex.css);
 /* 팀 공통 CSS */
 @import url(./core.css);
-/* 메인코어 (공통 충돌 보정+ main공통요소) */
-@import url(./main_core.css);
-body {
-  overflow-x: hidden;
-}
+
 /* 공사중 표시 */
 body * {
   /* outline: rgba(204, 204, 204, 0.082) dashed 1px; */
 }
-
 
 html {
   scroll-behavior: smooth;
@@ -25,9 +20,55 @@ html {
   font-size: 10px;
   /* rem계산시 쉽도록 10px */
 }
-/* body { */
-/* overflow: hidden; */
-/* } */
+
+body {
+  overflow-x: hidden;
+  /* 배경 */
+  background: url(../images/main_images/star_night.jpg) no-repeat fixed left / cover;
+}
+
+.fx-box {
+  /* 두개추가 */
+flex-wrap: wrap;
+justify-content: center;
+}
+
+/* 공유기능 요소 셋팅 */
+/* 검정버튼 */
+.btn {
+/* 공통셋팅 */
+font-size: 1.6rem;
+font-weight: 400;
+color: #ffe400;
+text-decoration: none;
+
+line-height: 2;
+text-align: center;
+display: block;
+width: 100px;
+height: 30px;
+background-color: #000;
+border-radius: 100px;
+border: 1px solid #fade4b;
+padding: 3px 10px;
+margin: 0 10px;
+}
+/* 노랑버튼 */
+.btn.yellow {
+color: #222;
+background-color: #fade4b;
+}
+.btn:hover {
+color: #fff;
+border: 1px solid #fff;
+}
+.btn.yellow:hover {
+background-color: #fff075;
+color: #000;
+border: 1px solid #fade4b;
+transition: 0.4s;
+}
+/* ///////////////////////////////////////// */
 /* ***************배너영역*************** */
 #ban-area {
   background-color: rgb(0, 0, 0);

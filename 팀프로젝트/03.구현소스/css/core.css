@@ -265,11 +265,13 @@ img{
 }
 .scbar::-webkit-scrollbar-thumb{
   /* 스크롤바 */
-  background-color: #555;
+  /* background-color: rgb(250, 222, 75); */
+  background-color: aqua;
   border-radius: 5px;
 }
+
 .scbar::-webkit-scrollbar-track{
   /* 스크롤바 트랙 */
-  background-color: #ddd;
+  background: linear-gradient( to bottom, black , rgb(16, 15, 72)50% );
   border-radius: 5px;
 }

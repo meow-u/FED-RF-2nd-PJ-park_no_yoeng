@@ -88,7 +88,7 @@ const footerinfo = [
   <section class="footer_inner2 inbox">
     <div class="footer_cont fx-box">
       <h2>
-        <a href="###">
+        <a href="#top">
           <img src="./images/main_images/logo_w.png" alt="스타워즈로고" />
         </a>
       </h2>

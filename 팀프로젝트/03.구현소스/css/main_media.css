@@ -160,6 +160,7 @@
     position: absolute;
     padding-top: 40px;
     height: 0px;
+    opacity: 0;
     /* height: 220px; */
     display: flex;
     flex-direction: column;
@@ -314,6 +315,33 @@
   .cursor {
     display: none;
   }
+
+  .visualimg:hover .btn{
+    display: block;
+  }
+
+  section.visualView-ban .visualView .visualimg span {
+
+    position: absolute;
+    font-size: 3rem;
+    font-weight: bold;
+    opacity: 1;
+    text-align: -webkit-right;
+    height: 100%;
+    width: calc(100% + 2px);
+    transition: 0.5s ease-out;
+    box-sizing: border-box;
+    padding: 3% 5%;
+    color: #ffffff80;
+}
+
+section.visualView-ban .visualView .visualimg:hover span{
+  filter: drop-shadow(0px 0px 5px aqua);
+} 
+
+.visualimg .btn {
+    display: none;
+}
 }
 /********* 최대사이즈 500px 이하 끝 *********/
 

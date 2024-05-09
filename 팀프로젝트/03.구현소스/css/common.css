@@ -124,6 +124,7 @@
 /* js로 toggle */
 header#top-area ul.fx-box.on {
   height: 220px;
+  opacity: 1;
 }
 
 

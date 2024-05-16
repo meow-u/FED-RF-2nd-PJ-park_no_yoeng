@@ -704,3 +704,5 @@ price: "151,000" ,
 img: "products_88.jpg"
 }
 ]
+
+export {AllProducts};

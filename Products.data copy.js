@@ -535,7 +535,7 @@ const AllProducts = [
     type: "FRAGRANCES" ,
     collection: "Trade Routes" ,
     name: ["펜할리곤스 바빌론 EDP 100ML" ,"BABYLON"],
-    info: ["죄악의 소굴인가요, 아니면 고대 세계의 장엄한 경이로움인가요? 바빌론의 향기는 그야말로 신성합니다. 따뜻한 바닐라, 독특한 삼나무, 퇴폐적인 사프란이 어우러져 있습니다. 어떤 미스터리는 풀리지 않은 채로 남겨두는 것이 가장 좋습니다.","Den of iniquity, or majestic wonder of the ancient world? No matter – Babylon’s scent is simply divine. Warm vanilla, distinguished cedar and decadent saffron. Some mysteries are best left unsolved.."],
+    info: ["죄악의 소굴인가요, 아니면 고대 세계의 장엄한 경이로움인가요? 바빌론의 향기는 그야말로 신성합니다. 따뜻한 바닐라, 독특한 삼나무, 퇴폐적인 사프란이 어우러져 있습니다. 어떤 미스터리는 풀리지 않은 채로 남겨두는 것이 가장 좋습니다.","Den of iniquity, or majestic wonder of the ancient world? No matter Babylon’s scent is simply divine. Warm vanilla, distinguished cedar and decadent saffron. Some mysteries are best left unsolved.."],
     price: "381,000" ,
     img: "products_60.jpg"
     } ,
@@ -760,7 +760,7 @@ const AllProducts = [
     type: "GIFTING" ,
     collection: "etc" ,
     name: ["펜할리곤스 젠틀맨스 collection etc(5ml x 5)" ,"Gentlemen's Collection"],
-    info: ["안목 있는 신사를 위한 완벽한 향수 세트, 특별한 사람을 위한 완벽한 선물 또는 자신을 위한 선물로 사랑스러운 5ml 미니어처 보틀에 담겨 있습니다.","The perfect fragrance set for the discerning gentleman, the perfect gift for that special someone, or for yourself, in an adorable 5ml miniature bottle."],
+    info: ["","The perfect fragrance set for the discerning gentleman, the perfect gift for that special someone, or for yourself, in an adorable 5ml miniature bottle."],
     price: "89,000" ,
     img: "products_85.jpg"
     } ,

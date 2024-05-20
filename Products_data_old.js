@@ -1,4 +1,4 @@
-const AllProducts = [
+const allProducts = [
 {
 idx: 1 ,
 type: "FRAGRANCES" ,
@@ -705,4 +705,4 @@ img: "products_88.jpg"
 }
 ]
 
-export {AllProducts};
+export {allProducts};

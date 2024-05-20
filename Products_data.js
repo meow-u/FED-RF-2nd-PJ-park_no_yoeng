@@ -1,4 +1,4 @@
-const AllProducts = [
+const allProducts = [
     {
     idx: 1 ,
     type: "FRAGRANCES" ,
@@ -28,7 +28,7 @@ const AllProducts = [
     } ,
     {
     idx: 4 ,
-    type: "BATH &amp; BODY" ,
+    type: "BATH & BODY" ,
     collection: "etc" ,
     name: ["펜할리곤스 루나 헤어퍼퓸 30ml" ,"LUNA"],
     info: ["달의 여신의 목욕은 그녀의 오드 뚜왈렛처럼 매혹적이면서도 차분한 향을 선사합니다. 오렌지, 자스민, 부드러운 장미, 전나무 발삼 향으로 빛납니다. 휴식을 취하세요. 몸을 담그세요. 항복이 이렇게 달콤하게 느껴진 적은 없었습니다.","The Moon Goddess’ bath is as soothing as it is seductive, much like her eau de toilette. It shines with orange, jasmine, soft rose and fir balsam. Relax. Sink in. Surrender has never felt so sweet."],
@@ -37,9 +37,9 @@ const AllProducts = [
     } ,
     {
     idx: 5 ,
-    type: "BATH &amp; BODY" ,
+    type: "BATH & BODY" ,
     collection: "etc" ,
-    name: ["펜할리곤스 바디&amp;핸드로션 루나 500ML" ,"LUNA"],
+    name: ["펜할리곤스 바디&핸드로션 루나 500ML" ,"LUNA"],
     info: ["달의 여신의 목욕은 그녀의 오드 뚜왈렛처럼 매혹적이면서도 차분한 향을 선사합니다. 오렌지, 자스민, 부드러운 장미, 전나무 발삼 향으로 빛납니다. 휴식을 취하세요. 몸을 담그세요. 항복이 이렇게 달콤하게 느껴진 적은 없었습니다.","The Moon Goddess’ bath is as soothing as it is seductive, much like her eau de toilette. It shines with orange, jasmine, soft rose and fir balsam. Relax. Sink in. Surrender has never felt so sweet."],
     price: " 86,000" ,
     img: "products_5.jpg"
@@ -56,7 +56,7 @@ const AllProducts = [
     {
     idx: 7 ,
     type: "FRAGRANCES" ,
-    collection: "Potions &amp; Remedies" ,
+    collection: "Potions & Remedies" ,
     name: ["펜할리곤스 키스 오브 블리스 EDP 100ML" ,"A KISS OF BLISS"],
     info: ["베르가못과 그린 클로버로 우울함을 날려버리세요. 머스크와 장미가 언덕 꼭대기에서 노래하듯, 여러분도 함께 하시겠습니까? 화창한 낮에 탄생한 오드 퍼퓸이 밤새도록 여러분을 사로잡아 춤을 추게 합니다.","Spritz those blues away with bergamot and green clover. Musk and rose sing from the hilltops: would one like to join? An eau de parfum borne from sunny days to have you dancing all night long."],
     price: "347,000" ,
@@ -73,7 +73,7 @@ const AllProducts = [
     } ,
     {
     idx: 9 ,
-    type: "BATH &amp; BODY" ,
+    type: "BATH & BODY" ,
     collection: "etc" ,
     name: ["펜할리곤스 루나 핸드크림 75ML" ,"LUNA"],
     info: ["달의 여신의 목욕은 그녀의 오드 뚜왈렛처럼 매혹적이면서도 차분한 향을 선사합니다. 오렌지, 자스민, 부드러운 장미, 전나무 발삼 향으로 빛납니다. 휴식을 취하세요. 몸을 담그세요. 항복이 이렇게 달콤하게 느껴진 적은 없었습니다.","The Moon Goddess’ bath is as soothing as it is seductive, much like her eau de toilette. It shines with orange, jasmine, soft rose and fir balsam. Relax. Sink in. Surrender has never felt so sweet."],
@@ -100,27 +100,27 @@ const AllProducts = [
     } ,
     {
     idx: 12 ,
-    type: "BATH &amp; BODY" ,
+    type: "BATH & BODY" ,
     collection: "etc" ,
-    name: ["펜할리곤스 바디&amp;핸드워시 루나 500ML" ,"LUNA"],
+    name: ["펜할리곤스 바디&핸드워시 루나 500ML" ,"LUNA"],
     info: ["달의 여신의 목욕은 그녀의 오드 뚜왈렛처럼 매혹적이면서도 차분한 향을 선사합니다. 오렌지, 자스민, 부드러운 장미, 전나무 발삼 향으로 빛납니다. 휴식을 취하세요. 몸을 담그세요. 항복이 이렇게 달콤하게 느껴진 적은 없었습니다.","The Moon Goddess’ bath is as soothing as it is seductive, much like her eau de toilette. It shines with orange, jasmine, soft rose and fir balsam. Relax. Sink in. Surrender has never felt so sweet."],
     price: " 86,000" ,
     img: "products_12.jpg"
     } ,
     {
     idx: 13 ,
-    type: "BATH &amp; BODY" ,
+    type: "BATH & BODY" ,
     collection: "etc" ,
-    name: ["펜할리곤스 바디&amp;핸드워시 엠프레사 500ML" ,"EMPRESSA"],
+    name: ["펜할리곤스 바디&핸드워시 엠프레사 500ML" ,"EMPRESSA"],
     info: ["엠프레샤는 강렬한 인상을 남깁니다. 그녀의 오드 퍼퓸은 복숭아, 바닐라, 반짝이는 블러드 오렌지가 어우러져 새벽처럼 밝고 활기찬 향을 선사합니다. 그녀의 미소는  따뜻하고, 윤기 있고, 잊을 수 없는 것입니다. ","The Empressa leaves an impression. Her eau de parfum is laced with peach, vanilla and shimmering blood orange, as bright and stirring as the dawn. Her smile? Warm, lustrous, and unforgettable. "],
     price: " 86,000" ,
     img: "products_13.jpg"
     } ,
     {
     idx: 14 ,
-    type: "BATH &amp; BODY" ,
+    type: "BATH & BODY" ,
     collection: "etc" ,
-    name: ["펜할리곤스 바디&amp;핸드로션 블렌하임 부케 500ML" ,"BLENHEIM BOUQUET"],
+    name: ["펜할리곤스 바디&핸드로션 블렌하임 부케 500ML" ,"BLENHEIM BOUQUET"],
     info: ["최고의 진만큼 드라이하면서도 싱그러운, 그리고 유쾌한 영국 특유의 위트를 느낄 수 있습니다.  이 오 드 뚜왈렛은 말보로 공작을 위해 처음 탄생했으며, 그 모습을 그대로 드러냅니다.","What-ho! As dry and fresh as the best gin  or the best of British humour. Lemon, black pepper and pine. This eau de toilette was first created for the Duke of Marlborough, and by jove it shows."],
     price: " 86,000" ,
     img: "products_14.jpg"
@@ -181,7 +181,7 @@ const AllProducts = [
     } ,
     {
     idx: 21 ,
-    type: "BATH &amp; BODY" ,
+    type: "BATH & BODY" ,
     collection: "etc" ,
     name: ["펜할리곤스 쿼커스 핸드크림 75ML" ,"QUERCUS"],
     info: ["영국을 상징하는 오크 나무에서 이름을 딴 세련된 향조입니다. 계곡물처럼 상쾌한 바질과 레몬, 달콤한 자스민, 우디한 이끼 향이 어우러져 마치 자연으로 돌아간 듯한 행복감을 선사합니다.","A cologne of some sophistication, named for the iconic English oak. Basil and lemon as fresh as a mountain stream, sweet jasmine, and a woody, mossy depth that brings one happily back to earth."],
@@ -236,7 +236,7 @@ const AllProducts = [
     {
     idx: 27 ,
     type: "GIFTING" ,
-    collection: "Potions &amp; Remedies" ,
+    collection: "Potions & Remedies" ,
     name: ["펜할리곤스 포션 센트 라이브러리 2mlx5" ,"Potion Cent Library"],
     info: ["좋은 향기는 언제나 누군가를 치유하는 힘을 가지고 있습니다. 포션 디스커버리 세트는 기분 전환, 진정, 활력, 사랑에 빠지게 하는 등 다양한 감정을 느낄 수 있도록 펜할리곤스의 비밀 레시피로 만들어졌습니다. 삶을 변화시킬 포션 센트 라이브러리를 만나보세요.","A good scent always has the power to heal someone. The Potion Discovery Set is formulated with secret recipes from Penhaligons to make you feel a variety of emotions: uplift, calm, energize, make you fall in love and more. Discover a library of potion cents that will change your life"],
     price: " 54,000" ,
@@ -245,7 +245,7 @@ const AllProducts = [
     {
     idx: 28 ,
     type: "FRAGRANCES" ,
-    collection: "Potions &amp; Remedies" ,
+    collection: "Potions & Remedies" ,
     name: ["펜할리곤스 브라 브라 브룸 EDP 100ML" ,"VRA VRA VROOM"],
     info: ["어서 서두르세요! 만다린과 목련의 생기 넘치는 발산, 오스만투스 앱솔루트의 열정적인 한 스푼. 성공으로 향하는 길에 에너지를 불어넣으세요. 이제 그 누구도 당신을 멈추지 못할 겁니다.","Dash it all and make haste! An energetic blast of mandarin and magnolia, enthusiastic spoonfuls of osmanthus absolute. Spritz your way to success. Nothing shall stop one now."],
     price: "347,000" ,
@@ -254,7 +254,7 @@ const AllProducts = [
     {
     idx: 29 ,
     type: "FRAGRANCES" ,
-    collection: "Potions &amp; Remedies" ,
+    collection: "Potions & Remedies" ,
     name: ["펜할리곤스 오 디 오데시티 EDP 100ML" ,"EAU THE AUDACITY"],
     info: ["수줍음의 족쇄를 벗어던지는 대담함의 향기. 선명한 오렌지 꽃이 바닐라와 향을 깜짝 놀라게 합니다. 조심스럽게 뿌려보세요.","A bottle of boldness to cast off the shackles of shyness. Audacious orange blossom surprises vanilla and incense; how fancy! Spritz sparingly (or not  we dare you)."],
     price: "347,000" ,
@@ -263,7 +263,7 @@ const AllProducts = [
     {
     idx: 30 ,
     type: "FRAGRANCES" ,
-    collection: "Potions &amp; Remedies" ,
+    collection: "Potions & Remedies" ,
     name: ["펜할리곤스 밤 오브 캄 EDP 100ML" ,"A BALM OF CALM"],
     info: ["라벤더의 자장가, 제라늄의 구름. 아이리스와 샌달우드가 평온함을 선사하며 깊은 평온함을 선사합니다. 럼과 부드러운 우드가 펜할리곤의 평온함을 완성합니다. 낙원.","A lullaby of lavender, a cloud of geranium. Iris and sandalwood for a dose of composure; an instant serenity remedy. Rum and soft woods round off Penhaligon’s tranquillity blend. Heaven."],
     price: "347,000" ,
@@ -272,7 +272,7 @@ const AllProducts = [
     {
     idx: 31 ,
     type: "FRAGRANCES" ,
-    collection: "Potions &amp; Remedies" ,
+    collection: "Potions & Remedies" ,
     name: ["펜할리곤스 리퀴드 러브 EDP 100ML" ,"LIQUID LOVE"],
     info: ["마음을 설레게 하는 열정적인 오 드 퍼퓸. 핑크 페퍼, 생강, 강황의 스파이시한 향이 칠리, 머스크와 함께 불처럼 타오르는 향을 선사합니다. 주의: 한 번 너무 많이 뿌리면 정신을 잃을지도 몰라요","A passionate eau de parfum to set hearts a-flutter. Spicy rushes of pink pepper, ginger and turmeric lock in fiery embrace with chilli and musk. Be warned: one spritz too many may cause swooning."],
     price: "347,000" ,
@@ -325,63 +325,63 @@ const AllProducts = [
     } ,
     {
     idx: 37 ,
-    type: "BATH &amp; BODY" ,
+    type: "BATH & BODY" ,
     collection: "etc" ,
-    name: ["펜할리곤스 바디&amp;핸드워시 블렌하임 부케 500ML" ,"BLENHEIM BOUQUET"],
+    name: ["펜할리곤스 바디&핸드워시 블렌하임 부케 500ML" ,"BLENHEIM BOUQUET"],
     info: ["최고의 진만큼 드라이하면서도 싱그러운, 그리고 유쾌한 영국 특유의 위트를 느낄 수 있습니다.  이 오 드 뚜왈렛은 말보로 공작을 위해 처음 탄생했으며, 그 모습을 그대로 드러냅니다.","What-ho! As dry and fresh as the best gin  or the best of British humour. Lemon, black pepper and pine. This eau de toilette was first created for the Duke of Marlborough, and by jove it shows."],
     price: " 86,000" ,
     img: "products_37.jpg"
     } ,
     {
     idx: 38 ,
-    type: "BATH &amp; BODY" ,
+    type: "BATH & BODY" ,
     collection: "etc" ,
-    name: ["펜할리곤스 바디&amp;핸드워시 더 페이버릿 500ML" ,"THE FAVOURITE"],
+    name: ["펜할리곤스 바디&핸드워시 더 페이버릿 500ML" ,"THE FAVOURITE"],
     info: ["이 여인에게는 기다림이 통하지 않습니다. 그녀는 궁전 문 뒤에서 무슨 일이 벌어지는지 정확히 알고 있으며, 황금빛 미모사로 사회의 여론을 흔들고 있습니다. 아이리스와 머스크의 장엄한 향기가 샌달우드 무대에 등장할 때 사랑스러운 미소로 맞이합니다.","Waiting won't do for this lady. She knows exactly what goes on behind Palace doors, and her golden mimosa sways society's opinion. Her majestic scent of iris and musk greets with a darling smile as she begins to emerge on a sandalwood stage."],
     price: " 86,000" ,
     img: "products_38.jpg"
     } ,
     {
     idx: 39 ,
-    type: "BATH &amp; BODY" ,
+    type: "BATH & BODY" ,
     collection: "etc" ,
-    name: ["펜할리곤스 바디&amp;핸드워시 엔드미온 500ML" ,"ENDYMION"],
+    name: ["펜할리곤스 바디&핸드워시 엔드미온 500ML" ,"ENDYMION"],
     info: ["제우스의 가장 잘생긴 아들에게 어울리는 클래식한 우아함을 선사합니다. 베르가못의 반짝임이 스웨이드, 커피, 제라늄과 조화를 이룹니다. 시대를 초월한 오 드 코롱.  누가 이런 남자를 거부할 수 있을까요?","Classical elegance befitting of Zeus’s most handsome son. A sparkle of bergamot dances off suede, coffee and geranium. An eau de cologne for the ages. Who can resist a man such as this?"],
     price: " 86,000" ,
     img: "products_39.jpg"
     } ,
     {
     idx: 40 ,
-    type: "BATH &amp; BODY" ,
+    type: "BATH & BODY" ,
     collection: "etc" ,
-    name: ["펜할리곤스 바디&amp;핸드워시 쿼커스 500ML" ,"QUERCUS"],
+    name: ["펜할리곤스 바디&핸드워시 쿼커스 500ML" ,"QUERCUS"],
     info: ["영국을 상징하는 오크 나무에서 이름을 딴 세련된 향조입니다. 계곡물처럼 상쾌한 바질과 레몬, 달콤한 자스민, 우디한 이끼 향이 어우러져 마치 자연으로 돌아간 듯한 행복감을 선사합니다.","A cologne of some sophistication, named for the iconic English oak. Basil and lemon as fresh as a mountain stream, sweet jasmine, and a woody, mossy depth that brings one happily back to earth."],
     price: " 86,000" ,
     img: "products_40.jpg"
     } ,
     {
     idx: 41 ,
-    type: "BATH &amp; BODY" ,
+    type: "BATH & BODY" ,
     collection: "etc" ,
-    name: ["펜할리곤스 바디&amp;핸드로션 더 페이버릿 500ML" ,"THE FAVOURITE"],
+    name: ["펜할리곤스 바디&핸드로션 더 페이버릿 500ML" ,"THE FAVOURITE"],
     info: ["이 여인에게는 기다림이 통하지 않습니다. 그녀는 궁전 문 뒤에서 무슨 일이 벌어지는지 정확히 알고 있으며, 황금빛 미모사로 사회의 여론을 흔들고 있습니다. 아이리스와 머스크의 장엄한 향기가 샌달우드 무대에 등장할 때 사랑스러운 미소로 맞이합니다.","Waiting won't do for this lady. She knows exactly what goes on behind Palace doors, and her golden mimosa sways society's opinion. Her majestic scent of iris and musk greets with a darling smile as she begins to emerge on a sandalwood stage."],
     price: " 86,000" ,
     img: "products_41.jpg"
     } ,
     {
     idx: 42 ,
-    type: "BATH &amp; BODY" ,
+    type: "BATH & BODY" ,
     collection: "etc" ,
-    name: ["펜할리곤스 바디&amp;핸드로션 엘리자베단 로즈 500ML" ,"ELISABETHAN ROSE"],
+    name: ["펜할리곤스 바디&핸드로션 엘리자베단 로즈 500ML" ,"ELISABETHAN ROSE"],
     info: ["영국의 꽃으로 사랑받는 튜더 왕가의 장미를 만나보세요. 요크와 랭커스터 가문의 만남에서 영감을 받아 만들어진 이 에어리 오 드 퍼퓸은 장미, 헤이즐넛 잎, 베티버가 조화롭게 어우러진 매력적인 노트가 특징입니다.","Behold the famous Tudor rose  the flower of England. Inspired by the coming together of houses York and Lancaster, this airy eau de parfum is a harmonious union of rose, hazelnut leaf and vetiver"],
     price: " 86,000" ,
     img: "products_42.jpg"
     } ,
     {
     idx: 43 ,
-    type: "BATH &amp; BODY" ,
+    type: "BATH & BODY" ,
     collection: "etc" ,
-    name: ["펜할리곤스 바디&amp;핸드워시 엘리자베단 로즈 500ML" ,"ELISABETHAN ROSE"],
+    name: ["펜할리곤스 바디&핸드워시 엘리자베단 로즈 500ML" ,"ELISABETHAN ROSE"],
     info: ["영국의 꽃으로 사랑받는 튜더 왕가의 장미를 만나보세요. 요크와 랭커스터 가문의 만남에서 영감을 받아 만들어진 이 에어리 오 드 퍼퓸은 장미, 헤이즐넛 잎, 베티버가 조화롭게 어우러진 매력적인 노트가 특징입니다.","Behold the famous Tudor rose  the flower of England. Inspired by the coming together of houses York and Lancaster, this airy eau de parfum is a harmonious union of rose, hazelnut leaf and vetiver"],
     price: " 86,000" ,
     img: "products_43.jpg"
@@ -397,27 +397,27 @@ const AllProducts = [
     } ,
     {
     idx: 45 ,
-    type: "BATH &amp; BODY" ,
+    type: "BATH & BODY" ,
     collection: "etc" ,
-    name: ["펜할리곤스 바디&amp;핸드로션 쿼커스 500ML" ,"QUERCUS"],
+    name: ["펜할리곤스 바디&핸드로션 쿼커스 500ML" ,"QUERCUS"],
     info: ["영국을 상징하는 오크 나무에서 이름을 딴 세련된 향조입니다. 계곡물처럼 상쾌한 바질과 레몬, 달콤한 자스민, 우디한 이끼 향이 어우러져 마치 자연으로 돌아간 듯한 행복감을 선사합니다.","A cologne of some sophistication, named for the iconic English oak. Basil and lemon as fresh as a mountain stream, sweet jasmine, and a woody, mossy depth that brings one happily back to earth."],
     price: " 86,000" ,
     img: "products_45.jpg"
     } ,
     {
     idx: 46 ,
-    type: "BATH &amp; BODY" ,
+    type: "BATH & BODY" ,
     collection: "etc" ,
-    name: ["펜할리곤스 바디&amp;핸드로션 엔드미온 500ML" ,"ENDYMION"],
+    name: ["펜할리곤스 바디&핸드로션 엔드미온 500ML" ,"ENDYMION"],
     info: ["제우스의 가장 잘생긴 아들에게 어울리는 클래식한 우아함을 선사합니다. 베르가못의 반짝임이 스웨이드, 커피, 제라늄과 조화를 이룹니다. 시대를 초월한 오 드 코롱.  누가 이런 남자를 거부할 수 있을까요?","Classical elegance befitting of Zeus’s most handsome son. A sparkle of bergamot dances off suede, coffee and geranium. An eau de cologne for the ages. Who can resist a man such as this?"],
     price: " 86,000" ,
     img: "products_46.jpg"
     } ,
     {
     idx: 47 ,
-    type: "BATH &amp; BODY" ,
+    type: "BATH & BODY" ,
     collection: "etc" ,
-    name: ["펜할리곤스 바디&amp;핸드로션 엠프레사 500ML" ,"EMPRESSA"],
+    name: ["펜할리곤스 바디&핸드로션 엠프레사 500ML" ,"EMPRESSA"],
     info: ["엠프레샤는 강렬한 인상을 남깁니다. 그녀의 오드 퍼퓸은 복숭아, 바닐라, 반짝이는 블러드 오렌지가 어우러져 새벽처럼 밝고 활기찬 향을 선사합니다. 그녀의 미소는  따뜻하고, 윤기 있고, 잊을 수 없는 것입니다. ","The Empressa leaves an impression. Her eau de parfum is laced with peach, vanilla and shimmering blood orange, as bright and stirring as the dawn. Her smile? Warm, lustrous, and unforgettable. "],
     price: " 86,000" ,
     img: "products_47.jpg"
@@ -766,7 +766,7 @@ const AllProducts = [
     } ,
     {
     idx: 86 ,
-    type: "BATH &amp; BODY" ,
+    type: "BATH & BODY" ,
     collection: "etc" ,
     name: ["펜할리곤스 더 페이버릿 핸드크림 75ML" ,"THE FAVOURITE"],
     info: ["이 여인에게는 기다림이 통하지 않습니다. 그녀는 궁전 문 뒤에서 무슨 일이 벌어지는지 정확히 알고 있으며, 황금빛 미모사로 사회의 여론을 흔들고 있습니다. 아이리스와 머스크의 장엄한 향기가 샌달우드 무대에 등장할 때 사랑스러운 미소로 맞이합니다.","Waiting won't do for this lady. She knows exactly what goes on behind Palace doors, and her golden mimosa sways society's opinion. Her majestic scent of iris and musk greets with a darling smile as she begins to emerge on a sandalwood stage."],
@@ -792,3 +792,4 @@ const AllProducts = [
     img: "products_88.jpg"
     }
     ];
+export default allProducts;

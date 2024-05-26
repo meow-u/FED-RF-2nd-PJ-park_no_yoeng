@@ -1,5 +1,5 @@
 // @charset "utf-8";
-/* 보그 PJ 리셋 CSS - reset.css */
+/* 펜할리곤스 PJ 리셋 CSS - reset.scss */
 /* 요소의 초기화 */
 
 /* 1. 마진,패딩 없애기 */
@@ -35,6 +35,8 @@ h1,h2,h3,h4,h5,h6{
 
 /* 5. 이미지 리셋 */
 img {
+    /* 나중에 문제되면 빼기 */
+    // width: 100%;
     border: none;
     /* 이미지 링크시 서버에서 볼때 파란색 자동보더 없애기 */
     vertical-align: bottom;

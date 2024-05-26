@@ -1,5 +1,5 @@
 // @charset "utf-8";
-/* PJ 공통핵심 CSS - core.css */
+/* 펜할리곤스 PJ 공통핵심 CSS - core.scss */
 /* 웹폰트, 공용클래스 */
 
 /*********** 1. 웹폰트 ***********/
@@ -23,10 +23,33 @@ font-family: 'Roboto Condensed', sans-serif;
 }
 /* 
   [ 공통 클래스 이름정의 ]
-  1. ibx - inside box 속박스
+  1. inbox - inside box 속박스
   2. pt1, pt2 - part1, part2 각 부분박스(비율적용)
-  3. cbx - content box 내용박스
+  3. cont-box - content box 내용박스 (flex박스)
   4. bgi - background image 관련 속성
+
+[시멘틱 구조예시]
+<header>
+    <nav>
+<main>
+    <section>
+        <article>
+        <aside>
+        <figure><figcaption>
+<footer>
+    <address>
+    
+[영역 구조 예시]
+<div id="some-area">
+  <section class="some-area inbox pt2">
+    <h2 class="temp-tit">임시이름</h2>
+    <div class="cont-box">
+        <div class="col-6"></div> 
+        <div class="col-12"></div> 
+    </div>
+  </section>
+</div> 
+
 */
 
 /* 공사중 표시 */
@@ -36,87 +59,96 @@ body * {
 
 /************* 2. 공통 class *************/
 
+/* 임시 표시타이틀 */
+.temp-tit{
+    opacity: 0.2;
+    left: 0;
+    position: absolute;
+    font-size: 2vw;
+    background-color: grey;
+    color: #ccc;
+    z-index: -1;
+}
+
 /* 2-1. 중앙 속박스 */
-.ibx {
+.inbox {
+    padding: 0 10px;
     max-width: 1300px;
     margin: 0 auto;
 }
 
-/* 2-2. 컨텐츠 박스 유형별 클래스 */
-/* 유형1 - 1개박스구성 : .pt1 */
+/*********** 2-2. 컨텐츠 박스 유형별 클래스 ***********/
+/* 유형1 - 높이 비율유지 1개박스구성 : .pt1 */
 .pt1{
     /* 비율 적용시 height값은 주지않는다! */
-    /* height: 724px; */
 
-    /* 1300 : 724 비율 */
-    aspect-ratio: 1300 / 724;
+    /* 비율 */
+    aspect-ratio: 1300 / 700;
 }
 /* 유형1 컨텐츠박스 */
-.pt1 .cbx{
+.pt1 .cont-box{
     /* 부모박스 높이값에 맞춤! */
     height: 100%;
 }
 
-/* 유형2 - 3개박스구성 : .pt2 */
+/* 유형2 - 높이 비율유지 다중박스구성 : .pt2 */
 .pt2{
     /* 플렉스박스 */
     display: flex;
+    /* 초기방향 (필요시바꾸기) */
+    flex-direction: column;
     
     /* 비율 적용시 height값은 주지않는다! */
-    /* height: 650px; */
 
-    /* 1300 : 650 비율 */
-    aspect-ratio: 1300 / 650;
+    /* 비율 */
+    aspect-ratio: 1300 / 700;
 }
 /* 유형2 컨텐츠박스 : 등분할 가로정렬박스 */
-.pt2 .cbx{
+.pt2 .cont-box{
     /* 플렉스 자식요소 동일분할 설정!
     -> 높이값 100% 설정불필요! 자동맞춤된다! */
     flex: 1;
 }
 
+/* ********************************************* */
 /* 2-3. 배경이미지 공통셋팅 클래스 */
 .bgi{
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-/* 컨텐츠박스 */
-.cbx{
-    position: relative;
-    /* 부모자격 */
-}
-/* 가상요소로 컨텐츠 박스 배경 그라데이션 넣기 */
-.cbx::before{
-    content: '';
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 50%;
-    background-image: 
-    linear-gradient(to top, #000, rgba(0, 0, 0, 0));
-}
-/* 가상요소로 컨텐츠 박스 오버시 보더 테두리 애니 만들기 */
-.cbx::after{
+
+/* 컨텐트 박스 
+-> 플렉스 박스는 싸고 있는 부모를 설정함! flex의 자식요소는 자동으로
+    부모를 채우도록 설정되어 있다! */
+    .cont-box{
+        display: flex;
+        height: 100%;
+        /* 부모자격 */
+        position: relative;
+    }
+    
+/* 가상요소: 영역을 채우고 호버시 동적효과 */
+.any::after{
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    border: 0px solid #f00;
-    cursor: pointer;
+    background-color: #00000000;
+    // cursor: pointer;
 
     /* 트랜지션: 속시이지 */
     transition: border .2s ease-in-out;
 }
-/* .cbx에 오버시 */
-.cbx:hover::after{
-    border-width: 20px;
+/* .cont-box에 오버시 */
+.any:hover::after{
+    background-color: #00000000;
 }
 
 /* 3. 컨텐츠 타이틀 박스(h2) */
-.cbx h2{
+.cont-box h2{
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -131,7 +163,7 @@ body * {
     color: #fff;
 }
 /* 런웨이파트 타이틀 중 small요소 */
-.cbx h2 small {
+.cont-box h2 small {
     font-size: 14px;
 }
 
@@ -149,8 +181,6 @@ body * {
 
 
 
-
-
 /* 글자 숨김 클래스(IR배경이미지 설명 등  숨기기) */
 .ir {
     display: block;
@@ -164,4 +194,31 @@ body * {
     background-color: #f9f9f9;
 }
 
+
+/* 화면출력 숨기기 클래스 */
+.hidden{
+    display: none;
+}
+.show{
+    display: block;
+}
+
+
+/* 스크롤바 디자인 클래스 */
+/* -webkit- 밴더사명(크롬,사파리) 접두어 */
+/* 클래스명 scbar */
+.scbar::-webkit-scrollbar{
+    /* 전체 스크롤바 크기변경 */
+    width: 7px;
+}
+.scbar::-webkit-scrollbar-thumb{
+    /* 스크롤바 */
+    background-color: #555;
+    border-radius: 5px;
+}
+.scbar::-webkit-scrollbar-track{
+    /* 스크롤바 트랙 */
+    background-color: #ddd;
+    border-radius: 5px;
+}
 

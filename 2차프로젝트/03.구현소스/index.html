@@ -3,9 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>연습</title>
+    <meta
+      name="description"
+      content="영국 왕실이 인정한 150년 노하우의 품격과 영국적 감성의 프레스티지 향수 브랜드 펜할리곤스를 만나보세요."
+    />
+    <meta
+      name="keywords"
+      content="펜할리곤스, Penhaligon's, 향수, 향수 브랜드, 영국 향수, 영국 향수 브랜드, 향수 브랜드 펜할리곤스"
+    />
+
+    <!-- 타이틀 -->
+    <title>
+      펜할리곤스(korea) | Penhaligon's | British Perfumers Established 1870
+    </title>
+    <!-- 파비콘 -->
+    <link
+      rel="shortcut icon"
+      href="./images/icon/favicon.png"
+      type="image/x-icon"
+    />
+    <!-- 폰트어썸 아이콘CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/fontisto@v3.0.4/css/fontisto/fontisto.min.css"
+    />
     <!-- 메인 CSS -->
-    <link rel="stylesheet" href="./css/연습.css"> 
+    <link rel="stylesheet" href="./css/main.css" />
+    <!-- 미디어쿼리 CSS -->
+    <link rel="stylesheet" href="./css/media.css" />
 
     <!-- 제이쿼리 라이브러리 CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -26,27 +51,358 @@
 
     <!-- 3.리액트 바벨 라이브러리 -->
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-
-    <!-- 데이터파일 JSX 호출 -->
+    <!-- 상단영역 모듈 JS -->
     <script
-      src="./js/data/product_data.js"
+      src="./js/components/TopArea.jsx"
       data-plugins="transform-es2015-modules-umd"
       type="text/babel"
     ></script>
-    <!-- DOM 기능JS 호출 -->
-
-    <!-- 서브컴포넌트1 등록 -->
-
-    <!-- 서브컴포넌트2 등록 -->
-    <!-- 메인 JSX 호출 -->
+    <!-- 메인영역 모듈 JS -->
     <script
-      src="./js/01.연습.jsx"
+      src="./js/components/MainArea.jsx"
       data-plugins="transform-es2015-modules-umd"
       type="text/babel"
     ></script>
+    <!-- 하단영역 모듈 JS -->
+    <script
+      src="./js/components/FooterArea.jsx"
+      data-plugins="transform-es2015-modules-umd"
+      type="text/babel"
+    ></script>
+    <!-- 데이터파일 JSX 호출 (상품) -->
+    <script
+      src="./js/data/products_data.js"
+      data-plugins="transform-es2015-modules-umd"
+      type="text/babel"
+    ></script>
+    <!-- 공통모듈 불러오기 (메인JS)  -->
+    <script
+      src="./js/main.js"
+      data-plugins="transform-es2015-modules-umd"
+      type="text/babel"
+    ></script>
+    <script>
+      // 로드구역
+      window.addEventListener("DOMContentLoaded", () => {
+        // 1.대상선정: .ham(이벤트/변경), .hambox(변경)
+        const ham = document.querySelector(".ham");
+        const hambox = document.querySelector(".hambox");
+        // 하위 메뉴가 있는 li요소
+        const menu = document.querySelectorAll(".main-menu");
+        // 하위 메뉴  ol 요소
+        
+        const submenu = document.querySelector(".sub-menu");
+        console.log(ham, menu, submenu);
+
+        // 2.이벤트설정
+        ham.onclick = () => {
+          // 햄버거버튼 on넣기/빼기
+          ham.classList.toggle("on");
+          // HAMBOX on넣기/빼기
+          hambox.classList.toggle("on");
+          if (!ham.classList.contains("on")) {
+            // 햄버거 닫을때
+            // 기존메뉴 보이기
+            const a = hambox.querySelectorAll("ul>li>a");
+            a.forEach((a) => {
+              // 원래 css로 복귀
+              a.style = "";
+              // 서브메뉴 닫기
+              submenu.classList.remove("on");
+            });
+          }
+        }; /////////// click /////////////
+
+        menu.forEach((el) => {
+          const txt = el.querySelector("a").innerText;
+          el.onclick = () => {
+            if (txt === "SHOP▶" || txt === "COLLECTIONS") {
+              console.log("클릭", txt);
+              //서브 메뉴 보이기/숨기기(common.js-94line에서 처리)
+              // el.classList.toggle("on");
+              // 서브메뉴 보이기
+              console.log('submenu',submenu);
+              
+              submenu.classList.add("on");
+              const a = hambox.querySelectorAll(".on>ul>li>a");
+
+              // 기존메뉴 숨기기
+              a.forEach((a) => {
+                a.style.transition = "transform 0.3s";
+                a.style.transform = "translateY(100%)";
+              });
+            }
+          };
+        });
+
+        // 3.서브메뉴ol의 자식인 li>a 클릭시 햄버거 닫고 기존메뉴 보이기
+        const subA = document.querySelectorAll(".sub-menu>li>a");
+        subA.forEach((el) => {
+          el.onclick = (e) => {
+            console.log("서브메뉴클릭subA",subA);
+            // 서브메뉴 안보이기
+            submenu.classList.remove("on");
+            // 이벤트 전파 중지 
+            // ->>.sub-menu를 숨기려고 해도 다른 상위 요소(menu)에서 클릭이벤트가 발생
+            
+            e.stopPropagation();
+            
+
+            // 햄버거버튼 on넣기/빼기
+            ham.classList.toggle("on");
+            // HAMBOX on넣기/빼기
+            hambox.classList.toggle("on");
+            if (!ham.classList.contains("on")) {
+              // 햄버거 닫을때
+              // 기존메뉴 보이기
+              const a = hambox.querySelectorAll("ul>li>a");
+              a.forEach((a) => {
+                // 원래 css로 복귀
+                a.style = "";
+              });
+            }
+          };
+        });
+      }); //////////// 로드구역 ///////////////
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <!-- <div id="root"></div> -->
+    <!-- 1. 상단영역 -->
+    <div id="top-area">
+      <header class="top-area inbox common-area">
+        <h2 class="temp-tit">1. 상단영역</h2>
+        <div class="cont-box">
+          <!-- GNB박스 -->
+          <nav class="gnb col-4">
+            <ul>
+              <li class="ham">
+                <span></span>
+                <span></span>
+                <span></span>
+              </li>
+              <!-- 전체메뉴박스 -->
+              <nav class="hambox">
+                <ul>
+                  <li>
+                    <a href="###">PENHALIGON'S</a>
+                  </li>
+                  <li class="main-menu">
+                    <a href="###">SHOP▶</a>
+                    <ol class="sub-menu">
+                      <li><a href="###">FRAGRANCES</a></li>
+                      <li><a href="###">BATH &amp; BODY</a></li>
+                      <li><a href="###">HOME</a></li>
+                      <li class="main-menu">
+                        <a href="###">COLLECTIONS</a>
+                        <!-- <ul class="sub-menu"> -->
+                          <!-- <li><a href="###">Potions &amp; Remedies</a></li>
+                          <li><a href="###">Trade Routes</a></li>
+                          <li><a href="###">British Tales</a></li>
+                          <li><a href="###">Portraits</a></li> -->
+                        <!-- </ul> -->
+                      </li>
+                      <li><a href="###">GIFTING</a></li>
+                      <li><a href="###">ALL</a></li>
+                    </ol>
+                  </li>
+                  <li>
+                    <a href="###">OUR STORY</a>
+                  </li>
+                  <li>
+                    <a href="###">COLLECTIONS</a>
+                  </li>
+                </ul>
+              </nav>
+              <li>
+                <a href="###">SHOP</a>
+              </li>
+              <li>
+                <a href="###">COLLECTIONS</a>
+              </li>
+              <li>
+                <a href="###">OUR STORY</a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- 로고박스 -->
+          <h1 class="logo col-4">
+            <a href="###">
+              <img src="./images/logo.png" alt="메인로고" />
+            </a>
+          </h1>
+          <!-- 상단메뉴 -->
+          <div class="tmenu col-4">
+            <!-- sns박스 -->
+            <div class="sns">
+              <a href="###" class="fi fi-instagram" title="인스타그램">
+                <span class="ir">인스타그램</span>
+              </a>
+              <a href="###" class="fi fi-facebook" title="페이스북">
+                <span class="ir">페이스북</span>
+              </a>
+              <a href="###" class="fi fi-twitter" title="트위터">
+                <span class="ir">트위터</span>
+              </a>
+              <a href="###" class="fi fi-youtube-play" title="유튜브">
+                <span class="ir">유튜브</span>
+              </a>
+
+              <a href="###" class="fi fi-laptop" title="로그인">
+                <span class="ir">로그인</span>
+              </a>
+              <a href="###" class="fi fi-user-secret" title="회원가입">
+                <span class="ir">회원가입</span>
+              </a>
+              <a href="###" class="fi fi-camera" title="갤러리">
+                <span class="ir">갤러리</span>
+              </a>
+              <a href="###" class="fi cas" title="카카오스토리">
+                <span class="ir">카카오스토리</span>
+              </a>
+            </div>
+            <!-- 사이드메뉴 -->
+            <div class="sideMenu">
+              <ul class="sidebox">
+                <li>
+                  <a href="###">
+                    <img src="./images/icon/icon-search-menu.png" alt="search"
+                  /></a>
+                </li>
+                <li>
+                  <a href="###">
+                    <img src="./images/icon/icon-user-menu.png" alt="member" />
+                  </a>
+                  <!-- 서브메뉴 -->
+                  <ol class="smsub hidden">
+                    <li>
+                      <a href="###">LOGIN</a>
+                    </li>
+                    <li>
+                      <a href="###">SIGN UP</a>
+                    </li>
+                    <li>
+                      <a href="###">개인정보 처리방침</a>
+                    </li>
+                  </ol>
+                </li>
+                <li>
+                  <a href="###">
+                    <img src="./images/icon/icon-bag-menu.png" alt="search"
+                  /></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+    <!-- 메인영역 -->
+    <main class="main-area">
+      <!-- 2. 배너영역 -->
+      <div id="ban-area">
+        <section class="ban-area common-area">
+          <h2 class="temp-tit">2. 배너영역</h2>
+          <div class="cont-box">
+            <div class="col-12"></div>
+          </div>
+        </section>
+      </div>
+      <!-- 3. 신상품영역 -->
+      <div id="newitem-area">
+        <section class="newitem-area inbox">
+          <h2 class="temp-tit">3. 신상품영역</h2>
+          <div class="cont-box">
+            <div class="col-12"></div>
+          </div>
+        </section>
+      </div>
+      <!-- 4. 비디오영역 -->
+      <div id="video-area">
+        <section class="video-area inbox">
+          <h2 class="temp-tit">4. 비디오영역</h2>
+          <div class="cont-box">
+            <div class="col-12"></div>
+          </div>
+        </section>
+      </div>
+      <!-- 5. 베스트메뉴영역 -->
+      <div id="bestmenu-area">
+        <section class="bestmenu-area inbox">
+          <h2 class="temp-tit">5. 베스트메뉴영역</h2>
+          <div class="cont-box">
+            <div class="col-12"></div>
+          </div>
+        </section>
+      </div>
+      <!-- 6. 컬렉션영역 -->
+      <div id="collection-area">
+        <section class="collection-area inbox">
+          <h2 class="temp-tit">6. 컬렉션영역</h2>
+          <div class="cont-box">
+            <div class="col-6"></div>
+            <div class="col-6"></div>
+          </div>
+        </section>
+      </div>
+      <!-- 7. 브랜드&블로그영역 -->
+      <div id="brand_blog-area">
+        <section class="brand_blog-area inbox">
+          <h2 class="temp-tit">7. 브랜드&블로그영역</h2>
+          <div class="cont-box">
+            <div class="col-6"></div>
+            <div class="col-6"></div>
+          </div>
+        </section>
+      </div>
+      <!-- 8. 하단배너영역 -->
+      <div id="bottom-ban-area">
+        <section class="bottom-ban-area">
+          <h2 class="temp-tit">8. 하단배너영역</h2>
+          <div class="cont-box">
+            <div class="col-12"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- 9. 하단영역 -->
+    <div id="footer-area">
+      <footer class="footer-area inbox common-area">
+        <h2 class="temp-tit">하단영역</h2>
+        <div class="cont-box">
+          <!-- 하단로고 -->
+          <div class="blogo">
+            <img src="./images/footer_logo.png" alt="하단로고" />
+          </div>
+          <!-- 회사주소 -->
+          <address class="addr">
+            WWW.VOGUE.COM Ⓒ CONDÉNAST ASIA PACIFIC. INC. ALL RIGHTS RESERVED.
+            VOGUE.COM KOREA IS OPERATED BY DOOSAN MAGAZINE.
+          </address>
+          <!-- 하단링크 -->
+          <ul class="blink">
+            <li>
+              <a href="###">정기구독</a>
+            </li>
+            <li>
+              <a href="###">회사소개</a>
+            </li>
+            <li>
+              <a href="###">광고 및 제휴</a>
+            </li>
+            <li>
+              <a href="###">개인정보 처리방침</a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+
+    <!-- 위로가기버튼 -->
+    <a href="###" class="tbtn fi fi-angle-up">
+      <span class="ir">위로가기버튼</span>
+    </a>
   </body>
 </html>
-

@@ -550,4 +550,8 @@ img {
 .main-area > * > * { /* 메인영역의 직계id의 작계class */
   /* 최소높이(컨텐츠가 작을경우) */
   min-height: 500px;
+}
+
+.bottom-ban-area div {
+  background: gainsboro;
 }/*# sourceMappingURL=main.css.map */

@@ -2,17 +2,26 @@
 /*  펜할리곤스 PJ 공통 CSS - common.scss */
 /* 상단,하단, 공통모듈  CSS */
 
-/* 0. 공통 - 전체 레이아웃 영역별 셋팅 */
+/********* 0. 공통 - 전체 레이아웃 영역별 셋팅 *********/
 /* 1.상단영역 */
 .top-area {
   height: 85px;
-  .cont-box > * {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
 }
-
+/* 2. 배너영역 (메인영역 안) */
+.ban-area {
+  min-height: 500px;
+}
+/* 9. 하단영역 */
+.footer-area {
+  min-height: 285px;
+}
+/* ************************************************* */
+/* ********************1.상단영역******************** */
+.top-area .cont-box > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 /* 햄버거버튼 */
 .ham {
   position: relative;
@@ -88,13 +97,12 @@
   .sub-menu {
     overflow: hidden;
     transition: 0.2s ease-out; // 트랜지션
-    >li>a{
-       transform: translateY(100%);
+    > li > a {
+      transform: translateY(100%);
     }
-    &.on>li>a{
-    transform: translateY(0px);
+    &.on > li > a {
+      transform: translateY(0px);
     }
-  
   }
 
   /* 메뉴클릭시 직계 서브메뉴 보이기 */
@@ -112,9 +120,9 @@
     transition: top 0.5s ease-out;
 
     /* 글자의 등장은 .hambox.on일때 적용! */
-   >ul>li>a {
+    > ul > li > a {
       transform: translateY(0);
-  }
+    }
 
     /* .hambox li 트랜지션 지연시간셋팅 */
     li:nth-child(1) a {
@@ -197,7 +205,7 @@
     position: relative;
     display: inline-block;
     img {
-      height: 60px;
+      width: 100%;
       aspect-ratio: 968 / 151;
     }
   }
@@ -214,18 +222,41 @@
     }
   }
 }
-/* 2. 배너영역 (메인영역 안) */
-.ban-area {
-  min-height: 500px;
-}
-/* 9. 하단영역 */
-.footer-area {
-  min-height: 285px;
-}
-
-/* ********************1.상단영역******************** */
 
 /* ********************2.메인영역******************** */
 // ****** 2. 배너영역 **************
+.ban-area {
+  .cont-box>div{
+   background-color: gainsboro;
+  }
+}
+
 
 /* ********************3.하단영역******************** */
+.footer-area {
+  .cont-box {
+   border-top: 1.5px double #ccc;
+   padding-top: 10px;
+   flex-wrap: wrap;
+   justify-content: space-around;
+  }
+}
+
+.blogo {
+  img {
+   position: relative;
+   top: 20%;
+   width: 100%;
+   aspect-ratio: 433 / 71;
+  }
+}
+.addr {
+  text-align: right;
+  padding-top: 20px;
+  margin-top: 12px;
+  border-top: 1.5px double #ccc;
+  font-size: 10px;
+}
+.link a{
+   font-size: 13px;
+}

@@ -90,7 +90,7 @@
         // 하위 메뉴가 있는 li요소
         const menu = document.querySelectorAll(".main-menu");
         // 하위 메뉴  ol 요소
-        
+
         const submenu = document.querySelector(".sub-menu");
         console.log(ham, menu, submenu);
 
@@ -121,8 +121,8 @@
               //서브 메뉴 보이기/숨기기(common.js-94line에서 처리)
               // el.classList.toggle("on");
               // 서브메뉴 보이기
-              console.log('submenu',submenu);
-              
+              console.log("submenu", submenu);
+
               submenu.classList.add("on");
               const a = hambox.querySelectorAll(".on>ul>li>a");
 
@@ -139,14 +139,13 @@
         const subA = document.querySelectorAll(".sub-menu>li>a");
         subA.forEach((el) => {
           el.onclick = (e) => {
-            console.log("서브메뉴클릭subA",subA);
+            console.log("서브메뉴클릭subA", subA);
             // 서브메뉴 안보이기
             submenu.classList.remove("on");
-            // 이벤트 전파 중지 
+            // 이벤트 전파 중지
             // ->>.sub-menu를 숨기려고 해도 다른 상위 요소(menu)에서 클릭이벤트가 발생
-            
+
             e.stopPropagation();
-            
 
             // 햄버거버튼 on넣기/빼기
             ham.classList.toggle("on");
@@ -195,12 +194,6 @@
                       <li><a href="###">HOME</a></li>
                       <li class="main-menu">
                         <a href="###">COLLECTIONS</a>
-                        <!-- <ul class="sub-menu"> -->
-                          <!-- <li><a href="###">Potions &amp; Remedies</a></li>
-                          <li><a href="###">Trade Routes</a></li>
-                          <li><a href="###">British Tales</a></li>
-                          <li><a href="###">Portraits</a></li> -->
-                        <!-- </ul> -->
                       </li>
                       <li><a href="###">GIFTING</a></li>
                       <li><a href="###">ALL</a></li>
@@ -302,7 +295,7 @@
     <main class="main-area">
       <!-- 2. 배너영역 -->
       <div id="ban-area">
-        <section class="ban-area common-area">
+        <section class="ban-area pt1 common-area">
           <h2 class="temp-tit">2. 배너영역</h2>
           <div class="cont-box">
             <div class="col-12"></div>
@@ -373,29 +366,66 @@
         <h2 class="temp-tit">하단영역</h2>
         <div class="cont-box">
           <!-- 하단로고 -->
-          <div class="blogo">
+          <div class="blogo col-4">
             <img src="./images/footer_logo.png" alt="하단로고" />
           </div>
-          <!-- 회사주소 -->
-          <address class="addr">
-            WWW.VOGUE.COM Ⓒ CONDÉNAST ASIA PACIFIC. INC. ALL RIGHTS RESERVED.
-            VOGUE.COM KOREA IS OPERATED BY DOOSAN MAGAZINE.
-          </address>
           <!-- 하단링크 -->
-          <ul class="blink">
-            <li>
-              <a href="###">정기구독</a>
-            </li>
-            <li>
-              <a href="###">회사소개</a>
-            </li>
-            <li>
-              <a href="###">광고 및 제휴</a>
-            </li>
-            <li>
-              <a href="###">개인정보 처리방침</a>
-            </li>
-          </ul>
+          <div class="link-box1 col-3">
+            <h3>SERVICES</h3>
+            <ul class="link">
+              <li>
+                <a href="###">CONSUMER SERVICES</a>
+              </li>
+              <li>
+                <a href="###">DELIVERY &amp; RETURNS</a>
+              </li>
+              <li>
+                <a href="###">TRACK MY ORDER</a>
+              </li>
+              <li>
+                <a href="###">FAQS</a>
+              </li>
+              <li>
+                <a href="###">KLARNA</a>
+              </li>
+              <li>
+                <a href="###">E-GIFT CARDS</a>
+              </li>
+              <li>
+                <a href="###">OLFACTIVE SOCIETY</a>
+              </li>
+              <li>
+                <a href="###">COME RICICLARE</a>
+              </li>
+            </ul>
+          </div>
+          <div class="link-box2 col-3">
+            <h3>ABOUT US</h3>
+            <ul class="link">
+              <li>
+                <a href="###">PENHALIGON'S PHILOSOPHY</a>
+              </li>
+              <li>
+                <a href="###">PENHALIGON'S PERKS</a>
+              </li>
+              <li>
+                <a href="###">HERITAGE</a>
+              </li>
+              <li>
+                <a href="###">STORES</a>
+              </li>
+              <li>
+                <a href="###">CAREERS</a>
+              </li>
+              <li>
+                <a href="###">GOVERNANCE</a>
+              </li>
+            </ul>
+          </div>
+          <!-- 회사주소 -->
+          <address class="addr col-12">
+            <h4>www.penhaligons.com Ⓒ PENHALIGON'S. ALL RIGHTS RESERVED.</h4>
+          </address>
         </div>
       </footer>
     </div>

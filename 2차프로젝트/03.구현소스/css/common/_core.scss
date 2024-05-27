@@ -197,10 +197,11 @@ body * {
 
 /* 화면출력 숨기기 클래스 */
 .hidden{
-    display: none;
+    // display: none;
+    left: -100%;
 }
 .show{
-    display: block;
+    // display: block;
 }
 
 

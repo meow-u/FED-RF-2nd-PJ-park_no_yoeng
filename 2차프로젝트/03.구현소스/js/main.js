@@ -9,7 +9,7 @@ import FooterArea from "./components/FooterArea";
 
 // 나의함수 불러오기
 // import mFn from "./my_function";
-import comFn from "./common.js";
+
 
 // [1] 메인 페이지 전체 레이아웃 로딩 컴포넌트 ///
 function Layout() {
@@ -29,3 +29,4 @@ function Layout() {
 // 메인 페이지 전체 출력하기
 // ReactDOM.render(<Layout />, document.querySelector("#root"));
 ReactDOM.render(<TopArea/>, document.querySelector("#top-area"));
+ReactDOM.render(<FooterArea/>, document.querySelector("#footer-area"));

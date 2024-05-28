@@ -2,6 +2,7 @@
 // import mFn from "./my_function";
 /******************** 상단영역 ********************/
 // 1.대상선정: .ham(이벤트/변경), .hambox(변경)
+(()=>{
 const ham = document.querySelector(".ham");
 const hambox = document.querySelector(".hambox");
 // 하위 메뉴가 있는 li요소
@@ -51,6 +52,8 @@ menu.forEach((el) => {
     }
   };
 });
+})
+// ();
 
 // 3.서브메뉴ol의 자식인 li>a 클릭시 햄버거 닫고 기존메뉴 보이기
 const subA = document.querySelectorAll(".sub-menu>li>a");
@@ -80,7 +83,7 @@ subA.forEach((el) => {
   };
 });
 /******************** 배너영역 ********************/
-(() => {
+
   // 1. 대상 선정: .ban-box
   const ban = document.querySelector(".ban-box");
   console.log(ban);
@@ -88,7 +91,6 @@ subA.forEach((el) => {
   // 2. 이벤트 설정: 슬라이드 이동
   // 1) 변수: 현재 슬라이드 번호
   let snum = 0;
-  let left = 0;
 
   // 2) 함수: 슬라이드 함수
   const slideGo = () => {
@@ -97,23 +99,14 @@ subA.forEach((el) => {
     // 3. 슬라이드 개수만큼 번호 초기화
     if (snum === ban.children.length) {
       snum = 0;
-      left = 0;
-      ban.style.left = `${left}%`; // .ban-box의 left 값 변경
     }
 
     // 첫번째 슬라이드를 마지막으로 이동
     ban.appendChild(ban.children[0]);
-    ban.children.forEach((el) => {
-      el.classList.remove("ani");
-     el[0].classList.add("ani");
-    });
-  };
-
-  left -= 100;
-  ban.style.left = `${left}%`; // .ban-box의 left 값 변경
-  ///////// slideGo함수 //////////
+    ban.children[0].classList.add("ani");
+  }///////// slideGo함수 //////////
 
   // 3) 함수 호출: 슬라이드 함수
   setInterval(slideGo, 3000);
-})();
+
 /******************** 하단영역 ********************/

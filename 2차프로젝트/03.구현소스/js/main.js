@@ -28,5 +28,5 @@ function Layout() {
 
 // 메인 페이지 전체 출력하기
 // ReactDOM.render(<Layout />, document.querySelector("#root"));
-ReactDOM.render(<TopArea/>, document.querySelector("#top-area"));
-ReactDOM.render(<FooterArea/>, document.querySelector("#footer-area"));
+// ReactDOM.render(<TopArea/>, document.querySelector("#top-area"));
+// ReactDOM.render(<FooterArea/>, document.querySelector("#footer-area"));

@@ -201,12 +201,16 @@
 }
 /* ********************2.메인영역******************** */
 .ban-area .cont-box {
-  background-color: #000;
+  overflow: hidden;
 }
 .ban-area .cont-box > div {
-  background-color: gainsboro;
+  position: absolute;
   flex-shrink: 0;
   flex-basis: 100%;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  scale: 1;
   left: 0%;
 }
 .ban-area .cont-box > div img {

@@ -5,15 +5,13 @@
 /********* 0. 공통 - 전체 레이아웃 영역별 셋팅 *********/
 /* 1.상단영역 */
 #top-area {
-  height: 60px;
-  z-index: 50;
-  position: fixed;
-  background-image: linear-gradient(173deg, #fff 20%, #fff 50%, #ffffffad, transparent 95%);
+  height: 65px;
 }
 
 /* 2. 배너영역 (메인영역 안) */
 .ban-area {
-  min-height: 500px;
+  width: 100vw;
+  height: 100vh;
 }
 /* 9. 하단영역 */
 .footer-area {
@@ -21,6 +19,11 @@
 }
 /* ************************************************* */
 /* ********************1.상단영역******************** */
+#top-area{
+  z-index: 50;
+  position: fixed;
+  background-image: linear-gradient(173deg, #fff 20%, #fff 50%, #ffffffad, transparent 95%);
+}
 .top-area .cont-box > * {
   display: flex;
   flex-direction: column;
@@ -242,7 +245,7 @@
         left: 0%;
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
         object-position: center center;
       }
     }

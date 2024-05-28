@@ -334,7 +334,7 @@ body * {
 /* 2-1. 중앙 속박스 */
 .inbox {
   padding: 0 10px;
-  max-width: 1300px;
+  max-width: 1800px;
   margin: 0 auto;
 }
 
@@ -343,7 +343,7 @@ body * {
 .pt1 {
   /* 비율 적용시 height값은 주지않는다! */
   /* 비율 */
-  aspect-ratio: 1300/700;
+  aspect-ratio: 1800/700;
 }
 
 /* 유형1 컨텐츠박스 */

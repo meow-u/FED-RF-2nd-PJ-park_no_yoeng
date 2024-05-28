@@ -6,6 +6,7 @@ import TopArea from "./components/TopArea";
 import MainArea from "./components/MainArea";
 // 하단영역 불러오기
 import FooterArea from "./components/FooterArea";
+import Banner from "./components/banner";
 
 // 나의함수 불러오기
 // import mFn from "./my_function";
@@ -30,3 +31,4 @@ function Layout() {
 // ReactDOM.render(<Layout />, document.querySelector("#root"));
 ReactDOM.render(<TopArea/>, document.querySelector("#top-area"));
 ReactDOM.render(<FooterArea/>, document.querySelector("#footer-area"));
+ReactDOM.render(<Banner/>, document.querySelector("#ban-area"));

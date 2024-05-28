@@ -3,24 +3,24 @@
 /* 웹폰트, 공용클래스 */
 
 /*********** 1. 웹폰트 ***********/
-/* Roboto체 + Roboto Condensed체 - CDN */
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@300&display=swap");
 
-/* 
-font-family: 'Roboto', sans-serif;
-font-family: 'Roboto Condensed', sans-serif;
-*/
+/*Cormorant Garamond 체 + Open Sans체 -CDN  */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+// font-family: 'Cormorant Garamond', serif;
+// font-family: 'Open Sans', sans-serif;
+
 /* 나눔바른고딕 */
 @font-face {
     font-family: nbg;
-    src: url(../fonts/NanumBarunGothicLightSubset.woff) format("woff");
+    src: url(../../fonts/기타/NanumBarunGothicLightSubset.woff) format("woff");
 }
 
 /* Pistilli체 */
 @font-face {
     font-family: pist;
-    src: url(../fonts/Pistilli-Roman.woff) format("woff");
+    src: url(../../fonts/기타/Pistilli-Roman.woff) format("woff");
 }
+
 /* 
   [ 공통 클래스 이름정의 ]
   1. inbox - inside box 속박스

@@ -84,29 +84,29 @@ subA.forEach((el) => {
 });
 /******************** 배너영역 ********************/
 
-  // 1. 대상 선정: .ban-box
-  const ban = document.querySelector(".ban-box");
-  console.log(ban);
+  // // 1. 대상 선정: .ban-box
+  // const ban = document.querySelector(".ban-box");
+  // console.log(ban);
 
-  // 2. 이벤트 설정: 슬라이드 이동
-  // 1) 변수: 현재 슬라이드 번호
-  let snum = 0;
+  // // 2. 이벤트 설정: 슬라이드 이동
+  // // 1) 변수: 현재 슬라이드 번호
+  // let snum = 0;
 
-  // 2) 함수: 슬라이드 함수
-  const slideGo = () => {
-    // 2. 슬라이드 번호 증가
-    snum++;
-    // 3. 슬라이드 개수만큼 번호 초기화
-    if (snum === ban.children.length) {
-      snum = 0;
-    }
+  // // 2) 함수: 슬라이드 함수
+  // const slideGo = () => {
+  //   // 2. 슬라이드 번호 증가
+  //   snum++;
+  //   // 3. 슬라이드 개수만큼 번호 초기화
+  //   if (snum === ban.children.length) {
+  //     snum = 0;
+  //   }
 
-    // 첫번째 슬라이드를 마지막으로 이동
-    ban.appendChild(ban.children[0]);
-    ban.children[0].classList.add("ani");
-  }///////// slideGo함수 //////////
+  //   // 첫번째 슬라이드를 마지막으로 이동
+  //   ban.appendChild(ban.children[0]);
+  //   ban.children[0].classList.add("ani");
+  // }///////// slideGo함수 //////////
 
-  // 3) 함수 호출: 슬라이드 함수
-  setInterval(slideGo, 3000);
+  // // 3) 함수 호출: 슬라이드 함수
+  // setInterval(slideGo, 3000);
 
 /******************** 하단영역 ********************/

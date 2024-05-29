@@ -13,10 +13,10 @@ export default function Newitem() {
         slidesPerView: 4,
         spaceBetween: 30,
         loop: true,
-        autoplay: {
-          //사이간격
-          delay: 2500,
-        },
+        // autoplay: {
+        //   //사이간격
+        //   delay: 2500,
+        // },
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
@@ -25,6 +25,24 @@ export default function Newitem() {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
+         /* 가로 사이즈별 스와이퍼 설정변경 */
+         breakpoints: {
+          // 가로 200px이상
+          200: {
+             slidesPerView: 1,
+             spaceBetween: 0,
+          },
+          // 가로 700px이상
+          700: {
+             slidesPerView: 2,
+             spaceBetween: 10,
+          },
+          // 가로 1000px이상
+          1000: {
+             slidesPerView: 4,
+             spaceBetween: 20,
+          },
+       },
         on: {},
       });
 

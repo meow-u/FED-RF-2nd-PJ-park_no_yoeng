@@ -1,6 +1,6 @@
 // 펜할리곤스 JS 메인 페이지 사스  SCSS
 
-// 공통 부분파일 불러오기 
+// 공통 부분파일 불러오기
 // 부분 사스파일도 언더바를 생략하여 부를수있다.
 // 확장자가 scss/sass가 기본이므로 생략한다!
 @import "./common/common";
@@ -10,19 +10,27 @@
 @import "./common/grid_12_flex";
 
 /* ******************** 메인영역 ******************** */
-.main-area>*>*{ /* 메인영역의 직계id의 작계class */
-    /* 최소높이(컨텐츠가 작을경우) */
-    min-height: 200px;
+.main-area > * > * {
+   /* 메인영역의 직계id의 작계class */
+   /* 최소높이(컨텐츠가 작을경우) */
+   min-height: 200px;
 }
 // ****** 2. 배너영역 **************
 // ****** 3. 신상품영역 ************
+.swiper-slide.swiper-slide {
+   width: 80%;
+   background-color: white;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   padding-bottom: 100px;
+   margin-bottom: 25px;
+}
 // ****** 4. 비디오영역 ************
 // ****** 5. 베스트메뉴영역 ********
 // ****** 6. 컬렉션영역 ************
 // ****** 7. 브랜드&블로그영역 ******
 // ****** 8. 하단배너영역 ***********
-.bottom-ban-area{
- div{
-    background: gainsboro;
- }
+.bottom-ban-area {
+   div {
+      background: gainsboro;
+   }
 }

@@ -73,14 +73,20 @@
       data-plugins="transform-es2015-modules-umd"
       type="text/babel"
     ></script>
-
   
     <!-- 데이터파일 JSX 호출 (상품) -->
     <script
-      src="./js/data/products_data.js"
+      src="./js/data/products_data_old.js"
       data-plugins="transform-es2015-modules-umd"
       type="text/babel"
     ></script>
+      <!-- 신상품 모듈 JS -->
+    <script
+      src="./js/components/newitem.jsx"
+      data-plugins="transform-es2015-modules-umd"
+      type="text/babel"
+    ></script>
+
 
     <!-- 상단영역 모듈 JS -->
     <script
@@ -123,14 +129,7 @@
       <!-- 2. 배너영역 -->
       <div id="ban-area"></div>
       <!-- 3. 신상품영역 -->
-      <div id="newitem-area">
-        <section class="newitem-area inbox">
-          <h2 class="temp-tit">3. 신상품영역</h2>
-          <div class="cont-box">
-            <div class="col-12"></div>
-          </div>
-        </section>
-      </div>
+      <div id="newitem-area"></div>
       <!-- 4. 비디오영역 -->
       <div id="video-area">
         <section class="video-area inbox">

@@ -3,11 +3,11 @@ import { bannerImg } from "../data/main_data";
 export default function Banner() {
 
     // 스와이퍼 인스턴스 변수
-    let swiper5;
+    let swiper1;
     // 스와이퍼 인스턴스 생성함수 ////
     const setSwiper = () => {
 
-      swiper5 = new Swiper(".mySwiper5", {
+      swiper1 = new Swiper(".mySwiper1", {
         grabCursor: true,
        //  effect: "flip",
         effect: "fade",
@@ -81,7 +81,7 @@ export default function Banner() {
   }); ///// useLayoutEffect //////////
 
     return(
-        <section className="ban-area pt1 common-area swiper mySwiper5">
+        <section className="ban-area pt1 common-area swiper mySwiper1">
            <h2 className="temp-tit">2. 배너영역</h2>
            <div className="cont-box ban-box swiper-wrapper">
             {bannerImg.map((v,i)=>

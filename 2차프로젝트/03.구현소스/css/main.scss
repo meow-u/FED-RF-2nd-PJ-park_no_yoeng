@@ -11,18 +11,66 @@
 
 /* ******************** 메인영역 ******************** */
 .main-area > * > * {
-   /* 메인영역의 직계id의 작계class */
-   /* 최소높이(컨텐츠가 작을경우) */
-   min-height: 200px;
+  /* 메인영역의 직계id의 작계class */
+  /* 최소높이(컨텐츠가 작을경우) */
+  min-height: 200px;
 }
 // ****** 2. 배너영역 **************
 // ****** 3. 신상품영역 ************
-.swiper-slide.swiper-slide {
-   width: 80%;
-   background-color: white;
-   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-   padding-bottom: 100px;
-   margin-bottom: 25px;
+#newitem-area {
+  .tit-wrap {
+    padding-top: 100px;
+    padding-bottom: 50px;
+    text-align: center;
+
+    h4 {
+      font-family: "Open Sans", sans-serif;
+      font-weight: 400;
+      font-style: italic;
+    }
+    span {
+      font-style: italic;
+      font-size: 13px;
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    translate: 0 150%;
+    border-radius: 0px;
+    background-color: rgba(220, 220, 220, 0.25);
+    box-shadow: 0px 1px 1px #6f6f6f;
+  }
+  .newitem-area {
+    position: relative;
+    width: 80%;
+    .swiper-slide.swiper-slide {
+      border-radius: 10px;
+      box-sizing: border-box;
+      padding: 10px 10px 10px 10px;
+      margin: 50px 0;
+      width: 80%;
+      background-color: #f7f7f7;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      padding-bottom: 150px;
+
+      > img {
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        object-position: center center;
+      }
+      .wrap {
+        position: absolute;
+        width: calc(100% - 20px);
+
+        button {
+          top: 120px;
+        }
+      }
+    }
+  }
 }
 // ****** 4. 비디오영역 ************
 // ****** 5. 베스트메뉴영역 ********
@@ -30,7 +78,7 @@
 // ****** 7. 브랜드&블로그영역 ******
 // ****** 8. 하단배너영역 ***********
 .bottom-ban-area {
-   div {
-      background: gainsboro;
-   }
+  div {
+    background: gainsboro;
+  }
 }

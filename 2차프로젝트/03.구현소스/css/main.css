@@ -5,7 +5,7 @@
 /* 1.상단영역 */
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 #top-area {
-  height: 65px;
+  min-height: 65px;
 }
 
 /* 2. 배너영역 (메인영역 안) */
@@ -23,6 +23,7 @@
 /* ********************1.상단영역******************** */
 #top-area {
   z-index: 50;
+  width: 100vw;
   position: fixed;
   background-image: linear-gradient(173deg, #fff 20%, #fff 50%, rgba(255, 255, 255, 0.6784313725), transparent 95%);
 }
@@ -315,10 +316,6 @@
 
 */
 /* 공사중 표시 */
-body * {
-  outline: 1px dashed gray;
-}
-
 /************* 2. 공통 class *************/
 /* 임시 표시타이틀 */
 .temp-tit {
@@ -406,8 +403,8 @@ body * {
 }
 
 /* 3. 컨텐츠 타이틀 박스(h2) */
-.cont-box h2 {
-  position: absolute;
+.cont-box h2.tit {
+  position: relative;
   bottom: 0;
   width: 100%;
   padding: min(50px, 3.4vw);
@@ -478,6 +475,59 @@ body * {
   /* 스크롤바 트랙 */
   background-color: #ddd;
   border-radius: 5px;
+}
+
+/*********************
+ 아이템상자 공통 글씨영역 
+*********************/
+h2.etit {
+  padding-top: 10px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+}
+
+h4.price {
+  font-family: "Cormorant Garamond", serif;
+  padding-top: 10px;
+}
+
+h3.ktit {
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+p.rev {
+  font-size: 12px;
+}
+
+span.rev2 {
+  font-size: 13px;
+}
+
+button.item {
+  font-size: 12px;
+  font-style: italic;
+  left: 50%;
+  translate: -50%;
+  position: absolute;
+  display: block;
+  border: none;
+  width: 50%;
+  border-radius: 5px;
+}
+
+/* 타이틀 */
+h2.tit {
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: min(44px, 4vw);
+}
+
+h3.catag {
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: min(22px, 2vw);
 }
 
 /* 펜할리곤스 PJ 리셋 CSS - reset.scss */
@@ -583,9 +633,61 @@ img {
 }
 
 /* ******************** 메인영역 ******************** */
-.main-area > * > * { /* 메인영역의 직계id의 작계class */
+.main-area > * > * {
+  /* 메인영역의 직계id의 작계class */
   /* 최소높이(컨텐츠가 작을경우) */
   min-height: 200px;
+}
+
+#newitem-area .tit-wrap {
+  padding-top: 100px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+#newitem-area .tit-wrap h4 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+#newitem-area .tit-wrap span {
+  font-style: italic;
+  font-size: 13px;
+}
+#newitem-area .swiper-button-prev,
+#newitem-area .swiper-button-next {
+  translate: 0 150%;
+  border-radius: 0px;
+  background-color: rgba(220, 220, 220, 0.25);
+  box-shadow: 0px 1px 1px #6f6f6f;
+}
+#newitem-area .newitem-area {
+  position: relative;
+  width: 80%;
+}
+#newitem-area .newitem-area .swiper-slide.swiper-slide {
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 10px 10px 10px 10px;
+  margin: 50px 0;
+  width: 80%;
+  background-color: #f7f7f7;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding-bottom: 150px;
+}
+#newitem-area .newitem-area .swiper-slide.swiper-slide > img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+}
+#newitem-area .newitem-area .swiper-slide.swiper-slide .wrap {
+  position: absolute;
+  width: calc(100% - 20px);
+}
+#newitem-area .newitem-area .swiper-slide.swiper-slide .wrap button {
+  top: 120px;
 }
 
 .bottom-ban-area div {

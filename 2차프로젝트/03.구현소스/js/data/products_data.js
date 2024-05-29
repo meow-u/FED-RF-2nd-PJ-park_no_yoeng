@@ -1256,5 +1256,4 @@ const allProducts = [
       review: 143,
     },
   ];
-  export default allProducts;
-  
+  export {allProducts}  

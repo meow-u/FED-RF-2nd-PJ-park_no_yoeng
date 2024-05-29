@@ -54,7 +54,7 @@
 
 /* 공사중 표시 */
 body * {
-    outline: 1px dashed gray;
+    // outline: 1px dashed rgb(205, 205, 205);
 }
 
 /************* 2. 공통 class *************/
@@ -148,8 +148,8 @@ body * {
 }
 
 /* 3. 컨텐츠 타이틀 박스(h2) */
-.cont-box h2{
-    position: absolute;
+.cont-box h2.tit{
+    position: relative;
     bottom: 0;
     width: 100%;
     padding: min(50px,3.4vw);
@@ -222,3 +222,51 @@ body * {
     border-radius: 5px;
 }
 
+/*********************
+ 아이템상자 공통 글씨영역 
+*********************/
+
+h2.etit {
+ padding-top: 10px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+}
+h4.price {
+    font-family: "Cormorant Garamond", serif;
+    padding-top: 10px;
+  }
+  h3.ktit {
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+  }
+  p.rev {
+    font-size: 12px;
+  }
+  span.rev2 {
+    font-size: 13px;
+  }
+  button.item {
+    font-size: 12px;
+    font-style: italic;
+    left: 50%;
+    translate: -50%;
+    position: absolute;
+    display: block;
+    border: none;
+    width: 50%;
+    border-radius: 5px;
+  }
+
+/* 타이틀 */
+h2.tit {
+    text-align: center;
+    font-family: "Cormorant Garamond", serif;
+    font-size: min(44px, 4vw);
+}
+
+h3.catag{
+    text-align: center;
+    font-family: "Cormorant Garamond", serif;
+    font-size: min(22px, 2vw);
+}

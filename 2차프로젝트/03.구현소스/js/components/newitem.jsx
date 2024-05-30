@@ -1,7 +1,10 @@
 import { allProducts } from "../data/products_data";
+import {Title} from "./title";
+import { titleTxt } from "../data/main_data";
 console.log(allProducts);
 
-export default function Newitem() {
+export default function Newitem({}) {
+
   // 스와이퍼 인스턴스 변수
   let swiper2;
   // 스와이퍼 인스턴스 생성함수 ////
@@ -59,9 +62,12 @@ export default function Newitem() {
   }); ///// useLayoutEffect //////////
 
   return (
+    <div id="newitem-area">
     <section class="newitem-area inbox swiper mySwiper2">
       <h2 class="temp-tit">3. 신상품영역</h2>
-      <Title/>
+      
+      <Title txtData={titleTxt} type={'brand'}/>
+
       <h3 className="catag">NEW</h3>
       <div class="cont-box swiper-wrapper">
         {/* i가 8보다 작은 경우만 필터링 */}
@@ -85,6 +91,7 @@ export default function Newitem() {
       <div className="swiper-button-prev"></div>
       <div className="swiper-pagination"></div>
     </section>
+    </div>
   );
 } //////// Newitem 컴포넌트 ////////
 
@@ -106,13 +113,3 @@ export default function Newitem() {
 //           할당변수에 저장한다!(배열을 전체순회함!)
 
 
-function Title() {
-   return (
-     <div className="tit-wrap">
-       <h4>Our new stories</h4>
-       <h2 className="tit">Keep up with Penhaligons</h2>
-       <span>Learn more</span>
-     </div>
-   );
- } ///// title 컴포넌트 //////
- 

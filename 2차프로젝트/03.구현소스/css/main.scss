@@ -18,21 +18,7 @@
 // ****** 2. 배너영역 **************
 // ****** 3. 신상품영역 ************
 #newitem-area {
-  .tit-wrap {
-    padding-top: 100px;
-    padding-bottom: 50px;
-    text-align: center;
 
-    h4 {
-      font-family: "Open Sans", sans-serif;
-      font-weight: 400;
-      font-style: italic;
-    }
-    span {
-      font-style: italic;
-      font-size: 13px;
-    }
-  }
 
   .swiper-button-prev,
   .swiper-button-next {
@@ -51,8 +37,7 @@
       margin: 50px 0;
       width: 80%;
       background-color: #f7f7f7;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      box-shadow: 1px 1px 6px 0px #c1c1c1;
       padding-bottom: 150px;
 
       > img {

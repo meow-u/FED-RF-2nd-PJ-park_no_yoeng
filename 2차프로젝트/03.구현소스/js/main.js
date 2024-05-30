@@ -8,6 +8,7 @@ import MainArea from "./components/MainArea";
 import FooterArea from "./components/FooterArea";
 import Banner from "./components/banner";
 import Newitem from "./components/newitem";
+import Video from "./components/video";
 
 // 나의함수 불러오기
 // import mFn from "./my_function";
@@ -29,8 +30,8 @@ function Layout() {
 } ///////// Layout 컴포넌트 /////////
 
 // 메인 페이지 전체 출력하기
-// ReactDOM.render(<Layout />, document.querySelector("#root"));
-ReactDOM.render(<TopArea/>, document.querySelector("#top-area"));
-ReactDOM.render(<FooterArea/>, document.querySelector("#footer-area"));
-ReactDOM.render(<Banner/>, document.querySelector("#ban-area"));
-ReactDOM.render(<Newitem/>, document.querySelector("#newitem-area"));
+ReactDOM.render(<Layout />, document.querySelector("#root"));
+// ReactDOM.render(<TopArea/>, document.querySelector("#top-area"));
+// ReactDOM.render(<FooterArea/>, document.querySelector("#footer-area"));
+// ReactDOM.render(<Banner/>, document.querySelector("#ban-area"));
+// ReactDOM.render(<Newitem/>, document.querySelector("#newitem-area"));

@@ -364,7 +364,7 @@
 /* 유형2 컨텐츠박스 : 등분할 가로정렬박스 */
 .pt2 .cont-box {
   /* 플렉스 자식요소 동일분할 설정!
-    -> 높이값 100% 설정불필요! 자동맞춤된다! */
+   -> 높이값 100% 설정불필요! 자동맞춤된다! */
   flex: 1;
 }
 
@@ -478,9 +478,9 @@
   border-radius: 5px;
 }
 
-/********************************
- 아이템상자 컴포넌트 공통 글씨영역 
-********************************/
+/*********************
+ 아이템상자 공통 글씨영역 
+*********************/
 h2.etit {
   padding-top: 10px;
   font-family: "Cormorant Garamond", serif;
@@ -518,35 +518,23 @@ button.item {
   border-radius: 5px;
 }
 
+/* 타이틀 */
+h2.tit {
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: min(44px, 4vw);
+}
+
 h3.catag {
   text-align: center;
   font-family: "Cormorant Garamond", serif;
   font-size: min(22px, 2vw);
 }
 
-/*************************
-    타이틀 컴포넌트 공통 클래스 
-*************************/
-.tit-wrap {
-  padding-top: 100px;
-  padding-bottom: 50px;
-  text-align: center;
-}
-.tit-wrap h4 {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
-.tit-wrap h2.tit {
-  text-align: center;
-  font-family: "Cormorant Garamond", serif;
-  font-size: min(44px, 4vw);
-}
-.tit-wrap span {
-  font-style: italic;
-  font-size: 13px;
-}
-
+/*********************
+ 아이템상자 공통 글씨영역 
+*********************/
+/* 타이틀 */
 /* 펜할리곤스 PJ 리셋 CSS - reset.scss */
 /* 요소의 초기화 */
 /* 1. 마진,패딩 없애기 */

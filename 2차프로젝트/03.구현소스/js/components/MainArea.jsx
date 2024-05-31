@@ -7,10 +7,10 @@ export default function MainArea() {
     // 코드 리턴구역 /////
     return (
       <main class="main-area">
-        <Banner />
-        <Newitem />
-      <Video/>
-      <Newitem />
+        {/* <Banner />
+        <Newitem idname={"newitem-area"}/>
+      <Video/> */}
+      <Newitem idname={"bestitem-area"}/>
       </main>
     );
   } ///////// MainArea 컴포넌트 ///////////

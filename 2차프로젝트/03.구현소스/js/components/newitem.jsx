@@ -3,7 +3,7 @@ import {Title} from "./title";
 import { titleTxt } from "../data/main_data";
 console.log(allProducts);
 
-export default function Newitem({}) {
+export default function Newitem({idname}) {
 
   // 스와이퍼 인스턴스 변수
   let swiper2;
@@ -13,15 +13,15 @@ export default function Newitem({}) {
       slidesPerView: 4,
       spaceBetween: 30,
       loop: true,
-      autoplay: {
-        //사이간격
-        delay: 2000,
-         //마우스오버시 멈춤여부
-         pauseOnMouseEnter: true,
-         //오토 플레이 진행시간
-         speed: 100,
+      // autoplay: {
+      //   //사이간격
+      //   delay: 2000,
+      //    //마우스오버시 멈춤여부
+      //    pauseOnMouseEnter: true,
+      //    //오토 플레이 진행시간
+      //    speed: 100,
 
-      },
+      // },
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -62,9 +62,12 @@ export default function Newitem({}) {
   }); ///// useLayoutEffect //////////
 
   return (
-    <div id="newitem-area">
-    <section class="newitem-area inbox swiper mySwiper2">
-      <h2 class="temp-tit">3. 신상품영역</h2>
+    <div id={idname}>
+    <section class={idname+" inbox swiper mySwiper2"}>
+      
+      <h2 class="temp-tit">
+        {idname =="newitem-area"?"3. 신상품영역":"5. 베스트메뉴영역"}
+      </h2>
       
       <Title txtData={titleTxt} type={'brand'}/>
 
@@ -112,4 +115,20 @@ export default function Newitem({}) {
 //           return true 하여 다른값이 계속 나올때까지 배열로 값을
 //           할당변수에 저장한다!(배열을 전체순회함!)
 
+// array.sort(() => Math.random() - 0.5).slice(0, 8)
+// 위의 코드를 사용하면 배열의 요소를 무작위로 섞고 앞에서부터 8개만 추출할 수 있습니다.
 
+// array.sort(() => Math.random() - 0.5)
+
+// sort 메서드에 전달된 비교 함수는 0보다 작은 값을 반환하면 a가 b보다 작은 것으로 간주하고, 0보다 큰 값을 반환하면 b가 a보다 작은 것으로 간주합니다.
+// Math.random() - 0.5는 0 또는 양수 또는 음수를 반환하므로 배열 요소의 순서를 무작위로 섞습니다.
+
+
+// slice(0, 8)
+
+// slice 메서드는 배열의 일부분을 새로운 배열 객체로 반환합니다.
+// slice(0, 8)은 배열의 시작 인덱스 0부터 인덱스 8 전까지의 요소를 새로운 배열로 반환합니다.
+
+
+
+// 따라서 array.sort(() => Math.random() - 0.5).slice(0, 8)는 배열의 요소를 무작위로 섞고 앞에서부터 8개만 추출한 새로운 배열을 반환합니다.

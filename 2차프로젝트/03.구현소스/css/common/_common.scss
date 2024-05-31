@@ -20,10 +20,11 @@
 /* ************************************************* */
 /* ********************1.상단영역******************** */
 #top-area{
+  padding-top: 10px;
   z-index: 50;
   width: 100vw;
   position: fixed;
-  background-image: linear-gradient(173deg, #fff 20%, #fff 50%, #ffffffad, transparent 95%);
+  background-image: linear-gradient(45deg, white, transparent);
 }
 .top-area .cont-box > * {
   display: flex;

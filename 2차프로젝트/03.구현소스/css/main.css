@@ -22,10 +22,11 @@
 /* ************************************************* */
 /* ********************1.상단영역******************** */
 #top-area {
+  padding-top: 10px;
   z-index: 50;
   width: 100vw;
   position: fixed;
-  background-image: linear-gradient(173deg, #fff 20%, #fff 50%, rgba(255, 255, 255, 0.6784313725), transparent 95%);
+  background-image: linear-gradient(45deg, white, transparent);
 }
 
 .top-area .cont-box > * {
@@ -363,7 +364,7 @@
 /* 유형2 컨텐츠박스 : 등분할 가로정렬박스 */
 .pt2 .cont-box {
   /* 플렉스 자식요소 동일분할 설정!
-  -> 높이값 100% 설정불필요! 자동맞춤된다! */
+    -> 높이값 100% 설정불필요! 자동맞춤된다! */
   flex: 1;
 }
 
@@ -477,9 +478,9 @@
   border-radius: 5px;
 }
 
-/*********************
- 아이템상자 공통 글씨영역 
-*********************/
+/********************************
+ 아이템상자 컴포넌트 공통 글씨영역 
+********************************/
 h2.etit {
   padding-top: 10px;
   font-family: "Cormorant Garamond", serif;
@@ -517,17 +518,33 @@ button.item {
   border-radius: 5px;
 }
 
-/* 타이틀 */
-h2.tit {
-  text-align: center;
-  font-family: "Cormorant Garamond", serif;
-  font-size: min(44px, 4vw);
-}
-
 h3.catag {
   text-align: center;
   font-family: "Cormorant Garamond", serif;
   font-size: min(22px, 2vw);
+}
+
+/*************************
+    타이틀 컴포넌트 공통 클래스 
+*************************/
+.tit-wrap {
+  padding-top: 100px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+.tit-wrap h4 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+.tit-wrap h2.tit {
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: min(44px, 4vw);
+}
+.tit-wrap span {
+  font-style: italic;
+  font-size: 13px;
 }
 
 /* 펜할리곤스 PJ 리셋 CSS - reset.scss */
@@ -639,20 +656,6 @@ img {
   min-height: 200px;
 }
 
-#newitem-area .tit-wrap {
-  padding-top: 100px;
-  padding-bottom: 50px;
-  text-align: center;
-}
-#newitem-area .tit-wrap h4 {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
-#newitem-area .tit-wrap span {
-  font-style: italic;
-  font-size: 13px;
-}
 #newitem-area .swiper-button-prev,
 #newitem-area .swiper-button-next {
   translate: 0 150%;
@@ -671,7 +674,7 @@ img {
   margin: 50px 0;
   width: 80%;
   background-color: #f7f7f7;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 1px 1px 6px 0px #c1c1c1;
   padding-bottom: 150px;
 }
 #newitem-area .newitem-area .swiper-slide.swiper-slide > img {

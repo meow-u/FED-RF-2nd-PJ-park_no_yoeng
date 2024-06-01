@@ -1,4 +1,4 @@
-// 펜할리곤스 PJ 메인 JS - main.js
+// 펜할리곤스 레이아웃 컴포넌트 : 실제적인 최상위 컴포넌트임!
 
 // 상단영역 불러오기
 import TopArea from "./components/TopArea";
@@ -18,11 +18,11 @@ function Layout() {
   return (
     <React.Fragment>
       {/* 1. 상단영역 컴포넌트 */}
-      <TopArea />
+      {/* <TopArea /> */}
       {/* 2. 메인영역 컴포넌트 */}
       <MainArea />
       {/* 3. 하단영역 컴포넌트 */}
-      <FooterArea />
+      {/* <FooterArea /> */}
     </React.Fragment>
   );
 } ///////// Layout 컴포넌트 /////////

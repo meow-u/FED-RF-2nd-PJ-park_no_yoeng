@@ -1,0 +1,69 @@
+// 펜할리곤스 JS 메인 페이지 사스  SCSS
+
+// 공통 부분파일 불러오기
+// 부분 사스파일도 언더바를 생략하여 부를수있다.
+// 확장자가 scss/sass가 기본이므로 생략한다!
+@import "./common/common";
+@import "./common/core";
+@import "./common/reset";
+/* 그리드 12 불러오기 */
+@import "./common/grid_12_flex";
+
+/* ******************** 메인영역 ******************** */
+.main-area > * > * {
+  /* 메인영역의 직계id의 작계class */
+  /* 최소높이(컨텐츠가 작을경우) */
+  min-height: 200px;
+}
+// ****** 2. 배너영역 **************
+// ****** 3. 신상품영역 ************
+#newitem-area {
+
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    translate: 0 150%;
+    border-radius: 0px;
+    background-color: rgba(220, 220, 220, 0.25);
+    box-shadow: 0px 1px 1px #6f6f6f;
+  }
+  .newitem-area {
+    position: relative;
+    width: 80%;
+    .swiper-slide.swiper-slide {
+      border-radius: 10px;
+      box-sizing: border-box;
+      padding: 10px 10px 10px 10px;
+      margin: 50px 0;
+      width: 80%;
+      background-color: #f7f7f7;
+      box-shadow: 1px 1px 6px 0px #c1c1c1;
+      padding-bottom: 150px;
+
+      > img {
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        object-position: center center;
+      }
+      .wrap {
+        position: absolute;
+        width: calc(100% - 20px);
+
+        button {
+          top: 120px;
+        }
+      }
+    }
+  }
+}
+// ****** 4. 비디오영역 ************
+// ****** 5. 베스트메뉴영역 ********
+// ****** 6. 컬렉션영역 ************
+// ****** 7. 브랜드&블로그영역 ******
+// ****** 8. 하단배너영역 ***********
+.bottom-ban-area {
+  div {
+    background: gainsboro;
+  }
+}

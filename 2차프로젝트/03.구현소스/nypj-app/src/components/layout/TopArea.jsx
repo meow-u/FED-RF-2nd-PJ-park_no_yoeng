@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // 리액트 모듈 불러오기
 import {useContext, useEffect, useState } from "react";
 // 햄버거 기능 불러오기
-import hamFunction from "../func/ham";
+import hamFn from "../func/ham";
 
 
 // 상단영역 컴포넌트 ///////
@@ -14,11 +14,11 @@ import hamFunction from "../func/ham";
 export default function TopArea() {
 
 
-// 랜더링후 실행구역 ///////////////
+//랜더링후 실행구역 ///////////////
 useEffect(() => {
-  hamFunction();
-}, []);
-/// 한번만 실행하려면 두번째 인자에 빈 배열을 넣어준다
+  hamFn();
+},);
+
 
   // 코드 리턴구역 /////
   return (

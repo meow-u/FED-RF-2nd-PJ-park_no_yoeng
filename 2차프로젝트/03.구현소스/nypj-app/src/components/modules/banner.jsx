@@ -1,7 +1,5 @@
 // 펜할리곤스 롤링배너 컴포넌트 (메인페이지)
-
-
-import { bannerImg } from "../data/main_data";
+import React from "react";
 
 export default function Banner() {
   // 스와이퍼 인스턴스 변수
@@ -85,7 +83,7 @@ export default function Banner() {
         <h2 className="temp-tit">2. 배너영역</h2>
         <div className="cont-box ban-box swiper-wrapper">
           {bannerImg.map((v, i) => (
-            <div className="col-12 swiper-slide">
+            <div key={i} className="col-12 swiper-slide">
               <img
                 src={`./images/banner_${i + 1}.jpg`}
                 alt={"banner" + (i + 1)}

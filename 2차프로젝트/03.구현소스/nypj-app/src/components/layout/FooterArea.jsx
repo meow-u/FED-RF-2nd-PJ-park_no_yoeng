@@ -71,8 +71,8 @@ export default function FooterArea() {
         </div>
       </footer>
       {/* 위로가기버튼  */}
-      <a href="###" class="tbtn fi fi-angle-up">
-        <span class="ir">위로가기버튼</span>
+      <a href="###" className="tbtn fi fi-angle-up">
+        <span className="ir">위로가기버튼</span>
       </a>
     </div>
   );

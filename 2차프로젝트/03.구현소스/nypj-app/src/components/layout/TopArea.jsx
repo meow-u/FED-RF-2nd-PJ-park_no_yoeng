@@ -1,29 +1,48 @@
+// 폰트어썸 불러오기
+import { faLaptop,faUserSecret,faCamera } from "@fortawesome/free-solid-svg-icons";
+import { faInstagram,faFacebook,faTwitter,faYoutube,} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// 리액트 모듈 불러오기
+import {useContext, useEffect, useState } from "react";
+// 햄버거 기능 불러오기
+import hamFunction from "../func/ham";
+
+
 // 상단영역 컴포넌트 ///////
 
 export default function TopArea() {
+
+
+// 랜더링후 실행구역 ///////////////
+useEffect(() => {
+  hamFunction();
+}, []);
+/// 한번만 실행하려면 두번째 인자에 빈 배열을 넣어준다
+
   // 코드 리턴구역 /////
   return (
     <div id="top-area">
-      <header class="top-area inbox common-area">
-        <h2 class="temp-tit">1. 상단영역</h2>
-        <div class="cont-box">
+      <header className="top-area inbox common-area">
+        <h2 className="temp-tit">1. 상단영역</h2>
+        <div className="cont-box">
           {/* GNB박스  */}
-          <nav class="gnb col-4">
+          <nav className="gnb col-4">
             <ul>
-              <li class="ham">
+              <li className="ham">
                 <span></span>
                 <span></span>
                 <span></span>
               </li>
               {/* 전체메뉴박스  */}
-              <nav class="hambox">
+              <nav className="hambox">
                 <ul>
                   <li>
                     <a href="###">PENHALIGON'S</a>
                   </li>
-                  <li class="main-menu">
+                  <li className="main-menu">
                     <a href="###">SHOP▶</a>
-                    <ol class="sub-menu">
+                    <ol className="sub-menu">
                       <li>
                         <a href="###">FRAGRANCES</a>
                       </li>
@@ -33,7 +52,7 @@ export default function TopArea() {
                       <li>
                         <a href="###">HOME</a>
                       </li>
-                      <li class="main-menu">
+                      <li className="main-menu">
                         <a href="###">COLLECTIONS</a>
                       </li>
                       <li>
@@ -65,44 +84,48 @@ export default function TopArea() {
           </nav>
 
           {/* 로고박스  */}
-          <h1 class="logo col-4">
+          <h1 className="logo col-4">
             <a href="###">
               <img src="./images/logo.png" alt="메인로고" />
             </a>
           </h1>
           {/* 상단메뉴  */}
-          <div class="tmenu col-4">
+          <div className="tmenu col-4">
             {/* sns박스  */}
-            <div class="sns">
-              <a href="###" class="fi fi-instagram" title="인스타그램">
-                <span class="ir">인스타그램</span>
+            <div className="sns">
+              <a href="###" title="인스타그램">
+                <FontAwesomeIcon icon={faInstagram} />
+                <span className="ir">인스타그램</span>
               </a>
-              <a href="###" class="fi fi-facebook" title="페이스북">
-                <span class="ir">페이스북</span>
+              <a href="###" title="페이스북">
+                <FontAwesomeIcon icon={faFacebook} />
+                <span className="ir">페이스북</span>
               </a>
-              <a href="###" class="fi fi-twitter" title="트위터">
-                <span class="ir">트위터</span>
+              <a href="###" title="트위터">
+                <FontAwesomeIcon icon={faTwitter} />
+                <span className="ir">트위터</span>
               </a>
-              <a href="###" class="fi fi-youtube-play" title="유튜브">
-                <span class="ir">유튜브</span>
+              <a href="###" title="유튜브">
+                <FontAwesomeIcon icon={faYoutube} />
+                <span className="ir">유튜브</span>
               </a>
 
-              <a href="###" class="fi fi-laptop" title="로그인">
-                <span class="ir">로그인</span>
+              <a href="###" title="로그인">
+                <FontAwesomeIcon icon={faLaptop} />
+                <span className="ir">로그인</span>
               </a>
-              <a href="###" class="fi fi-user-secret" title="회원가입">
-                <span class="ir">회원가입</span>
+              <a href="###" title="회원가입">
+                <FontAwesomeIcon icon={faUserSecret} />
+                <span className="ir">회원가입</span>
               </a>
-              <a href="###" class="fi fi-camera" title="갤러리">
-                <span class="ir">갤러리</span>
-              </a>
-              <a href="###" class="fi cas" title="카카오스토리">
-                <span class="ir">카카오스토리</span>
+              <a href="###" title="갤러리">
+                <FontAwesomeIcon icon={faCamera} />
+                <span className="ir">갤러리</span>
               </a>
             </div>
             {/* 사이드메뉴  */}
-            <div class="sideMenu">
-              <ul class="sidebox">
+            <div className="sideMenu">
+              <ul className="sidebox">
                 <li>
                   <a href="###">
                     <img
@@ -116,7 +139,7 @@ export default function TopArea() {
                     <img src="./images/icon/icon-user-menu.png" alt="member" />
                   </a>
                   {/* 서브메뉴  */}
-                  <ol class="smsub hidden">
+                  <ol className="smsub hidden">
                     <li>
                       <a href="###">LOGIN</a>
                     </li>

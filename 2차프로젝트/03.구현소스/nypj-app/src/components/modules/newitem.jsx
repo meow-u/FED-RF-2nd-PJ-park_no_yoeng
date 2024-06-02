@@ -1,4 +1,6 @@
 // 펜할리곤스 신상품 컴포넌트 (메인페이지)
+// Import react
+import React from "react";
 
 import { allProducts } from "../data/products_data";
 import {Title} from "./title";
@@ -65,16 +67,16 @@ export default function Newitem({idname}) {
 
   return (
     <div id={idname}>
-    <section class={idname+" inbox swiper mySwiper2"}>
+    <section className={idname+" inbox swiper mySwiper2"}>
       
-      <h2 class="temp-tit">
+      <h2 className="temp-tit">
         {idname =="newitem-area"?"3. 신상품영역":"5. 베스트메뉴영역"}
       </h2>
       
       <Title txtData={titleTxt} type={'brand'}/>
 
       <h3 className="catag">NEW</h3>
-      <div class="cont-box swiper-wrapper">
+      <div className="cont-box swiper-wrapper">
         {/* i가 8보다 작은 경우만 필터링 */}
         {allProducts
           .map((v, i) => (

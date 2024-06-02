@@ -1,0 +1,6 @@
+/* 펜할리곤스 메인 페이지 CSS - index.css */
+@import url(./common/_reset.scss);
+@import url(./common/_core.scss);
+@import url(./_layout.scss);
+/* 중요쓰 */
+@import url(./common/_grid_12_flex.scss);

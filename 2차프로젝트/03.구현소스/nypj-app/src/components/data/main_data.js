@@ -1,5 +1,29 @@
 //  [ 메인영역 데이터 ]'
-
+const hamMenu =[{
+  txt:"PENHALIGON'S",
+  link:"/Penhaligons",
+},
+{
+  txt:"SHOP▶",
+  link:"/Shop",
+  sub:[
+    {txt:"FRAGRANCES",link:"/Fragrances"},
+    {txt:"BATH & BODY",link:"/BathAndBody"},
+    {txt:"HOME",link:"/Home"},
+    {txt:"COLLECTIONS",link:"/Collections"},
+    {txt:"GIFTING",link:"/Gifting"},
+    {txt:"ALL",link:"/All"},
+  ]
+},
+{
+  txt:"OUR STORY",
+  link:"/OurStory",
+},
+{
+  txt:"COLLECTIONS",
+  link:"/Collections",
+},
+]
 const menu =[
   {  
     txt:"SHOP",
@@ -44,4 +68,4 @@ const titleTxt = {
   else: ["Our new stories", "Keep up with Penhaligons", "Learn more"],
 };
 
-export { menu, bannerImg, titleTxt, };
+export { menu, hamMenu, bannerImg, titleTxt, };

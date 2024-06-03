@@ -12,6 +12,7 @@ import Main from "./components/pages/Main";
 import Shop from "./components/pages/Shop";
 import Collections from "./components/pages/Collections";
 import OurStory from "./components/pages/OurStory";
+import Penhaligons from "./components/pages/Penhaligons";
 
 
 
@@ -26,6 +27,7 @@ export default function App() {
             <Route path="Shop" element={<Shop/>} />
             <Route path="Collections" element={<Collections/>} />
             <Route path="OurStory" element={<OurStory/>} />
+            <Route path="Penhaligons" element={<Penhaligons/>} />
 
          </Route>
       </Routes>

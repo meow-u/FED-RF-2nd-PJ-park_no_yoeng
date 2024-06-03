@@ -217,6 +217,7 @@ body * {
    border-radius: 5px;
 }
 
+
 /*********************
  아이템상자 공통 글씨영역 
 *********************/
@@ -266,51 +267,16 @@ h3.catag {
    font-size: min(22px, 2vw);
 }
 
-/*********************
- 아이템상자 공통 글씨영역 
-*********************/
 
-%etit {
-   padding-top: 10px;
-   font-family: "Cormorant Garamond", serif;
-   font-size: 20px;
-}
-%price {
-   font-family: "Cormorant Garamond", serif;
-   padding-top: 10px;
-}
-%ktit {
-   font-family: "Open Sans", sans-serif;
-   font-size: 13px;
-   font-weight: 400;
-}
-%rev {
-   font-size: 12px;
-}
-%rev2 {
-   font-size: 13px;
-}
-%item {
-   font-size: 12px;
-   font-style: italic;
-   left: 50%;
-   translate: -50%;
-   position: absolute;
-   display: block;
-   border: none;
-   width: 50%;
-   border-radius: 5px;
-}
 
-/* 타이틀 */
-%tit {
-   text-align: center;
-   font-family: "Cormorant Garamond", serif;
-   font-size: min(44px, 4vw);
-}
+h2.tit {
 
-%catag {
-   text-align: center;
-   font-family: "Cormorant Garamond", serif;
-   font-size: min(22px, 2vw);
+
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: min(44px, 4vw);
+}
+span {
+  font-style: italic;
+  font-size: 13px;
 }

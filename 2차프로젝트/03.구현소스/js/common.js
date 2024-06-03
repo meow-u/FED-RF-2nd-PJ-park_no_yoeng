@@ -39,11 +39,9 @@ menu.forEach((el) => {
   el.onclick = () => {
     if (txt === "SHOP▶" || txt === "COLLECTIONS") {
       console.log("클릭", txt);
-      //서브 메뉴 보이기/숨기기(common.js-94line에서 처리)
-      // el.classList.toggle("on");
-      // 서브메뉴 보이기
       console.log("submenu", submenu);
-
+      
+      // 서브메뉴 보이기
       submenu.classList.add("on");
       const a = hambox.querySelectorAll(".on>ul>li>a");
 

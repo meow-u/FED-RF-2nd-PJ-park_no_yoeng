@@ -7,11 +7,15 @@
 // ****** 2. 배너영역 **************
 #ban-area{
   overflow: hidden;
+  
 
   .swiper-scrollbar{
+    cursor: none;
     z-index: 10;
   }
-
+.swiper-pagination-bullet{
+  cursor:none;
+}
   .ban-area {
     .cont-box {
       > div {
@@ -35,6 +39,7 @@
   background-color: #fff;
 }
 .swiper-button-prev, .swiper-button-next{
+  cursor: none;
   font-weight: bold;
   // 글자쉐도우
   text-shadow: 1px 1px 2px #6f6f6f;

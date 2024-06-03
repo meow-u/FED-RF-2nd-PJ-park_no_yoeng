@@ -2,9 +2,8 @@
 //pages 폴더: MainArea에서 바뀌어보이는 각각의 페이지 구성
 
 // Main 컴포넌트
-import Swiper_banner from "../plugin/Swiper_banner";
-// import Newitem from "../modules/newitem";
-// import Banner from "../modules/banner";
+
+import Swiper_newitem from "../plugin/Swiper_newitem";
 import Video from "../modules/video";
 
 export default function Main() {
@@ -12,10 +11,8 @@ export default function Main() {
     return (
       <main className="main-area">
         <h1>메인기본페이지</h1>
-        {/* <Swiper_banner /> */}
-        {/* <Banner /> */}
-        {/* <Newitem idname={"newitem-area"}/> */}
-      {/* <Video/> */}
+        <Swiper_newitem idname={"newitem-area"}/>
+      <Video/>
       {/* <Newitem idname={"bestitem-area"}/> */}
       </main>
     );

@@ -1,7 +1,8 @@
+// 펜할리곤스 스와이퍼 -배너 모듈 (메인페이지)
 import React from "react";
-// Import Swiper React components
+// 스와이퍼 불러오기
 import { Swiper, SwiperSlide } from "swiper/react";
-// import required modules (사용할 스와이퍼 모듈을 불러오기)
+// 사용할 스와이퍼 모듈을 불러오기
 import {
   Pagination,
   Navigation,
@@ -9,7 +10,7 @@ import {
   EffectFade,
   Scrollbar,
 } from "swiper/modules";
-// Import Swiper styles (Swiper 패키지 내에서 제공하는 CSS 파일을 직접 불러옴)
+// 스와이퍼 기본 스타일 불러오기 (Swiper 패키지)
 import "swiper/css"; // 스와이퍼 기본 CSS
 import "swiper/css/effect-fade"; // 페이드효과 CSS
 import "swiper/css/navigation"; // 네비게이션 CSS
@@ -29,7 +30,7 @@ export default function Banner() {
         {/* **************************************************************** */}
         <Swiper
           // 마우스 커서를 손가락 모양으로 변경
-          grabCursor={true}
+          // grabCursor={true}
           // 슬라이드 사이 여백
           spaceBetween={30}
           // 슬라이드 효과 (모듈)

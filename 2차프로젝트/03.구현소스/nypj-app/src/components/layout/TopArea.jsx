@@ -2,34 +2,44 @@
 import { Link } from "react-router-dom";
 
 // 폰트어썸 불러오기
-import { faLaptop,faUserSecret,faCamera } from "@fortawesome/free-solid-svg-icons";
-import { faInstagram,faFacebook,faTwitter,faYoutube,} from "@fortawesome/free-brands-svg-icons";
+import {
+  faLaptop,
+  faUserSecret,
+  faCamera,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faInstagram,
+  faFacebook,
+  faTwitter,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // 리액트 모듈 불러오기
-import {useContext, useEffect, useState } from "react";
-// 햄버거 기능 불러오기
+import { useContext, useEffect, useState } from "react";
+// 햄버거, 커서 fn 불러오기
 import hamFn from "../func/ham";
+import cursorFn from "../func/cursor";
 // gnb 데이터
-import { menu } from "../data/main_data";
-
+import { menu, hamMenu } from "../data/main_data";
 
 // 상단영역 컴포넌트 ///////
 
 export default function TopArea() {
-
-
-//랜더링후 실행구역 ///////////////
-useEffect(() => {
-  hamFn();
-},);
-
+  //랜더링후 실행구역 ///////////////
+  useEffect(() => {
+    hamFn();
+    cursorFn();
+  });
 
   // 코드 리턴구역 /////
   return (
     <div id="top-area">
       <header className="top-area inbox common-area">
         <h2 className="temp-tit">1. 상단영역</h2>
+        <div className="cursor">
+          <img src={"./images/cursur.png"} alt="" />
+        </div>
         <div className="cont-box">
           {/* GNB박스  */}
           <nav className="gnb col-4">
@@ -42,52 +52,45 @@ useEffect(() => {
               {/* 전체메뉴박스  */}
               <nav className="hambox">
                 <ul>
-                  <li>
-                    <a href="###">PENHALIGON'S</a>
-                  </li>
-                  <li className="main-menu">
-                    <a href="###">SHOP▶</a>
-                    <ol className="sub-menu">
-                      <li>
-                        <a href="###">FRAGRANCES</a>
-                      </li>
-                      <li>
-                        <a href="###">BATH &amp; BODY</a>
-                      </li>
-                      <li>
-                        <a href="###">HOME</a>
-                      </li>
-                      <li className="main-menu">
-                        <a href="###">COLLECTIONS</a>
-                      </li>
-                      <li>
-                        <a href="###">GIFTING</a>
-                      </li>
-                      <li>
-                        <a href="###">ALL</a>
-                      </li>
-                    </ol>
-                  </li>
-                  <li>
-                    <a href="###">OUR STORY</a>
-                  </li>
-                  <li>
-                    <a href="###">COLLECTIONS</a>
-                  </li>
+                  {hamMenu.map((v, i) => (
+                    <li
+                      className={
+                        v.link === "/Shop" 
+                        // || v.link === "/Penhaligons"
+                          ? "main-menu"
+                          : ""
+                      }
+                      key={i}
+                    >
+                      <Link to={v.link}>{v.txt}</Link>
+                      {v.sub && (
+                        <ol className="sub-menu">
+                          {v.sub.map((v2, i2) => (
+                            <li key={i2}>
+                              {/* useState로 전환예정*/}
+                               <a href="###">{v2.txt}</a>
+                              {/* <Link to={v2.link}>{v2.txt}</Link> */}
+                            </li>
+                          ))}
+                        </ol>
+                      )}
+                    </li>
+                  ))}
                 </ul>
               </nav>
               {/* Gnb메뉴 데이터 배열로 만들기 */}
-              {menu.map((v,i)=>
-                  <li key={i}>
-                    {/* link to -> 라우터에서 a링크대신 지원함 */}
-                        <Link to={v.link}>{v.txt}</Link>         
-                  </li>)}
+              {menu.map((v, i) => (
+                <li key={i}>
+                  {/* link to -> 라우터에서 a링크대신 지원함 */}
+                  <Link to={v.link}>{v.txt}</Link>
+                </li>
+              ))}
             </ul>
           </nav>
 
           {/* 로고박스  */}
           <h1 className="logo col-4">
-            <a href="###">
+            <a href="#">
               <img src="./images/logo.png" alt="메인로고" />
             </a>
           </h1>

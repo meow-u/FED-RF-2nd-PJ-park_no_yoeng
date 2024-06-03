@@ -18,7 +18,6 @@ export default () => {
 
   // 2.이벤트설정
   ham.onclick = () => {
-    // 윈도우 스크롤 이벤트 막고 스크
     document.body.style.height = "100%";
 
     // 햄버거버튼 on넣기/빼기

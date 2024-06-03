@@ -1,5 +1,5 @@
 // 펜할리곤스 타이틀 컴포넌트 (메인/상세페이지용)
-
+import {titleTxt} from "../data/main_data";
 
 export function Title({txtData, type="brand"}) {//type은 데이터 객체의 속성명
   
@@ -7,9 +7,9 @@ export function Title({txtData, type="brand"}) {//type은 데이터 객체의 �
     console.log(tdata);
      return (
        <div className="tit-wrap">
-         <h4>{tdata[0]}</h4>
+         <h4 className="tit">{tdata[0]}</h4>
          <h2 className="tit">{tdata[1]}</h2>
-         <span>{tdata[2]}</span>
+         <span className="tit">{tdata[2]}</span>
        </div>
      );
    } ///// title 컴포넌트 //////

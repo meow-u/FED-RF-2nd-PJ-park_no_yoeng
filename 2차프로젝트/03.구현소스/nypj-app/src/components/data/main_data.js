@@ -1,5 +1,19 @@
 //  [ 메인영역 데이터 ]'
 
+const menu =[
+  {  
+    txt:"SHOP",
+    link:"/Shop", 
+  },
+  {  
+    txt:"COLLECTIONS",
+    link:"/Collections", 
+  },
+  {  
+    txt:"OUR STORY",
+    link:"/OurStory", 
+  },
+]
 // 메인배너 이미지 데이터
 const bannerImg = [
   {
@@ -30,4 +44,4 @@ const titleTxt = {
   else: ["Our new stories", "Keep up with Penhaligons", "Learn more"],
 };
 
-export { bannerImg, titleTxt };
+export { menu, bannerImg, titleTxt, };

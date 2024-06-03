@@ -1,3 +1,6 @@
+// 라우터용 링크 불러오기
+import { Link } from "react-router-dom";
+
 // 폰트어썸 불러오기
 import { faLaptop,faUserSecret,faCamera } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram,faFacebook,faTwitter,faYoutube,} from "@fortawesome/free-brands-svg-icons";
@@ -7,6 +10,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {useContext, useEffect, useState } from "react";
 // 햄버거 기능 불러오기
 import hamFn from "../func/ham";
+// gnb 데이터
+import { menu } from "../data/main_data";
 
 
 // 상단영역 컴포넌트 ///////
@@ -71,15 +76,12 @@ useEffect(() => {
                   </li>
                 </ul>
               </nav>
-              <li>
-                <a href="###">SHOP</a>
-              </li>
-              <li>
-                <a href="###">COLLECTIONS</a>
-              </li>
-              <li>
-                <a href="###">OUR STORY</a>
-              </li>
+              {/* Gnb메뉴 데이터 배열로 만들기 */}
+              {menu.map((v,i)=>
+                  <li key={i}>
+                    {/* link to -> 라우터에서 a링크대신 지원함 */}
+                        <Link to={v.link}>{v.txt}</Link>         
+                  </li>)}
             </ul>
           </nav>
 

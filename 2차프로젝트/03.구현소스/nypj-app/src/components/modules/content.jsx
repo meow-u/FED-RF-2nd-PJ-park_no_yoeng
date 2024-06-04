@@ -17,11 +17,13 @@ export default function Content({type}) {
             <section className="imgbox-wrap">
               <div className="img-wrap">
                 {type.img.map((v, i) => (
+                  <>
                   <a key={i} href="###">
                     <img src={`./images/${v}`} alt={type.stit + i} />
                   </a>
-                ))}
                 <div className="desc">read more</div>
+                </>
+                ))}
               </div>
             </section>
           </div>

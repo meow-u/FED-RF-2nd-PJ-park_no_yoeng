@@ -1,0 +1,29 @@
+// 하단영역 CSS - footer-area.scss
+.footer-area {
+    .cont-box {
+      border-top: 1.5px double #ccc;
+      padding-top: 10px;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+  }
+  
+  .blogo {
+    img {
+      position: relative;
+      top: 20%;
+      width: 100%;
+      aspect-ratio: 433 / 71;
+    }
+  }
+  .addr {
+    text-align: right;
+    padding-top: 20px;
+    margin-top: 12px;
+    border-top: 1.5px double #ccc;
+    font-size: 10px;
+  }
+  .link a {
+    font-size: 13px;
+  }
+  

@@ -22,6 +22,8 @@ import hamFn from "../func/ham";
 import cursorFn from "../func/cursor";
 // gnb 데이터
 import { menu, hamMenu } from "../data/main_data";
+// 상단영역 css 불러오기
+import "../../css/top_area.scss";
 
 // 상단영역 컴포넌트 ///////
 

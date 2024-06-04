@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route} from "react-router-dom";
 // 레이아웃 불러오기
 import { Layout } from './components/layout/Layout';
 // 메인페이지 CSS 불러오기
-import "./css/index.css";
+import "./css/index.scss";
 /* 하위라우터 */
 import Main from "./components/pages/Main";
 import Shop from "./components/pages/Shop";

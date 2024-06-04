@@ -1,0 +1,255 @@
+// 상단영역 CSS - top-area.scss
+
+/* 1.상단영역 */
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    scale: 0.5;
+    transition: opacity 0.1s ease-out;
+    rotate: -220deg;
+    translate: -20% -27%;
+    pointer-events: none;
+    opacity: 1;
+    z-index: 9999;
+  
+    &.click {
+      rotate: -235deg;
+    }
+  }
+  #top-area {
+    min-height: 65px;
+  }
+  
+  /* 2. 배너영역 (메인영역 안) */
+  .ban-area {
+    width: 100vw;
+    height: 100vh;
+  }
+  /* 9. 하단영역 */
+  .footer-area {
+    min-height: 285px;
+  }
+  /* ************************************************* */
+  /* ********************1.상단영역******************** */
+  #top-area {
+    padding-top: 10px;
+    z-index: 50;
+    width: 100vw;
+    position: fixed;
+    background-image: linear-gradient(45deg, white, transparent);
+  }
+  .top-area .cont-box > * {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  /* 햄버거버튼 */
+  .ham {
+    position: relative;
+    display: flex;
+  
+    width: 30px;
+    z-index: 100; /* HAMBOX박스 보다위 */
+    /* outline: 2px solid red; */
+    span {
+      position: absolute;
+      width: 30px;
+      height: 3px;
+      background-color: #565656;
+      border-radius: 10px 10px 10px 10px;
+  
+      transition: 0.3s; /*트랜지션*/
+    }
+  
+    /* 햄버거 span바 초기셋팅 */
+    span:nth-child(1) {
+      top: 0px;
+    }
+    span:nth-child(2) {
+      top: 10px;
+      left: -50%;
+    }
+    span:nth-child(3) {
+      top: 20px;
+    }
+  
+    /* 햄버거on일때 */
+    &.on span {
+      background-color: #fff;
+    }
+  
+    /* 햄버거 마우스 오버시 중앙바변경 */
+    &:hover span:nth-child(2) {
+      left: 0;
+    }
+  
+    /* 클릭이벤트JS처리시 클래스on셋팅 */
+    &.on span:nth-child(1) {
+      transform: rotate(45deg);
+      top: 20px;
+    }
+    &.on span:nth-child(2) {
+      opacity: 0;
+      width: 0;
+      left: 50%;
+    }
+    &.on span:nth-child(3) {
+      transform: rotate(-45deg);
+      top: 20px;
+    }
+  }
+  
+  /* 전체메뉴박스 */
+  .hambox {
+    position: fixed;
+    top: -100%;
+    left: -100vw;
+    width: 100vw;
+    height: 100vh;
+    background: url(../../public/images/0.jpg) no-repeat fixed center center /
+      cover;
+    /*z-index: 50;*/
+    transition: left 0.5s, top 0.5s 0.5s ease-out;
+    /*트랜지션*/
+    ul {
+      flex-direction: column;
+    }
+    /* 기본 서브메뉴들 숨기기 */
+    .sub-menu {
+      pointer-events: none;
+      overflow: hidden;
+      transition: 0.2s ease-out; /*트랜지션*/
+      > li > a {
+        transform: translateY(100%);
+      }
+      &.on {
+        pointer-events: all;
+        > li > a {
+          transform: translateY(0px);
+        }
+      }
+    }
+  
+    /* 메뉴클릭시 직계 서브메뉴 보이기 */
+    .main-menu.on {
+      > .sub-menu {
+        /*height: 150%;*/
+      }
+    }
+  
+    /* 햄버거버튼 클릭시 JS로 처리할 클래스on구현 */
+    /* 전체메뉴 위에서 내려오기 */
+    &.on {
+      left: 0;
+      top: 0;
+      transition: top 0.5s ease-out;
+  
+      /* 글자의 등장은 .hambox.on일때 적용! */
+      > ul > li > a {
+        transform: translateY(0);
+      }
+  
+      /* .hambox li 트랜지션 지연시간셋팅 */
+      li:nth-child(1) a {
+        transition-delay: 0.5s;
+      }
+      li:nth-child(2) a {
+        transition-delay: 0.7s;
+      }
+      li:nth-child(3) a {
+        transition-delay: 0.9s;
+      }
+      li:nth-child(4) a {
+        transition-delay: 1.1s;
+      }
+    } /*hamBox on*/
+  
+    ul,
+    ol {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      list-style: none; /*블릿없앰*/
+    }
+  
+    li {
+      overflow: hidden; /*나가있는 글자 숨기기 */
+      /*outline: 2px dashed yellow */
+  
+      /* 2번째 li부터 끝까지 */
+      & + li {
+        margin-top: 3vh;
+      }
+    }
+  
+    a {
+      font-size: min(12vw, 10vh);
+      width: max-content;
+      display: block;
+      transform: translateY(100%); /*트랜스폼은 인라인요소 적용안됨!*/
+      text-transform: uppercase; /*영문자 대소문자설정*/
+      line-height: 1;
+      color: #fff;
+      text-decoration: none;
+      transition: transform 0.6s ease-out; /*트랜지션*/
+    }
+  
+    /* 메뉴 마우스 오버시 */
+    li:nth-child(1) a:hover {
+      color: lightgreen;
+    }
+    li:nth-child(2) a:hover {
+      color: lightcoral;
+    }
+    li:nth-child(3) a:hover {
+      color: lightskyblue;
+    }
+    li:nth-child(4) a:hover {
+      color: lightpink;
+    }
+  }
+  
+  .gnb {
+    ul {
+      display: flex;
+      gap: 10px;
+    }
+  }
+  .tmenu {
+    display: flex;
+    flex-direction: column;
+    > * {
+      margin-left: auto;
+    }
+  
+    .sns {
+      display: flex;
+    }
+  }
+  /* 로고박스 */
+  .logo {
+    > a {
+      margin: 0 auto;
+      position: relative;
+      display: inline-block;
+      img {
+        width: 100%;
+        aspect-ratio: 968 / 151;
+      }
+    }
+  }
+  /* 사이드메뉴 */
+  .sideMenu {
+    display: flex;
+    gap: 100px;
+    .sidebox {
+      li {
+        display: inline-block;
+        a {
+        }
+      }
+    }
+  }
+  

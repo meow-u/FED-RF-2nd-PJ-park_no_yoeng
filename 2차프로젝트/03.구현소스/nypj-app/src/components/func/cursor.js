@@ -26,4 +26,11 @@ export default function cursor() {
     mFn.addEvt(document,'mouseup',()=>{
         cursor.removeClass('click');
     })
+    // 드래그시에도 마우스 커서가 따라다니게 하기
+    mFn.addEvt(document,'drag',(e)=>{
+        cursor.css({
+            top: e.clientY,
+            left: e.clientX
+           }); 
+    })
 } // cursor

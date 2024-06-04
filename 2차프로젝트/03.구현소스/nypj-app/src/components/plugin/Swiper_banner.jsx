@@ -29,6 +29,8 @@ export default function Banner() {
         <h2 className="temp-tit">2. 배너영역</h2>
         {/* **************************************************************** */}
         <Swiper
+        virtualTranslate={true}
+        uniqueNavElements={true}
           // 마우스 커서를 손가락 모양으로 변경
           // grabCursor={true}
           // 슬라이드 사이 여백
@@ -50,13 +52,13 @@ export default function Banner() {
           }}
           // 슬라이드반복여부
           loop={true}
-          // 자동넘김 (모듈)
-          // autoplay={{
-          //   // 넘김시간
-          //   delay: 2500,
-          //   // 상호작용시 멈춤여부
-          //   disableOnInteraction: false,
-          // }}
+          //자동넘김 (모듈)
+          autoplay={{
+            // 넘김시간
+            delay: 2500,
+            // 상호작용시 멈춤여부
+            disableOnInteraction: false,
+          }}
           // 스크롤바 네비
           scrollbar={{
             // 선택자 지정

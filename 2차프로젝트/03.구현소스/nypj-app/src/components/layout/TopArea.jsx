@@ -54,11 +54,7 @@ export default function TopArea() {
                 <ul>
                   {hamMenu.map((v, i) => (
                     <li
-                      className={
-                        v.link === "/Shop" 
-                          ? "main-menu"
-                          : ""
-                      }
+                      className={v.link === "/Shop" ? "main-menu" : ""}
                       key={i}
                     >
                       <Link to={v.link}>{v.txt}</Link>
@@ -67,7 +63,7 @@ export default function TopArea() {
                           {v.sub.map((v2, i2) => (
                             <li key={i2}>
                               {/* useState로 전환예정*/}
-                               <a href="###">{v2.txt}</a>
+                              <a href="###">{v2.txt}</a>
                               {/* <Link to={v2.link}>{v2.txt}</Link> */}
                             </li>
                           ))}
@@ -89,9 +85,9 @@ export default function TopArea() {
 
           {/* 로고박스  */}
           <h1 className="logo col-4">
-            <a href="#">
+            <Link to="/">
               <img src="./images/logo.png" alt="메인로고" />
-            </a>
+            </Link>
           </h1>
           {/* 상단메뉴  */}
           <div className="tmenu col-4">

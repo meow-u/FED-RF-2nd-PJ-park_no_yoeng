@@ -12,14 +12,15 @@ export default function Video() {
         <h2 className="temp-tit">4. 비디오영역</h2>
         <div className="cont-box">
           <div className="col-12">
-          <video
-  src="images/sub_page/brand_detail1.mp4"
-  autoPlay
-  muted
-  controls
-  width="100%"
-  height="auto"
-></video>
+            <video
+              src="images/main.mp4"
+              autoPlay
+              loop
+              muted
+              // controls
+              width="100%"
+              height="auto"
+            ></video>
           </div>
         </div>
       </section>

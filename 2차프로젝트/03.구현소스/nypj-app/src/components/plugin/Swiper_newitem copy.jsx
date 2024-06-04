@@ -27,15 +27,13 @@ export default function Newitem({ idname }) {
         <h2 className="temp-tit">
           {idname == "newitem-area" ? "3. 신상품영역" : "5. 베스트메뉴영역"}
         </h2>
-        {idname == "newitem-area" ? <Title txtData={titleTxt} type={"brand"} /> :""} 
-        <h3 className="catag">
-        {idname == "newitem-area" ? "NEW" : "BEST"}
-         </h3>
+        <Title txtData={titleTxt} type={"brand"} />
+        <h3 className="catag">NEW</h3>
         <Swiper
           // 마우스 커서를 손가락 모양으로 변경
           // grabCursor={true}
           // 슬라이드 보이는갯수
-          slidesPerView={idname == "newitem-area" ? 4 : 3}
+          slidesPerView={4}
           // 슬라이드 사이 여백
           spaceBetween={30}
           // 네비게이션 버튼 (모듈)
@@ -61,7 +59,7 @@ export default function Newitem({ idname }) {
           //   disableOnInteraction: false,
           // }}
           /* 가로 사이즈별 스와이퍼 설정변경 */
-          breakpoints={ idname == "newitem-area" ? {
+          breakpoints={{
             // 가로 200px이상
             200: {
               slidesPerView: 1,
@@ -79,7 +77,7 @@ export default function Newitem({ idname }) {
               slidesPerView: 4,
               spaceBetween: 20,
             },
-          }:""}
+          }}
           // 스와이퍼 사용모듈
           modules={[EffectFade, Navigation, Pagination, Autoplay]}
           className="mySwiper"

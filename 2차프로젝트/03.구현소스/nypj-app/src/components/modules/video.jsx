@@ -20,7 +20,6 @@ export default function Video() {
   width="100%"
   height="auto"
 ></video>
-<h3 className="catag">BEST</h3>
           </div>
         </div>
       </section>

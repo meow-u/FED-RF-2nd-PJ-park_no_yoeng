@@ -11,9 +11,9 @@ export default function Main() {
     return (
       <main className="main-area">
         <h1>메인기본페이지</h1>
-        <Swiper_newitem idname={"newitem-area"}/>
-      <Video/>
-      {/* <Newitem idname={"bestitem-area"}/> */}
+        {/* <Swiper_newitem idname={"newitem-area"}/> */}
+      {/* <Video/> */}
+        <Swiper_newitem idname={"bestitem-area"}/>
       </main>
     );
   } ///////// Main 컴포넌트 ///////////

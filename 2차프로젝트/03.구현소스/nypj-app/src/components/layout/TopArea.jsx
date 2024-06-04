@@ -56,7 +56,6 @@ export default function TopArea() {
                     <li
                       className={
                         v.link === "/Shop" 
-                        // || v.link === "/Penhaligons"
                           ? "main-menu"
                           : ""
                       }

@@ -7,7 +7,11 @@
 // ****** 2. 배너영역 **************
 #ban-area{
   overflow: hidden;
-  
+
+.ban-area {
+  width: 100vw;
+  height: 100vh;
+}
 
   .swiper-scrollbar{
     cursor: none;

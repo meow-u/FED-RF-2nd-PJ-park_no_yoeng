@@ -17,9 +17,9 @@ import { titleTxt } from "../data/main_data";
 // 하위모듈
 import { Title } from "../modules/title";
 // 스와이퍼 개별 CSS
-import "./css/Swiper_newitem.scss";
+import "./css/Swiper_itemSlide.scss";
 
-export default function Newitem({ idname }) {
+export default function itemSlide({ idname }) {
   //idname은 호출시 영역구분아이디
 
   // 영역 아이디별 스와이퍼 반응형변경
@@ -153,4 +153,4 @@ export default function Newitem({ idname }) {
       </section>
     </div>
   );
-} //////////// Newitem 컴포넌트 //////////
+} //////////// itemSlide 컴포넌트 //////////

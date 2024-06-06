@@ -1,4 +1,6 @@
 // 펜할리곤스 비디오 컴포넌트 (메인페이지)
+// css 불러오기
+import "../../css/_video.scss";
 
 import { Title } from "./title";
 import { titleTxt } from "../data/main_data";

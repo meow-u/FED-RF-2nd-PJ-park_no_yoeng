@@ -1,9 +1,44 @@
+
+h2.etit {
+  padding-top: 10px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+}
+h4.price {
+  font-family: "Cormorant Garamond", serif;
+  padding-top: 10px;
+}
+h3.ktit {
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+}
+p.rev {
+  font-size: 12px;
+}
+span.rev2 {
+  font-size: 13px;
+}
+button.item {
+  font-size: 12px;
+  font-style: italic;
+  left: 50%;
+  translate: -50%;
+  position: absolute;
+  display: block;
+  border: none;
+  width: 50%;
+  border-radius: 5px;
+}
+
 h3.catag {
   text-align: center;
   font-family: "Cormorant Garamond", serif;
   font-size: min(22px, 2vw);
 }
+
 #newitem-area {
+  padding-bottom: 30px;
   .swiper-button-prev,
   .swiper-button-next {
     translate: 0 150%;
@@ -29,7 +64,7 @@ h3.catag {
     padding: 10px 10px 10px 10px;
     margin: 50px 0;
     width: 80%;
-    background-color: #f7f7f7;
+    background: var(--bg-color1);
     /* border: 1px solid #999; */
     box-shadow: 1px 1px 3px 0px #a3a3a3;
     padding-bottom: 150px;
@@ -53,6 +88,10 @@ h3.catag {
 .bestitem-area {
   position: relative;
   width: 80%;
+
+h3.catag {
+  padding-top: 20px;
+}
 
   .swiper-button-prev,
   .swiper-button-next {

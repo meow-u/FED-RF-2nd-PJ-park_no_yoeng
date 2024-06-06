@@ -212,3 +212,5 @@ const collection_detail = [
       video: "collection_detail4.mp4",
    },
 ];
+
+export {story_detail, collection_detail};

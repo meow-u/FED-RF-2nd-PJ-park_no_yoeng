@@ -1,5 +1,6 @@
 // 펜할리곤스 타이틀 컴포넌트 (메인/상세페이지용)
-import {titleTxt} from "../data/main_data";
+// css 불러오기
+import "../../css/_title.scss";
 
 export function Title({txtData, type="brand"}) {//type은 데이터 객체의 속성명
   

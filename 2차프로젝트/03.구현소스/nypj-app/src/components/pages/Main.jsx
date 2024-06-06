@@ -4,7 +4,7 @@ import { collection , story } from "../data/sub_page_data";
 
 // Main 컴포넌트
 
-import Swiper_newitem from "../plugin/Swiper_newitem";
+import Swiper_itemSlide from "../plugin/Swiper_itemSlide";
 import Video from "../modules/video";
 import Content from "../modules/content";
 
@@ -12,11 +12,11 @@ export default function Main() {
   // 코드 리턴구역 /////
   return (
     <main className="main-area">
-      <h1>메인기본페이지</h1>
-      {/* <Swiper_newitem idname={"newitem-area"} /> */}
+      <h1>메인페이지</h1>
+      {/* <Swiper_itemSlide idname={"newitem-area"} /> */}
       {/* <Video /> */}
-      {/* <Swiper_newitem idname={"bestitem-area"} /> */}
-      <Content type={collection} />
+      {/* <Swiper_itemSlide idname={"bestitem-area"} /> */}
+      {/* <Content type={collection} /> */}
       {/* <Content type={story} /> */}
     </main>
   );

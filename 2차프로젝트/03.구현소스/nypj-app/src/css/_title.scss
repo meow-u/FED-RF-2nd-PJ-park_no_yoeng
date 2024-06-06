@@ -1,0 +1,23 @@
+// 타이틀 모듈 스타일 - _title.scss
+.tit-wrap {
+    padding-top: 100px;
+    padding-bottom: 50px;
+    text-align: center;
+    h4 {
+      font-family: "Open Sans", sans-serif;
+      font-size: min(20px, 3vw);
+      font-weight: 400;
+      font-style: italic;
+    }
+    h2.tit {
+      text-align: center;
+      font-family: "Cormorant Garamond", serif;
+      font-size: min(55px, 6vw);
+    }
+  
+    h3.catag {
+      text-align: center;
+      font-family: "Cormorant Garamond", serif;
+      font-size: min(22px, 2vw);
+    }
+  }

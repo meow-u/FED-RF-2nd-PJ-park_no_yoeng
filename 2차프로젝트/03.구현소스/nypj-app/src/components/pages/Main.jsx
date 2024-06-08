@@ -7,6 +7,7 @@ import { collection , story } from "../data/sub_page_data";
 import Swiper_itemSlide from "../plugin/Swiper_itemSlide";
 import Video from "../modules/video";
 import Content from "../modules/content";
+import BrandBlog from "../modules/brand_blog";
 
 export default function Main() {
   // 코드 리턴구역 /////
@@ -18,6 +19,7 @@ export default function Main() {
       {/* <Swiper_itemSlide idname={"bestitem-area"} /> */}
       {/* <Content type={collection} /> */}
       {/* <Content type={story} /> */}
+      <BrandBlog/>
     </main>
   );
 } ///////// Main 컴포넌트 ///////////

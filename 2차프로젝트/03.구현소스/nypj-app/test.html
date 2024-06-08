@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split Scroll Layout</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .split-scroll {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .split-scroll__column {
+            display: flex;
+            flex-direction: column;
+            margin-top: calc(100vh * var(--offset) * -1);
+            transform: translate3d(0, calc(var(--scroll-val) * 2), 0);
+            will-change: transform;
+        }
+
+        .split-scroll__text,
+        .split-scroll__media {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .split-scroll__media img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="split-scroll" style="--per-column: 4">
+        <div class="split-scroll__column" style="--offset: calc(var(--per-column) - 1);">
+            <div class="split-scroll__text">
+                <h2>Section 1</h2>
+                <p>Content for section 1</p>
+            </div>
+            <div class="split-scroll__media">
+                <img src="https://via.placeholder.com/600x400" alt="Dummy Image">
+            </div>
+            <div class="split-scroll__text">
+                <h2>Section 2</h2>
+                <p>Content for section 2</p>
+            </div>
+            <div class="split-scroll__media">
+                <img src="https://via.placeholder.com/600x400" alt="Dummy Image">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const splitScroll = document.querySelector('.split-scroll');
+        const columns = document.querySelectorAll('.split-scroll__column');
+        let scrollVal = 0;
+
+        window.addEventListener('scroll', () => {
+            scrollVal = window.pageYOffset;
+            columns.forEach(column => {
+                column.style.setProperty('--scroll-val', scrollVal);
+            });
+        });
+    </script>
+</body>
+</html>

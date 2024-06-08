@@ -1,0 +1,20 @@
+// 브랜드&블로그 모듈 SCSS - _content.scss
+#brand_blog-area {
+   .brand_blog-area {
+      .cont-box {
+         .col-6 {
+            section {
+               width: 50vw;
+               height: 100vh;
+
+               .right box1, .left box2{
+                color:lightblue
+               }
+               .left box1, .right box2{
+                color: lightgray;
+               }
+            }
+         }
+      }
+   }
+}

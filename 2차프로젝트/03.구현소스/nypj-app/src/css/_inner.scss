@@ -1,0 +1,50 @@
+// 콘텐츠 이너 모듈 SCSS - _inner.scss
+
+.textbox-wrap {
+  top: 100px;
+  padding: 15px;
+  span.stit {
+    display: inline-block;
+    width: min(200px, 13vw);
+    border-bottom: 1px solid #777;
+  }
+  small {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: clamp(10px, 3vw, 13px);
+    font: {
+      family: "Cormorant Garamond", serif;
+      style: italic;
+      weight: bold;
+    }
+  }
+  h2 {
+    /* block이지만 인라인블록처럼 */
+    width: min-content;
+    color: #000;
+    font-size: clamp(14px, 7vw, 9vw);
+    font-family: "Cormorant Garamond", serif;
+    padding-bottom: 20px;
+  }
+  span.text {
+    text-align: justify;
+    line-height: 1.5;
+    display: block;
+    width: min(327px, 34vw);
+    font-size: 14px;
+    font-family: "Open Sans", sans-serif;
+  }
+  button {
+    display: block;
+    width: auto;
+    border-radius: 100px;
+    border: 1px solid #6e6e6e;
+    padding: 14px;
+    margin: 20px 0;
+    font-size: 15px;
+    font-family: "Open Sans", sans-serif;
+    background-color: #fff;
+    font-weight: 500;
+  }
+}

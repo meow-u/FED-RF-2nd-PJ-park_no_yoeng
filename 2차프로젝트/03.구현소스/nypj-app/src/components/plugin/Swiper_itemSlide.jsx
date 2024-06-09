@@ -28,7 +28,7 @@ export default function itemSlide({ idname }) {
       slidesPerView: 1,
       spaceBetween: 0,
     },
-    520: {
+    600: {
       slidesPerView: 2,
       spaceBetween: 30,
 

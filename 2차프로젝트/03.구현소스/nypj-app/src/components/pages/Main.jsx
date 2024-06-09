@@ -8,6 +8,7 @@ import Swiper_itemSlide from "../plugin/Swiper_itemSlide";
 import Video from "../modules/video";
 import Content from "../modules/content";
 import BrandBlog from "../modules/brand_blog";
+import { FotBenner } from "../modules/fot_benner";
 
 export default function Main() {
   // 코드 리턴구역 /////
@@ -19,7 +20,8 @@ export default function Main() {
       {/* <Swiper_itemSlide idname={"bestitem-area"} /> */}
       {/* <Content type={collection} /> */}
       {/* <Content type={story} /> */}
-      <BrandBlog/>
+      {/* <BrandBlog/> */}
+      {/* <FotBenner/> */}
     </main>
   );
 } ///////// Main 컴포넌트 ///////////

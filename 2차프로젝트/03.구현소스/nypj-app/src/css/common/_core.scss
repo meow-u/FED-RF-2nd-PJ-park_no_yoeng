@@ -55,7 +55,7 @@
 
 /* 공사중 표시 */
 body * {
-  /* outline: 1px dashed rgb(205, 205, 205);*/
+// outline: 1px dashed rgb(205, 205, 205);
   // cursor: none;
 }
 
@@ -162,10 +162,6 @@ body * {
   font-weight: normal;
   text-align: center;
   color: #fff;
-}
-/* 런웨이파트 타이틀 중 small요소 */
-.cont-box h2 small {
-  font-size: 14px;
 }
 
 /* 4. 스크롤 등장액션 클래스 */

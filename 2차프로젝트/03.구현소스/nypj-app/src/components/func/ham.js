@@ -1,90 +1,101 @@
-// 1.대상선정: .ham(이벤트/변경), .hambox(변경)
+// 1. 대상요소
 export default () => {
-  const ham = document.querySelector(".ham");
-  const hambox = document.querySelector(".hambox");
-  // 하위 메뉴가 있는 li요소
-  const menu = document.querySelectorAll(".main-menu");
-  // 하위 메뉴  ol 요소
+  const ham = document.querySelector(".ham"); // 햄버거 메뉴 버튼
+  const hambox = document.querySelector(".hambox"); // 숨긴 전체 메뉴 박스
+  const Allmenu = document.querySelectorAll(".hambox>ul>li>a"); // 메인 메뉴 항목
+  const submenu = document.querySelector(".sub-menu"); // 서브 메뉴
 
-  const submenu = document.querySelector(".sub-menu");
-  console.log(ham, menu, submenu);
-
-  // 필수 요소가 없으면 함수 나가기(선택)
-  //(혹시 오류가 생기더라도 페이지는 안깨지게 하기 위함)
+  // 2. 필수 요소가 없으면 함수를 종료
   if (!ham || !hambox || !submenu) {
     console.error("필수 요소를 찾을 수 없습니다.");
     return;
   }
 
-  // 2.이벤트설정
+  // 3. 햄버거 메뉴 버튼 클릭 이벤트 핸들러
   ham.onclick = () => {
-    document.body.style.height = "100%";
+    document.body.style.height = "100%"; // 모바일에서 메뉴 열렸을 때 body 높이 조정
+    ham.classList.toggle("on"); // 햄버거 버튼 on/off 클래스 토글
+    hambox.classList.toggle("on"); // 햄버거 메뉴 박스 on/off 클래스 토글
 
-    // 햄버거버튼 on넣기/빼기
-    ham.classList.toggle("on");
-    // HAMBOX on넣기/빼기
-    hambox.classList.toggle("on");
     if (!ham.classList.contains("on")) {
-      // 햄버거 닫을때
-      // 기존메뉴 보이기
-      const a = hambox.querySelectorAll("ul>li>a");
+      // 햄버거 메뉴가 닫힐 때
+      const a = hambox.querySelectorAll("ul>li>a"); // 메인 메뉴 링크
       a.forEach((a) => {
-        // 원래 css로 복귀
-        a.style = "";
-        // 서브메뉴 닫기
-        submenu.classList.remove("on");
+        a.style = ""; // 메인 메뉴 링크 스타일 초기화
+        submenu.classList.remove("on"); // 서브 메뉴 숨기기
       });
     }
-  }; /////////// click /////////////
+  };
 
-  menu.forEach((el) => {
-    const txt = el.querySelector("a").innerText;
+  // 4. 메인 메뉴 항목 클릭 이벤트 핸들러
+  Allmenu.forEach((el) => {
+    const txt = el.innerText; // 메뉴 항목의 텍스트
     el.onclick = () => {
-      if (txt === "SHOP▶" || txt === "COLLECTIONS") {
-        console.log("클릭", txt);
-        //서브 메뉴 보이기/숨기기(common.js-94line에서 처리)
-        // el.classList.toggle("on");
-        // 서브메뉴 보이기
-        console.log("submenu", submenu);
+      if (txt === "SHOP▶") {
+        // SHOP 메뉴 항목 클릭 시
+        const subA = submenu.querySelectorAll("li>a"); // 서브 메뉴 링크
+        subA.forEach((a) => {
+          // 보여지기위해 back클릭시 설정된 css 초기화
 
-        submenu.classList.add("on");
-        const a = hambox.querySelectorAll(".on>ul>li>a");
-
-        // 기존메뉴 숨기기
-        a.forEach((a) => {
-          a.style.transition = "transform 0.3s";
-          a.style.transform = "translateY(100%)";
+          a.style.display = ""; // 서브 메뉴 링크 표시
+          setTimeout(() => {
+            a.style.transition = "";
+            a.style.transform = "";
+          });
         });
+        submenu.classList.add("on"); // 서브 메뉴 보이기
+        
+        // 메인 메뉴 링크 숨기기
+        const a = hambox.querySelectorAll(".on>ul>li>a"); // 메인 메뉴 링크
+        a.forEach((a) => {
+          a.style.transition = "transform 0.5s";
+          a.style.transform = "translateY(100%)"; // 메인 메뉴 숨기기
+        });
+      } else {
+        toggleMenu(); // 다른 메뉴 항목 클릭 시 메뉴 여닫기
       }
     };
   });
 
-  // 3.서브메뉴ol의 자식인 li>a 클릭시 햄버거 닫고 기존메뉴 보이기
-  const subA = document.querySelectorAll(".sub-menu>li>a");
+  // 5. 서브 메뉴 링크 클릭 이벤트 핸들러
+  const subA = document.querySelectorAll(".sub-menu>li a");
   subA.forEach((el) => {
     el.onclick = (e) => {
-      console.log("서브메뉴클릭subA", subA);
-      // 서브메뉴 안보이기
-      submenu.classList.remove("on");
-      // 이벤트 전파 중지
-      // ->>.sub-menu를 숨기려고 해도 다른 상위 요소(menu)에서 클릭이벤트가 발생
+      const txt = e.target.innerText; // 클릭한 서브 메뉴 링크 텍스트
+      if (txt === "BACK") {
+        // BACK 링크 클릭 시 서브 메뉴 숨기기
 
-      e.stopPropagation();
-
-      // 햄버거버튼 on넣기/빼기
-      ham.classList.toggle("on");
-      // HAMBOX on넣기/빼기
-      hambox.classList.toggle("on");
-      if (!ham.classList.contains("on")) {
-        // 햄버거 닫을때
-        // 기존메뉴 보이기
-        const a = hambox.querySelectorAll("ul>li>a");
-        a.forEach((a) => {
-          // 원래 css로 복귀
-          a.style = "";
+        const subA = submenu.querySelectorAll("li>a"); // 서브 메뉴 링크
+        subA.forEach((a) => {
+          a.style.transition = "transform 0.5s";
+          a.style.transform = "translateY(100%)";
+          a.style.display = "none"; // 서브 메뉴 숨기기
         });
-        //윈도우 스크롤 이벤트 풀기
+
+        const a = hambox.querySelectorAll(".on>ul>li>a"); // 메인 메뉴 링크
+        a.forEach((a) => {
+          a.style.transition = "transform 0.3s";
+          a.style.transform = "translateY(0)"; // 메인 메뉴 보이기
+        });
+      } else if (txt !== "BACK") {
+        // 다른 서브 메뉴 링크 클릭 시
+        e.stopPropagation(); // 이벤트 전파 중지 (없으면 메인 메뉴 항목 클릭 이벤트가 같이 발생하여 class remove가 제대로 동작하지 않음)
+        submenu.classList.remove("on"); // 서브 메뉴 숨기기
+        toggleMenu(); // 메뉴 여닫기
       }
     };
   });
-}; // 여기서 ()를 붙이게 되면 랜더링 하기전에 실행이 되어버림
+
+  // 6. 메뉴 여닫기 함수
+  function toggleMenu() {
+    ham.classList.toggle("on"); // 햄버거 버튼 on/off 클래스 토글
+    hambox.classList.toggle("on"); // 햄버거 메뉴 박스 on/off 클래스 토글
+    if (!ham.classList.contains("on")) {
+      // 햄버거 메뉴가 닫힐 때
+      const a = hambox.querySelectorAll("ul>li>a"); // 메인 메뉴 링크
+      a.forEach((a) => {
+        a.style = ""; // 메인 메뉴 링크 스타일 초기화
+      });
+    }
+  }
+};

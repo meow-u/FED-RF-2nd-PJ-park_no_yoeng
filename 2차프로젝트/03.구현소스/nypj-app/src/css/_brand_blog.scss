@@ -1,20 +1,86 @@
 // 브랜드&블로그 모듈 SCSS - _content.scss
-#brand_blog-area {
-   .brand_blog-area {
-      .cont-box {
-         .col-6 {
-            section {
-               width: 50vw;
-               height: 100vh;
 
-               .right box1, .left box2{
-                color:lightblue
-               }
-               .left box1, .right box2{
-                color: lightgray;
-               }
-            }
-         }
+#brand_blog-area {
+  button {
+    border-radius: 0px;
+  }
+  background: var(--bg-color1);
+  .brand_blog-area {
+    height: 100%;
+    .cont-box {
+      overflow: hidden;
+      .col-6 {
+        position: relative;
+        section {
+          height: 100%;
+          .right,
+          .left {
+            height: 100vh;
+          }
+
+          .right.box2 {
+            background: url("../../public/images/box.jpg") no-repeat 71% center /
+              cover;
+          }
+          .left.box1 {
+            background: url("../../public/images/Penhaligons.jpg") no-repeat 71%
+              center / cover;
+          }
+          .left.box3 {
+            background: url("../../public/images/Fragrance.jpg") no-repeat
+              center center / cover;
+          }
+        }
       }
-   }
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  #brand_blog-area .cont-box {
+    display: block;
+  }
+
+  #brand_blog-area .brand_blog-area .cont-box .col-6 section {
+    .left.box2,
+    .right.box1,
+    .right.box3 {
+      height: auto;
+    }
+    .left.box1,
+    .left.box3,
+    .right.box2 {
+      height: auto;
+      width: 100%;
+      aspect-ratio: 1 / 0.7;
+    }
+
+    .left.box1 {
+      background: url("../../public/images/box.jpg") no-repeat 71% center /
+        cover;
+    }
+    .right.box2 {
+      background: url("../../public/images/Penhaligons.jpg") no-repeat 71%
+        center / cover;
+    }
+  }
+
+  #brand_blog-area {
+    .textbox-wrap {
+      h2 {
+        font-size: min(90px, 14vw);
+      }
+      span.text {
+        width: 60%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #brand_blog-area {
+    .textbox-wrap span.text {
+      width: 90%;
+    }
+  }
 }

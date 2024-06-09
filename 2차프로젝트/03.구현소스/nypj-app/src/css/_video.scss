@@ -1,9 +1,21 @@
-// 비디오 모듈 컴포넌트 - _video.scss
+// 비디오 모듈 SCSS - _video.scss
 
 #video-area {
   background: var(--bg-color1);
 
   video {
     vertical-align: middle;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #video-area {
+    overflow: hidden;
+    video {
+      vertical-align: middle;
+      height: 60vh;
+      object-fit: cover;
+      scale: 1.1;
+    }
   }
 }

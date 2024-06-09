@@ -1,4 +1,4 @@
-/* 펜할리곤스 메인 페이지 CSS - index.css */
+/* 펜할리곤스 메인 페이지 SCSS - index.css */
 @import url(./common/_reset.scss);
 @import url(./common/_core.scss);
 
@@ -8,5 +8,5 @@
 .main-area > * > * {
     /* 메인영역의 직계id의 작계class */
     /* 최소높이(컨텐츠가 작을경우) */
-    min-height: 200px;
+    // min-height: 200px;
   }

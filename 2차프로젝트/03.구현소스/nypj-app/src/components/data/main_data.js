@@ -7,12 +7,13 @@ const hamMenu =[{
   txt:"SHOP▶",
   link:"/Shop",
   sub:[
-    {txt:"FRAGRANCES",link:"/Fragrances"},
-    {txt:"BATH & BODY",link:"/BathAndBody"},
+    {txt:"FRAGRANCES",link:"/Shop/Fragrances"},
+    {txt:"BATH & BODY",link:"/Shop/BathAndBody"},
     {txt:"HOME",link:"/Home"},
-    {txt:"COLLECTIONS",link:"/Collections"},
-    {txt:"GIFTING",link:"/Gifting"},
-    {txt:"ALL",link:"/All"},
+    {txt:"COLLECTIONS",link:"/Shop/Collections"},
+    {txt:"GIFTING",link:"/Shop/Gifting"},
+    {txt:"ALL",link:"/Shop/All"},
+    {txt:"BACK",link:"/"},
   ]
 },
 {

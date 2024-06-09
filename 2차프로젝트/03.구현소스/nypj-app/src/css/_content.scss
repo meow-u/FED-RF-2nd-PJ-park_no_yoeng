@@ -18,7 +18,7 @@
 }
 
 #content-area {
-   background: var(--bg-color1);
+  background: var(--bg-color1);
   .wrap {
     //스티키부모상자
     /* 영역 비율적용 */
@@ -62,12 +62,13 @@
       font-family: "Open Sans", sans-serif;
     }
     button {
+      margin: 10px 0;
+      margin-top: 40px;
       display: block;
       width: auto;
       border-radius: 100px;
       border: 1px solid #6e6e6e;
       padding: 14px;
-      margin: 20px 0;
       font-size: 15px;
       font-family: "Open Sans", sans-serif;
       background-color: #fff;
@@ -92,14 +93,13 @@
         }
         position: relative;
         display: block;
-        
 
         /* 배경이미지 */
         background-size: 100%;
         background-position: center;
         transition: 0.3s ease-out;
         &:hover {
-            background-size: 110%;
+          background-size: 110%;
         }
         /* 기본비율. story일시 jsx에서 비율 덮어적용 */
         aspect-ratio: 1/1;
@@ -113,7 +113,7 @@
           left: 0;
           translate: 0 -100%;
           color: #fff;
-          font-size: clamp(14px, 6vw, 9vw);
+          font-size: clamp(14px, 8vw, 14vw);
           font-weight: 500;
           font-family: "Cormorant Garamond", serif;
           text-shadow: 0px 2px 2px #000, 0 0 5px #fff;
@@ -123,11 +123,11 @@
   }
 }
 
-#content-area + #content-area {
+#content-area .content-area.story {
   .col-12 {
     flex-direction: row-reverse;
 
-    a {
+    .img-wrap a {
       aspect-ratio: 732/378;
     }
 
@@ -139,12 +139,71 @@
     .imgbox-wrap {
       small {
         display: block;
-        font-size: 15px;
+        font-size: min(12px, 3vw);
         font-family: "Open Sans", sans-serif;
         padding: 0 15px;
         padding-bottom: 5px;
         margin-top: -5px;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #content-area .content-area.story {
+    .col-12 {
+      flex-direction: column;
+
+      .img-wrap {
+        overflow: hidden;
+
+        a {
+          aspect-ratio: 1 / 1;
+          background-size: 200%;
+          background-position: 56% 70%;
+          .desc {
+            translate: 0 -120%;
+          }
+        }
+      }
+    }
+  }
+
+  .content-area .col-12 {
+    display: flex;
+    flex-direction: column;
+  }
+  #content-area {
+    .imgbox-wrap {
+      width: 100%;
+      .img-wrap {
+        background-color: transparent;
+        padding: 0px;
+        display: flex;
+        flex-wrap: wrap;
+        & a {
+          flex-basis: 50%;
+          margin-bottom: 0px;
+          border-radius: 0px;
+          & .desc {
+            padding-left: 10px;
+            text-shadow: 0px 2px 2px #000;
+          }
+        }
+      }
+    }
+    .textbox-wrap h2 {
+      font-size: min(90px, 14vw);
+      span.text {
+        width: 100%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  #content-area {
+    .textbox-wrap span.text {
+      width: 90%;
     }
   }
 }

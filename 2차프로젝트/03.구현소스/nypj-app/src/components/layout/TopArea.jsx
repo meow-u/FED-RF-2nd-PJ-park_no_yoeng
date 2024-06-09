@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 
 // 폰트어썸 불러오기
 import {
-  faLaptop,
+  faMagnifyingGlass,
   faUserSecret,
-  faCamera,
+  faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-regular-svg-icons";
 import {
   faInstagram,
   faFacebook,
@@ -79,7 +80,7 @@ export default function TopArea() {
               {menu.map((v, i) => (
                 <li key={i}>
                   {/* link to -> 라우터에서 a링크대신 지원함 */}
-                  <Link to={v.link}>{v.txt}</Link>
+                  <Link className="menu" to={v.link}>{v.txt}</Link>
                 </li>
               ))}
             </ul>
@@ -89,6 +90,7 @@ export default function TopArea() {
           <h1 className="logo col-4">
             <Link to="/">
               <img src="./images/logo.png" alt="메인로고" />
+              <img className="mobile" src="./images/footer_logo.png" alt="메인로고" />
             </Link>
           </h1>
           {/* 상단메뉴  */}
@@ -111,52 +113,37 @@ export default function TopArea() {
                 <FontAwesomeIcon icon={faYoutube} />
                 <span className="ir">유튜브</span>
               </a>
-
-              <a href="###" title="로그인">
-                <FontAwesomeIcon icon={faLaptop} />
-                <span className="ir">로그인</span>
-              </a>
               <a href="###" title="회원가입">
                 <FontAwesomeIcon icon={faUserSecret} />
                 <span className="ir">회원가입</span>
-              </a>
-              <a href="###" title="갤러리">
-                <FontAwesomeIcon icon={faCamera} />
-                <span className="ir">갤러리</span>
               </a>
             </div>
             {/* 사이드메뉴  */}
             <div className="sideMenu">
               <ul className="sidebox">
                 <li>
-                  <a href="###">
-                    <img
-                      src="./images/icon/icon-search-menu.png"
-                      alt="search"
-                    />
+                  <a href="###" title="검색">
+                    <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    <span className="ir">검색</span>
                   </a>
                 </li>
                 <li>
-                  <a href="###">
-                    <img src="./images/icon/icon-user-menu.png" alt="member" />
+                  <a href="###" title="장바구니">
+                    <FontAwesomeIcon icon={faUser} />
+                    <span className="ir">장바구니</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="###" title="로그인">
+                    <FontAwesomeIcon icon={faCartShopping} />
+                    <span className="ir">로그인</span>
                   </a>
                   {/* 서브메뉴  */}
                   <ol className="smsub hidden">
                     <li>
-                      <a href="###">LOGIN</a>
-                    </li>
-                    <li>
-                      <a href="###">SIGN UP</a>
-                    </li>
-                    <li>
-                      <a href="###">개인정보 처리방침</a>
+                      <a href="###" title=""></a>
                     </li>
                   </ol>
-                </li>
-                <li>
-                  <a href="###">
-                    <img src="./images/icon/icon-bag-menu.png" alt="search" />
-                  </a>
                 </li>
               </ul>
             </div>

@@ -1,40 +1,39 @@
 // 펜할리곤스 콘텐츠컴포넌트 (메인페이지)
+
+// CSS 불러오기
 import "../../css/_content.scss";
 
 import { collection } from "../data/sub_page_data";
 import { story_detail, collection_detail } from "../data/sub_detail_data";
+import { Inner } from "./content_inner";
+import { Link } from "react-router-dom";
 
 // 요소에 직접 추가 : dangerouslySetInnerHTML={{__html:type.text}}
 // 내부의 html을 읽어서 렌더링할 수 있음
 
 export default function Content({ type }) {
   // type은 데이터 객체의 이름을 받아옴.
+  console.log('type.stit',type.stit);
   return (
     <div id="content-area">
-      <section className="content-area inbox">
+      <section className={"content-area inbox "+ type.stit.toLowerCase()}>
         <h2 className="temp-tit">6. 콘텐츠영역</h2>
         <div className="cont-box">
           <div className="col-12">
             <div className="wrap">
-              <section className="textbox-wrap">
-                <div>
-                  <span className="stit"></span>
-                  <small>{type.stit}</small>
-                </div>
-                <h2>{type.tit}</h2>
-                <span
-                  className="text"
-                  dangerouslySetInnerHTML={{ __html: type.text }}
-                ></span>
-                <button>{type.btn}</button>
-              </section>
+              <Inner type={ type }/>
             </div>
             <section className="imgbox-wrap">
               <div className="img-wrap">
                 {type.img.map((v, i) => (
-                  <a
+                   
+                  <Link to={
+                    type.stit ==="COLLECTION"?
+                    // /Collection/ + 각컬렉션명을 공백기준으로 찢고 join으로 연결 함
+                    "/Collection/" + collection_detail[i].tit[0].split(' ').join('')
+                    // /OurStory/ + story1..2..3...
+                    : "/OurStory/" + "story" +(i+1) }
                     key={i}
-                    href="###"
                     className={
                       type == collection
                         ? "collection" + (i + 1)
@@ -52,7 +51,7 @@ export default function Content({ type }) {
                         </>
                       )}
                     </div>
-                  </a>
+                    </Link>
                 ))}
               </div>
             </section>

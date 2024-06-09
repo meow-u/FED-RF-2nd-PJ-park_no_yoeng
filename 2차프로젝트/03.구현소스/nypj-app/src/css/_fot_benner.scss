@@ -1,0 +1,21 @@
+// 하단 배너모듈 SCSS - _fot_benner.scss
+#bottom-ban-area {
+  .pt1 {
+    aspect-ratio: 1588 /469;
+  }
+  .bottom-ban-area {
+    .bgbox {
+      background: url("../../../images/banner_center.jpg") no-repeat center
+        center / cover;
+      width: 100%;
+      img {
+        filter: drop-shadow(0px 0px 4px #000);
+        width: min(491px, 60vw);
+        top: 10%;
+        left: 50%;
+        position: relative;
+        translate: -50%;
+      }
+    }
+  }
+}

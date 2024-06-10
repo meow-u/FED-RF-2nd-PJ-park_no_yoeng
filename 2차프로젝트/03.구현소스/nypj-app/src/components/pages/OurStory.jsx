@@ -6,7 +6,7 @@ export default function OurStory() {
   // 리턴구역
   return (
     <>
-      {/* <Content type={story} /> */}
+      <Content type={story} />
     </>
   );
 } //////////// OurStory 컴포넌트 ////////

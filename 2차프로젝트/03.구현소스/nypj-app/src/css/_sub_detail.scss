@@ -1,43 +1,77 @@
 // 서브 디테일 모듈 SCSS - _sub_detail.scss
 
 #sub-detail-area {
-   .sub-detail-area {
-      /* 제목내용 */
-      .txt-wrap {
-         text-align: center;
-         h2 {
-            text-align: center;
-            font-family: "Cormorant Garamond", serif;
-
-            padding-bottom: min(5px, 2vw);
-
-            font-size: min(48px, 9vw);
-         }
-         span {
-            font-size: min(16px, 4vw);
-         }
+  .sub-detail-area {
+    strong {
+      font-family: "Open Sans", sans-serif;
+      font-weight: 500;
+      font-size: smaller;
+    }
+    width: 60%;
+    /* 제목내용 */
+    .txt-wrap {
+      margin: 0 auto;
+      padding-top: 50px;
+      padding-bottom: 20px;
+      text-align: center;
+      &.only{
+         padding-top: 0px;
       }
-      /* 이미지+글 */
+      h2 {
+        text-align: center;
+        font-family: "Cormorant Garamond", serif;
+
+        padding-bottom: min(20px, 2vw);
+
+        font-size: min(48px, 9vw);
+      }
+      span {
+        font-family: "Open Sans", sans-serif;
+        line-height: 1.5;
+        font-size: min(16px, 4vw);
+      }
+    }
+    /* 이미지+글 */
+    .img-wrap {
+      padding-top: 50px;
+      text-align: center;
+      margin: 0 auto;
+      h2 {
+        text-align: center;
+        font-family: "Cormorant Garamond", serif;
+
+        padding-bottom: min(20px, 2vw);
+
+        font-size: min(48px, 9vw);
+      }
+      img {
+        width: 100%;
+        padding-bottom: 20px;
+      }
+      span {
+        font-family: "Open Sans", sans-serif;
+        line-height: 1.5;
+        font-size: min(16px, 4vw);
+      }
+    }
+    /* 분활상자 */
+    .content-box {
+      padding-top: 50px;
+      display: flex;
       .img-wrap {
-         width: 80%;
-         margin: 0 auto;
-         img {
-            width: 100%;
-         }
-         span {
-            font-size: min(16px, 4vw);
-         }
+        flex-basis: 50%;
+        padding: 0px;
+        img {
+          padding: 0px;
+          height: 100%;
+          object-fit: cover;
+        }
       }
-      /* 분활상자 */
-      .content-box {
-        .img-wrap{
-            img{
-
-            }
-        }
-        .txt-wrap{
-            
-        }
-      }/* .content-box */
-   } /* .sub-detail-area */
+      .txt-wrap {
+        flex-basis: 50%;
+        padding: 15px;
+        text-align: justify;
+      }
+    } /* .content-box */
+  } /* .sub-detail-area */
 } /* #sub-detail-area */

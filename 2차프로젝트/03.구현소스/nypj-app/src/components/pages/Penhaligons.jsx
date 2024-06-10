@@ -8,7 +8,8 @@ export default function Penhaligons() {
    return (
       <>
       {/* subName은 섹션별 데이터객체명, dataNum은 배열순번 */}
-      <SubDetail subName={story_detail} dataNum={1}/> 
+      <SubDetail subName={brand_detail} dataNum={0}/> 
       </>
+      /* collection_detail 2번 내용부실*/
    );
 } //////////// Penhaligons 컴포넌트 ////////

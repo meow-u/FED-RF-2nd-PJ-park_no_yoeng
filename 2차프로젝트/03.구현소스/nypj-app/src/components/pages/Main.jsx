@@ -15,12 +15,12 @@ export default function Main() {
   return (
     <main className="main-area">
       <h1>메인페이지</h1>
-      {/* <Swiper_itemSlide idname={"newitem-area"} /> */}
-      {/* <Video /> */}
-      {/* <Swiper_itemSlide idname={"bestitem-area"} /> */}
-      {/* <Content type={collection} /> */}
+      <Swiper_itemSlide idname={"newitem-area"} />
+      <Video />
+      <Swiper_itemSlide idname={"bestitem-area"} />
+      <Content type={collection} />
       {/* <Content type={story} /> */}
-      {/* <BrandBlog/> */}
+      <BrandBlog/>
     </main>
   );
 } ///////// Main 컴포넌트 ///////////

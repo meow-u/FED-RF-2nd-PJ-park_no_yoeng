@@ -21,7 +21,6 @@ export default function Main() {
       {/* <Content type={collection} /> */}
       {/* <Content type={story} /> */}
       {/* <BrandBlog/> */}
-      {/* <FotBenner/> */}
     </main>
   );
 } ///////// Main 컴포넌트 ///////////

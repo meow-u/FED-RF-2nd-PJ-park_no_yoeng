@@ -1,0 +1,43 @@
+// 서브 디테일 모듈 SCSS - _sub_detail.scss
+
+#sub-detail-area {
+   .sub-detail-area {
+      /* 제목내용 */
+      .txt-wrap {
+         text-align: center;
+         h2 {
+            text-align: center;
+            font-family: "Cormorant Garamond", serif;
+
+            padding-bottom: min(5px, 2vw);
+
+            font-size: min(48px, 9vw);
+         }
+         span {
+            font-size: min(16px, 4vw);
+         }
+      }
+      /* 이미지+글 */
+      .img-wrap {
+         width: 80%;
+         margin: 0 auto;
+         img {
+            width: 100%;
+         }
+         span {
+            font-size: min(16px, 4vw);
+         }
+      }
+      /* 분활상자 */
+      .content-box {
+        .img-wrap{
+            img{
+
+            }
+        }
+        .txt-wrap{
+            
+        }
+      }/* .content-box */
+   } /* .sub-detail-area */
+} /* #sub-detail-area */

@@ -73,7 +73,7 @@ const story_detail = [
       idx: 2,
       img: ["story_detail2-1.jpg", "story_detail2-2.jpg", "story_detail2-3.jpg","story_detail2-4.jpg"],
       tit: [
-        "A FLORAL FEAST-해미시 파웰과의 대화", 
+        "A FLORAL FEAST- Talking with Hamish", 
         "Introduce us to Hamish! Tell us a little about yourself.",
         "How did you begin as a botanical designer?",
         "Talk us through your inspiration for Penhaligon's window display."],
@@ -213,4 +213,4 @@ const collection_detail = [
    },
 ];
 
-export {story_detail, collection_detail};
+export {brand_detail, story_detail, collection_detail};

@@ -5,7 +5,7 @@ import { collection } from "../data/sub_page_data";
 export default function Collections(){
     // 리턴구역
     return(<>
-        <Content type={collection} />
+        {/* <Content type={collection} /> */}
     </>
     );
 }//////////// Collections 컴포넌트 ////////

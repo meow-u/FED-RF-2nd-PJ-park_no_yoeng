@@ -11,7 +11,7 @@ export default () => {
     return;
   }
 
-  // 3. 햄버거 메뉴 버튼 클릭 이벤트 핸들러
+  // 3. 햄버거 메뉴 버튼 클릭 이벤트
   ham.onclick = () => {
     document.body.style.height = "100%"; // 모바일에서 메뉴 열렸을 때 body 높이 조정
     ham.classList.toggle("on"); // 햄버거 버튼 on/off 클래스 토글
@@ -27,7 +27,7 @@ export default () => {
     }
   };
 
-  // 4. 메인 메뉴 항목 클릭 이벤트 핸들러
+  // 4. 메인 메뉴 항목 클릭 이벤트
   Allmenu.forEach((el) => {
     const txt = el.innerText; // 메뉴 항목의 텍스트
     el.onclick = () => {
@@ -57,7 +57,7 @@ export default () => {
     };
   });
 
-  // 5. 서브 메뉴 링크 클릭 이벤트 핸들러
+  // 5. 서브 메뉴 링크 클릭 이벤트
   const subA = document.querySelectorAll(".sub-menu>li a");
   subA.forEach((el) => {
     el.onclick = (e) => {

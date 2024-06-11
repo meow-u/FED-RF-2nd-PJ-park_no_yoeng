@@ -53,6 +53,7 @@ export default function TopArea() {
                 <span></span>
               </li>
               {/* 전체메뉴박스  */}
+              <li>
               <nav className="hambox">
                 <ul>
                   {hamMenu.map((v, i) => (
@@ -76,6 +77,8 @@ export default function TopArea() {
                   ))}
                 </ul>
               </nav>
+                
+              </li>
               {/* Gnb메뉴 데이터 배열로 만들기 */}
               {menu.map((v, i) => (
                 <li key={i}>

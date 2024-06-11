@@ -105,10 +105,21 @@
   left: -100vw;
   width: 100vw;
   height: 100vh;
-  background: url(../../public/images/menu.jpg) no-repeat fixed center center /
-    cover;
+  overflow: hidden;
   /*z-index: 50;*/
   transition: left 0.5s, top 0.5s 0.5s ease-out;
+  
+  &::before{
+    content: '';
+    position: absolute;
+    top: 100vh;
+    left: 100vw;
+    width: 100vw;
+    height: 100vh;
+    background: url(../../public/images/menu.jpg) no-repeat center /
+      cover;
+      transition: left 0.5s, top 0.5s 0.5s ease-out;
+  }
   /*트랜지션*/
   ul {
     flex-direction: column;
@@ -142,6 +153,12 @@
     left: 0;
     top: 0;
     transition: top 0.3s ease-out;
+
+    &::before{
+      top: 0;
+      left: 0;
+      transition: top 0.3s ease-out;
+    }
 
     /* 글자의 등장은 .hambox.on일때 적용! */
     > ul > li > a {

@@ -108,17 +108,16 @@
   overflow: hidden;
   /*z-index: 50;*/
   transition: left 0.5s, top 0.5s 0.5s ease-out;
-  
-  &::before{
-    content: '';
+
+  &::before {
+    content: "";
     position: absolute;
     top: 100vh;
     left: 100vw;
     width: 100vw;
     height: 100vh;
-    background: url(../../public/images/menu.jpg) no-repeat center /
-      cover;
-      transition: left 0.5s, top 0.5s 0.5s ease-out;
+    background: url(../../public/images/menu.jpg) no-repeat center / cover;
+    transition: left 0.5s, top 0.5s 0.5s ease-out;
   }
   /*트랜지션*/
   ul {
@@ -154,7 +153,7 @@
     top: 0;
     transition: top 0.3s ease-out;
 
-    &::before{
+    &::before {
       top: 0;
       left: 0;
       transition: top 0.3s ease-out;
@@ -190,7 +189,7 @@
   ul,
   ol {
     position: absolute;
-    
+
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -234,7 +233,7 @@
     font-size: min(6vw, 6vh);
     font-weight: 600;
     color: #fbd18d;
-}
+  }
 }
 
 .gnb {
@@ -244,6 +243,8 @@
   }
 }
 ul.sidebox {
+  display: flex;
+  flex-wrap: nowrap;
   filter: invert(1);
   li > a {
     display: inline-block;
@@ -310,8 +311,7 @@ ul.sidebox {
 
 /* top_area.scss 미디어쿼리 */
 @media screen and (max-width: 1000px) {
-  nav + li,
-  nav + li ~ li {
+  .gnb.col-4 > ul > li:nth-child(2) ~ li {
     display: none;
   }
   .ham {

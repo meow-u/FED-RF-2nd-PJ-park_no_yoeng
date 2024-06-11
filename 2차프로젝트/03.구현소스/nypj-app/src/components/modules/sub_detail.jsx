@@ -1,6 +1,7 @@
 // 펜할리곤스 sub detail 페이지 컴포넌트
 // css 불러오기
 import "../../css/_sub_detail.scss";
+import Video from "./video";
 export default function SubDetail({ subName, dataNum }) {
   // 리턴구역
   let selData = subName[dataNum];
@@ -84,8 +85,8 @@ export default function SubDetail({ subName, dataNum }) {
               </div>
 
               {/* 비디오 */}
+              <Video vidName={selData.video}/>  
               {/* 신상품 */}
-              {/* 하단배너 */}
             </div>
           </div>
         </section>

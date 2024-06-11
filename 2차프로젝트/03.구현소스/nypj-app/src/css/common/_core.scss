@@ -148,22 +148,6 @@ body * {
   background-color: #00000000;
 }
 
-/* 3. 컨텐츠 타이틀 박스(h2) */
-.cont-box h2.tit {
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  padding: min(50px, 3.4vw);
-  box-sizing: border-box;
-
-  /* 글자설정 - 영문체, 한글체 */
-  font-family: pist, nbg;
-  font-size: min(33px, 3vw);
-  font-weight: normal;
-  text-align: center;
-  color: #fff;
-}
-
 /* 4. 스크롤 등장액션 클래스 */
 .scAct {
   transform: translateY(20%);

@@ -2,6 +2,8 @@
 
 // 하단영역 css 불러오기
 import "../../css/footer_area.scss";
+// 하단영역 데이터 불러오기
+import {footerMenu} from "../data/main_data.js"
 
 export default function FooterArea() {
   // 코드 리턴구역 /////
@@ -18,53 +20,21 @@ export default function FooterArea() {
           <div className="link-box1 col-3">
             <h3>SERVICES</h3>
             <ul className="link">
-              <li>
-                <a href="###">CONSUMER SERVICES</a>
+             {footerMenu.SERVICES.map((v,i)=>
+              <li key={i}>
+                <a href={v.link}>{v.txt}</a>
               </li>
-              <li>
-                <a href="###">DELIVERY &amp; RETURNS</a>
-              </li>
-              <li>
-                <a href="###">TRACK MY ORDER</a>
-              </li>
-              <li>
-                <a href="###">FAQS</a>
-              </li>
-              <li>
-                <a href="###">KLARNA</a>
-              </li>
-              <li>
-                <a href="###">E-GIFT CARDS</a>
-              </li>
-              <li>
-                <a href="###">OLFACTIVE SOCIETY</a>
-              </li>
-              <li>
-                <a href="###">COME RICICLARE</a>
-              </li>
+            )}
             </ul>
           </div>
           <div className="link-box2 col-3">
             <h3>ABOUT US</h3>
             <ul className="link">
-              <li>
-                <a href="###">PENHALIGON'S PHILOSOPHY</a>
+            {footerMenu.ABOUTUS.map((v,i)=>
+              <li key={i}>
+                <a href={v.link}>{v.txt}</a>
               </li>
-              <li>
-                <a href="###">PENHALIGON'S PERKS</a>
-              </li>
-              <li>
-                <a href="###">HERITAGE</a>
-              </li>
-              <li>
-                <a href="###">STORES</a>
-              </li>
-              <li>
-                <a href="###">CAREERS</a>
-              </li>
-              <li>
-                <a href="###">GOVERNANCE</a>
-              </li>
+            )}
             </ul>
           </div>
           {/* 회사주소  */}

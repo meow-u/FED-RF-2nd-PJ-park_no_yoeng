@@ -98,6 +98,7 @@
         background-size: 100%;
         background-position: center;
         transition: 0.3s ease-out;
+
         &:hover {
           background-size: 110%;
         }
@@ -150,19 +151,38 @@
 }
 
 @media screen and (max-width: 800px) {
-  #content-area .content-area.story {
-    .col-12 {
-      flex-direction: column;
+  #content-area .content-area {
+    .img-wrap a {
+      border: 0px solid black;
+      box-sizing: border-box;
+      &:hover {
+        border: 20px solid black;
+        box-sizing: border-box;
+      }
+    }
+    &.story {
+      .col-12 {
+        flex-direction: column;
 
-      .img-wrap {
-        overflow: hidden;
+        .img-wrap {
+          overflow: hidden;
 
-        a {
-          aspect-ratio: 1 / 1;
-          background-size: 200%;
-          background-position: 56% 70%;
-          .desc {
-            translate: 0 -120%;
+          a {
+            aspect-ratio: 1 / 1;
+            background-size: 200%;
+            border: 0px solid black;
+            box-sizing: border-box;
+            &:hover {
+              border: 20px solid black;
+              box-sizing: border-box;
+              background-size: 220%;
+              background-position: 60% 100%;
+              transition: 0.5s ease-in-out;
+            }
+            background-position: 28% 70%;
+            .desc {
+              translate: 0 -120%;
+            }
           }
         }
       }

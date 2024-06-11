@@ -1,5 +1,6 @@
 [ 스와이퍼 플러그인 리액트 적용하기 ]
 https://swiperjs.com/
+https://swiperjs.com/react
 
 1. Demos에서 내가 원하는 유형찾기
 

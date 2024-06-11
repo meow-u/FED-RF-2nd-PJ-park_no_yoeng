@@ -8,7 +8,6 @@ import Swiper_itemSlide from "../plugin/Swiper_itemSlide";
 import Video from "../modules/video";
 import Content from "../modules/content";
 import BrandBlog from "../modules/brand_blog";
-import { FotBenner } from "../modules/fot_benner";
 
 export default function Main() {
   // 코드 리턴구역 /////

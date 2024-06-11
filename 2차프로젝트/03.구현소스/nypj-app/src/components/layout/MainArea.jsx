@@ -12,7 +12,7 @@ export default function MainArea() {
    return (
       <main className="cont">
         {/* 공통배너 */}
-         {/* <Swiper_banner /> */}
+         <Swiper_banner />
          <Outlet />
          {/* 공통하단배너 */}
          <FotBenner/>

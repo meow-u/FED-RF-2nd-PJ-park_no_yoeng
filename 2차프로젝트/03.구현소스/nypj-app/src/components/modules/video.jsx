@@ -12,7 +12,7 @@ export default function Video({vidName = "images/main.mp4"}) {
       <section className="video-area inbox">
         <Title txtData={titleTxt} type={
           vidName === "brand_detail1.mp4"?"brand" //브랜드일때
-          :vidName !=="images/main.mp4"?"blog"//브랜드도 기본값도 아닐때
+          :vidName ==="images/main.mp4"?"blog"//기본값일때
           :"blog"} />
         <h2 className="temp-tit">4. 비디오영역</h2>
         <div className="cont-box">

@@ -8,8 +8,9 @@ export default function Penhaligons() {
    return (
       <>
       {/* subName은 섹션별 데이터객체명, dataNum은 배열순번 */}
-      <SubDetail subName={brand_detail} dataNum={0}/> 
-      <Video vidName={brand_detail[0].video}/> 
+      <SubDetail subName={brand_detail} dataNum={0}/>
+      {/* dataNum과 vidName 내부 0은 연결되어야 함  */} 
+      <Video vidName={brand_detail[0].video}/>  
       </>
      
    );

@@ -1,5 +1,5 @@
 // 1. 대상요소
-export default () => {
+const hamFunction = () => {
   const ham = document.querySelector(".ham"); // 햄버거 메뉴 버튼
   const hambox = document.querySelector(".hambox"); // 숨긴 전체 메뉴 박스
   const Allmenu = document.querySelectorAll(".hambox>ul>li>a"); // 메인 메뉴 항목
@@ -99,3 +99,4 @@ export default () => {
     }
   }
 };
+export default hamFunction;

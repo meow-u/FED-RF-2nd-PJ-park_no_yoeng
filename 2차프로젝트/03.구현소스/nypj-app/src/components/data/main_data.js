@@ -1,7 +1,7 @@
 // snsMenu 메뉴데이터를 위해 폰트어썸 불러오기
 import {
   faMagnifyingGlass,
-  faUserSecret,
+  // faUserSecret,
   faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons";

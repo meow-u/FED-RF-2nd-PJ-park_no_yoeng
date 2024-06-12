@@ -49,7 +49,16 @@ export default function TopArea() {
                         className={v.link === "/Shop" ? "main-menu" : ""}
                         key={i}
                       >
-                        <Link to={v.link}>{v.txt}</Link>
+                        <Link
+                          to={v.link}
+                          state={
+                            v.txt == "PENHALIGON'S"
+                              ? { data: "brand", num: 0 }
+                              : {}
+                          }
+                        >
+                          {v.txt}
+                        </Link>
                         {v.sub && (
                           <ol className="sub-menu">
                             {v.sub.map((v2, i2) => (

@@ -30,7 +30,8 @@ export default function Content({ type }) {
                   <Link to={
                     type.stit ==="COLLECTION"?
                     // /Collection/ + 각컬렉션명을 공백기준으로 찢고 join으로 연결 함
-                    "/Collection/" + collection_detail[i].tit[0].split(' ').join('')
+                    // "/Collection/" + collection_detail[i].tit[0].split(' ').join('')
+                    "/Collection/" + collection_detail[i].tit[0].replace(/\s/g,'')
                     // /OurStory/ + story1..2..3...
                     : "/OurStory/" + "story" +(i+1) }
                     key={i}
@@ -39,6 +40,7 @@ export default function Content({ type }) {
                         ? "collection" + (i + 1)
                         : "story" + (i + 1)
                     }
+                    state={{ data: type.stit.toLowerCase(), num: i }}
                   >
                     {/* <img src={`./images/${v}`} alt={type.stit + i} /> */}
                     <div className="desc">

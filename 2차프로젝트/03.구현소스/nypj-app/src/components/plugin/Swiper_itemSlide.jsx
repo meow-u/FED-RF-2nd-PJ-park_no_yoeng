@@ -96,18 +96,10 @@ export default function itemSlide({ idname }) {
           // 슬라이드 사이 여백
           spaceBetween={30}
           // 네비게이션 버튼 (모듈)
-          navigation={{
-            // 선택자지정 (없으면 고장남)
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          }}
+          navigation={true}
           // 아래쪽 불릿 (모듈)
-          pagination={{
-            // 불릿이 들어갈 선택자
-            el: ".swiper-pagination",
-            // 불릿 클릭가능여부
-            clickable: true,
-          }}
+          pagination={{ clickable: true }}
+          
           // 슬라이드반복여부
           loop={true}
           // 자동넘김 (모듈)
@@ -147,9 +139,9 @@ export default function itemSlide({ idname }) {
               .filter((v, i) => i < 8)}
           </div>
         </Swiper>
-        <div className="swiper-button-next"></div>
+        {/* <div className="swiper-button-next"></div>
         <div className="swiper-button-prev"></div>
-        <div className="swiper-pagination"></div>
+        <div className="swiper-pagination"></div> */}
       </section>
     </div>
   );

@@ -10,6 +10,7 @@ export default function SubDetail({ subName, dataNum }) {
     <>
       <div id="sub-detail-area">
         <section className="sub-detail-area inbox">
+          <button onClick={()=>window.history.back()}>이전</button>
           <h2 className="temp-tit">1. 디테일 영역</h2>
           <div className="cont-box">
             <div className="col-12">
@@ -25,7 +26,7 @@ export default function SubDetail({ subName, dataNum }) {
               {/* ************ 이미지+글**************** */}
               <div className="img-wrap">
                 <img
-                  src={"./images/sub_page/" + selData.img[0]}
+                  src={"/images/sub_page/" + selData.img[0]}
                   alt="메인이미지"
                 />
                 <h2>{selData.tit[1]}</h2>
@@ -40,7 +41,7 @@ export default function SubDetail({ subName, dataNum }) {
               <div className="content-box">
                 <div className="img-wrap">
                   <img
-                    src={"./images/sub_page/" + selData.img[1]}
+                    src={"/images/sub_page/" + selData.img[1]}
                     alt="메인이미지"
                   />
                 </div>
@@ -56,7 +57,7 @@ export default function SubDetail({ subName, dataNum }) {
               {/* *************제목/내용****************** */}
               <div className="img-wrap">
                 <img
-                  src={"./images/sub_page/" + selData.img[3]}
+                  src={"/images/sub_page/" + selData.img[3]}
                   alt="메인이미지"
                 />
               </div>
@@ -70,7 +71,7 @@ export default function SubDetail({ subName, dataNum }) {
               {/* ************* 이미지 ******************* */}
               <div className="img-wrap">
                 <img
-                  src={"./images/sub_page/" + selData.img[2]}
+                  src={"/images/sub_page/" + selData.img[2]}
                   alt="메인이미지"
                 />
               </div>

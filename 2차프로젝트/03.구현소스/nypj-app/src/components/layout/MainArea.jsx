@@ -1,4 +1,5 @@
 // 메인영역 컴포넌트
+import React, { useLayoutEffect } from "react";
 
 import { Outlet } from "react-router-dom";
 // Outlet 컴포넌트는 리액트라우터에서
@@ -8,6 +9,11 @@ import Swiper_banner from "../plugin/Swiper_banner";
 import { FotBenner } from "../modules/fot_benner";
 
 export default function MainArea() {
+   
+  useLayoutEffect(()=>{
+   console.log("여기야~!");
+   window.scrollTo(0,0); 
+  });
    // 코드 리턴구역
    return (
       <main className="cont">

@@ -14,7 +14,7 @@ export default function FooterArea() {
         <div className="cont-box">
           {/* 하단로고  */}
           <div className="blogo col-4">
-            <img src="./images/footer_logo.png" alt="하단로고" />
+            <img src="/images/footer_logo.png" alt="하단로고" />
           </div>
           {/* 하단링크  */}
           <div className="link-box1 col-3">

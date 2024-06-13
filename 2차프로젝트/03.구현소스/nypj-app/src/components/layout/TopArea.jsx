@@ -29,7 +29,7 @@ export default function TopArea() {
       <header className="top-area inbox common-area">
         <h2 className="temp-tit">1. 상단영역</h2>
         <div className="cursor">
-          <img src={"./images/cursur.png"} alt="" />
+          <img src={"/images/cursur.png"} alt="" />
         </div>
         <div className="cont-box">
           {/* GNB박스  */}
@@ -90,10 +90,10 @@ export default function TopArea() {
           {/* 로고박스  */}
           <h1 className="logo col-4">
             <Link to="/">
-              <img src="./images/logo.png" alt="메인로고" />
+              <img src="/images/logo.png" alt="메인로고" />
               <img
                 className="mobile"
-                src="./images/footer_logo.png"
+                src="/images/footer_logo.png"
                 alt="메인로고"
               />
             </Link>

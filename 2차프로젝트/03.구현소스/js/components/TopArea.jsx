@@ -67,7 +67,7 @@ export default function TopArea() {
           {/* 로고박스  */}
           <h1 class="logo col-4">
             <a href="###">
-              <img src="./images/logo.png" alt="메인로고" />
+              <img src="/images/logo.png" alt="메인로고" />
             </a>
           </h1>
           {/* 상단메뉴  */}
@@ -106,14 +106,14 @@ export default function TopArea() {
                 <li>
                   <a href="###">
                     <img
-                      src="./images/icon/icon-search-menu.png"
+                      src="/images/icon/icon-search-menu.png"
                       alt="search"
                     />
                   </a>
                 </li>
                 <li>
                   <a href="###">
-                    <img src="./images/icon/icon-user-menu.png" alt="member" />
+                    <img src="/images/icon/icon-user-menu.png" alt="member" />
                   </a>
                   {/* 서브메뉴  */}
                   <ol class="smsub hidden">
@@ -130,7 +130,7 @@ export default function TopArea() {
                 </li>
                 <li>
                   <a href="###">
-                    <img src="./images/icon/icon-bag-menu.png" alt="search" />
+                    <img src="/images/icon/icon-bag-menu.png" alt="search" />
                   </a>
                 </li>
               </ul>

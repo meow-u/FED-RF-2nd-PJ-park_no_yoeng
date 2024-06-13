@@ -10,7 +10,7 @@ export function FotBenner() {
         <h2 className="temp-tit">8. 하단배너영역</h2>
         <div className="cont-box">
           <div className="col-12 bgbox">
-          <img src="./images/logo_trensparent.png" alt="member" />
+          <img src="/images/logo_trensparent.png" alt="member" />
           </div>
         </div>
       </section>

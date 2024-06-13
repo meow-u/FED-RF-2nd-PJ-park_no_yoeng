@@ -80,11 +80,11 @@ export default function itemSlide({ idname }) {
     <div id={idname}>
       <section className={idname + " inbox swiper mySwiper2"}>
         <h2 className="temp-tit">
-          {idname == "newitem-area" ? "3. 신상품영역" : "5. 베스트메뉴영역"}
+          {idname === "newitem-area" ? "3. 신상품영역" : "5. 베스트메뉴영역"}
         </h2>
-        {idname == "newitem-area" ? <Title txtData={titleTxt} type={"brand"} /> :""} 
+        {idname === "newitem-area" ? <Title txtData={titleTxt} type={"brand"} /> :""} 
         <h3 className="catag">
-        {idname == "newitem-area" ? "NEW" : "BEST"}
+        {idname === "newitem-area" ? "NEW" : "BEST"}
          </h3>
         <Swiper
          uniqueNavElements={true}
@@ -92,7 +92,7 @@ export default function itemSlide({ idname }) {
           // 마우스 커서를 손가락 모양으로 변경
           // grabCursor={true}
           // 슬라이드 보이는갯수
-          slidesPerView={idname == "newitem-area" ? 4 : 3}
+          slidesPerView={idname === "newitem-area" ? 4 : 3}
           // 슬라이드 사이 여백
           spaceBetween={30}
           // 네비게이션 버튼 (모듈)
@@ -103,15 +103,15 @@ export default function itemSlide({ idname }) {
           // 슬라이드반복여부
           loop={true}
           // 자동넘김 (모듈)
-          autoplay={idname == "newitem-area" ? newAuto : bestAuto}
+          autoplay={idname === "newitem-area" ? newAuto : bestAuto}
           /* 영역별 가로 사이즈 스와이퍼 설정변경 */
-          breakpoints={idname == "newitem-area" ? newItem : bestItem}
+          breakpoints={idname === "newitem-area" ? newItem : bestItem}
           // 스와이퍼 사용모듈
           modules={[EffectCoverflow, Navigation, Pagination, Autoplay]}
           className="mySwiper"
           // 스와이퍼 클래스명 지정
           wrapperClass="cont-box"
-          effect={idname == "newitem-area" ? "coverflow" : ""}
+          effect={idname === "newitem-area" ? "coverflow" : ""}
           coverflowEffect={{
             rotate: 50,
             stretch: 0,

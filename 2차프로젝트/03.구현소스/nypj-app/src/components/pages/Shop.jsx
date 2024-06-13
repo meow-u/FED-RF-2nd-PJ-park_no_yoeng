@@ -1,4 +1,4 @@
-// 펜할리곤스 Shop 페이지 컴포넌트
+// 펜할리곤스 Shop 서브페이지 컴포넌트
 
 export default function Shop(){
     // 리턴구역

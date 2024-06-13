@@ -34,6 +34,8 @@
     }
   }
   .tmenu.col-4 {
+    
+    mix-blend-mode: difference;
     padding-right: 20px;
   }
 }
@@ -260,14 +262,6 @@ ul.sidebox {
     a {
       padding: 5px;
       scale: 1.1;
-      &:nth-child(1) {
-      }
-      &:nth-child(3) {
-      }
-      &:nth-child(4) {
-      }
-      &:nth-child(5) {
-      }
     }
   }
 }
@@ -297,8 +291,7 @@ ul.sidebox {
   .sidebox {
     li {
       display: inline-block;
-      a {
-      }
+
     }
   }
 }
@@ -308,8 +301,7 @@ ul.sidebox {
   .gnb.col-4 > ul > li:nth-child(2) ~ li {
     display: none;
   }
-  .ham {
-  }
+
 }
 @media screen and (max-width: 650px) {
   #top-area {

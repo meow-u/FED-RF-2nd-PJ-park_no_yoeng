@@ -36,18 +36,18 @@ export default function Content({ type }) {
                     "/Collection/" + collection_detail[i].tit[0].replace(/\s/g,'')
                
                     // [2] /OurStory/ + story1..2..3... 출력하기
-                    : "/OurStory/" + "story" +(i+1) }
+                    : "/OurStory/story" +(i+1) }
                     key={i}
                     className={
-                      type == collection
+                      type === collection
                         ? "collection" + (i + 1)
                         : "story" + (i + 1)
                     }
                     state={{ data: type.stit.toLowerCase(), num: i }}
                   >
-                    {/* <img src={`/images/${v}`} alt={type.stit + i} /> */}
+                    {/* <img src={`./images/${v}`} alt={type.stit + i} /> */}
                     <div className="desc">
-                      {type == collection ? (
+                      {type === collection ? (
                         collection_detail[i].tit[0]
                       ) : (
                         <> {/* 하나의 노드로 출력되도록 감싸기  */}

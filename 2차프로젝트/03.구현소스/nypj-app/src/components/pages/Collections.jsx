@@ -1,4 +1,4 @@
-// 펜할리곤스 Collections 페이지 컴포넌트
+// 펜할리곤스 Collections 서브페이지 컴포넌트
 import Content from "../modules/content";
 import { collection } from "../data/sub_page_data";
 

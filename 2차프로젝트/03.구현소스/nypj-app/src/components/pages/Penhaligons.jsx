@@ -1,4 +1,6 @@
-// 펜할리곤스 Collections 페이지 컴포넌트
+// 펜할리곤스 Penhaligons 서브 페이지 컴포넌트 
+// (Our Story, Collection 서브페이지 의 상세페이지 겸용)
+
 import SubDetail from "../modules/sub_detail";
 // Link to 의 state속성값을 받기위한 팩키지
 import { useLocation } from "react-router-dom"

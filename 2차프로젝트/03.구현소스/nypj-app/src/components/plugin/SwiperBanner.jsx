@@ -40,13 +40,13 @@ export default function Banner() {
           // 네비게이션 버튼 (모듈)
           navigation={true}
           // 아래쪽 불릿 (모듈)
-          pagination={{ clickable: true }}
+          pagination={{ clickable: true}}
           // 슬라이드반복여부
           loop={true}
           //자동넘김 (모듈)
           autoplay={{
             // 넘김시간
-            delay: 2500,
+            delay: 3000,
             // 상호작용시 멈춤여부
             disableOnInteraction: false,
           }}
@@ -63,16 +63,19 @@ export default function Banner() {
 
             // 슬라이드 직전에 회전값, 스케일을 초기화하기
             // ( Index 값이 홀수/짝수 일때 회전방향 다르게 분기처리 )
+            slideContent.style.filter = "brightness(0.7)";
             slideContent.style.transform =
               Index % 2 === 1
-                ? "rotate(5deg) scale(1.2)"
-                : "rotate(-5deg) scale(1.2)";
+                ? "rotate(10deg) scale(1.6)"
+                : "rotate(-10deg) scale(1.6)";
             slideContent.style.transition = "0s";
 
             // 슬라이드 전환시작시 스케일 키우기 (셋타임아웃을 주어서 초기화된 스케일값이 적용된 후에 실행되도록 설정)
             setTimeout(function () {
-              slideContent.style.transition = "transform 0.5s ease-in-out";
+              slideContent.style.transition = "1s ease-in-out, filter 1.5s";
+
               slideContent.style.transform = "rotate(0deg) scale(1)";
+              slideContent.style.filter = "brightness(1)";
             }, 20); /* 10 말고 20부터 잘작동 */
           }}
           onSlideChangeTransitionEnd={(swiper) => {

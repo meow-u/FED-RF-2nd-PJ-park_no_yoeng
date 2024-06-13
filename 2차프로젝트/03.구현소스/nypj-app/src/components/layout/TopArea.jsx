@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // 리액트 모듈 불러오기
-import { useContext, useEffect, useState } from "react";
+import { useEffect} from "react";
 // 햄버거, 커서 fn 불러오기
 import hamFn from "../func/ham";
 import cursorFn from "../func/cursor";
@@ -52,7 +52,7 @@ export default function TopArea() {
                         <Link
                           to={v.link}
                           state={
-                            v.txt == "PENHALIGON'S"
+                            v.txt === "PENHALIGON'S"
                               ? { data: "brand", num: 0 }
                               : {}
                           }

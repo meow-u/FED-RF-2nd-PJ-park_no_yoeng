@@ -23,14 +23,32 @@ import { bannerImg } from "../data/main_data";
 import "./css/Swiper_banner.scss";
 
 export default function Banner() {
+  // const rdArr =  bannerImg.sort(()=>Math.random()-0.5); // 결과가 배열이라 얕은복사되어 같은배열이 된다.
+
+  // const rdArr = bannerImg.slice(); // 배열복제 (깊은복사) 또는
+  // const rdArr = [...bannerImg]; // 배열복제 (깊은복사)
+
+  // [ 랜덤배열 만들기 (1)]
+  // sort(()=>Math.random()-0.5) 배열을 랜덤하게 섞는방법. 0.5빼야 -0.5 ~ 0.5 사이의 값이 나온다.
+  // ()=> 는  Math.random() 함수가 바로 실행되지 않게 함
+  // [ 랜덤배열 만들기 (2)]
+
+  const rdArrIdx = Math.floor(Math.random() * bannerImg.length); 
+  // 랜덤한 인덱스값 만들기 ( 결과는 0 부터 배열길이-1 사이의 idx 값이 나온다. )
+  console.log('메인베너 랜더링!');
+  console.log('rdArrIdx(배너랜덤인덱스)',rdArrIdx); // 랜덤한 인덱스값 확인
+
+
   return (
     <div id="ban-area">
       <section className="ban-area pt1 common-area">
         <h2 className="temp-tit">2. 배너영역</h2>
         {/* **************************************************************** */}
         <Swiper
-        virtualTranslate={true}
-        uniqueNavElements={true}
+          // 처음 보여질 슬라이드 순번
+          initialSlide={rdArrIdx}
+          virtualTranslate={true}
+          uniqueNavElements={true}
           // 마우스 커서를 손가락 모양으로 변경
           // grabCursor={true}
           // 슬라이드 사이 여백
@@ -40,7 +58,7 @@ export default function Banner() {
           // 네비게이션 버튼 (모듈)
           navigation={true}
           // 아래쪽 불릿 (모듈)
-          pagination={{ clickable: true}}
+          pagination={{ clickable: true }}
           // 슬라이드반복여부
           loop={true}
           //자동넘김 (모듈)
@@ -88,9 +106,7 @@ export default function Banner() {
             // const prevSlide = swiper.slides[swiper.previousIndex];
             // 다음순서 슬라이드
             // const nextSlide = swiper.slides[swiper.nextIndex];
-
           }} /////////// onSlideChangeTransitionEnd ///////////
-          
           // 스와이퍼 사용모듈
           modules={[EffectFade, Navigation, Pagination, Autoplay, Scrollbar]}
           className="mySwiper"

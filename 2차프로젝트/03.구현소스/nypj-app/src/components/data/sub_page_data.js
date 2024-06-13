@@ -29,7 +29,7 @@ const story = {
    link: "/Penhaligons",
 };
 
-// content inner 컴포넌트용 추가데이터
+// content inner 컴포넌트용 추가데이터 /////////////////////////////
 const brand = {
    idx: 1,
    stit: "The value of trust",

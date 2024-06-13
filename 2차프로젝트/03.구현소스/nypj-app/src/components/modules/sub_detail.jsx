@@ -3,6 +3,7 @@
 import "../../css/_sub_detail.scss";
 import Video from "./video";
 export default function SubDetail({ subName, dataNum }) {
+  // subName은 섹션별 데이터객체명, dataNum은 배열순번
   // 리턴구역
   let selData = subName[dataNum];
   console.log(selData);

@@ -20,7 +20,9 @@ export function Inner({ type }) {
         className="text"
         dangerouslySetInnerHTML={{ __html: type.text }}
       ></span>
-      <Link to={type.link}>
+      <Link to={type.link}
+      // 펜할리 컴포넌트에 라우터가 연결될때만 state값 전달하기 (펜할리일때만 서브 디테일페이지로 감)
+      state={type.link === "/Penhaligons" && { data: "brand", num: 0 }}>
         <button>{type.btn}</button>
       </Link>
     </section>

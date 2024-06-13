@@ -13,7 +13,6 @@ export default function Main() {
   // 코드 리턴구역 /////
   return (
     <main className="main-area">
-      <h1>메인페이지</h1>
       <SwiperItemSlide idname={"newitem-area"} />
       <Video />
       <SwiperItemSlide idname={"bestitem-area"} />

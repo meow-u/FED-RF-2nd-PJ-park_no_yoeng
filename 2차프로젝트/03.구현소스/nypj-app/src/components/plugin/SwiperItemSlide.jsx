@@ -1,15 +1,21 @@
 // 펜할리곤스 스와이퍼 -신상품 모듈 (메인페이지)
 import React from "react";
+import { Link } from "react-router-dom";
 // 스와이퍼 불러오기
 import { Swiper, SwiperSlide } from "swiper/react";
 // 사용할 스와이퍼 모듈을 불러오기
-import { Pagination, Navigation, Autoplay, EffectCoverflow } from "swiper/modules";
+import {
+  Pagination,
+  Navigation,
+  Autoplay,
+  EffectCoverflow,
+} from "swiper/modules";
 // 스와이퍼 기본 스타일 불러오기 (Swiper 패키지)
 import "swiper/css"; // 스와이퍼 기본 CSS
 import "swiper/css/effect-fade"; // 페이드효과 CSS
 import "swiper/css/navigation"; // 네비게이션 CSS
 import "swiper/css/pagination"; // 불릿 페이지네이션 CSS
-import 'swiper/css/effect-coverflow';// 슬라이드 회전효과 CSS
+import "swiper/css/effect-coverflow"; // 슬라이드 회전효과 CSS
 
 // 사용 데이터 가져오기 (상품 / 타이틀데이터)
 import { allProducts } from "../data/products_data";
@@ -31,7 +37,6 @@ export default function itemSlide({ idname }) {
     600: {
       slidesPerView: 2,
       spaceBetween: 30,
-
     },
     800: {
       slidesPerView: 3,
@@ -42,7 +47,7 @@ export default function itemSlide({ idname }) {
       spaceBetween: 20,
     },
   };
-  
+
   const newAuto = {
     // 넘김시간
     delay: 2500,
@@ -82,13 +87,15 @@ export default function itemSlide({ idname }) {
         <h2 className="temp-tit">
           {idname === "newitem-area" ? "3. 신상품영역" : "5. 베스트메뉴영역"}
         </h2>
-        {idname === "newitem-area" ? <Title txtData={titleTxt} type={"brand"} /> :""} 
-        <h3 className="catag">
-        {idname === "newitem-area" ? "NEW" : "BEST"}
-         </h3>
+        {idname === "newitem-area" ? (
+          <Title txtData={titleTxt} type={"brand"} />
+        ) : (
+          ""
+        )}
+        <h3 className="catag">{idname === "newitem-area" ? "NEW" : "BEST"}</h3>
         <Swiper
-         uniqueNavElements={true}
-         speed={500}
+          uniqueNavElements={true}
+          speed={500}
           // 마우스 커서를 손가락 모양으로 변경
           // grabCursor={true}
           // 슬라이드 보이는갯수
@@ -99,7 +106,6 @@ export default function itemSlide({ idname }) {
           navigation={true}
           // 아래쪽 불릿 (모듈)
           pagination={{ clickable: true }}
-          
           // 슬라이드반복여부
           loop={true}
           // 자동넘김 (모듈)
@@ -125,7 +131,9 @@ export default function itemSlide({ idname }) {
             {allProducts
               .map((v, i) => (
                 <SwiperSlide key={i} className="swiper-slide">
-                  <img src={`/images/${v.img}`} alt={`banner${i + 1}`} />
+                  <Link to={`/shop/product/${v.idx}`}>
+                    <img src={`/images/${v.img}`} alt={`banner${i + 1}`} />
+                  </Link>
                   <div className="wrap">
                     <h2 className="etit">{v.name[1]}</h2>
                     <h4 className="price">{v.price}원</h4>

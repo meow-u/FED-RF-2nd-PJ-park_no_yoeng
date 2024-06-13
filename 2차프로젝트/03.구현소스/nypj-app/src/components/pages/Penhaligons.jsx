@@ -12,7 +12,9 @@ import {
 
 export default function Penhaligons() {
 
-   // Link to 호출시 보낸 state 객체값을 받아준다!
+   // Link to 호출시 보낸 state 객체값을 연결된 컴포넌트에서 받아준다!
+   // state는 해당 메뉴를 사용자가 직접 클릭하는 컴포넌트의 <link> 부분에서 보냄 
+   // ex 펜할리곤스-> topArea컴포 , 컬렉션/스토리 ->content컴포
    const loc = useLocation();
    // 데이터 셋팅값
    const sData = loc.state.data;

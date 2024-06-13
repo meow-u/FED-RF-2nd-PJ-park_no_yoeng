@@ -8,6 +8,8 @@ import FooterArea from "./FooterArea";
 
 // [1] 메인 페이지 전체 레이아웃 로딩 컴포넌트 ///
 export function Layout() {
+
+  
   
   // 코드 리턴구역
   return (

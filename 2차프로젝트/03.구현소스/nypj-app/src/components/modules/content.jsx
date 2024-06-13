@@ -27,12 +27,15 @@ export default function Content({ type }) {
               <div className="img-wrap">
                 {type.img.map((v, i) => (
                    
-                  <Link to={
+                  <Link to={//Path 주소연결
                     type.stit ==="COLLECTION"?
-                    // /Collection/ + 각컬렉션명을 공백기준으로 찢고 join으로 연결 함
-                    // "/Collection/" + collection_detail[i].tit[0].split(' ').join('')
+                    // [1] /Collection/ + 각컬렉션명 출력하기    
+                    //    (1) 공백기준으로 찢고 join으로 연결해서 변환
+                    //    "/Collection/" + collection_detail[i].tit[0].split(' ').join('')
+                    //    (2) replace(/\s/g,'') -->> replace(정규식 또는 바꿀값 , '바뀔값') 해서 변환
                     "/Collection/" + collection_detail[i].tit[0].replace(/\s/g,'')
-                    // /OurStory/ + story1..2..3...
+               
+                    // [2] /OurStory/ + story1..2..3... 출력하기
                     : "/OurStory/" + "story" +(i+1) }
                     key={i}
                     className={

@@ -33,7 +33,7 @@ export default function TopArea() {
                       <li>
                         <a href="###">HOME</a>
                       </li>
-                      <li class="main-menu">
+                      <li>
                         <a href="###">COLLECTIONS</a>
                       </li>
                       <li>

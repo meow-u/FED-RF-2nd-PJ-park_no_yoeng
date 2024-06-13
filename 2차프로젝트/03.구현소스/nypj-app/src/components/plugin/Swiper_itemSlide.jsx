@@ -139,9 +139,6 @@ export default function itemSlide({ idname }) {
               .filter((v, i) => i < 8)}
           </div>
         </Swiper>
-        {/* <div className="swiper-button-next"></div>
-        <div className="swiper-button-prev"></div>
-        <div className="swiper-pagination"></div> */}
       </section>
     </div>
   );

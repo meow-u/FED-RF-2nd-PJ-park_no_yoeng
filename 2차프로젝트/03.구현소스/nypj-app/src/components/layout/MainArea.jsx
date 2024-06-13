@@ -10,10 +10,10 @@ import { FotBenner } from "../modules/fot_benner";
 
 export default function MainArea() {
    
-  useLayoutEffect(()=>{
-   console.log("여기야~!");
-   window.scrollTo(0,0); 
-  });
+//   useLayoutEffect(()=>{
+//    console.log("여기야~!");
+//    window.scrollTo(0,0); 
+//   });
    // 코드 리턴구역
    return (
       <main className="cont">

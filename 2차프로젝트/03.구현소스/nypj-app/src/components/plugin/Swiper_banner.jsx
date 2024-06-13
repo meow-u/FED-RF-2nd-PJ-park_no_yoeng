@@ -107,11 +107,6 @@ export default function Banner() {
           </div>
           {/* *********************************************************** */}
         </Swiper>
-        {/* 버튼 / 불릿 / 스크롤네비 */}
-        {/* <div className="swiper-button-next"></div>
-        <div className="swiper-button-prev"></div>
-        <div className="swiper-pagination"></div>
-        <div className="swiper-scrollbar"></div> */}
       </section>
     </div>
   );

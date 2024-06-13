@@ -11,7 +11,7 @@ export default function Video() {
         <div class="cont-box">
           <div class="col-12">
           <video
-  src="images/sub_page/brand_detail1.mp4"
+  src="/images/sub_page/brand_detail1.mp4"
   autoPlay
   muted
   controls

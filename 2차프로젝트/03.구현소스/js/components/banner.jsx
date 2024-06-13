@@ -84,7 +84,7 @@ export default function Banner() {
           {bannerImg.map((v, i) => (
             <div className="col-12 swiper-slide">
               <img
-                src={`./images/banner_${i + 1}.jpg`}
+                src={`/images/banner_${i + 1}.jpg`}
                 alt={"banner" + (i + 1)}
               />
             </div>

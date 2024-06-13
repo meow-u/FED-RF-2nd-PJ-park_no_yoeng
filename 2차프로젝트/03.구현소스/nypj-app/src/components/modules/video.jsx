@@ -31,7 +31,7 @@ export default function Video({ vidName = "images/main.mp4" }) {
                 // 밖에서 값을 받아오면 (기본값이아니면)
                 // 주소 + 받아온파일명 , 아니면 기본값 적용
                 vidName !== "images/main.mp4"
-                  ? "images/sub_page/" + vidName
+                  ? "/images/sub_page/" + vidName
                   : vidName
               }
               autoPlay

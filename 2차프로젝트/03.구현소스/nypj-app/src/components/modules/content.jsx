@@ -45,7 +45,7 @@ export default function Content({ type }) {
                     }
                     state={{ data: type.stit.toLowerCase(), num: i }}
                   >
-                    {/* <img src={`./images/${v}`} alt={type.stit + i} /> */}
+                    {/* <img src={`/images/${v}`} alt={type.stit + i} /> */}
                     <div className="desc">
                       {type == collection ? (
                         collection_detail[i].tit[0]

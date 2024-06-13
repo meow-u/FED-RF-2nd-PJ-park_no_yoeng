@@ -45,10 +45,11 @@ h3.catag {
   padding-bottom: 30px;
   .swiper-button-prev,
   .swiper-button-next {
+    padding: 0px 0px;
+    color: #00000045;
+    filter: drop-shadow(0px 0px);
     translate: 0 150%;
-    border-radius: 0px;
-    background-color: rgba(220, 220, 220, 0.25);
-    box-shadow: none;
+    transform: scaleY(0.7) scaleX(0.6);
   }
   .swiper-3d .swiper-slide-shadow-right,
   .swiper-3d .swiper-slide-shadow-left {
@@ -99,8 +100,7 @@ h3.catag {
 
   .swiper-button-prev,
   .swiper-button-next {
-    box-shadow: none;
-    background-color: none;
+    filter: drop-shadow(2px 2px 4px #777);
   }
 
   .swiper-slide.swiper-slide {

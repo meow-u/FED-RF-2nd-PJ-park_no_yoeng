@@ -56,7 +56,7 @@ export default function App() {
         {bannerImg.map((v, i) => (
           <SwiperSlide>
             <img
-              src={`./images/banner_${i + 1}.jpg`}
+              src={`/images/banner_${i + 1}.jpg`}
               alt={"banner" + (i + 1)}
             />
           </SwiperSlide>

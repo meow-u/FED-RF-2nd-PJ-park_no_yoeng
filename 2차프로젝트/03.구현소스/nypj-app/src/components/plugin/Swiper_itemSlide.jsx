@@ -125,7 +125,7 @@ export default function itemSlide({ idname }) {
             {allProducts
               .map((v, i) => (
                 <SwiperSlide key={i} className="swiper-slide">
-                  <img src={`./images/${v.img}`} alt={`banner${i + 1}`} />
+                  <img src={`/images/${v.img}`} alt={`banner${i + 1}`} />
                   <div className="wrap">
                     <h2 className="etit">{v.name[1]}</h2>
                     <h4 className="price">{v.price}원</h4>

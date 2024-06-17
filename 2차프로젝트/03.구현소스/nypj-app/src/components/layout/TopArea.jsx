@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // 리액트 모듈 불러오기
-import { useEffect} from "react";
+import { useEffect, useState} from "react";
 // 햄버거, 커서 fn 불러오기
 import hamFn from "../func/ham";
 import cursorFn from "../func/cursor";
@@ -16,12 +16,14 @@ import "../../css/top_area.scss";
 
 // 상단영역 컴포넌트 ///////
 
-export default function TopArea() {
+export default function TopArea(changeFn) {
+  // changeFn은 부모컴포넌트에서 받아온 함수
   //랜더링후 실행구역 ///////////////
   useEffect(() => {
     hamFn();
     cursorFn();
   });
+
 
   // 코드 리턴구역 /////
   return (
@@ -89,7 +91,7 @@ export default function TopArea() {
 
           {/* 로고박스  */}
           <h1 className="logo col-4">
-            <Link to="/">
+            <Link to="/" onClick={changeFn}> 
               <img src="/images/logo.png" alt="메인로고" />
               <img
                 className="mobile"

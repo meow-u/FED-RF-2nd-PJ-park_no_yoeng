@@ -8,7 +8,7 @@
  {
     idx: 1,
     img:[1,2,3,4]
-    tit:[1,2,3,4]
+    tit:[1,2,3,4]  --> collection_detail만 5개! 
     text: [1,2,3,4,5]
     video: "",
  }
@@ -187,7 +187,7 @@ const collection_detail = [
       "collection_detail1-3.jpg",
       "collection_detail1-2.jpg",
     ],
-    tit: ["The British Tales Collection", "Some of our favorites","The British Tales","And.."],
+    tit: ["The British Tales Collection", "Some of our favorites","The British Tales","And..","British Tales",],
     text: [
       `더 브리티시 테일즈 컬렉션은 가장 영국적인 감성과 고전 그리고 이야기를 담아낸 향수 라인입니다.* 이 컬렉션은 영국의 문학, 전설, 역사적 인물들을 테마로 하여 각 향수가 독특한 이야기를 담고 있습니다. *펜할리곤스는 이러한 이야기를 향수로 재현하여 사용자가 향기를 통해 영국의 문화와 유산을 체험할 수 있도록 합니다.`,
 
@@ -218,6 +218,7 @@ const collection_detail = [
       "Worldview of Portrait",
       "Portrait family tree ",
       "And..",
+      "Portraits",
     ],
     text: [
       `영국 귀족사회를 배경으로 한 소설 속 가상 인물들을 개성 넘치는 향으로 표현한 컬렉션입니다. 
@@ -274,7 +275,7 @@ const collection_detail = [
       "collection_detail3-2.jpg",
       "collection_detail3-3.jpg",
     ],
-    tit: ["Trade Routes Collection", "Journey to a Bygone Era​","Various ingredients and spices","And..",],
+    tit: ["Trade Routes Collection", "Journey to a Bygone Era​","Various ingredients and spices","And..","Trade Routes",],
     text: [
       `무역업이 활발했던 19세기 런던 항구를 가득 채운 비단, 향신료, 진귀한 목재 등 고급 무역품에서 영감을 받은 컬렉션입니다.`,
 
@@ -298,7 +299,7 @@ const collection_detail = [
       "collection_detail4-3.jpg",
       "collection_detail4-4.jpg",
     ],
-    tit: ["Potions & Remedies", " Penhaligon's Secret Laboratory","Some of our favorites","And..",],
+    tit: ["Potions & Remedies", " Penhaligon's Secret Laboratory","Some of our favorites","And..","Potions & Remedies",],
     text: [
       `포션앤레미디 컬렉션은 윌리엄 펜할리곤의 비밀 실험실에서 영감을 받아 탄생한 특별한 향수 라인입니다.`,
 

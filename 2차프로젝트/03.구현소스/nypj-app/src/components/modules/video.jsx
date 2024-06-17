@@ -4,9 +4,35 @@ import "../../css/_video.scss";
 
 import { Title } from "./title";
 import { titleTxt } from "../data/main_data";
+import { useEffect } from "react";
 
 export default function Video({ vidName = "images/main.mp4" }) {
   console.log("vidName", vidName);
+
+  // 비디오가 화면에 등장할때 자동재생되도록 설정하기
+  useEffect(() => {
+    // 비디오 객체 가져오기
+    let vid = document.querySelector("video");
+    // IntersectionObserver API 사용
+    // 1. 관찰자 만들기
+    let observer = new IntersectionObserver((ele) => {
+      // ele : 관찰대상들
+      console.log("ele", ele);
+      // 관찰대상이 화면에 들어온 경우
+      if (ele[0].isIntersecting) {
+        // 비디오 재생하기
+        vid.play();
+      } else {
+        // 비디오 멈추기
+        vid.pause();
+      }
+    });
+    // 2. 관찰대상 지정하기
+    observer.observe(vid);
+    // 관찰대상 해제하기
+    return () => observer.disconnect();
+  }, []); // useEffect
+
   return (
     <div id="video-area">
       <section className="video-area inbox">
@@ -34,10 +60,10 @@ export default function Video({ vidName = "images/main.mp4" }) {
                   ? "/images/sub_page/" + vidName
                   : vidName
               }
-              autoPlay
+              // autoPlay
               loop
               muted
-              // controls
+              controls
               width="100%"
               height="auto"
             ></video>

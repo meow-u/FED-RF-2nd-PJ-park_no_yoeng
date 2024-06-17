@@ -2,16 +2,38 @@
 // css 불러오기
 import "../../css/_sub_detail.scss";
 import Video from "./video";
+import SwiperItemSlide from "../plugin/SwiperItemSlide";
+import { useEffect } from "react";
+
 export default function SubDetail({ subName, dataNum }) {
   // subName은 섹션별 데이터객체명, dataNum은 배열순번
   // 리턴구역
   let selData = subName[dataNum];
-  console.log(selData);
+  console.log("subName", subName);
+
+  // useEffect(()=>{
+  //   console.log( '펜할리곤스 서브페이지(이너) 컴포넌트 로딩됨! 스크롤 탑이동!')
+  //   window.scrollTo(0,0);
+  // });
+ 
+  useEffect(() => {
+    console.log('펜할리곤스 서브페이지(이너) 컴포넌트 로딩됨! 스크롤 탑이동!');
+    const targetElement = document.getElementById('sub-detail-area');
+
+    if (targetElement) {//존재할때만 실행해서 없을떄 에러안나게
+      targetElement.scrollIntoView(
+        // { behavior: 'smooth' }
+      );
+    }
+  });
+  
   return (
     <>
       <div id="sub-detail-area">
         <section className="sub-detail-area inbox">
-          <button onClick={()=>window.history.back()}>이전</button>
+          <button className="fixed" onClick={() => window.history.back()}>
+            이전
+          </button>
           <h2 className="temp-tit">1. 디테일 영역</h2>
           <div className="cont-box">
             <div className="col-12">
@@ -23,6 +45,12 @@ export default function SubDetail({ subName, dataNum }) {
                     __html: selData.text[0].split("*").join("<br />"),
                   }}
                 />
+                {selData.img[0]
+                // 값이 포함되어있는지 확인 후 출력
+                .includes("collection") && (
+                // .indexOf("collection") !== -1 && (
+                  <button>View products in{selData.tit[0]}</button>
+                )}
               </div>
               {/* ************ 이미지+글**************** */}
               <div className="img-wrap">
@@ -85,14 +113,14 @@ export default function SubDetail({ subName, dataNum }) {
                   }}
                 />
               </div>
-
-              {/* 비디오 */}
-              <Video vidName={selData.video}/>  
-              {/* 신상품 */}
             </div>
           </div>
         </section>
       </div>
+      {/* 비디오 */}
+      <Video vidName={selData.video} />
+      {/* 관련상품 */}
+      <SwiperItemSlide idname={"bestitem-area " + selData.img[0].includes("collection")} selData={selData} />
     </>
   );
 } //////////// SubDetail 컴포넌트 ////////

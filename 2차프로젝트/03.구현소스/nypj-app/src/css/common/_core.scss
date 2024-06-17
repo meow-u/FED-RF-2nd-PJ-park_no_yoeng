@@ -70,6 +70,7 @@ body * {
   background-color: grey;
   color: #ccc;
   z-index: -1;
+  display: none;
 }
 
 /* 2-1. 중앙 속박스 */
@@ -233,5 +234,5 @@ button {
 }
 
 :root {
---bg-color1: linear-gradient(45deg, #0000001c, transparent);
+--bg-color1: linear-gradient(45deg, #f9f9f9 38%, transparent)
 }

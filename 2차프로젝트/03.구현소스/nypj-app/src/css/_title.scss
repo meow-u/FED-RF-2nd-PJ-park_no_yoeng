@@ -1,4 +1,16 @@
 // 타이틀 모듈 SCSS - _title.scss
+
+#newitem-area {
+  .tit-wrap {
+    text-shadow: 2px 2px black;
+    color: antiquewhite;
+  }
+  h3.catag {
+    text-shadow: 2px 2px black;
+    color: antiquewhite;
+  }
+}
+
 .tit-wrap {
   padding-top: 100px;
   padding-bottom: 50px;

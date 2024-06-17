@@ -24,24 +24,41 @@ span.rev2 {
   padding: 0 5px;
 }
 button.item {
-  font-size: 12px;
+  background-color: white;
   font-style: italic;
   translate: -50%;
   left: 50%;
   position: absolute;
   display: block;
-  border: none;
+  border: 1px solid;
+  padding: 5px 0px;
   width: 50%;
 }
 
 h3.catag {
   text-align: center;
   font-family: "Cormorant Garamond", serif;
-  font-size: min(22px, 5vw);
+  font-size: min(27px, 5vw);
   font-weight: 500;
 }
 
 #newitem-area {
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(45deg, #000000, #ffffff14),
+    urL("../../../../public/images/banner_2.jpg") no-repeat fixed center / cover;
+
+  &::before {
+    backdrop-filter: blur(4.3px) grayscale(0.7) saturate(1) brightness(2);
+    content: "";
+    position: absolute;
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    bottom: 0;
+  }
   padding-bottom: 30px;
   .swiper-button-prev,
   .swiper-button-next {
@@ -57,23 +74,27 @@ h3.catag {
     //  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
   }
   .swiper-3d {
-    perspective: 1100px;
+    perspective: 2000px;
+
+    .swiper-pagination-bullet-active {
+      background: antiquewhite;
+  }
   }
 }
 .newitem-area {
   position: relative;
   width: 80%;
   .swiper-slide.swiper-slide {
+    backdrop-filter: invert(0.9) brightness(5) grayscale(1);
+    filter: drop-shadow(2px 4px 6px #444);
     border-radius: 5px;
     box-sizing: border-box;
     padding: 10px 10px 10px 10px;
     margin: 50px 0;
-    width: 80%;
+    /* width: 80%; */
     background: var(--bg-color1);
-    /* border: 1px solid #999; */
-    box-shadow: 1px 1px 3px 0px #a3a3a3;
     padding-bottom: 150px;
-     img {
+    img {
       width: 100%;
       aspect-ratio: 1/1;
       object-fit: cover;
@@ -84,7 +105,7 @@ h3.catag {
       width: calc(100% - 20px);
 
       button {
-        top: 125px;
+        top: 118px;
       }
     }
   }
@@ -114,7 +135,7 @@ h3.catag {
     /* box-shadow: 1px 1px 6px 0px #c1c1c1; */
     padding-bottom: 150px;
 
-     img {
+    img {
       width: 100%;
       scale: 1.2;
       aspect-ratio: 1/1;

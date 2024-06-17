@@ -9,6 +9,7 @@ import {
   story_detail,
   collection_detail,
 } from "../data/sub_detail_data";
+import { useEffect } from "react";
 
 export default function Penhaligons() {
 
@@ -27,6 +28,9 @@ export default function Penhaligons() {
     story: story_detail,
     collection: collection_detail,
   };
+
+
+
   // 리턴구역
   return (
     <>

@@ -25,9 +25,9 @@ import { Title } from "../modules/title";
 // 스와이퍼 개별 CSS
 import "./css/Swiper_itemSlide.scss";
 
-export default function itemSlide({ idname }) {
+export default function itemSlide({ idname, selData }) {
   //idname은 호출시 영역구분아이디
-
+  // selData는 sub_detail에서 넘어온 선택데이터
   // 영역 아이디별 스와이퍼 반응형변경
   const newItem = {
     200: {
@@ -81,6 +81,13 @@ export default function itemSlide({ idname }) {
     disableOnInteraction: false,
   };
 
+  const isCollecMenu = idname.includes("true");
+  console.log("idname.includes('true')", idname.includes("true"));
+  console.log(
+    selData ? console.log("컬렉션상품필터selData.tit[4]:", selData.tit[4]) : ""
+  );
+  console.log('idname:',idname)
+
   return (
     <div id={idname}>
       <section className={idname + " inbox swiper mySwiper2"}>
@@ -92,7 +99,13 @@ export default function itemSlide({ idname }) {
         ) : (
           ""
         )}
-        <h3 className="catag">{idname === "newitem-area" ? "NEW" : "BEST"}</h3>
+        <h3 className="catag">
+          {idname === "newitem-area"
+            ? "NEW"
+            : isCollecMenu // collection일떄만 true
+            ? "Related products".toUpperCase()
+            : "BEST"}
+        </h3>
         <Swiper
           uniqueNavElements={true}
           speed={500}
@@ -128,7 +141,34 @@ export default function itemSlide({ idname }) {
         >
           <div className="swiper-wrapper">
             {/* i가 8보다 작은 경우만 필터링 */}
-            {allProducts
+            {/* allProducts의 복사본을 매번 새로 만들어서 정렬 및 필터링 . 
+            그냥 allProducts를 사용하면 컴포넌트 재활용시 이미 sort되어있음 */}
+
+            {[...allProducts] ///////중요 !!!!! 컴포넌트 사용할때마다 매번 새롭게 생성하기
+              .sort(
+                (a, b) =>
+                  //컬렉션영역일때만 랜덤정렬
+                  isCollecMenu
+                    ? Math.random() - 0.5 //양 음수가 나오게 하여 랜덤하게 정렬
+                    : //신상품영역일때는 리뷰 오름차순으로 정렬
+                    idname === "newitem-area"
+                    ? a.review - b.review
+                    : //베스트영역일때는 리뷰 내림차순으로 정렬
+                    idname.includes("bestitem-area")
+                    ? b.review - a.review
+                    
+                    : 0 // 모두 아니면 sort값이 0으로 정렬하지 않음
+              ) //랜덤한 순서로 정렬
+              // 필터는 데이터 바로 뒤에 사용해야함 (map이후에 사용하면  데이터가 바뀔수 있음)
+              .filter((v, i) =>
+                isCollecMenu ? v.collection === selData.tit[4] : v
+              )
+              // selData.tit[4]는 각각의 컬렉션 명 sub_page_data 파일에서  products_data와 와 연결함
+
+              //filter((v, i) => v.collection === "British Tales") && i < 8)를 사용하면 안됨.
+              //전체 데이터에서 i<8가 적용되기 때문에 총 8개의 데이터가 나오지 않을 수 있음.
+              .filter((v, i) => i < 8)
+
               .map((v, i) => (
                 <SwiperSlide key={i} className="swiper-slide">
                   <Link to={`/shop/product/${v.idx}`}>
@@ -143,8 +183,7 @@ export default function itemSlide({ idname }) {
                     <button className="item">Add to Cart</button>
                   </div>
                 </SwiperSlide>
-              ))
-              .filter((v, i) => i < 8)}
+              ))}
           </div>
         </Swiper>
       </section>

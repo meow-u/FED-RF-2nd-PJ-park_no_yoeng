@@ -33,7 +33,7 @@ function BrandBlog() {
         const FirstTopVal = TopVal(fistBox);
         const LastTopVal = TopVal(lastBox);
 
-        console.log(FirstTopVal, LastTopVal);
+        // console.log(FirstTopVal, LastTopVal);
 
         if (FirstTopVal >= 0) {
           // 첫번쨰박스 top값이 0이상이면 움직이지 않음

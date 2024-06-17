@@ -2,20 +2,41 @@
 
 #sub-detail-area {
   .sub-detail-area {
+    button.fixed {
+      font-size: 15px;
+      border: 1px solid black;
+      background-color: white;
+      white-space: nowrap;
+      z-index: 10;
+      top: 100vh;
+      left: 100vw;
+      translate: -200% -150%;
+      position: fixed;
+    }
+
     strong {
       font-family: "Open Sans", sans-serif;
       font-weight: 500;
       font-size: smaller;
     }
-    width: 60%;
+
+    max-width: 900px;
     /* 제목내용 */
     .txt-wrap {
       margin: 0 auto;
-      padding-top: 50px;
+      padding-top: 100px;
       padding-bottom: 20px;
       text-align: center;
-      &.only{
-         padding-top: 0px;
+      button {
+        display: block;
+        background-color: white;
+        border: 1px solid black;
+        margin: 0 auto;
+        padding: 10px;
+        margin-top: 10px;
+      }
+      &.only {
+        padding-top: 0px;
       }
       h2 {
         text-align: center;
@@ -71,6 +92,12 @@
         flex-basis: 50%;
         padding: 15px;
         text-align: justify;
+
+        background: var(--bg-color1);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
       }
     } /* .content-box */
   } /* .sub-detail-area */

@@ -12,8 +12,11 @@ export default function MainArea() {
    
   useLayoutEffect(()=>{ /////////////// 작동안함 왜? 
    console.log("여기야~!");
-   window.scrollTo(0,0); 
-  });
+   setTimeout(()=>{
+      window.scrollTo(0,0); 
+   },200); 
+   // (타임아웃없이 바로 실행하면 스크롤이 안됨... 가끔비디오랑 충돌함)
+  },[]);
    // 코드 리턴구역
    return (
       <main className="cont">

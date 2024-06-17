@@ -13,6 +13,8 @@ import Shop from "./components/pages/Shop";
 import Collections from "./components/pages/Collections";
 import OurStory from "./components/pages/OurStory";
 import Penhaligons from "./components/pages/Penhaligons";
+import Cart from "./components/pages/Cart";
+import Login from "./components/pages/Login";
 
 export default function App() {
   const ourStoryArr = [1, 1, 1, 1];
@@ -42,6 +44,8 @@ export default function App() {
           <Route path="Collections" element={<Collections />} />
           <Route path="OurStory" element={<OurStory />} />
           <Route path="Penhaligons" element={<Penhaligons />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="login" element={<Login />} />
           {ourStoryArr.map((v, i) => (
             <Route
               key={i}

@@ -19,11 +19,20 @@ const hamFunction = () => {
 
     if (!ham.classList.contains("on")) {
       // 햄버거 메뉴가 닫힐 때
+      document.querySelector(".tmenu.col-4").style.opacity = "1"; // 상단 메뉴 보이기 
+      // 상단메뉴 포인트이벤트 없애기
+      document.querySelector(".tmenu.col-4").style.pointerEvents = "auto";
+
       const a = hambox.querySelectorAll("ul>li>a"); // 메인 메뉴 링크
       a.forEach((a) => {
         a.style = ""; // 메인 메뉴 링크 스타일 초기화
         submenu.classList.remove("on"); // 서브 메뉴 숨기기
       });
+    }else{
+       // 햄버거 메뉴가 열릴 때
+       document.querySelector(".tmenu.col-4").style.opacity = "0"; // 상단 메뉴 숨기기
+        // 상단메뉴 포인트이벤트 초기화
+        document.querySelector(".tmenu.col-4").style.pointerEvents = "none";
     }
   };
 

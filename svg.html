@@ -9,15 +9,16 @@
       /* 4. 완다 : path */
       svg {
          scale: 1;
-         opacity: 1;
-         background: url(/2차프로젝트/03.구현소스/images/banner_3.jpg) no-repeat
+         background: url(/2차프로젝트/03.구현소스/images/banner_3.jpg) 
+         no-repeat
             top/cover;
          /* 클리핑 SVG모양대로 보이게함 */
+        
          clip-path: url(#myClip);
       }
 
       #myClip {
-         animation: logo-ani 3s linear 0s forwards;
+         animation: logo-ani 2s linear 0s forwards;
       }
       @keyframes logo-ani {
          from {
@@ -25,9 +26,27 @@
          to {
             translate: -680.1% -950%;
             scale: 18;
-            opacity: 0;
          }
       }
+      @keyframes svg-ani {
+         from {
+         }
+         to {
+            opacity: 0;
+            
+         }
+      }
+
+      img {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+div {
+   animation: svg-ani 1s linear 1s forwards;
+    background: cadetblue;
+}
+
    </style>
    <body>
       <!-- 클리핑용 SVG -->
@@ -47,6 +66,6 @@
             </clippath>
          </svg>
       </div>
-      <!-- <img src="/2차프로젝트/03.구현소스/images/banner_3.jpg" /> -->
+      <img src="/2차프로젝트/03.구현소스/images/banner_4.jpg" />
    </body>
 </html>

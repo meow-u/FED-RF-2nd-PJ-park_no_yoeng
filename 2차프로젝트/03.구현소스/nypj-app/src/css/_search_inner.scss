@@ -1,0 +1,156 @@
+// search inner 컴포넌트 - _search_Inner.scss
+#search-area {
+  .search-area {
+    .cont-box {
+      min-height: 100vh;
+      .searching-box {
+        .input-box {
+          margin: 10px;
+          display: flex;
+          align-items: center;
+          max-width: max(250px);
+          box-sizing: border-box;
+          background-color: white;
+          filter: drop-shadow(2px 2px 2px rgb(184, 184, 184));
+          padding: 10px 15px;
+          border-radius: 100px;
+          input {
+            color: #777;
+            font-size: 15px;
+            background-color: initial;
+            border: none;
+            margin-left: 10px;
+          }
+        }
+        .list-wrap {
+          top: 0;
+          position: sticky;
+          line-height: 1.5;
+          padding: 5px;
+          border: 1px groove;
+          margin: 20px;
+          h2 {
+            background: black;
+            color: #fff;
+            text-align: -webkit-center;
+            margin-bottom: 10px;
+            line-height: 1.7;
+            font-size: 20px;
+            font-weight: bold;
+          }
+          ul > li {
+            font-size: 17px;
+            font-weight: bold;
+            padding: 0 5px;
+            position: relative;
+
+            .checkbox {
+              opacity: 0;
+              pointer-events: none;
+              &:checked + label.label::after {
+                opacity: 1;
+              }
+            }
+            label.label {
+              position: absolute;
+              left: 100%;
+              translate: calc(-100% - 5px);
+              display: inline-block;
+              width: 20px;
+              height: 20px;
+
+              background: #bdbdbd;
+              &::after {
+                pointer-events: none;
+                opacity: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                translate: -50% -50%;
+                display: inline-block;
+                content: "✔";
+                color: #fff;
+              }
+            }
+            ol {
+              padding: 15px;
+              padding-left: 20px;
+              & > li {
+                font-size: 15px;
+                font-weight: 600;
+              }
+            }
+          }
+        }
+      }
+      .result-box {
+        .wrap {
+          line-height: 1.5;
+          padding: 10px 0;
+          text-align: center;
+          h2 {
+            font-size: 25px;
+            font-weight: 600;
+            strong {
+              font-size: 20px;
+              font-weight: bolder;
+            }
+          }
+          h3 {
+            font-size: 15px;
+            font-weight: 400;
+            color: #1e1e1e;
+          }
+        }
+        .sortbx select {
+          position: relative;
+          left: 100%;
+          translate: calc(-100% - 10px);
+        }
+        /* 아직없는 상품뿌리기박스 */
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #search-area .search-area .cont-box .searching-box .list-wrap ul > li ol {
+    padding: 0px;
+  }
+  #search-area .search-area {
+    .cont-box {
+      flex-direction: column;
+      .searching-box {
+        border-radius: 10px;
+        box-shadow: 0px 5px 15px #66666629;
+        background-color: white;
+        top: 0px;
+        position: sticky;
+        z-index: 1;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column-reverse;
+        ol {
+          text-align: center;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          & > li {
+            white-space: nowrap;
+            flex: 1;
+            ol {
+              display: flex;
+              flex-direction: column;
+              overflow: hidden;
+              height: 0px;
+              flex-wrap: nowrap;
+            }
+          }
+        }
+      }
+    }
+  }
+}

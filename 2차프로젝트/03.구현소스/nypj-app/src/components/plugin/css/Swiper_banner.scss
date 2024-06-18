@@ -6,6 +6,30 @@
 
 // ****** 2. 배너영역 **************
 #ban-area {
+  background: radial-gradient(black, #000000b5);
+
+  @keyframes loding-ani {
+    0% {
+    }
+    50% {
+      mask-size: 90%;
+      mask-position: center 11%;
+    }
+    100% {
+      mask-size: 500%;
+      mask-position: center;
+    }
+  }
+  .loading {
+
+    mask-image: url("../../../../public/images/loading_icon.svg");
+    mask-size: 0%;
+    mask-repeat: no-repeat;
+    mask-position: center top;
+    pointer-events: none;
+    position: relative;
+    animation: loding-ani 2s linear 0s forwards;
+  }
   overflow: hidden;
 
   .ban-area {
@@ -16,7 +40,7 @@
   .swiper-scrollbar {
     cursor: none;
     z-index: 10;
-    background: rgb(0 0 0 / 0%)
+    background: rgb(0 0 0 / 0%);
   }
   .swiper-pagination-bullet {
     cursor: none;
@@ -58,7 +82,15 @@
 /* Swiper_banner.scss 미디어쿼리 */
 @media screen and (max-width: 750px) {
   #ban-area .ban-area {
-    height: 80vh;
+    animation: height-ani 0.5s linear 2s forwards;
+    @keyframes height-ani {
+      from {
+        height: 100vh;
+      }
+      to {
+        height: 80vh;
+      }
+    }
   }
   .newitem-area .tit-wrap {
     padding-top: 40px;

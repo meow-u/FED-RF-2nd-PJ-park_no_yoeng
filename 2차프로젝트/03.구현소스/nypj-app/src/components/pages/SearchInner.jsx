@@ -3,6 +3,9 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+// css불러오기
+import "../../css/_search_inner.scss";
+
 export default function SearchInner({ keyword }) {
    // keyword 는 top-area에서 보낸 검색 값
 
@@ -11,11 +14,11 @@ export default function SearchInner({ keyword }) {
    console.log("난 SearchInner :keyword로 받았어~", keyword);
    return (
       <div id="search-area">
-      <section class="search-area-area inbox">
+      <section class="search-area inbox">
          <h2 class="temp-tit"> SearchInner</h2>
          <div class="cont-box">
             {/* 검색박스 */}
-            <div class="col-6 search-box">
+            <div class="col-3 searching-box">
                {/* 인풋박스 */}
                <div className="input-box">
                   <FontAwesomeIcon icon={faSearch} />
@@ -30,7 +33,9 @@ export default function SearchInner({ keyword }) {
                   <h2>Search option</h2>
                   <ul>
                      <li>
-                        product
+                        PRODUCT
+                        <input type="checkbox" id="PRODUCT" className="checkbox"/>
+                        <label htmlFor="PRODUCT" className="label"/>
                         <ol>
                            <li>FRAGRANCES
                              <input type="checkbox" id="fragrances" className="checkbox"/>
@@ -85,7 +90,20 @@ export default function SearchInner({ keyword }) {
                </div>
             </div>
             {/* 결과박스 */}
-            <div class="col-6 result-box">
+            <div class="col-9 result-box">
+               <div className="wrap">
+                  <h2><strong>'{keyword}'</strong><br/>SEARCH RESULT</h2>
+                  <h3>3 All items search results</h3>
+               </div>
+               <aside className="sortbx">
+                  <select name="sel" id="sel" className="sel">
+                     <option value="0">A-Z</option>
+                     <option value="1">Z-A</option>
+                  </select>
+               </aside>
+               {/* 뿌리는 컴포넌트 */}
+               
+               
             </div>
          </div>
       </section>

@@ -41,6 +41,7 @@ export default function Banner() {
 
   return (
     <div id="ban-area">
+      <div className="loading">
       <section className="ban-area pt1 common-area">
         <h2 className="temp-tit">2. 배너영역</h2>
         {/* **************************************************************** */}
@@ -127,6 +128,7 @@ export default function Banner() {
           {/* *********************************************************** */}
         </Swiper>
       </section>
+      </div>
     </div>
   );
 }

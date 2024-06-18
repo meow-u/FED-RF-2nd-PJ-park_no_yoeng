@@ -15,6 +15,7 @@ import OurStory from "./components/pages/OurStory";
 import Penhaligons from "./components/pages/Penhaligons";
 import Cart from "./components/pages/Cart";
 import Login from "./components/pages/Login";
+import Search from "./components/pages/Search";
 
 export default function App() {
   const ourStoryArr = [1, 1, 1, 1];
@@ -46,6 +47,7 @@ export default function App() {
           <Route path="Penhaligons" element={<Penhaligons />} />
           <Route path="cart" element={<Cart />} />
           <Route path="login" element={<Login />} />
+          <Route path="search" element={<Search />} />
           {ourStoryArr.map((v, i) => (
             <Route
               key={i}

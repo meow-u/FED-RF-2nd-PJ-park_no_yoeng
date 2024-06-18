@@ -1,5 +1,8 @@
 // 라우터용 링크 불러오기
-import { Link } from "react-router-dom";
+// 네비게이트메서드 ( 라우터주소,{state:{보낼객체}} ) 사용위해 import
+// 받을곳에서 useLocation import하고 loc.state.보낸객체명 으로 받으면 됨!
+import { Link, useNavigate} from "react-router-dom";
+
 
 // 아이콘 불러오기 (추가로 필요한 import는 데이터화로 main_data.js 상단에 있음)
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,179 +21,229 @@ import "../../css/top_area.scss";
 // 제이쿼리불러오기
 import $ from "jquery";
 
+
+
+// 상단영역 컴포넌트 ///////
+
+export default function TopArea({ scrollFn }) {
+     // scrollFn은 부모로부터 받은 함수
+   // 이동함수
+   const goNav = useNavigate();
+
+   
 // 검색박스 보이기/숨기기 함수
 const showSearch = (e) => {
-  console.log("클릭됐다!");
-  //기본기능막기
-  e.preventDefault();
-  // 아이콘 숨기고 포인터 막기
-  $(".searchicon").css("opacity", "0").css("pointer-events", "none");
-  // 검색박스 보이고 애니메이션
-  $(".search-box").css("opacity", "1");
-  $(".search-box").css("animation", "box-ani 0.5s linear 0s forwards");
+   // $('.input').focus();
+   console.log("클릭됐다!");
+   //기본기능막기
+   e.preventDefault();
+   // 아이콘 숨기고 포인터 막기
+   $(".searchicon").css("opacity", "0").css("pointer-events", "none");
+   // 검색박스 보이고 애니메이션
+   $(".search-box").css("opacity", "1");
+   $(".search-box").css("animation", "box-ani 0.5s linear 0s forwards");
 };
 const hideSearch = (e) => {
-  // 아이콘 보이고 포인터 허용
-  $(".searchicon").css("opacity", "1").css("pointer-events", "auto");
-  // 검색박스 숨기고 애니메이션 초기화
-  $(".search-box").css("opacity", "0");
-  setTimeout(() => {
-    $(".search-box").css("animation", "none");
-  }, 500);
+   // 아이콘 보이고 포인터 허용
+   $(".searchicon").css("opacity", "1").css("pointer-events", "auto");
+   // 검색박스 숨기고 애니메이션 초기화
+   $(".search-box").css("opacity", "0");
+   setTimeout(() => {
+      $(".search-box").css("animation", "none");
+   }, 500);
 };
 
 // 탑메뉴 휠 위아래에 따라 보이기/숨기기 함수
 const TopMenuFn = () => {
-  window.addEventListener("wheel", (e) => {
-    if (e.deltaY > 0) {
-      // console.log("아래로 스크롤발생값",e.deltaY);
-      $("#top-area").css("transform", "translateY(-100%)");
-    } else {
-      // console.log("위로 스크롤발생값",e.deltaY);
-      $("#top-area").css("transform", "translateY(0%)");
-    }
-
-    // 스크롤위치가 0이면 다시 보이기
-    window.addEventListener("scroll", () => {
-      // console.log("스크롤위치누적값", window.scrollY);
-      if (window.scrollY <= 0) {
-        $("#top-area").css("transform", "translateY(0%)");
+   window.addEventListener("wheel", (e) => {
+      if (e.deltaY > 0) {
+         // console.log("아래로 스크롤발생값",e.deltaY);
+         $("#top-area").css("transform", "translateY(-100%)");
+      } else {
+         // console.log("위로 스크롤발생값",e.deltaY);
+         $("#top-area").css("transform", "translateY(0%)");
       }
-    });
-  });
+
+      // 스크롤위치가 0이면 다시 보이기
+      window.addEventListener("scroll", () => {
+         // console.log("스크롤위치누적값", window.scrollY);
+         if (window.scrollY <= 0) {
+            $("#top-area").css("transform", "translateY(0%)");
+         }
+      });
+   });
 };
-// 상단영역 컴포넌트 ///////
 
-export default function TopArea({ scrollFn }) {
-  // scrollFn은 부모로부터 받은 함수
-  //랜더링후 실행구역 ///////////////
-  useEffect(() => {
-    hamFn();
-    cursorFn();
-    TopMenuFn();
-  }, []); //useEffect
+// 검색창에 엔터키 누르면 검색함수 호출
+const enterKey = (e)=>{
+  // console.log(e.key);
+  let txt = $('.input').val().trim();
+  if(e.key === 'Enter'){
+    console.log('난top-area input값!',txt);
 
-  // 코드 리턴구역 /////
-  return (
-    <div id="top-area">
-      <div className="loading">
-        {/* <Lodingani className="loadingicon"/> */}
-        <div></div>
-      </div>
-      <header className="top-area inbox common-area">
-        <h2 className="temp-tit">1. 상단영역</h2>
-        <div className="cursor">
-          <img src={"/images/cursur.png"} alt="" />
-        </div>
-        <div className="cont-box">
-          {/* GNB박스  */}
-          <nav className="gnb col-4">
-            <ul>
-              <li className="ham" onClick={hideSearch}>
-                <span></span>
-                <span></span>
-                <span></span>
-              </li>
-              {/* 전체메뉴박스  */}
-              <li>
-                <nav className="hambox">
+    if(txt != ""){//검색어가 비어있지 않다면
+      // 검색메뉴로 이동
+      goSearch(txt);
+      // 값 비우고 검색창 숨기기
+      $('.input').val('');
+      hideSearch();
+
+
+    }else{
+      alert('검색어를 입력해주세요.')
+    }
+  }
+
+};//////// enterkey ////////////
+
+
+
+// 검색메뉴로 넘어가는 함수
+const goSearch = (txt)=>{
+  console.log('검색메뉴로 이동!');
+  // 네비게이트메서드 ( 라우터주소,{state:{보낼객체}} )
+  goNav('/search',{state:{keyword:txt}})
+  
+
+};
+
+
+
+   //랜더링후 실행구역 ///////////////
+   useEffect(() => {
+      hamFn();
+      cursorFn();
+      TopMenuFn();
+   }, []); //useEffect
+
+   // 코드 리턴구역 /////
+   return (
+      <div id="top-area">
+         <div className="loading">
+            {/* <Lodingani className="loadingicon"/> */}
+            <div></div>
+         </div>
+         <header className="top-area inbox common-area">
+            <h2 className="temp-tit">1. 상단영역</h2>
+            <div className="cursor">
+               <img src={"/images/cursur.png"} alt="" />
+            </div>
+            <div className="cont-box">
+               {/* GNB박스  */}
+               <nav className="gnb col-4">
                   <ul>
-                    {hamMenu.map((v, i) => (
-                      <li
-                        className={v.link === "/Shop" ? "main-menu" : ""}
-                        key={i}
-                      >
-                        <Link
-                          to={v.link}
-                          state={
-                            v.txt === "PENHALIGON'S"
-                              ? { data: "brand", num: 0 }
-                              : {}
-                          }
-                        >
-                          {v.txt}
-                        </Link>
-                        {v.sub && (
-                          <ol className="sub-menu">
-                            {v.sub.map((v2, i2) => (
-                              <li key={i2}>
-                                {/* useState로 전환예정*/}
-                                <a href="###">{v2.txt}</a>
-                                {/* <Link to={v2.link}>{v2.txt}</Link> */}
-                              </li>
-                            ))}
-                          </ol>
-                        )}
-                      </li>
-                    ))}
+                     <li className="ham" onClick={hideSearch}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                     </li>
+                     {/* 전체메뉴박스  */}
+                     <li>
+                        <nav className="hambox">
+                           <ul>
+                              {hamMenu.map((v, i) => (
+                                 <li
+                                    className={
+                                       v.link === "/Shop" ? "main-menu" : ""
+                                    }
+                                    key={i}
+                                 >
+                                    <Link
+                                       to={v.link}
+                                       state={
+                                          v.txt === "PENHALIGON'S"
+                                             ? { data: "brand", num: 0 }
+                                             : {}
+                                       }
+                                    >
+                                       {v.txt}
+                                    </Link>
+                                    {v.sub && (
+                                       <ol className="sub-menu">
+                                          {v.sub.map((v2, i2) => (
+                                             <li key={i2}>
+                                                {/* useState로 전환예정*/}
+                                                <a href="###">{v2.txt}</a>
+                                                {/* <Link to={v2.link}>{v2.txt}</Link> */}
+                                             </li>
+                                          ))}
+                                       </ol>
+                                    )}
+                                 </li>
+                              ))}
+                           </ul>
+                        </nav>
+                     </li>
+                     {/* Gnb메뉴 데이터 배열로 만들기 */}
+                     {menu.map((v, i) => (
+                        <li key={i}>
+                           {/* link to -> 라우터에서 a링크대신 지원함 */}
+                           <Link className="menu" to={v.link}>
+                              {v.txt}
+                           </Link>
+                        </li>
+                     ))}
                   </ul>
-                </nav>
-              </li>
-              {/* Gnb메뉴 데이터 배열로 만들기 */}
-              {menu.map((v, i) => (
-                <li key={i}>
-                  {/* link to -> 라우터에서 a링크대신 지원함 */}
-                  <Link className="menu" to={v.link}>
-                    {v.txt}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+               </nav>
 
-          {/* 로고박스  */}
-          <h1 className="logo col-4">
-            <Link to="/" onClick={scrollFn}>
-              <img src="/images/logo.png" alt="메인로고" />
-              <img
-                className="mobile"
-                src="/images/footer_logo.png"
-                alt="메인로고"
-              />
-            </Link>
-          </h1>
-          {/* 상단메뉴  */}
-          <div className="tmenu col-4">
-            {/* sns박스  */}
-            <div className="sns">
-              {snsMenu.map((v, i) => (
-                <a key={i} href={v.link} title={v.txt}>
-                  <FontAwesomeIcon icon={v.icon} />
-                  <span className="ir">{v.txt}</span>
-                </a>
-              ))}
+               {/* 로고박스  */}
+               <h1 className="logo col-4">
+                  <Link to="/" onClick={scrollFn}>
+                     <img src="/images/logo.png" alt="메인로고" />
+                     <img
+                        className="mobile"
+                        src="/images/footer_logo.png"
+                        alt="메인로고"
+                     />
+                  </Link>
+               </h1>
+               {/* 상단메뉴  */}
+               <div className="tmenu col-4">
+                  {/* sns박스  */}
+                  <div className="sns">
+                     {snsMenu.map((v, i) => (
+                        <a key={i} href={v.link} title={v.txt}>
+                           <FontAwesomeIcon icon={v.icon} />
+                           <span className="ir">{v.txt}</span>
+                        </a>
+                     ))}
+                  </div>
+                  {/* 사이드메뉴  */}
+                  <div className="sideMenu">
+                     <ul className="sidebox">
+                        {sideMenu.map((v, i) => (
+                           <li key={i}>
+                              <a
+                                 className={i === 0 ? "searchicon" : ""}
+                                 onClick={i === 0 ? showSearch : null}
+                                 href={v.link}
+                                 title={v.txt}
+                              >
+                                 <FontAwesomeIcon icon={v.icon} />
+                                 <span className="ir">{v.txt}</span>
+                              </a>
+                              {i === 0 && ( //검색아이콘일때만 추가 출력
+                                 <div className="search-box">
+                                    <div className="icon" onClick={hideSearch}>
+                                       <FontAwesomeIcon icon={faSearch} />
+                                    </div>
+                                    <input
+                                       onKeyUp={enterKey}
+                                       className="input"
+                                       type="text"
+                                       placeholder="Filter by keyword"
+                                    />
+                                 </div>
+                              )}
+                           </li>
+                        ))}
+                     </ul>
+                  </div>
+               </div>
             </div>
-            {/* 사이드메뉴  */}
-            <div className="sideMenu">
-              <ul className="sidebox">
-                {sideMenu.map((v, i) => (
-                  <li key={i}>
-                    <a
-                      className={i === 0 ? "searchicon" : ""}
-                      onClick={i === 0 ? showSearch : null}
-                      href={v.link}
-                      title={v.txt}
-                    >
-                      <FontAwesomeIcon icon={v.icon} />
-                      <span className="ir">{v.txt}</span>
-                    </a>
-                    {i === 0 && ( //검색아이콘일때만 추가 출력
-                      <div className="search-box">
-                        <div className="icon" onClick={hideSearch}>
-                          <FontAwesomeIcon icon={faSearch} />
-                        </div>
-                        <input type="text" placeholder="Filter by keyword" />
-                      </div>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </header>
-    </div>
-  );
+         </header>
+      </div>
+   );
 } ///////// TopArea 컴포넌트 ///////////
 
 /* 

@@ -1,46 +1,4 @@
-h2.etit {
-  padding-top: 10px;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 20px;
-}
-h4.price {
-  font-family: "Cormorant Garamond", serif;
-  padding: 10px 0;
-}
 
-h3.ktit {
-  padding-bottom: 10px;
-  font-family: "Open Sans", sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-}
-p.rev {
-  display: inline;
-  font-size: 12px;
-}
-span.rev2 {
-  font-size: 13px;
-  color: #522;
-  padding: 0 5px;
-}
-button.item {
-  background-color: white;
-  font-style: italic;
-  translate: -50%;
-  left: 50%;
-  position: absolute;
-  display: block;
-  border: 1px solid;
-  padding: 5px 0px;
-  width: 50%;
-}
-
-h3.catag {
-  text-align: center;
-  font-family: "Cormorant Garamond", serif;
-  font-size: min(27px, 5vw);
-  font-weight: 500;
-}
 
 #newitem-area {
   overflow: hidden;
@@ -112,6 +70,51 @@ h3.catag {
 }
 
 .bestitem-area {
+
+  h2.etit {
+    padding-top: 10px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+  }
+  h4.price {
+    font-family: "Cormorant Garamond", serif;
+    padding: 10px 0;
+  }
+  
+  h3.ktit {
+    padding-bottom: 10px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+  }
+  p.rev {
+    display: inline;
+    font-size: 12px;
+  }
+  span.rev2 {
+    font-size: 13px;
+    color: #522;
+    padding: 0 5px;
+  }
+  button.item {
+    background-color: white;
+    font-style: italic;
+    translate: -50%;
+    left: 50%;
+    position: absolute;
+    display: block;
+    border: 1px solid;
+    padding: 5px 0px;
+    width: 50%;
+  }
+  
+  h3.catag {
+    text-align: center;
+    font-family: "Cormorant Garamond", serif;
+    font-size: min(27px, 5vw);
+    font-weight: 500;
+  }
+  
   position: relative;
   width: 80%;
 

@@ -1,0 +1,77 @@
+h2.etit {
+   padding-top: 10px;
+   font-family: "Cormorant Garamond", serif;
+   font-size: 20px;
+}
+h4.price {
+   font-family: "Cormorant Garamond", serif;
+   padding: 10px 0;
+}
+
+h3.ktit {
+   padding-bottom: 10px;
+   font-family: "Open Sans", sans-serif;
+   font-size: 13px;
+   font-weight: 400;
+}
+p.rev {
+   display: inline;
+   font-size: 12px;
+}
+span.rev2 {
+   font-size: 13px;
+   color: #522;
+   padding: 0 5px;
+}
+button.item {
+   margin: 0 auto;
+   margin-top: 10px;
+   background-color: white;
+   font-style: italic;
+   display: block;
+   border: 1px solid;
+   padding: 5px 0px;
+   width: 100%;
+}
+
+h3.catag {
+   text-align: center;
+   font-family: "Cormorant Garamond", serif;
+   font-size: min(27px, 5vw);
+   font-weight: 500;
+}
+
+.menu {
+   gap: 20px;
+   padding: 0;
+   margin: 50px auto;
+   flex-wrap: wrap;
+
+   justify-content: center;
+   display: flex;
+   > li {
+    box-sizing: border-box;
+    padding: 5px;
+      display: flex;
+      flex-basis: calc(100% / 4 - 20px);
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      border-radius: 5px;
+      &:hover{
+        // border: 1px solid black;
+      }
+      >a{
+
+      }
+      .item-wrap{
+
+      }
+      img {
+         mix-blend-mode: darken;
+         vertical-align: middle;
+         object-fit: cover;
+         width: 100%;
+      }
+   }
+}

@@ -1,21 +1,19 @@
 import { Link } from "react-router-dom";
 import React from "react";
-// 상품데이터 불러오기
-import {allProducts} from "../data/products_data";
-
+// 상품데이터 불러오기(검색에서는 안씀)
+// import {allProducts} from "../data/products_data"
 import "../../css/_make_item_list.scss";
 
 function MakeItemList({ dt }) {
    //dt - 검색된 배열데이터
    //total - 검색된 배열데이터 개수
-  //  const total = dt.length;
-  //  console.log('데이터수:',total)
+   const total = dt.length;
+   console.log('상품뿌리는 나 랜더링! 데이터수:',total)
    return (
-      <ul className="menu">
-         {allProducts
-            // .filter((v) => v.type === menuTxt)
-
-            .map((v, i) => (
+<>
+     { total > 0 ?
+      <ul className="product-box">
+         {dt.map((v, i) => (
                <li key={i}>
                   <Link to={`/shop/product/${v.idx}`}>
                      <img src={`/images/${v.img}`} alt={`banner${i + 1}`} />
@@ -30,7 +28,11 @@ function MakeItemList({ dt }) {
                   </div>
                </li>
             ))}
-      </ul>
+      </ul> :
+       <h2 className="nodata">
+       Sorry, we don't have any matches for that search.
+    </h2>}
+      </>
    );
 }
 

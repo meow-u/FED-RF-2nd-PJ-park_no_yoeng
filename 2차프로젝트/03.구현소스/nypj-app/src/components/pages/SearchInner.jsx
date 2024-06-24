@@ -140,6 +140,26 @@ export default function SearchInner({ keyword }) {
       a.name[0] > b.name[0] ? -1 : a.name[0] < b.name[0] ? 1 : 0
     );
   } /// else if /////////////////
+  else if (sort === "new") {
+    schItemData.sort((a, b) =>
+      a.review < b.review ? -1 : a.review > b.review ? 1 : 0
+    );
+  } /// else if /////////////////
+  else if (sort === "review") {
+    schItemData.sort((a, b) =>
+      a.review < b.review? 1 : a.review > b.review ? -1 : 0
+    );
+  } /// else if /////////////////
+  else if (sort === "sprice") {
+    schItemData.sort((a, b) =>
+      a.price < b.price? -1 : a.price > b.price ? 1 : 0
+    );
+  } /// else if /////////////////
+  else if (sort === "bprice") {
+    schItemData.sort((a, b) =>
+      a.price > b.price? -1 : a.price < b.price ? 1 : 0
+    );
+  } /// else if /////////////////
   // [페지네이션 기능 추가하기] /////////
   // (1) 페이지별로 보여줄 갯수
   let perPage = 12;
@@ -166,10 +186,10 @@ export default function SearchInner({ keyword }) {
     // 체크박스 상태변경시 이벤트
     $(".checkbox").on("change", (e) => {
 
-      // // 첫번째 페이지 강제 트리거
+      // // 첫번째 페이지 강제 트리거 
       $(".page a").eq(0).trigger("click");
       // // 첫번째 페이지 on클래스 추가 (왜 추가가 안되지??)
-      $(".page a").eq(0).addClass(".on").parent().siblings().children().removeClass(".on");
+      $("page a.first").addClass(".on").parent().siblings().children().removeClass(".on");
       console.log(e.target.checked);
 
       // 체크박스 아이디값 읽어오기
@@ -462,20 +482,25 @@ export default function SearchInner({ keyword }) {
                 onChange={(e) => setSort(e.target.value)}
               >
                 {/* value를 읽어 sort전역변수변경 */}
-                <option value="asc">A-Z</option>
-                <option value="desc">Z-A</option>
+                <option value="asc">상품명순(A-Z)</option>
+                <option value="desc">상품명순(Z-A)</option>
+                <option value="new">신상품순</option>
+                <option value="review">리뷰많은순</option>
+                <option value="bprice">높은가격순</option>
+                <option value="sprice">낮은가격순</option>
               </select>
             </aside>
             {/* 뿌리는 컴포넌트 */}
             <MakeItemList dt={resultData} />
           <div className="page col-9">
             <ul>
+              {/* 페이지번호표시 */}
               {/* #!은 새로고침안됨. url은변경. 주로 단일 페이지 애플리케이션(SPA)에서 사용 */}
               {Array(Math.ceil(schItemData.length / 12))
                 .fill(0)
                 .map((v, i) => (
-                  <li key={i}>
-                    <a href="#!">{i + 1}</a>
+                  <li key={i} >
+                    <a href="#!" className={i===0?"first":""}>{i + 1}</a>
                     {/* 마지막 a태그 제외하고  뒤에 |추가 */}
                     {i === Math.ceil(schItemData.length / 12) - 1 ? "" : "|"}
                   </li>

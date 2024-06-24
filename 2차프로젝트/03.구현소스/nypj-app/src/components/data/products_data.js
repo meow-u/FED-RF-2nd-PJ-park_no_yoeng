@@ -167,7 +167,7 @@ const allProducts = [
       ],
       price: "195,000",
       img: "products_10.jpg",
-      review: 422,
+      review: 12,
     },
     {
       idx: 11,
@@ -405,7 +405,7 @@ const allProducts = [
       ],
       price: " 54,000",
       img: "products_27.jpg",
-      review: 94,
+      review: 4,
     },
     {
       idx: 28,
@@ -492,7 +492,7 @@ const allProducts = [
       ],
       price: "172,000",
       img: "products_33.jpg",
-      review: 327,
+      review: 2,
     },
     {
       idx: 34,
@@ -604,7 +604,7 @@ const allProducts = [
       ],
       price: " 86,000",
       img: "products_41.jpg",
-      review: 38,
+      review: 1,
     },
     {
       idx: 42,
@@ -669,7 +669,7 @@ const allProducts = [
       ],
       price: " 86,000",
       img: "products_45.jpg",
-      review: 57,
+      review: 0,
     },
     {
       idx: 46,
@@ -697,7 +697,7 @@ const allProducts = [
       ],
       price: " 86,000",
       img: "products_47.jpg",
-      review: 454,
+      review: 17,
     },
     {
       idx: 48,
@@ -767,7 +767,7 @@ const allProducts = [
       ],
       price: " 89,000",
       img: "products_52.jpg",
-      review: 480,
+      review: 0,
     },
     {
       idx: 53,
@@ -854,7 +854,7 @@ const allProducts = [
       ],
       price: "240,000",
       img: "products_58.jpg",
-      review: 436,
+      review: 0,
     },
     {
       idx: 59,
@@ -1109,7 +1109,7 @@ const allProducts = [
       ],
       price: "417,000",
       img: "products_76.jpg",
-      review: 338,
+      review: 6,
     },
     {
       idx: 77,

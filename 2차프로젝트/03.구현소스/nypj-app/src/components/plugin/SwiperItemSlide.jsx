@@ -172,7 +172,7 @@ export default function itemSlide({ idname, selData }) {
               .map((v, i) => (
                 <SwiperSlide key={i} className="swiper-slide">
                   <Link to={`/shop/product/${v.idx}`}>
-                    <img src={`/images/${v.img}`} alt={`banner${i + 1}`} />
+                    <img src={`${process.env.PUBLIC_URL}/images/${v.img}`} alt={`banner${i + 1}`} />
                   </Link>
                   <div className="wrap">
                     <h2 className="etit">{v.name[1]}</h2>

@@ -153,10 +153,7 @@ export default function SearchInner({ keyword }) {
   // 1페이지일시 보여지는 데이터 인덱스 0~11 (0부터시작 12전까지)
   // 2페이지일시 보여지는 데이터 인덱스 12~23 (12부터시작 24전까지)
   // 3페이지일시 보여지는 데이터 인덱스 24~35 (24부터시작 36전까지)
-  // 4페이지일시 보여지는 데이터 인덱스 36~47 (36부터시작 48전까지)
-  // 5페이지일시 보여지는 데이터 인덱스 48~59 (48부터시작 60전까지)
-  // 6페이지일시 보여지는 데이터 인덱스 60~71 (60부터시작 72전까지)
-  // 7페이지일시 보여지는 데이터 인덱스 72~83 (72부터시작 84전까지)
+  // ....
   // 8페이지일시 보여지는 데이터 인덱스 84~95 (84부터시작 96전까지)
 
   /////////////////////////////////////////////////////////
@@ -168,11 +165,13 @@ export default function SearchInner({ keyword }) {
 
     // 체크박스 상태변경시 이벤트
     $(".checkbox").on("change", (e) => {
+
       // // 첫번째 페이지 강제 트리거
-      // $(".page a").eq(0).trigger("click");
-      // // 첫번째 페이지 on클래스 추가
-      // $(".page a").eq(0).addClass("on").parent().siblings().children().removeClass("on");
+      $(".page a").eq(0).trigger("click");
+      // // 첫번째 페이지 on클래스 추가 (왜 추가가 안되지??)
+      $(".page a").eq(0).addClass(".on").parent().siblings().children().removeClass(".on");
       console.log(e.target.checked);
+
       // 체크박스 아이디값 읽어오기
       let id = $(e.target).attr("id");
 

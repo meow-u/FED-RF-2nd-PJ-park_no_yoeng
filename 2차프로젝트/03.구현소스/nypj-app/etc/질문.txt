@@ -1,1 +1,6 @@
 toparea.jsx  23line  // $('.input').focus(); 쓰면 모양틀어짐 ?왜?
+
+SearchInner.jsx 170line // 체크박스 클릭시 페이지 1페이지로 오면서 on 넣는기능 
+
+top-area.scss
+top 호버시 이미지 고정 또 풀렸음 .. .hambox::before

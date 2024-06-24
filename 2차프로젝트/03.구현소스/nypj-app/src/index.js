@@ -16,6 +16,7 @@ import Penhaligons from "./components/pages/Penhaligons";
 import Cart from "./components/pages/Cart";
 import Login from "./components/pages/Login";
 import Search from "./components/pages/Search";
+import Product from "./components/pages/Product";
 
 export default function App() {
   const ourStoryArr = Array(4)
@@ -28,7 +29,7 @@ export default function App() {
     "TradeRoutesCollection",
     "Potions&Remedies",
   ];
-  //let newArr = Array(5).fill(0);
+  //let newArr = Array(5).fill(0); (fill 안하면 undefind)
   // 출력: [0,0,0,0,0] 배열의길이가 5인 배열을 0으로 채운다. 
 
   // [1] 88개 상품데이터 배열 만들기
@@ -64,12 +65,12 @@ export default function App() {
           {collectionArr.map((v, i) => (
             <Route key={i} path={"Collection/" + v} element={<Penhaligons />} />
           ))}
-          {/* {productArr.map((v, i) => (
+          {productArr.map((v, i) => (
             <Route
               key={i}
               path={"Shop/product/" + (i + 1)}
-              element={<Shop/>}
-            />))} */}
+              element={<Product/>}
+            />))}
         </Route>{" "}
         {/* 레이아웃 라우트 끝 */}
       </Routes>

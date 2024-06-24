@@ -59,11 +59,11 @@ h3.catag {
   justify-content: center;
   display: flex;
   > li {
-    box-shadow: 1px 1px 10px gainsboro;
+    box-shadow: 1px 2px 5px gainsboro;
     box-sizing: border-box;
     padding: 0.7vw;
     display: flex;
-    flex-basis: calc(100% / 4 - 1vw);
+    flex-basis: calc(25% - 1vw);
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -76,12 +76,10 @@ h3.catag {
     .item-wrap {
     }
     img {
-      border-radius: 15px;
-      border: 1px solid gainsboro;
-      mix-blend-mode: darken;
-      vertical-align: middle;
-      object-fit: cover;
-      width: 100%;
+    mix-blend-mode: darken;
+    vertical-align: middle;
+    object-fit: cover;
+    width: 100%;
     }
   }
 }

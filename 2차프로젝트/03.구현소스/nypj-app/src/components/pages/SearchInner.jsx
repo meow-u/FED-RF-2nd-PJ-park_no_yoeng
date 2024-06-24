@@ -147,17 +147,17 @@ export default function SearchInner({ keyword }) {
   } /// else if /////////////////
   else if (sort === "review") {
     schItemData.sort((a, b) =>
-      a.review < b.review? 1 : a.review > b.review ? -1 : 0
+      a.review < b.review ? 1 : a.review > b.review ? -1 : 0
     );
   } /// else if /////////////////
   else if (sort === "sprice") {
     schItemData.sort((a, b) =>
-      a.price < b.price? -1 : a.price > b.price ? 1 : 0
+      a.price < b.price ? -1 : a.price > b.price ? 1 : 0
     );
   } /// else if /////////////////
   else if (sort === "bprice") {
     schItemData.sort((a, b) =>
-      a.price > b.price? -1 : a.price < b.price ? 1 : 0
+      a.price > b.price ? -1 : a.price < b.price ? 1 : 0
     );
   } /// else if /////////////////
   // [페지네이션 기능 추가하기] /////////
@@ -185,11 +185,15 @@ export default function SearchInner({ keyword }) {
 
     // 체크박스 상태변경시 이벤트
     $(".checkbox").on("change", (e) => {
-
-      // // 첫번째 페이지 강제 트리거 
+      // // 첫번째 페이지 강제 트리거
       $(".page a").eq(0).trigger("click");
       // // 첫번째 페이지 on클래스 추가 (왜 추가가 안되지??)
-      $("page a.first").addClass(".on").parent().siblings().children().removeClass(".on");
+      $("page a.first")
+        .addClass(".on")
+        .parent()
+        .siblings()
+        .children()
+        .removeClass(".on");
       console.log(e.target.checked);
 
       // 체크박스 아이디값 읽어오기
@@ -291,13 +295,14 @@ export default function SearchInner({ keyword }) {
 
     // 페이지 버튼 클릭시 출력갯수 변경
 
-    // [정적 바인딩 vs 동적 바인딩]: 
+    // [정적 바인딩 vs 동적 바인딩]:
     // e.preventDefault()가 재 랜더링시 안되었던 문제
 
     // 정적 바인딩 : 페이지가 처음 로드될 때 .page 안의 모든 a 요소에 클릭 이벤트를 직접적으로 바인딩합니다. 이는 해당 시점에서 존재하는 모든 a 요소에 대해 이벤트가 등록되며, 이후에 동적으로 추가된 요소에는 적용X
     // 동적 바인딩: .page 요소에 대한 이벤트를 바인딩하고, 이벤트가 발생했을 때 해당 요소가 a인지 확인한 후, 이벤트를 실행. 페이지 로드 시점에 존재하지 않는 요소에도 이벤트를 적용할 수 있어, 동적으로 생성되는 a 요소들에도 이벤트가 올바르게 적용O
     //  $(".page a").on("click", function (e) { //정적
-    $(".page").on("click", "ul > li > a", function (e) {//동적
+    $(".page").on("click", "ul > li > a", function (e) {
+      //동적
       //a태그 기본이벤트 제거
       e.preventDefault();
       let pg = $(this).text();
@@ -334,7 +339,7 @@ export default function SearchInner({ keyword }) {
                   //만약 엔터키가 눌리면
                   if (e.key === "Enter") {
                     //입력값(검색어)  전역변수변경
-                    setKey(e.target.value);
+                    setKey(() => e.target.value.trim());
                     //정렬값 오름차순초기화
                     setSort("asc");
                     //콤보박스도 오름차순 형태로 초기화
@@ -345,6 +350,8 @@ export default function SearchInner({ keyword }) {
                     setChk(categories);
                     // 페이지 초기화
                     setPage(1);
+                    //입력값초기화
+                    e.target.value = "";
                   }
                 }}
               />
@@ -468,7 +475,7 @@ export default function SearchInner({ keyword }) {
           <div className="col-9 result-box">
             <div className="wrap">
               <h2>
-                <strong>'{key}'</strong>
+                <strong>'{key ? key : "ALL"}'</strong>
                 <br />
                 SEARCH RESULT
               </h2>
@@ -492,21 +499,23 @@ export default function SearchInner({ keyword }) {
             </aside>
             {/* 뿌리는 컴포넌트 */}
             <MakeItemList dt={resultData} />
-          <div className="page col-9">
-            <ul>
-              {/* 페이지번호표시 */}
-              {/* #!은 새로고침안됨. url은변경. 주로 단일 페이지 애플리케이션(SPA)에서 사용 */}
-              {Array(Math.ceil(schItemData.length / 12))
-                .fill(0)
-                .map((v, i) => (
-                  <li key={i} >
-                    <a href="#!" className={i===0?"first":""}>{i + 1}</a>
-                    {/* 마지막 a태그 제외하고  뒤에 |추가 */}
-                    {i === Math.ceil(schItemData.length / 12) - 1 ? "" : "|"}
-                  </li>
-                ))}
-            </ul>
-          </div>
+            <div className="page col-9">
+              <ul>
+                {/* 페이지번호표시 */}
+                {/* #!은 새로고침안됨. url은변경. 주로 단일 페이지 애플리케이션(SPA)에서 사용 */}
+                {Array(Math.ceil(schItemData.length / 12))
+                  .fill(0)
+                  .map((v, i) => (
+                    <li key={i}>
+                      <a href="#!" className={i === 0 ? "first" : ""}>
+                        {i + 1}
+                      </a>
+                      {/* 마지막 a태그 제외하고  뒤에 |추가 */}
+                      {i === Math.ceil(schItemData.length / 12) - 1 ? "" : "|"}
+                    </li>
+                  ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>

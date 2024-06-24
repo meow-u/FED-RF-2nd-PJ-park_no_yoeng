@@ -21,7 +21,6 @@ function ItemDetail({ itemIdx }) {
                   <div class="col-8">
                      <img src={`${process.env.PUBLIC_URL}/images/products_${itemIdx}/1.png`} alt={`products_${itemIdx}`} />
                      
-                     <img src="/images/products_1/1.jpg" alt="products_1"/>
                   </div>
                   <div class="col-4"></div>
                </div>

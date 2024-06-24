@@ -107,7 +107,7 @@ export default function TopArea({ scrollFn }) {
   return (
     <>
       <div className="cursor">
-        <img src={"/images/cursur.png"} alt="" />
+        <img src={process.env.PUBLIC_URL+"/images/cursur.png"} alt="" />
       </div>
       <div id="top-area">
         <header className="top-area inbox common-area">
@@ -172,7 +172,7 @@ export default function TopArea({ scrollFn }) {
             {/* 로고박스  */}
             <h1 className="logo col-4">
               <Link to="/" onClick={scrollFn}>
-                <img src={`${process.env.PUBLIC_URL+v.src}/images/logo.png`} alt="메인로고" />
+                <img src={`${process.env.PUBLIC_URL}/images/logo.png`} alt="메인로고" />
                 <img
                   className="mobile"
                   src="/images/footer_logo.png"

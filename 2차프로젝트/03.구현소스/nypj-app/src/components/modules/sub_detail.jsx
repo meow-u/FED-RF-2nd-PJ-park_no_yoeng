@@ -70,7 +70,7 @@ export default function SubDetail({ subName, dataNum }) {
               <div className="content-box">
                 <div className="img-wrap">
                   <img
-                    src={"/images/sub_page/" + selData.img[1]}
+                    src={process.env.PUBLIC_URL+"/images/sub_page/" + selData.img[1]}
                     alt="메인이미지"
                   />
                 </div>
@@ -86,7 +86,7 @@ export default function SubDetail({ subName, dataNum }) {
               {/* *************제목/내용****************** */}
               <div className="img-wrap">
                 <img
-                  src={"/images/sub_page/" + selData.img[3]}
+                  src={process.env.PUBLIC_URL+"/images/sub_page/" + selData.img[3]}
                   alt="메인이미지"
                 />
               </div>
@@ -100,7 +100,7 @@ export default function SubDetail({ subName, dataNum }) {
               {/* ************* 이미지 ******************* */}
               <div className="img-wrap">
                 <img
-                  src={"/images/sub_page/" + selData.img[2]}
+                  src={process.env.PUBLIC_URL+"/images/sub_page/" + selData.img[2]}
                   alt="메인이미지"
                 />
               </div>

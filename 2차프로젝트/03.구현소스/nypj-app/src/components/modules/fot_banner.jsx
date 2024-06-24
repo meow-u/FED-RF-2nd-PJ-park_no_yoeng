@@ -10,7 +10,7 @@ export function FotBanner() {
         <h2 className="temp-tit">8. 하단배너영역</h2>
         <div className="cont-box">
           <div className="col-12 bg-box">
-          <img src="/images/logo_trensparent.png" alt="member" />
+          <img src={`${process.env.PUBLIC_URL}/images/logo_trensparent.png`} alt="member" />
           </div>
         </div>
       </section>

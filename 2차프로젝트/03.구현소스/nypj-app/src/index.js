@@ -35,7 +35,7 @@ export default function App() {
   console.log('productArr2',productArr);
   
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         {/* 1. 레이아웃을 루트로 설정: 하위라우트는 내부에위치 */}
         <Route path="/" element={<Layout />}>

@@ -115,3 +115,15 @@ root.render(<App />);
 // basename 을 안써도 HashRouter는 package.json의 homepage 속성값을
 // 자동으로 연결함. 해당속성값이 없으면 / 로 자동연결됨.
 // /란 루트를 의미함 루트는 public/index.html을 의미함
+
+
+//[배포 방법]
+// 1) package.json에 "homepage":"", 추가
+// 1-1) 경로는  ex) https://아이디.github.io/레파지토리명/
+//2차프로젝트/03.구현소스/nypj-app/build  (인덱스부모폴더)
+
+// 2) 해당app경로>npm run build
+// 3) index.js에 <BrowserRouter basename={process.env.PUBLIC_URL}> 로 변경
+// 4) .gitignore에서 /build 앞에 #붙이기 ( 깃 pages 이용해서 서버배포시만)
+// 5) 화면출력확인하고 깨진 이미지주소 수정하기
+// -> 모듈,페이지의 src 부분 {process.env.PUBLIC_URL+기존주소} 이런식으로 주소에 추가하기 

@@ -55,7 +55,7 @@ export default function SubDetail({ subName, dataNum }) {
               {/* ************ 이미지+글**************** */}
               <div className="img-wrap">
                 <img
-                  src={"/images/sub_page/" + selData.img[0]}
+                  src={process.env.PUBLIC_URL+"/images/sub_page/" + selData.img[0]}
                   alt="메인이미지"
                 />
                 <h2>{selData.tit[1]}</h2>

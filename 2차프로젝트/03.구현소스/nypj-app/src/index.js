@@ -18,24 +18,30 @@ import Login from "./components/pages/Login";
 import Search from "./components/pages/Search";
 
 export default function App() {
-  const ourStoryArr = [1, 1, 1, 1];
+  const ourStoryArr = Array(4)
+    .fill()
+    .map((v, i) => i + 1);
+  // 출력: [1,2,3,4] 길이가 4이고 각 요소가 인덱스 + 1의 값으로 초기화
   const collectionArr = [
     "TheBritishTalesCollection",
     "PortraitsCollection",
     "TradeRoutesCollection",
     "Potions&Remedies",
   ];
-  // console.log(ourStoryArr.length);
+  //let newArr = Array(5).fill(0);
+  // 출력: [0,0,0,0,0] 배열의길이가 5인 배열을 0으로 채운다. 
 
   // [1] 88개 상품데이터 배열 만들기
   // const productArr = Array.from({ length: 88 }, (v, i) => i + 1);
   // console.log('productArr',productArr);
   // [2] 88개 상품데이터 배열 만들기
-  const productArr = Array(88).fill().map((v, i) => i + 1);
-  console.log('productArr2',productArr);
-  
+  const productArr = Array(88)
+    .fill()
+    .map((v, i) => i + 1);
+  console.log("productArr2", productArr);
+
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter>
       <Routes>
         {/* 1. 레이아웃을 루트로 설정: 하위라우트는 내부에위치 */}
         <Route path="/" element={<Layout />}>
@@ -56,11 +62,7 @@ export default function App() {
             />
           ))}
           {collectionArr.map((v, i) => (
-            <Route
-              key={i}
-              path={"Collection/" + v}
-              element={<Penhaligons />}
-            />
+            <Route key={i} path={"Collection/" + v} element={<Penhaligons />} />
           ))}
           {/* {productArr.map((v, i) => (
             <Route
@@ -68,7 +70,8 @@ export default function App() {
               path={"Shop/product/" + (i + 1)}
               element={<Shop/>}
             />))} */}
-        </Route> {/* 레이아웃 라우트 끝 */}
+        </Route>{" "}
+        {/* 레이아웃 라우트 끝 */}
       </Routes>
     </BrowserRouter>
   );
@@ -87,7 +90,6 @@ root.render(<App />);
 // 예) 상세페이지갯수가 4개면
 //   const ourStoryArr = [1, 1, 1, 1]; 이걸맵돌림.
 
-
 // 개별주소 필요 없으면 i만돌리고, 있으면 v값내부 데이터 참조해서 주소이름넣어돌리기
 // (1) <Route key={i} path={"큰메뉴/저쩌구"+(i+1)} ele..={컴포}>
 // (2) <Route key={i} path={"큰메뉴/" +v.tit} ele..={컴포}>
@@ -97,33 +99,20 @@ root.render(<App />);
 // // 맵돌린 링크라우터에 state로 데이터 보내기 (SPA 데이터전달)
 
 // link는 사용자가 직접 클릭하는 요소가 있는 컴포넌트에 있음
-// <Link to={path에적힐값} state={{보낼변수명:보낼값,  ..}}>어쩌구</Link> 
+// <Link to={path에적힐값} state={{보낼변수명:보낼값,  ..}}>어쩌구</Link>
 // ex 펜할리곤스-> topArea컴포 내부 gnb , 컬렉션/스토리 ->content컴포 내부 이미지상자
 
-// 맵돌리면서 컴포넌트가 받아야할 특정 보낼값을 보내면 된다. 
+// 맵돌리면서 컴포넌트가 받아야할 특정 보낼값을 보내면 된다.
 // ----------------------------------------------
 
 // Link to 호출시 보낸 state 객체값을 index.js에서 라우터로 연결된 컴포넌트에서 받아준다!
 // import { useLocation } from "react-router-dom" 을 추가해야 한다!!
 
-// 값은 useLocation().state.보낸변수명으로 넘어옴. (useLocation()를 변수loc할당해서 
+// 값은 useLocation().state.보낸변수명으로 넘어옴. (useLocation()를 변수loc할당해서
 // const sData = loc.state.변수명 선언하고
 // sData 식으로 쉽게 사용함 (이 최종 할당된 변수를 해당 컴포넌트에 객체구조분해할당 값에  전달하기.
-
 
 // [기타 참고]
 // basename 을 안써도 HashRouter는 package.json의 homepage 속성값을
 // 자동으로 연결함. 해당속성값이 없으면 / 로 자동연결됨.
 // /란 루트를 의미함 루트는 public/index.html을 의미함
-
-
-//[배포 방법]
-// 1) package.json에 "homepage":"", 추가
-// 1-1) 경로는  ex) https://아이디.github.io/레파지토리명/
-//2차프로젝트/03.구현소스/nypj-app/build  (인덱스부모폴더)
-
-// 2) 해당app경로>npm run build
-// 3) index.js에 <BrowserRouter basename={process.env.PUBLIC_URL}> 로 변경
-// 4) .gitignore에서 /build 앞에 #붙이기 ( 깃 pages 이용해서 서버배포시만)
-// 5) 화면출력확인하고 깨진 이미지주소 수정하기
-// -> 모듈,페이지의 src 부분 {process.env.PUBLIC_URL+기존주소} 이런식으로 주소에 추가하기 

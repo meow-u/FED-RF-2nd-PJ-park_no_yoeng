@@ -16,7 +16,7 @@ function MakeItemList({ dt }) {
          {dt.map((v, i) => (
                <li key={i}>
                   <Link to={`/shop/product/${v.idx}`}>
-                     <img src={`${process.env.PUBLIC_URL}/images/${v.img}`} alt={`banner${i + 1}`} />
+                     <img src={`/images/${v.img}`} alt={`banner${i + 1}`} />
                   </Link>
                   <div className="item-wrap">
                      <h2 className="etit">{v.name[1]}</h2>

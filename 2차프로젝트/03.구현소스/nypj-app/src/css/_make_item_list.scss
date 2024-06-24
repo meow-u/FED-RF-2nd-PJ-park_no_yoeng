@@ -1,4 +1,6 @@
 .nodata {
+  padding-top: 20px;
+  min-height: 50vh;
   font-family: "Open Sans", sans-serif;
   text-align: center;
   font-size: 25px;
@@ -19,7 +21,7 @@ h3.ktit {
   padding-bottom: 1vw;
   font-family: "Open Sans", sans-serif;
   font-size: min(13px, 3vw);
-  font-weight: 400;
+  font-weight: 600;
 }
 p.rev {
   display: inline;
@@ -57,8 +59,9 @@ h3.catag {
   justify-content: center;
   display: flex;
   > li {
+    box-shadow: 1px 1px 10px gainsboro;
     box-sizing: border-box;
-    padding: 5px;
+    padding: 0.7vw;
     display: flex;
     flex-basis: calc(100% / 4 - 1vw);
     flex-direction: column;
@@ -73,6 +76,8 @@ h3.catag {
     .item-wrap {
     }
     img {
+      border-radius: 15px;
+      border: 1px solid gainsboro;
       mix-blend-mode: darken;
       vertical-align: middle;
       object-fit: cover;

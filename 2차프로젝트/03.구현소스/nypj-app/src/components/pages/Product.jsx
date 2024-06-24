@@ -12,10 +12,7 @@ function Product({idx}) {
 
    return (
       // 상품 상세 영역
-      <>
-      <h2>product</h2>
       <ItemDetail itemIdx={itemIdx} />
-      </>
    );
 }
 

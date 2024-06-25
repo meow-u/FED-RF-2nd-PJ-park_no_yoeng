@@ -6,6 +6,8 @@
 
 // ****** 2. 배너영역 **************
 #ban-area {
+  position: relative;
+  z-index: 2;
   background: radial-gradient(black, #000000b5);
 
   @keyframes loding-ani {
@@ -21,7 +23,6 @@
     }
   }
   .loading {
-
     mask-image: url("../../../../public/images/loading_icon.svg");
     mask-size: 0%;
     mask-repeat: no-repeat;

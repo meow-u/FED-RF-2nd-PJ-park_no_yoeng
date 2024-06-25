@@ -464,7 +464,7 @@ const allProducts = [
       price: "347,000",
       img: "products_29.jpg",
       subimg:5,
-      review: 47,
+      review: 0,
     },
     {
       idx: 30,
@@ -716,7 +716,7 @@ const allProducts = [
       price: " 86,000",
       img: "products_45.jpg",
       subimg:3,
-      review: 0,
+      review: 53,
     },
     {
       idx: 46,
@@ -821,7 +821,7 @@ const allProducts = [
       price: " 89,000",
       img: "products_52.jpg",
       subimg:3,
-      review: 0,
+      review: 35,
     },
     {
       idx: 53,
@@ -1139,7 +1139,7 @@ const allProducts = [
       price: "381,000",
       img: "products_73.jpg",
       subimg:4,
-      review: 333,
+      review: 0,
     },
     {
       idx: 74,

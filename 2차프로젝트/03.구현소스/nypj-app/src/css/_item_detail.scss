@@ -1,43 +1,154 @@
 // 상품상세 모듈 모듈 SCSS - _item_detail.scss
 #ItemDetail-area {
-   min-height: 100vh;
-   .ItemDetail {
-      .cont-box {
-         position: relative;
-         min-height: 100vh;
+  min-height: 100vh;
+  .ItemDetail {
+    .cont-box {
+      position: relative;
+      min-height: 100vh;
 
-         display: block;
-         .left-box {
-            /* 스티키상자 높이와 맞춤 */
-            margin-top: -400px;
-            width: 66.66%;
-         }
-         .mySwiper {
-            display: flex;
-            flex-direction: column;
-            .slide-img {
-               width: 100%;
-            }
-            .slide-txt{
-                padding: 50px 0px;
-                text-align: center;
-            }
-         }
-         .img-box {
-            .sub-img {
-               width: 100%;
-               object-fit: cover;
-               vertical-align: middle;
-            }
-         }
-         .col-4 {
-            background: var(--bg-color1);
-            margin-left: auto;
-            position: sticky;
-            top: 0px;
-            height: 400px;
-            width: 33.33%;
-         }
+      display: block;
+      .left-box {
+        /* 스티키상자 높이와 맞춤 */
+        margin-top: -550px;
+        width: 66.66%;
+
+        .item-txt {
+          background: black;
+          display: block;
+          padding: 15px;
+          text-align: center;
+          font-family: "Open Sans", sans-serif;
+          font-size: small;
+          color: white;
+          font-style: italic;
+          font-weight: 400;
+        }
+        .name {
+          margin: 10px;
+          padding: 10px;
+          background: black;
+          color: white;
+          display: inline-block;
+          position: relative;
+          left: 50%;
+          translate: -50%;
+          font-weight: 600;
+          font-size: 20px;
+          font-family: "Cormorant Garamond", serif;
+        }
+        .next {
+          display: block;
+          text-align: center;
+          padding: 30px 10px;
+          font-size: 27px;
+          font-family: "Cormorant Garamond", serif;
+          font-weight: 500;
+          line-height: 1.1;
+          font-style: italic;
+        }
       }
-   }
+      .mySwiper {
+        display: flex;
+        flex-direction: column;
+        .slide-img {
+          background: rgb(255, 255, 255);
+          width: 100%;
+        }
+        .swiper-pagination-bullet {
+          filter: drop-shadow(2px 4px 6px black);
+          border-radius: 0px;
+          width: 10vw;
+          height: 10vw;
+          margin: 1.2vw 0.5vw;
+        }
+      }
+      .img-box {
+        .sub-img {
+          width: 100%;
+          object-fit: cover;
+          vertical-align: middle;
+        }
+      }
+      /* 스티키박스 */
+      .col-4 {
+        background: var(--bg-color1);
+        margin-left: auto;
+        position: sticky;
+        top: 75px;
+        /* auto하게 지정후 js로 처리 */
+        //   height: 400px;
+        width: 33.33%;
+        .span.stit {
+          width: min(200px, 10vw);
+        }
+        svg {
+          padding: 1.5vw;
+          top: 0;
+          position: absolute;
+          right: 0;
+          width: min(24px, 3vw);
+        }
+        h2.item-name {
+          width: 100%;
+          padding-bottom: 10px;
+          font-size: clamp(14px, 4vw, 7vw);
+        }
+        .kname {
+          font-size: min(15px, 2vw);
+        }
+        span.price {
+          padding: 10px 0px;
+          display: inline-block;
+
+          font-size: min(27px, 4vw);
+          font-weight: 600;
+          font-family: "Cormorant Garamond", serif;
+        }
+        span.text {
+          box-sizing: border-box;
+          width: 100%;
+          text-align: justify;
+          line-height: 1.5;
+          display: block;
+          font-size: min(14px, 2vw);
+          font-family: "Open Sans", sans-serif;
+          padding: 10px;
+        }
+        select.option {
+          width: 105px;
+          margin: 10px 0px;
+          display: block;
+        }
+        .reviews {
+          span.star-box {
+            padding: 5px 0px;
+
+            font-size: min(20px, 2.5vw);
+            font-weight: bolder;
+          }
+          display: flex;
+          left: 100%;
+          position: relative;
+          translate: -100%;
+          flex-direction: column;
+          text-align: end;
+          margin-top: -20px;
+        }
+        button.item-button {
+          border-radius: 0px;
+          width: 100%;
+          margin: 10px auto;
+        }
+        button.item-button.cart {
+          filter: invert(1);
+        }
+        span.reviewcount {
+          font-size: min(15px, 2vw);
+        }
+        .textbox-wrap {
+          padding: 1.4vw;
+        }
+      }
+    }
+  }
 }

@@ -32,7 +32,7 @@ export default function SwiperDetail({ data, idx }) {
             // 슬라이드 사이 여백
             spaceBetween={30}
             // 슬라이드 효과 (모듈)
-            // effect={"fade"}
+            effect={"fade"}
             // 네비게이션 버튼 (모듈)
             navigation={true}
             // 아래쪽 불릿 (모듈)
@@ -40,15 +40,15 @@ export default function SwiperDetail({ data, idx }) {
                clickable: true,
             }}
             // 슬라이드반복여부
-            // loop={true}
+            loop={true}
             // 스와이퍼 사용모듈
-            modules={[Navigation, Pagination]}
+            modules={[ Pagination, Navigation, Autoplay, EffectFade ]}
             className="mySwiper"
          >
             {data.map(
                (_, i) =>
                   i <= 1 && (
-                     <SwiperSlide>
+                     <SwiperSlide key={i}>
                         <img className="slide-img"
                            src={`${
                               process.env.PUBLIC_URL
@@ -58,8 +58,7 @@ export default function SwiperDetail({ data, idx }) {
                      </SwiperSlide>
                   )
                   
-            )}<span className="slide-txt">
-              {allProducts.map(v=> v.idx === idx? `"${v.subtit}"`:"")}</span>
+            )}
          </Swiper>
       </>
    );

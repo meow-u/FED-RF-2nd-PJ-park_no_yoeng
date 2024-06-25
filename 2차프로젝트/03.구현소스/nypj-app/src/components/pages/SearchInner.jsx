@@ -185,15 +185,20 @@ export default function SearchInner({ keyword }) {
 
     // 체크박스 상태변경시 이벤트
     $(".checkbox").on("change", (e) => {
+      console.log("변경!");
       // // 첫번째 페이지 강제 트리거
-      $(".page a").eq(0).trigger("click");
+      // $(()=>{}) 태그 로딩후 실행구역에 쓰면 됨!
+      $(()=>{
+        $(".page a").eq(0).trigger("click");
+      });
+
       // // 첫번째 페이지 on클래스 추가 (왜 추가가 안되지??)
-      $("page a.first")
-        .addClass(".on")
-        .parent()
-        .siblings()
-        .children()
-        .removeClass(".on");
+      // $(".page a.first")
+      //   .addClass(".on")
+      //   .parent()
+      //   .siblings()
+      //   .children()
+      //   .removeClass(".on");
       console.log(e.target.checked);
 
       // 체크박스 아이디값 읽어오기
@@ -313,12 +318,20 @@ export default function SearchInner({ keyword }) {
       $(this).addClass("on").parent().siblings().children().removeClass("on");
     });
 
+    // 최초랜더링시 한번 처음 순번 페이지 클릭
+    $(".page a").eq(0).trigger("click");
+
     // 소멸구역 /////////
     // Clean-up 함수
     return () => {
       $(".checkbox").off("change"); // 이벤트 리스너 제거
     };
   }, []); //렌더링전 실행구역
+
+  useEffect(() => {
+    //입력값초기화
+    $(".input-box input").val("");
+  });
 
   // 리턴구역
   return (
@@ -338,6 +351,7 @@ export default function SearchInner({ keyword }) {
                 onKeyUp={(e) => {
                   //만약 엔터키가 눌리면
                   if (e.key === "Enter") {
+                    console.log("여기");
                     //입력값(검색어)  전역변수변경
                     setKey(() => e.target.value.trim());
                     //정렬값 오름차순초기화
@@ -350,8 +364,6 @@ export default function SearchInner({ keyword }) {
                     setChk(categories);
                     // 페이지 초기화
                     setPage(1);
-                    //입력값초기화
-                    e.target.value = "";
                   }
                 }}
               />

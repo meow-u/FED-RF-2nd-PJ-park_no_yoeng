@@ -28,10 +28,10 @@ export default function TopArea({ scrollFn }) {
 
   // 검색박스 보이기/숨기기 함수
   const showSearch = (e) => {
-    // $('.input').focus();
     console.log("클릭됐다!");
     //기본기능막기
     e.preventDefault();
+    $('.input').focus();
     // 아이콘 숨기고 포인터 막기
     $(".searchicon").css("opacity", "0").css("pointer-events", "none");
     // 검색박스 보이고 애니메이션
@@ -74,6 +74,9 @@ export default function TopArea({ scrollFn }) {
     // console.log(e.key);
     let txt = $(".input").val().trim();
     if (e.key === "Enter") {
+      $("html,body").animate({
+        scrollTop: ($(".main-wrap").offset().top-75) + "px",
+      },400);
       console.log("난top-area input값!", txt);
 
       if (txt != "") {

@@ -89,6 +89,7 @@
       input {
         color: #fff;
         font-size: 15px;
+        width: 83%;
         background-color: initial;
         border: none;
         margin-left: 10px;
@@ -164,18 +165,18 @@
 /* 전체메뉴박스 */
 .hambox {
   position: fixed;
-  top: -100%;
+  top: -100vh;
   left: -100vw;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  /*z-index: 50;*/
+  z-index: 50;
   transition: left 0.5s, top 0.5s 0.5s ease-out;
 
   &::before {
     content: "";
     position: absolute;
-    top: -100vh;
+    top: 100vh;
     left: 100vw;
     width: 100vw;
     height: 100vh;

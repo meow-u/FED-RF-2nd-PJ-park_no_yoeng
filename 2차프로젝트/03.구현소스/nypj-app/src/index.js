@@ -65,7 +65,7 @@ export default function App() {
           {collectionArr.map((v, i) => (
             <Route key={i} path={"Collection/" + v} element={<Penhaligons />} />
           ))}
-          {productArr.map((v, i) => (
+          {productArr.map((_, i) => (
             <Route
               key={i}
               path={"Shop/product/" + (i + 1)}

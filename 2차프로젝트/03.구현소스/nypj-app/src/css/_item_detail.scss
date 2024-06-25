@@ -1,1 +1,43 @@
 // 상품상세 모듈 모듈 SCSS - _item_detail.scss
+#ItemDetail-area {
+   min-height: 100vh;
+   .ItemDetail {
+      .cont-box {
+         position: relative;
+         min-height: 100vh;
+
+         display: block;
+         .left-box {
+            /* 스티키상자 높이와 맞춤 */
+            margin-top: -400px;
+            width: 66.66%;
+         }
+         .mySwiper {
+            display: flex;
+            flex-direction: column;
+            .slide-img {
+               width: 100%;
+            }
+            .slide-txt{
+                padding: 50px 0px;
+                text-align: center;
+            }
+         }
+         .img-box {
+            .sub-img {
+               width: 100%;
+               object-fit: cover;
+               vertical-align: middle;
+            }
+         }
+         .col-4 {
+            background: var(--bg-color1);
+            margin-left: auto;
+            position: sticky;
+            top: 0px;
+            height: 400px;
+            width: 33.33%;
+         }
+      }
+   }
+}

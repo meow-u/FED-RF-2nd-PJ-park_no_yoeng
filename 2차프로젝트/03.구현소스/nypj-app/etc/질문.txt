@@ -1,0 +1,38 @@
+   // [대상코드]상단메뉴 검색창에서 재검색할경우
+   // 검색 가능하도록 검색어비교를 위한 검색어를 저장한다
+   // 리랜더링 없이 값만 저장하는 후크는 useEef? 참조변수사용!
+   // (컴포 탄생시에만 읽고 메모리에 저장.  리랜더링시 읽지않음.)
+   const beforeKword = useRef(kword);
+   // 참조변수는 객체이다! 그래서 하위속성중
+   // current 속성으로 값을 읽거나 업데이트 한다!
+   console.log('직전값 참조변수객체:',beforeKword);
+   // 만약 조금전 저장된 검색어와 지금 검색어가 다르다면?
+   // 검색어 상태변수를 업데이트한다!
+   if(beforeKword.current != kword){
+      console.log("●●●●●",beforeKword.current,'==?',kword);
+      // [1] 컴포넌트 리랜더링 (검색결과 변경!)
+      setKw(kword);
+      // [2] 다음검색을 위해 다시 현재 검색어를 참조변수에 저장한다
+      beforeKword.current= kword;
+      // [3] 상단검색어를 현재 검색창에 넣기
+      document.querySelector('#schin').value= kword;
+   }////// if //////////
+
+   /////////////////////////////////////////////
+
+   useEffect(() => {
+      // [비교 코드]
+      let preval = document.querySelector("#schin").value;
+
+      document.querySelector("#schin").addEventListener("keyup", (e) => {
+         if (e.key == "Enter") {
+            if (preval != kword) {
+               console.log("◆◆◆", preval, "!=", kword);
+               document.querySelector("#schin").value = kword;
+               setKw(kword);
+            }
+         }
+      });
+   });
+
+이 차이가 뭘까!!

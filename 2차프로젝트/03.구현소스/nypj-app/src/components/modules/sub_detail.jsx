@@ -120,7 +120,7 @@ export default function SubDetail({ subName, dataNum }) {
       {/* 비디오 */}
       <Video vidName={selData.video} />
       {/* 관련상품 */}
-      <SwiperItemSlide idname={"bestitem-area " + selData.img[0].includes("collection")} selData={selData} />
+      <SwiperItemSlide idname={"bestitem-area " + (selData.img[0].includes("collection")?'colletion':"")} selData={selData} />
     </>
   );
 } //////////// SubDetail 컴포넌트 ////////

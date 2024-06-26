@@ -170,20 +170,22 @@ export default function SwiperItemSlide({ idname, selData, itemIdx }) {
                               : 0 // 모두 아니면 sort값이 0으로 정렬하지 않음
                      ) //랜덤한 순서로 정렬
                      // 필터는 데이터 바로 뒤에 사용해야함 (map이후에 사용하면  데이터가 바뀔수 있음)
-                      
-                     .filter((v, i) => {
-                       let filterName = v.idx == itemIdx && v.name[0].split(' ')[1];
 
-                      //  console.log(v.idx == itemIdx && v.name[1]);//영어이름출력
-                        console.log('filterName:',filterName)// idx가 일치하는 요소의 한글이름중 두번쨰 단어 출력
+                     .filter((v, i) => {
+                        // idx가 일치하는 요소의 한글이름중 두번쨰 단어 출력
+                        let filterName =
+                           v.idx == itemIdx && v.name[0].split(" ")[1];
+
+                        //영어이름출력
+                        //  console.log(v.idx == itemIdx && v.name[1]);
+                        console.log("filterName:", filterName);
 
                         return isCollecMenu
                            ? v.collection === selData.tit[4]
                            : isProductMenu
-                           ? 
-                          //  (v.name[1].includes(v.idx == itemIdx && v.name[1])) ||
-                           v.name[0].includes(filterName)
-                           : v
+                           ? //  (v.name[1].includes(v.idx == itemIdx && v.name[1])) ||
+                             v.name[0].includes(filterName)
+                           : v;
                      })
                      // selData.tit[4]는 각각의 컬렉션 명 sub_page_data 파일에서  products_data와 와 연결함
 

@@ -172,7 +172,7 @@ export default function SwiperItemSlide({ idname, selData, itemIdx }) {
                      // 필터는 데이터 바로 뒤에 사용해야함 (map이후에 사용하면  데이터가 바뀔수 있음)
                       
                      .filter((v, i) => {
-                       let filterName = v.idx == itemIdx && (v.name[0]).split(' ')[1];
+                       let filterName = v.idx == itemIdx && v.name[0].split(' ')[1];
 
                       //  console.log(v.idx == itemIdx && v.name[1]);//영어이름출력
                         console.log('filterName:',filterName)// idx가 일치하는 요소의 한글이름중 두번쨰 단어 출력

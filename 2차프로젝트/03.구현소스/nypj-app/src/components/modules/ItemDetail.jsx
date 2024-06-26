@@ -1,6 +1,6 @@
 // 펜할리곤스 상품상세 모듈  ItemDetail.jsx
 
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 // 데이터 불러오기
 import { allProducts } from "../data/products_data";
 // css 불러오기
@@ -13,13 +13,18 @@ import $ from "jquery";
 function ItemDetail({ itemIdx }) {
   console.log("product에서 받아온 itemIdx:", itemIdx);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     // 상세페이지 우측박스높이로 좌측 마진탑 - 값 설정
     // 윈도우가 리사이즈 될때마다 실행
 
-    $(window).scrollTop(0,0);
+    //////////////////////////// 부드럽게 상단이동
+    $("html,body").animate({
+      scrollTop: ($(".main-wrap").offset().top) 
+      + "px",
+    },400);
+    ////////////////////////////
     
-    let imgH = ()=> $(".left-box").css({ marginTop: -$(".right-box").height() + 15 });
+    let imgH = ()=> $(".left-box").css({ marginTop: -$(".right-box").height() + 15});
     $(window).on("load", function () {
       imgH();
     });

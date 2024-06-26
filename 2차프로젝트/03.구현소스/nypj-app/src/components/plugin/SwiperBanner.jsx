@@ -118,7 +118,7 @@ export default function Banner() {
           <div className="swiper-wrapper">
             {bannerImg.map((v, i) => (
               <SwiperSlide key={i} className="col-12 swiper-slide">
-                <img
+                <img className={i==0 ? "first":''}
                   src={`${process.env.PUBLIC_URL}/images/banner_${i + 1}.jpg`}
                   alt={`banner${i + 1}`}
                 />

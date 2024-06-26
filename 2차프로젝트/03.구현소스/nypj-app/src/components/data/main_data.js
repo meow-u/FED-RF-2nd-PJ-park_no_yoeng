@@ -120,7 +120,7 @@ const sideMenu = [
 
 // 타이틀 컴포넌트 텍스트 데이터
 const titleTxt = {
-  brand: ["The value of trust", "About Penhaligons", "Learn more"],
+  brand: ["The value of trust", "About NewProduct", "Learn more"],
   blog: ["Our new stories", "Penhaligon's Magazine", "Learn more"],
   Penhaligons: ["History and values", "About Penhaligons", "Check our this video"],
   story: ["Our stories", "Take a closer look", "Check our this video"],

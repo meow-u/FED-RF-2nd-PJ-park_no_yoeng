@@ -40,7 +40,7 @@ export default function Video({ vidName = "images/main.mp4" }) {
           txtData={titleTxt}
           type={
             /* 해당 변수가 특정문자를 포함하는지 검사 includes() */
-            vidName.includes("brand_detail")
+            vidName.includes("images/main.mp4")
               ? "Penhaligons"
               : vidName.includes("story_detail")
               ? "story"

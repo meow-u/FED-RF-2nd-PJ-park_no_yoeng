@@ -1,5 +1,5 @@
 // 펜할리곤스 스와이퍼 -신상품 모듈 (메인페이지)
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // 스와이퍼 불러오기
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -26,11 +26,16 @@ import { Title } from "../modules/title";
 import "./css/Swiper_itemSlide.scss";
 
 export default function SwiperItemSlide({ idname, selData, itemIdx }) {
+   let [index, setIndex] = useState(0);
+   // 리랜더링을 위해 상태값으로 itemIdx 받아옴
+
+
+   // 상품상세페이지일때 받아온 idx로 상품데이터 필터링
    let detaildata;
    let filterName;
-   if (itemIdx) {
+   if (itemIdx) {//모든상품을 순회 후 
       detaildata = allProducts.find((v) => v.idx === itemIdx);
-
+      // 이름을 공백으로 나눠서 두번째 단어를 필터링
       filterName = detaildata.name[0].split(" ")[1];
    }
    console.log("detaildata", detaildata, "filterName", filterName);
@@ -142,7 +147,7 @@ export default function SwiperItemSlide({ idname, selData, itemIdx }) {
                // 슬라이드반복여부
                loop={true}
                // 자동넘김 (모듈)
-               // autoplay={idname === "newitem-area" ? newAuto : bestAuto}
+               autoplay={idname === "newitem-area" ? newAuto : bestAuto}
                /* 영역별 가로 사이즈 스와이퍼 설정변경 */
                breakpoints={idname === "newitem-area" ? newItem : bestItem}
                // 스와이퍼 사용모듈
@@ -200,6 +205,8 @@ export default function SwiperItemSlide({ idname, selData, itemIdx }) {
                            <Link
                               to={`/shop/product/${v.idx}`}
                               state={{ itemIdx: v.idx }}
+                              key={i}
+
                            >
                               <img
                                  src={`${process.env.PUBLIC_URL}/images/${v.img}`}

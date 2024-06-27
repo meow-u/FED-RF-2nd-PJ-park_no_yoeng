@@ -7,7 +7,7 @@
 import { allProducts } from "../data/products_data";
 
 // svg 불러오기
-import {EmptyHeartSvg } from "../data/svg/empty_heart.jsx";
+import { EmptyHeartSvg } from "../data/svg/empty_heart.jsx";
 
 // css 불러오기
 import { Link } from "react-router-dom";
@@ -29,50 +29,56 @@ export function Inner({ type, data, idx }) {
   console.log("itemdata:", itemdata);
   return (
     <section className="textbox-wrap">
-      <div>
+      <div className="tit-bx">
         <span className="stit"></span>
         <small>{type ? type.stit : itemdata.type}</small>
-        {data&&<EmptyHeartSvg/>}
+        {data && <EmptyHeartSvg />}
       </div>
+
       <h2 className={data ? "item-name" : ""}>
         {type ? type.tit : itemdata.name[1]}
       </h2>
-     {type && <span
-            className="text"
-            dangerouslySetInnerHTML={{
-              __html:type.text
-            }}
-            ></span>}
+      {type && (
+        <span
+          className="text"
+          dangerouslySetInnerHTML={{
+            __html: type.text,
+          }}
+        ></span>
+      )}
       {data && (
         <>
-          <div class="reviews">
-            <span class="star-box">
+          <div className="reviews">
+            <span className="star-box">
               {Array(5)
                 .fill()
                 .map((_, i) => (
-                  <span key={i} class="star">
+                  <span key={i} className="star">
                     ☆
                   </span>
                 ))}
             </span>
-       
+
             <span className="reviewcount">{itemdata.review} reviews</span>
           </div>
           <p className="kname">{itemdata.name[0]}</p>
           <span className="price">₩{itemdata.price}</span>
-          <select onchange="" className="option">
+          <select className="option">
             <option value="">옵션 선택</option>
             <option value="1">1개</option>
             <option value="2">선물 포장(+0)</option>
           </select>
+
           <span
             className="text"
             dangerouslySetInnerHTML={{
               __html: itemdata.info[0],
             }}
-            ></span>
+          ></span>
+          <div className="btn-wrap">
             <button className="item-button buy">Buy a product</button>
             <button className="item-button cart">Add to cart</button>
+          </div>
         </>
       )}
       {type && (

@@ -91,10 +91,10 @@
         h2.item-name {
           width: 100%;
           padding-bottom: 10px;
-          font-size: clamp(14px, 4vw, 7vw);
+          font-size: clamp(25px, 4vw, 7vw);
         }
         .kname {
-          font-size: min(15px, 2vw);
+          font-size: clamp(14px, 1vw, 2vw);
         }
         span.price {
           padding: 10px 0px;
@@ -110,7 +110,8 @@
           text-align: justify;
           line-height: 1.5;
           display: block;
-          font-size: min(14px, 2vw);
+
+          font-size: clamp(12px, 0.5vw, 1vw);
           font-family: "Open Sans", sans-serif;
           padding: 10px;
         }
@@ -150,5 +151,24 @@
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #ItemDetail-area .ItemDetail {
+    .cont-box {
+      .col-4 {
+        background: white var(--bg-color1);
+        top: 0px;
+        transform: translateY(calc(100vh - 100%));
+        width: auto;
+        z-index: 2;
+        overflow: hidden;
+        transform-origin: bottom;
+      }
+    }
+  }
+  section.bestitem-area {
+    margin-top: 50vh;
   }
 }

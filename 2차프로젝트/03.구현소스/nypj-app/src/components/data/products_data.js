@@ -700,7 +700,7 @@ const allProducts = [
       ],
       price: "172,000",
       img: "products_44.jpg",
-      subimg:4,
+      subimg:3,
       review: 267,
     },
     {

@@ -152,12 +152,23 @@ export default function SearchInner({ keyword }) {
   } /// else if /////////////////
   else if (sort === "sprice") {
     schItemData.sort((a, b) =>
-      a.price < b.price ? -1 : a.price > b.price ? 1 : 0
+      // parseFloat()는 문자열을 숫자로 변환 예) "19000" -> 19000
+      // replace(/,/g,'')는 문자열에서 ,를 제거 예) "19,000" -> 19000
+      // console.log(parseInt(a.price.replace(/,/g,"")), parseInt(b.price.replace(/,/g,"")))
+      parseInt(a.price.replace(/,/g, "")) < parseInt(b.price.replace(/,/g, ""))
+        ? -1
+        : parseInt(a.price.replace(/,/g,'')) > parseInt(b.price.replace(/,/g,'')) 
+        ? 1
+        : 0
     );
   } /// else if /////////////////
   else if (sort === "bprice") {
     schItemData.sort((a, b) =>
-      a.price > b.price ? -1 : a.price < b.price ? 1 : 0
+      parseInt(a.price.replace(/,/g, "")) > parseInt(b.price.replace(/,/g, ""))
+        ? -1
+        : parseInt(a.price.replace(/,/g,'')) < parseInt(b.price.replace(/,/g,'')) 
+        ? 1
+        : 0
     );
   } /// else if /////////////////
   // [페지네이션 기능 추가하기] /////////
@@ -188,7 +199,7 @@ export default function SearchInner({ keyword }) {
       console.log("변경!");
       // // 첫번째 페이지 강제 트리거
       // $(()=>{}) 태그 로딩후 실행구역에 쓰면 됨!
-      $(()=>{
+      $(() => {
         $(".page a").eq(0).trigger("click");
       });
 

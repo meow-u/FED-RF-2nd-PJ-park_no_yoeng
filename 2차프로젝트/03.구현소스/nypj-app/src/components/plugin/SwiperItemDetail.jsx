@@ -43,7 +43,7 @@ export default function SwiperDetail({ data, idx }) {
             loop={true}
             // 스와이퍼 사용모듈
             modules={[ Pagination, Navigation, Autoplay, EffectFade ]}
-            className="mySwiper"
+            className="mySwiper product-swiper"
          >
             {data.map(
                (_, i) =>

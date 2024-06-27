@@ -5,6 +5,8 @@ const hamFunction = () => {
   const Allmenu = document.querySelectorAll(".hambox>ul>li>a"); // 메인 메뉴 항목
   const submenu = document.querySelector(".sub-menu"); // 서브 메뉴
 
+
+  
   // 2. 필수 요소가 없으면 함수를 종료
   if (!ham || !hambox || !submenu) {
     console.error("필수 요소를 찾을 수 없습니다.");

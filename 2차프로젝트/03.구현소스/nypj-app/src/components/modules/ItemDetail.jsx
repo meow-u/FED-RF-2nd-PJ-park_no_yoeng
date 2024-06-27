@@ -14,32 +14,38 @@ function ItemDetail({ itemIdx }) {
   console.log("product에서 받아온 itemIdx:", itemIdx);
 
   useEffect(() => {
-    // 상세페이지 우측박스높이로 좌측 마진탑 - 값 설정
-    // 윈도우가 리사이즈 될때마다 실행
+    console.log("아이템디테일 랜더링");
 
     //////////////////////////// 부드럽게 상단이동
-    $("html,body").animate({
-      scrollTop: ($(".main-wrap").offset().top) 
-      + "px",
-    },400);
-    ////////////////////////////
-    
-    let imgH = ()=> $(".left-box").css({ marginTop: -$(".right-box").height() + 15});
-    $(window).on("load", function () {
-      imgH();
-    });
+    $("html,body").animate(
+      {
+        scrollTop: $(".main-wrap").offset().top + "px",
+      },
+      400
+    );
+    // 상세페이지 우측박스높이로 좌측 마진탑 - 값 설정
+    let imgH = () =>
+      $(".left-box").css({ marginTop: -$(".right-box").height() + 15 });
+
+    // 랜더링시 한번실행
+    imgH();
+    // 윈도우 리사이즈시 실행
     $(window).resize(function () {
       imgH();
     });
 
+    // swiper pagination bullet에 이미지 삽입
     imgArr.map((v, i) => {
-        $(`.swiper-pagination-bullet:nth-child(${i})`).css({
-          background: `url(${
-            process.env.PUBLIC_URL
-          }/images/products_${itemIdx}/${i}.png) no-repeat center/cover`,
-        });
+      $(`.product-swiper .swiper-pagination-bullet:nth-child(${i})`).css({
+        background: `url(${process.env.PUBLIC_URL}/images/products_${itemIdx}/${i}.png) no-repeat center/cover`,
+      });
     });
-  });
+
+    // 컴포넌트가 unmount 될 때 cleanup 함수 실행
+    return () => {
+      $(window).off("resize");
+    };
+  }); // 여기에 빈배열을 담으니, 관련상품 클릭시 리랜더링 되지않아 지움.
   // 이미지갯수 전역변수
   let imgArr;
   // 전체상품중 전달받은 idx와 같은 데이터 추출 후 변수에 재할당
@@ -60,7 +66,10 @@ function ItemDetail({ itemIdx }) {
           <div className="left-box">
             <SwiperDetail data={imgArr} idx={itemIdx} />
             <span className="item-txt">
-              {allProducts.map(v=> v.idx === itemIdx? `"${v.subtit}"`:"")}</span>
+              {allProducts.map((v) =>
+                v.idx === itemIdx ? `"${v.subtit}"` : ""
+              )}
+            </span>
             <div className="img-box">
               {imgArr.map(
                 (_, i) =>
@@ -77,10 +86,14 @@ function ItemDetail({ itemIdx }) {
                   )
               )}
             </div>
-            {allProducts.map(v=> v.idx === itemIdx?<>
-            <span className="inner-txt name" >{v.name[1]}</span> 
-            <span className="inner-txt next">"{v.info[1]}"</span></>
-            :"")}
+            {allProducts.map((v, index) =>
+              v.idx === itemIdx ? (
+                <React.Fragment key={index}>
+                  <span className="inner-txt name">{v.name[1]}</span>
+                  <span className="inner-txt next">"{v.info[1]}"</span>
+                </React.Fragment>
+              ) : null
+            )}
           </div>
         </div>
       </section>

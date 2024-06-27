@@ -96,8 +96,8 @@ export default function SwiperItemSlide({ idname, selData, itemIdx }) {
       disableOnInteraction: false,
    };
 
-   const isCollecMenu = idname.includes("colletion"); // 컬렉션상세페이지에 true 클래스 넣어둠
-   const isProductMenu = idname.includes("product"); // 상품상세페이지에 true 클래스 넣어둠
+   const isCollecMenu = idname.includes("colletion"); 
+   const isProductMenu = idname.includes("product");
    console.log("idname.includes('colletion')", idname.includes("colletion"));
    console.log("idname.includes('product')", idname.includes("product"));
    console.log(

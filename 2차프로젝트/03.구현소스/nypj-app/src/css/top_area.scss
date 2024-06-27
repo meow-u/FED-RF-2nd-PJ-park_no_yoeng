@@ -15,6 +15,20 @@
   &.click {
     rotate: -235deg;
   }
+  &.click::after {
+    translate: -25% 20%;
+  }
+
+  &::after {
+    translate: 110% 60%;
+    content: "";
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background: #00000078;
+    filter: blur(2px);
+  }
 }
 /* ********************1.상단영역******************** */
 @keyframes top-ani {
@@ -25,7 +39,6 @@
     translate: 0 0%;
   }
 }
-
 
 #top-area {
   animation: top-ani 0.6s ease-in-out 2s forwards;
@@ -55,6 +68,10 @@
       &:hover {
         color: #fff;
       }
+
+      &.searchicon {
+        padding-right: 0.3px;
+      }
     }
 
     .search-box {
@@ -69,7 +86,7 @@
       border-radius: 100px;
       transition: 0.3s;
       //  animation: box-ani 1s linear 0s forwards;
-      filter: drop-shadow(2px 3px 3px rgb(184, 184, 184));
+      // filter: drop-shadow(2px 3px 3px rgb(184, 184, 184));
       overflow: hidden;
 
       @keyframes box-ani {
@@ -302,7 +319,7 @@
 ul.sidebox {
   display: flex;
   flex-wrap: nowrap;
-  filter: invert(1);
+  // filter: invert(1);
   li > a {
     display: inline-block;
     width: 17px;
@@ -376,9 +393,6 @@ ul.sidebox {
   }
   #top-area .tmenu.col-4 {
     padding-right: 5px;
-  }
-  ul.sidebox li:nth-child(1) > a {
-    padding-right: 10px;
   }
 }
 @media screen and (max-width: 650px) {

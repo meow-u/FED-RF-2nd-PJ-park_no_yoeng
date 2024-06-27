@@ -70,6 +70,7 @@
 }
 .swiper-button-prev,
 .swiper-button-next {
+  pointer-events: auto;
   filter: drop-shadow(2px 4px 6px black);
   cursor: none;
   font-weight: 500;

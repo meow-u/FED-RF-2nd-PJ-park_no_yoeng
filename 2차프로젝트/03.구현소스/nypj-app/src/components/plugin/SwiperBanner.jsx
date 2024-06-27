@@ -23,6 +23,7 @@ import { bannerImg } from "../data/main_data";
 import "./css/Swiper_banner.scss";
 
 export default function Banner() {
+  console.log('메인배너리랜더링');
   // const rdArr =  bannerImg.sort(()=>Math.random()-0.5); // 결과가 배열이라 얕은복사되어 같은배열이 된다.
 
   // const rdArr = bannerImg.slice(); // 배열복제 (깊은복사) 또는
@@ -35,7 +36,6 @@ export default function Banner() {
 
   const rdArrIdx = Math.floor(Math.random() * bannerImg.length); 
   // 랜덤한 인덱스값 만들기 ( 결과는 0 부터 배열길이-1 사이의 idx 값이 나온다. )
-  console.log('메인베너 랜더링!');
   console.log('rdArrIdx(배너랜덤인덱스)',rdArrIdx); // 랜덤한 인덱스값 확인
 
 
@@ -51,7 +51,7 @@ export default function Banner() {
           virtualTranslate={true}
           uniqueNavElements={true}
           // 마우스 커서를 손가락 모양으로 변경
-          // grabCursor={true}
+          grabCursor={true}
           // 슬라이드 사이 여백
           spaceBetween={30}
           // 슬라이드 효과 (모듈)

@@ -2,15 +2,18 @@
 import { useLocation } from "react-router-dom";
 import SearchInner from "./SearchInner";
 import { useEffect } from "react";
-import {bgFn} from "../func/bgFn";
+import {changebgFn, resetBgFn} from "../func/bgFn";
 
 
 
 export default function Search(){
 
-    useEffect(()=>{
-        bgFn();
-    });
+    // useEffect(()=>{
+    //     changebgFn();
+    //     return () => {
+    //         resetBgFn();
+    //     };
+    // });
 
     const loc = useLocation();
     let txt = loc.state.keyword;

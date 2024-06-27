@@ -202,6 +202,8 @@ export default function SearchInner({ keyword }) {
       $(() => {
         $(".page a").eq(0).trigger("click");
       });
+      // 스크롤 이동
+      $("html,body").animate({ scrollTop: ($(".main-wrap").offset().top) + "px"}, 400);
 
       // // 첫번째 페이지 on클래스 추가 (왜 추가가 안되지??)
       // $(".page a.first")

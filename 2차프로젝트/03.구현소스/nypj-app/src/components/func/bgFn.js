@@ -1,7 +1,7 @@
 // 배경전환 이벤트
 import $ from 'jquery';
 
-let bgFn =()=>{
+let changebgFn =()=>{
     $(".swiper-slide img.first").attr("src",`${process.env.PUBLIC_URL}/images/search.jpg`);
 
     $(".swiper-slide img.first").parent().css("transition","0s")
@@ -11,5 +11,15 @@ let bgFn =()=>{
     $(".swiper-pagination").css("display","none");
 };
 
+let resetBgFn = () => {
+    // 기본 이미지 경로를 지정합니다.
+    $(".swiper-slide img.first").attr("src", `${process.env.PUBLIC_URL}/images/default.jpg`);
 
-export {bgFn};
+    // 인라인 스타일을 제거하여 CSS 스타일을 적용합니다.
+    $(".swiper-slide img.first").parent().removeAttr("style")
+        .siblings().removeAttr("style");
+    $(".swiper-button-next").removeAttr("style");
+    $(".swiper-button-prev").removeAttr("style");
+    $(".swiper-pagination").removeAttr("style");
+};
+export {changebgFn, resetBgFn};

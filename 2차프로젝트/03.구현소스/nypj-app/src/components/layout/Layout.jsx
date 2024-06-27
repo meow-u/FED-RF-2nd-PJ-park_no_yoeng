@@ -5,10 +5,12 @@ import React, { useCallback, useEffect, useState } from "react";
 import TopArea from "./TopArea";
 import MainArea from "./MainArea";
 import FooterArea from "./FooterArea";
+import { useLocation } from "react-router-dom";
 
 // [1] 메인 페이지 전체 레이아웃 로딩 컴포넌트 ///
 
 export function Layout() {
+const loc = useLocation();
 
 
   let scrollTop = () => {

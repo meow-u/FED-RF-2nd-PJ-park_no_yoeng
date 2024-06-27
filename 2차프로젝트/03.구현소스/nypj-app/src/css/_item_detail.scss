@@ -155,20 +155,23 @@
 }
 
 @media screen and (max-width: 800px) {
-  #ItemDetail-area .ItemDetail {
-    .cont-box {
-      .col-4 {
-        background: white var(--bg-color1);
-        top: 0px;
-        transform: translateY(calc(100vh - 100%));
-        width: auto;
-        z-index: 2;
-        overflow: hidden;
-        transform-origin: bottom;
+  #ItemDetail-area {
+
+    .ItemDetail {
+      .cont-box {
+        .col-4 {
+          background: white var(--bg-color1);
+          top: 0px;
+          transform: translateY(calc(100vh - 100%));
+          width: auto;
+          z-index: 2;
+          overflow: hidden;
+          transform-origin: bottom;
+        }
       }
     }
   }
-  section.bestitem-area {
+  section.bestitem-area.product{
     margin-top: 50vh;
   }
 }

@@ -27,6 +27,6 @@
     font-size: 10px;
   }
   .link a {
-    font-size: 13px;
+    font-size: clamp(10px, 1.5vw, 15px);
   }
   

@@ -6,7 +6,7 @@ import { Title } from "./title";
 import { titleTxt } from "../data/main_data";
 import { useEffect } from "react";
 
-export default function Video({ vidName = "images/main.mp4" }) {
+export default function Video({ vidName = (process.env.PUBLIC_URL+"/images/main.mp4") }) {
   console.log("vidName", vidName);
 
   // 비디오가 화면에 등장할때 자동재생되도록 설정하기

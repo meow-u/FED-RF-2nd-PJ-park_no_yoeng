@@ -14,7 +14,7 @@ but 한국 공식홈페이지는 네이버스토어로 레이아웃이 규격화
 
 --------------------------------------------
 [ 공통 구조 ]
-반응형 및 유연한 레이아웃: aspect-ratio 속성과 
+반응형 및 유연한 레이아웃: aspect-ratio 속성과 inbox
 flexbox를, 12그리드를 활용하여 유연하고 반응형 레이아웃을 구성
 
 <div id="some-area">
@@ -42,3 +42,78 @@ flexbox를, 12그리드를 활용하여 유연하고 반응형 레이아웃을 �
 
 
 [2]....
+
+[ 공통 구조 ]
+반응형 및 유연한 레이아웃: aspect-ratio 속성과 inbox
+flexbox를, 12그리드를 활용하여 유연하고 반응형 레이아웃을 구성
+--------------------------------------------
+로딩 애니메이션
+
+svg를 이용하여 css 이미지 마스킹 후 animation을 통한 사이즈 변경
+// mask-size: 0%~ 500% ; mask-image: url("이미지");
+// animation: loding-ani 2s linear 0s forwards;
+--------------------------------------------
+메인상단 배너 스와이퍼 영역
+
+슬라이드 이미지 갯수를 구해 랜덤한 인덱스를 생성 후 할당
+// <Swiper initialSlide={생성숫자} (initialSlide = 처음보여질 슬라이드 순번)
+활성슬라이드 순번의 양/음수를 분기하여 - , + 값으로 전환시 transform 스타일 반전
+// OnSlideChangeTransitionStart={(swiper) => {활성슬라이드 스타일지정}}
+--------------------------------------------
+신상품/ 베스트상품 스와이퍼 영역
+
+동일 컴포넌트에서 영역구분아이디를 구조분해할당받아 분기
+//const isCollecMenu = idname.includes("영역명"); …
+스와이퍼 속성을 삼항연산자로 분기하여 영역별 속성, 스타일 지정
+// slidesPerView(보이는수)= { idname === "newitem-area" || isProductMenu ? 4 : 3}
+const TopVal = (x) => x.getBoundingClientRect().top; //위치값 리턴함수
+const FirstTopVal = TopVal(fistBox); //대상영역 위치값 변수
+transform = `translateY( ${Math.abs(FirstTopVal) * 2} px )`; //할당
+--------------------------------------------
+브랜드&블로그 영역 스크롤 크로스오버
+
+getBoundTop 위치값을 변수로 지정
+특정 범위에서 위치값 *2를 절대값변경 후 translate y축 할당
+--------------------------------------------
+상품디테일 영역
+
+상품 클릭시 받아온 전체상품 데이터의 특정상품 idx를, 이미지폴더이름의 idx와 매칭하여 특정상품의 추가 이미지와
+텍스트 를 상세페이지에 출력.
+전체상품 데이터에서 filter로 받아온 idx가 일치하는 해당 상품 객체만 가져온 후, 해당객체의 카테고리 속성값으로
+다시 전체상품데이터에서 filter하여 관련 상품 리스트 출력
+--------------------------------------------
+검색 영역
+
+검색어, 정렬기준, 체크박스, 페이지 상태관리 변수 이용
+
+검색어 : 검색어와 필터링 기준은 소문자+공백 제거
+LowerNoSpace = (x) => x.toLocaleLowerCase().replace(/\s/g, "");
+검색어를 각 상품명속성 값의 배열(영어,한글)기준으로 필터링
+
+정렬기준 : value = asc / desc / new / review / sprice
+<select> 박스의 자식요소 <option>의 value 값을 읽어와서
+if문으로 분기 후 각각 출력상품 sort처리
+
+체크박스
+체크시 요소id(카테고리)를 '상태관리변수배열' 에 추가/삭제
+처음에 전체 체크// all product 체크박스클릭시 전체해제
+let [체크변수, set체크] = useState(초기에전체값할당);
+set체크변수((직전값)=>{
+if 체크시 [...직전값, id추가(카테고리)]
+ else if 직전값.filter((v) => v !== id); })
+전체 상품 데이터를 체크 변수로 필터 후
+각 v (개별상품) 카테고리속성의 값이 chk 배열이름과 일치하면 리턴 → 해당 카테고리만 정렬 출력
+
+페이지
+페이지 갯수는 결과데이터를 12로 나눈 값을 배열로 만들고
+map 이용해 순번 리스트 생성
+{Array(Math.ceil(schItemData.length / 12))
+ .fill(0) .map((v, i) => (페이지 i+1))}
+필터가 된 데이터를 slice로 잘라 출력
+ resultData = prevData.slice(start, end);
+start = (page - 1) * perPage;
+end = start + perPage;
+// 1페이지일시 보여지는 데이터 인덱스 0~11
+ (0부터시작 12전까지)
+ // 2페이지일시 보여지는 데이터 인덱스 12~23
+ (12부터시작 24전까지)

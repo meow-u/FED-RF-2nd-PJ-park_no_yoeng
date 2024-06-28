@@ -52,8 +52,7 @@ export default function Video({ vidName = (process.env.PUBLIC_URL+"/images/main.
         <h2 className="temp-tit">4. 비디오영역</h2>
         <div className="cont-box">
           <div className="col-12">
-            {/* 아이폰은 playsInline 넣어야 동영상이 별창으로 뜨지않고 
-            영역내에서 재생 됨 */}
+            {/*  iOS에서 비디오가 전체 화면 플레이어로 열리는 것을 방지하고 웹 페이지의 일부로서 자연스럽게 재생되도록 보장 */}
             <video playsInline={true}
               src={
                 // 밖에서 값을 받아오면 (기본값이아니면)

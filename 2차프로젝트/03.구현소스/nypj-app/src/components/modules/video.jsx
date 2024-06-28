@@ -56,8 +56,8 @@ export default function Video({ vidName = "images/main.mp4" }) {
               src={
                 // 밖에서 값을 받아오면 (기본값이아니면)
                 // 주소 + 받아온파일명 , 아니면 기본값 적용
-                vidName !== (process.env.PUBLIC_URL+"images/main.mp4")
-                  ? (process.env.PUBLIC_URL+"/images/sub_page/") + vidName
+                vidName !== (process.env.PUBLIC_URL+"/images/main.mp4")
+                  ? (process.env.PUBLIC_URL+"/images/sub_page/" + vidName)
                   : vidName
               }
               // autoPlay

@@ -178,7 +178,7 @@ export default function TopArea({ scrollFn }) {
                 <img src={`${process.env.PUBLIC_URL}/images/logo.png`} alt="메인로고" />
                 <img
                   className="mobile"
-                  src="/images/footer_logo.png"
+                  src={`${process.env.PUBLIC_URL}/images/footer_logo.png`}
                   alt="메인로고"
                 />
               </Link>

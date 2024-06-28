@@ -394,12 +394,13 @@ ul.sidebox {
   #top-area .tmenu.col-4 {
     padding-right: 5px;
   }
-}
-@media screen and (max-width: 650px) {
   #top-area {
     .tmenu.col-4 .search-box {
       translate: -69% 75%;
     }
+  }
+  .cursor {
+    display: none;
   }
 }
 @media screen and (max-width: 500px) {

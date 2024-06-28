@@ -58,7 +58,7 @@ export default function Video({ vidName = (process.env.PUBLIC_URL+"/images/main.
                 // 주소 + 받아온파일명 , 아니면 기본값 적용
                 vidName !== (process.env.PUBLIC_URL+"/images/main.mp4")
                   ? (process.env.PUBLIC_URL+"/images/sub_page/" + vidName)
-                  : vidName
+                  : (process.env.PUBLIC_URL+"/images/main.mp4")
               }
               // autoPlay
               loop

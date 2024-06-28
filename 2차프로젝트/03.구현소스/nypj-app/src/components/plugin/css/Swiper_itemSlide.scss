@@ -1,4 +1,6 @@
 #newitem-area {
+  
+  user-select: none;
   overflow: hidden;
   position: relative;
   background: linear-gradient(45deg, #000000, #ffffff14),
@@ -38,6 +40,7 @@
   }
 }
 .newitem-area {
+  
   position: relative;
   width: 80%;
   .swiper-slide.swiper-slide {
@@ -69,6 +72,8 @@
 }
 
 .bestitem-area {
+  
+  user-select: none;
   h2.etit {
     padding-top: 10px;
     font-family: "Cormorant Garamond", serif;

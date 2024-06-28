@@ -6,6 +6,7 @@
 
 // ****** 2. 배너영역 **************
 #ban-area {
+  user-select: none;
   position: relative;
   z-index: 2;
   background: radial-gradient(black, #000000b5);

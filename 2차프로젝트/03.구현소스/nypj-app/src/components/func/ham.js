@@ -1,5 +1,5 @@
 // 1. 대상요소
-const hamFunction = () => {
+const hamFn = () => {
    const ham = document.querySelector(".ham"); // 햄버거 메뉴 버튼
    const hambox = document.querySelector(".hambox"); // 숨긴 전체 메뉴 박스
    const Allmenu = document.querySelectorAll(".hambox>ul>li>a"); // 메인 메뉴 항목
@@ -15,17 +15,24 @@ const hamFunction = () => {
    let isHamClick = false;
    ham.onclick = () => {
     // 
+   //  console.log("클릭");
     if(ham.classList.contains("on")){
+      // console.log("on있음");
      if(isHamClick)return;
     isHamClick = true;
+   //  console.log("false>true변경");
     setTimeout(() => {
       isHamClick = false;
+      // console.log("0.7초후 false로 변경");
     }, 700);
   }else if (!ham.classList.contains("on")){
+   // console.log("on없음");
     if(isHamClick)return;
     isHamClick = true;
+      // console.log("false>true변경");
     setTimeout(() => {
       isHamClick = false;
+      // console.log("2초후 false로 변경");
     }, 2000);
 
   }
@@ -35,6 +42,7 @@ const hamFunction = () => {
       document.body.style.height = "100%"; // 모바일에서 메뉴 열렸을 때 body 높이 조정
       // // 햄버거 메뉴가 닫힐 때
       toggleMenu(); // 메뉴 여닫기
+      // console.log("햄버거on토글!");
    };
 
    // 4. 메인 메뉴 항목 클릭 이벤트
@@ -119,4 +127,4 @@ const hamFunction = () => {
       }
    }
 };
-export default hamFunction;
+export default hamFn;

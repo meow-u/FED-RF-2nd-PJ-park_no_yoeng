@@ -31,7 +31,7 @@ export default function TopArea({ scrollFn }) {
     console.log("클릭됐다!");
     //기본기능막기
     e.preventDefault();
-    $('.input').focus();
+    $(".input").focus();
     // 아이콘 숨기고 포인터 막기
     $(".searchicon").css("opacity", "0").css("pointer-events", "none");
     // 검색박스 보이고 애니메이션
@@ -46,6 +46,7 @@ export default function TopArea({ scrollFn }) {
     setTimeout(() => {
       $(".search-box").css("animation", "none");
     }, 500);
+
   };
 
   // 탑메뉴 휠 위아래에 따라 보이기/숨기기 함수
@@ -58,14 +59,25 @@ export default function TopArea({ scrollFn }) {
         // console.log("위로 스크롤발생값",e.deltaY);
         $("#top-area").css("transform", "translateY(0%)");
       }
+    });
 
-      // 스크롤위치가 0이면 다시 보이기
-      window.addEventListener("scroll", () => {
-        // console.log("스크롤위치누적값", window.scrollY);
-        if (window.scrollY <= 0) {
-          $("#top-area").css("transform", "translateY(0%)");
-        }
-      });
+    window.addEventListener("scroll", () => {
+      let innerHeight = window.innerHeight; // 100vh
+      // console.log("스크롤위치누적값", window.scrollY);
+
+      // 탑메뉴 스크롤위치가 0이면 다시 보이기
+      if (window.scrollY <= 0) {
+        $("#top-area").css("transform", "translateY(0%)");
+      }
+
+      // 스크롤위치가 100vh보다 크면 버튼 보이기
+      if (window.scrollY < innerHeight) {
+        $(".fixed").css("opacity", "0");
+        $(".fixed").css("pointer-events", "none");
+      } else if (window.scrollY >= innerHeight) {
+        $(".fixed").css("opacity", "1");
+        $(".fixed").css("pointer-events", "auto");
+      }
     });
   };
 
@@ -74,9 +86,12 @@ export default function TopArea({ scrollFn }) {
     // console.log(e.key);
     let txt = $(".input").val().trim();
     if (e.key === "Enter") {
-      $("html,body").animate({
-        scrollTop: ($(".main-wrap").offset().top-75) + "px",
-      },400);
+      $("html,body").animate(
+        {
+          scrollTop: $(".main-wrap").offset().top - 75 + "px",
+        },
+        400
+      );
       console.log("난top-area input값!", txt);
 
       if (txt != "") {
@@ -104,14 +119,34 @@ export default function TopArea({ scrollFn }) {
     hamFn();
     cursorFn();
     TopMenuFn();
+
+    // 뒤로가기, 탑으로가기 버튼 클릭시 a이벤트 막기
+    $(".fixbtn").on("click", (e) => {
+      e.preventDefault();
+    });
   }, []); //useEffect
 
   // 코드 리턴구역 /////
   return (
     <>
       <div className="cursor">
-        <img src={process.env.PUBLIC_URL+"/images/cursur.png"} alt="" />
+        <img src={process.env.PUBLIC_URL + "/images/cursur.png"} alt="" />
       </div>
+      <button className="fixed">
+        <div className="wrap">
+          <a className="fixbtn" href="" onClick={(e) => window.history.back()}>
+            <span>BACK /</span>
+          </a>
+
+          <a
+            className="fixbtn"
+            href=""
+            onClick={(e) => $("html,body").animate({ scrollTop: "0px" }, 400)}
+          >
+            <span>TOP</span>
+          </a>
+        </div>
+      </button>
       <div id="top-area">
         <header className="top-area inbox common-area">
           <h2 className="temp-tit">1. 상단영역</h2>
@@ -174,8 +209,11 @@ export default function TopArea({ scrollFn }) {
 
             {/* 로고박스  */}
             <h1 className="logo col-4">
-              <Link to="/"  onClick={scrollFn} >
-                <img src={`${process.env.PUBLIC_URL}/images/logo.png`} alt="메인로고" />
+              <Link to="/" onClick={scrollFn}>
+                <img
+                  src={`${process.env.PUBLIC_URL}/images/logo.png`}
+                  alt="메인로고"
+                />
                 <img
                   className="mobile"
                   src={`${process.env.PUBLIC_URL}/images/footer_logo.png`}

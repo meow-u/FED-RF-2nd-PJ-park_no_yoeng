@@ -1,5 +1,35 @@
 // 상단영역 SCSS - top-area.scss
-
+button.fixed {
+  transition:0.3s;
+  opacity: 0;
+  font-family: auto;
+  font-weight: bold;
+  width: 150px;
+  height: 30px;
+  box-shadow: 2px 2px 6px #00000038;
+  aspect-ratio: 1 / 1;
+  font-size: 15px;
+  border: 1px solid black;
+  background-color: white;
+  white-space: nowrap;
+  z-index: 10;
+  top: 100%;
+  left: 100%;
+  translate: -80% -150%;
+  position: fixed;
+  transform: skewX(20deg);
+  &:hover span {
+    filter: invert(1);
+  }
+  .wrap {
+    margin-right: 20px;
+    span {
+      padding: 0px 5px;
+      display: inline-block;
+      transform: skewX(-20deg);
+    }
+  }
+}
 .cursor {
   position: fixed;
   top: 0;

@@ -58,9 +58,6 @@ function ItemDetail({ itemIdx }) {
   return (
     <div id="ItemDetail-area">
       <section className="ItemDetail inbox">
-      <button className="fixed" onClick={() => window.history.back()}>
-          Back
-          </button>
         <h2 className="temp-tit"> 상품 상세 영역 </h2>
         <div className="cont-box">
           <div className="right-box col-4">

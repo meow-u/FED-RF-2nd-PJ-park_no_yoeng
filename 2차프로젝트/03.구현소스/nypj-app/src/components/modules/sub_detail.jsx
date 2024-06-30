@@ -31,9 +31,6 @@ export default function SubDetail({ subName, dataNum }) {
     <>
       <div id="sub-detail-area">
         <section className="sub-detail-area inbox">
-          <button className="fixed" onClick={() => window.history.back()}>
-          Back
-          </button>
           <h2 className="temp-tit">1. 디테일 영역</h2>
           <div className="cont-box">
             <div className="col-12">

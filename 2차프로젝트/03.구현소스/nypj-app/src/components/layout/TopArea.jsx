@@ -237,15 +237,14 @@ export default function TopArea({ scrollFn }) {
                 <ul className="sidebox">
                   {sideMenu.map((v, i) => (
                     <li key={i}>
-                      <a
+                      <Link to={v.link}
                         className={i === 0 ? "searchicon" : ""}
                         onClick={i === 0 ? showSearch : null}
-                        href={v.link}
                         title={v.txt}
                       >
                         <FontAwesomeIcon icon={v.icon} />
                         <span className="ir">{v.txt}</span>
-                      </a>
+                      </Link>
                       {i === 0 && ( //검색아이콘일때만 추가 출력
                         <div className="search-box">
                           <div className="icon" onClick={hideSearch}>

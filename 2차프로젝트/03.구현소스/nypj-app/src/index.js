@@ -14,9 +14,9 @@ import Collections from "./components/pages/Collections";
 import OurStory from "./components/pages/OurStory";
 import Penhaligons from "./components/pages/Penhaligons";
 import Cart from "./components/pages/Cart";
-import Login from "./components/pages/Login";
 import Search from "./components/pages/Search";
 import Product from "./components/pages/Product";
+import Member from "./components/pages/Member";
 
 export default function App() {
   const ourStoryArr = Array(4)
@@ -54,7 +54,7 @@ export default function App() {
           <Route path="OurStory" element={<OurStory />} />
           <Route path="Penhaligons" element={<Penhaligons />} />
           <Route path="cart" element={<Cart />} />
-          <Route path="login" element={<Login />} />
+          <Route path="Member" element={<Member />} />
           <Route path="search" element={<Search />} />
           {ourStoryArr.map((v, i) => (
             <Route

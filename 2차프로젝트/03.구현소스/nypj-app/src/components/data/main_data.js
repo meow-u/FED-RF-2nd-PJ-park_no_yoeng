@@ -112,7 +112,7 @@ const snsMenu = [
 const sideMenu = [
 {txt: "검색", link: "/Search", icon: faMagnifyingGlass},
 {txt: "장바구니", link: "/Cart", icon: faCartShopping},
-{txt: "로그인", link: "/Login", icon: faUser},
+{txt: "로그인", link: "/Member", icon: faUser},
 // {txt: "회원가입", link: "/Join", icon: faUserSecret},
 ];
 

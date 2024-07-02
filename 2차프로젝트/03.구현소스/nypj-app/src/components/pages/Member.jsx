@@ -1,6 +1,6 @@
 // 펜할리곤스 Member 서브페이지 컴포넌트
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import $ from "jquery";
 // 로컬스토리지 생성함수 불러오기
 import { initData } from "../func/mem_fn";
@@ -8,15 +8,20 @@ import { initData } from "../func/mem_fn";
 // 회원가입 css 불러오기
 import "../../css/member.scss";
 
-function Member(props) {
-    useEffect(() => {
-        $("html,body").animate(
-          {
-            scrollTop: $(".main-wrap").offset().top - 75 + "px",
-          },
-          400
-        );
-      }, []);
+function Member() {
+  // [ 리액트 라우터 내비게이션 사용하기 ]
+  // 라우터 이동 네비게이트
+  const goNav = useNavigate();
+  // goNav(라우터 주소, state변수(선택))
+
+  useEffect(() => {
+    $("html,body").animate(
+      {
+        scrollTop: $(".main-wrap").offset().top - 75 + "px",
+      },
+      400
+    );
+  }, []);
   // [ 회원가입 페이지 요구사항 ]
   // 1. 각 입력 항목별로 유효성 검사를 실행함
   // 2. 상태체크를 통하여 적절한 유효성검사시
@@ -254,11 +259,11 @@ function Member(props) {
 
   // [ 서브밋 기능함수 ] =================================
   const onSubmit = (e) => {
-    // 1. 기본 서브밋 기능막기 (안막음 process.php로 날라감)
+    // [1]. 기본 서브밋 기능막기 (안막음 process.php로 날라감)
     e.preventDefault();
 
     console.log("최종검사:", totalValid());
-    // 2. 유효성 검사 전체 통과시
+    // [2]. 유효성 검사 전체 통과시
     if (totalValid()) {
       console.log("모두통과! 저장!");
 
@@ -290,9 +295,22 @@ function Member(props) {
 
       // 6. 로컬스에 반영하기: 문자화 해서 넣어야 함!
       localStorage.setItem("mem-data", JSON.stringify(memData));
+
+      // 7. 회원가입 환영 메세지 + 로그인페이지 이동
+      // 버튼 텍스트에 환영 메시지
+      document.querySelector(".membx").querySelector('h2').innerText = "Thank you for join Us!";
+      document.querySelector(".create").innerText = "Success!";
+
+      // 1호 후 페이지 이동 : 라우터 Navigate =======================
+
+      setTimeout(() => {
+        goNav("/login");
+        // 주의: 경로앞에 슬래쉬(/) 안쓰면
+        // 현재 Member 경로 하위 경로를 불러옴
+      }, 1000);
     } ///// if //////
 
-    // 3. 불퉁과시
+    // [3]. 불퉁과시
     else {
       alert("Change your input!");
     } /// else ////
@@ -340,10 +358,10 @@ function Member(props) {
                 // [에러일경우(true) 메세지 출력]
                 // 조건문 && 출력요소
                 userIdError && ( // 에러상태변수가 true일경우
-                    <div className="msg">
-                      <small>{idMsg}</small>
-                    </div>
-                  )
+                  <div className="msg">
+                    <small>{idMsg}</small>
+                  </div>
+                )
               }
               {
                 // [에러 아닐경우(false) 메세지 출력]
@@ -381,10 +399,10 @@ function Member(props) {
                 // 조건문 && 출력요소
 
                 pwdError && ( // 에러상태변수가 true일경우
-                    <div className="msg">
-                      <small>{msgEtc.pwd}</small>
-                    </div>
-                  )
+                  <div className="msg">
+                    <small>{msgEtc.pwd}</small>
+                  </div>
+                )
               }
             </li>
             <li>
@@ -401,10 +419,10 @@ function Member(props) {
                 // 조건문 && 출력요소
 
                 chkPwdError && ( // 에러상태변수가 true일경우
-                    <div className="msg">
-                      <small>{msgEtc.confPwd}</small>
-                    </div>
-                  )
+                  <div className="msg">
+                    <small>{msgEtc.confPwd}</small>
+                  </div>
+                )
               }
             </li>
             <li>
@@ -421,10 +439,10 @@ function Member(props) {
                 // 조건문 && 출력요소
 
                 userNameError && ( // 에러상태변수가 true일경우
-                    <div className="msg">
-                      <small>{msgEtc.req}</small>
-                    </div>
-                  )
+                  <div className="msg">
+                    <small>{msgEtc.req}</small>
+                  </div>
+                )
               }
             </li>
             <li>
@@ -441,20 +459,20 @@ function Member(props) {
                 // 조건문 && 출력요소
 
                 emailError && ( // 에러상태변수가 true일경우
-                    <div className="msg">
-                      <small>{msgEtc.email}</small>
-                    </div>
-                  )
+                  <div className="msg">
+                    <small>{msgEtc.email}</small>
+                  </div>
+                )
               }
             </li>
             <li className="txt">Are you already a Member?</li>
             <li className="btnBox" style={{ overflow: "hidden" }}>
-              <button className="sbtn" onClick={onSubmit}>
+              <button className="sbtn create" onClick={onSubmit}>
                 Create Account
               </button>
               <button className="sbtn loginBtn">
                 Log In
-                <Link className="loginLink" to="/login">
+                <Link className="loginLink" to="/Login">
                   Log In
                 </Link>
               </button>

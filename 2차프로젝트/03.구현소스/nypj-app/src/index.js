@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/layout/Layout";
 // 메인페이지 CSS 불러오기
 import "./css/index.scss";
+// 메뉴데이터 불러오기
+import { hamMenu } from "./components/data/main_data";
 /* 하위라우터 */
 import Main from "./components/pages/Main";
 import Shop from "./components/pages/Shop";
@@ -17,6 +19,9 @@ import Cart from "./components/pages/Cart";
 import Search from "./components/pages/Search";
 import Product from "./components/pages/Product";
 import Member from "./components/pages/Member";
+import Login from "./components/pages/Login";
+
+let subMenu = hamMenu[1].sub; //서브메뉴 데이터
 
 export default function App() {
   const ourStoryArr = Array(4)
@@ -50,11 +55,20 @@ export default function App() {
           {/* 2. path대신 index 쓰면 첫페이지 */}
           <Route index element={<Main />} />
           <Route path="Shop" element={<Shop />} />
+          {subMenu.map((v, i) => (
+            <Route
+              key={i}
+              path={v.link}
+              element={<Shop sMenu={v.txt} />}  //서브메뉴데이터전달
+            />
+          ))}
+
           <Route path="Collections" element={<Collections />} />
           <Route path="OurStory" element={<OurStory />} />
           <Route path="Penhaligons" element={<Penhaligons />} />
           <Route path="cart" element={<Cart />} />
           <Route path="Member" element={<Member />} />
+          <Route path="Login" element={<Login />} />
           <Route path="search" element={<Search />} />
           {ourStoryArr.map((v, i) => (
             <Route

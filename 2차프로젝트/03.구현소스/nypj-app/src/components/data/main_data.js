@@ -3,6 +3,7 @@ import {
   faMagnifyingGlass,
   // faUserSecret,
   faCartShopping,
+  faUserSecret,
 } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import {
@@ -39,6 +40,13 @@ const hamMenu = [
     txt: "COLLECTIONS",
     link: "/Collections",
   },
+];
+
+const collMenu = [
+  "British Tales",
+  "Potions & Remedies",
+  "Trade Routes",
+  "Portraits",
 ];
 const menu = [
   {
@@ -100,31 +108,31 @@ const footerMenu = {
   ],
 };
 
-
-
 const snsMenu = [
-  {txt: "인스타그램", link: "###", icon: faInstagram},
-  {txt: "페이스북", link: "###", icon: faFacebook},
-  {txt: "트위터", link: "###", icon: faTwitter},
-  {txt: "유튜브", link: "###", icon: faYoutube},
+  { txt: "인스타그램", link: "###", icon: faInstagram },
+  { txt: "페이스북", link: "###", icon: faFacebook },
+  { txt: "트위터", link: "###", icon: faTwitter },
+  { txt: "유튜브", link: "###", icon: faYoutube },
 ];
 
 const sideMenu = [
-{txt: "검색", link: "/Search", icon: faMagnifyingGlass},
-{txt: "장바구니", link: "/Cart", icon: faCartShopping},
-{txt: "로그인", link: "/Member", icon: faUser},
-// {txt: "회원가입", link: "/Join", icon: faUserSecret},
+  { txt: "검색", link: "/Search", icon: faMagnifyingGlass },
+  { txt: "장바구니", link: "/Cart", icon: faCartShopping },
+  { txt: "회원가입", link: "/Member", icon: faUser },
+  {txt: "로그인", link: "/Login", icon: faUserSecret},
 ];
-
-
 
 // 타이틀 컴포넌트 텍스트 데이터
 const titleTxt = {
   brand: ["The value of trust", "Enjoy NewProduct", "Check our this item"],
   blog: ["Our new stories", "Penhaligon's Magazine", "Learn more"],
-  Penhaligons: ["History and values", "About Penhaligons", "Check our this video"],
+  Penhaligons: [
+    "History and values",
+    "About Penhaligons",
+    "Check our this video",
+  ],
   story: ["Our stories", "Take a closer look", "Check our this video"],
   collection: ["Our collection", "Take a closer look", "Check our this video"],
 };
 
-export { menu, hamMenu, bannerImg, titleTxt, footerMenu ,snsMenu ,sideMenu};
+export { menu, hamMenu, bannerImg, titleTxt, footerMenu, snsMenu, sideMenu ,collMenu };

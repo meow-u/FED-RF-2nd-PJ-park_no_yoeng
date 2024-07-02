@@ -843,7 +843,7 @@ const allProducts = [
     },
     {
       idx: 54,
-      type: "home",
+      type: "HOME",
       collection: "etc",
       name: ["펜할리곤스 쿰간 로즈 캔들 200G", "KUMGAN ROSE"],
       subtit: "특유의 차가운 느낌. 그리고 이제는 따뜻함. 숲과 사프란",
@@ -1068,7 +1068,7 @@ const allProducts = [
     },
     {
       idx: 69,
-      type: "home",
+      type: "HOME",
       collection: "etc",
       name: ["펜할리곤스 마두로 리프 캔들 200G", "MADURO LEAF"],
       subtit: "나무 패널로 된 벽. 부드러운 가죽 안락 의자, 최고의 취향을 위한 캔들",

@@ -2,13 +2,14 @@
 // 네비게이트메서드 ( 라우터주소,{state:{보낼객체}} ) 사용위해 import
 // 받을곳에서 useLocation import하고 loc.state.보낸객체명 으로 받으면 됨!
 import { Link, useNavigate } from "react-router-dom";
+import { Con } from "../modules/myCon";
 
 // 아이콘 불러오기 (추가로 필요한 import는 데이터화로 main_data.js 상단에 있음)
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 // 리액트 모듈 불러오기
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 // 햄버거, 커서 fn 불러오기
 import hamFn from "../func/ham";
 import cursorFn from "../func/cursor";
@@ -22,6 +23,8 @@ import $ from "jquery";
 // 상단영역 컴포넌트 ///////
 
 export default function TopArea({ scrollFn }) {
+  const myCon = useContext(Con);
+
   // scrollFn은 부모로부터 받은 함수
   // 이동함수
   const goNav = useNavigate();
@@ -46,7 +49,6 @@ export default function TopArea({ scrollFn }) {
     setTimeout(() => {
       $(".search-box").css("animation", "none");
     }, 500);
-
   };
 
   // 탑메뉴 휠 위아래에 따라 보이기/숨기기 함수
@@ -126,6 +128,9 @@ export default function TopArea({ scrollFn }) {
     });
   }, []); //useEffect
 
+  // 사이드메뉴 필터링
+  const filteredSideMenu = myCon.loginSts === null ? sideMenu : sideMenu.slice(0, 2);
+
   // 코드 리턴구역 /////
   return (
     <>
@@ -149,6 +154,8 @@ export default function TopArea({ scrollFn }) {
       </button>
       <div id="top-area">
         <header className="top-area inbox common-area">
+          {/* 로그인 환영메시지 박스 */}
+          <div className="logmsg">{myCon.loginMsg}</div>
           <h2 className="temp-tit">1. 상단영역</h2>
 
           <div className="cont-box">
@@ -181,11 +188,19 @@ export default function TopArea({ scrollFn }) {
                           </Link>
                           {v.sub && (
                             <ol className="sub-menu">
-                              {v.sub.map((v2, i2) => (
-                                <li key={i2}>
-                                  {/* useState로 전환예정*/}
-                                  <a href="###">{v2.txt}</a>
-                                  {/* <Link to={v2.link}>{v2.txt}</Link> */}
+                              {v.sub.map((v, i) => (
+                                <li key={i}>
+                                  {/* <a href={v.link}>{v.txt}</a> */}
+                                  {v.txt !== "BACK" ? (
+                                    <Link to={v.link}>{v.txt}</Link>
+                                  ) : (
+                                    <a
+                                      href="###"
+                                      onClick={(e) => e.preventDefault()}
+                                    >
+                                      {v.txt}
+                                    </a>
+                                  )}
                                 </li>
                               ))}
                             </ol>
@@ -235,9 +250,10 @@ export default function TopArea({ scrollFn }) {
               {/* 사이드메뉴  */}
               <div className="sideMenu">
                 <ul className="sidebox">
-                  {sideMenu.map((v, i) => (
+                  {filteredSideMenu.map((v, i) => (
                     <li key={i}>
-                      <Link to={v.link}
+                      <Link
+                        to={v.link}
                         className={i === 0 ? "searchicon" : ""}
                         onClick={i === 0 ? showSearch : null}
                         title={v.txt}
@@ -245,7 +261,7 @@ export default function TopArea({ scrollFn }) {
                         <FontAwesomeIcon icon={v.icon} />
                         <span className="ir">{v.txt}</span>
                       </Link>
-                      {i === 0 && ( //검색아이콘일때만 추가 출력
+                      {i === 0 && ( // 검색 아이콘일 때만 추가 출력
                         <div className="search-box">
                           <div className="icon" onClick={hideSearch}>
                             <FontAwesomeIcon icon={faSearch} />
@@ -259,7 +275,28 @@ export default function TopArea({ scrollFn }) {
                         </div>
                       )}
                     </li>
+                    
                   ))}
+                    {
+                     /* 로그인 상태이면 로그아웃 버튼보이기 */
+                     myCon.loginSts !== null && (
+                        <>
+                           <li>
+                              <a
+                                 href="###"
+                                 onClick={(e) => {
+                                    // 기본이동막기
+                                    e.preventDefault();
+                                    // 로그아웃 처리함수 호출
+                                    myCon.logoutFn();
+                                 }}
+                              >
+                                 LOG OUT
+                              </a>
+                           </li>
+                        </>
+                     )
+                  }
                 </ul>
               </div>
             </div>

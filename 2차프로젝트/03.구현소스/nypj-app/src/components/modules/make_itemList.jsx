@@ -47,7 +47,17 @@ function MakeItemList({ dt ,menuTxt, isSub  }) {
     <ul className="product-box">
       {
          allProducts
-            .filter((v) => isSub? v.collection === menuTxt: v.type === menuTxt) //txt는 전달받은 이너텍스트
+            .filter((v) => 
+           menuTxt === "ALL"?
+            v
+            : menuTxt === "COLLECTIONS"?
+            v.collection === "British Tales" || v.collection === "Potions & Remedies" || v.collection === "Trade Routes" || v.collection === "Portraits"
+            : isSub? 
+            v.collection === menuTxt
+            : !isSub?
+            v.type === menuTxt
+            : null
+          ) //txt는 전달받은 이너텍스트
             .map((v, i) => (
               <li key={i}>
                 <Link to={`/shop/product/${v.idx}`} state={{ itemIdx: v.idx }}>

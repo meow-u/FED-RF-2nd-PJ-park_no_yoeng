@@ -1,26 +1,57 @@
-ul.menu-box {
-    font-size: 20px;
-    font-weight: 500;
-    font-family: 'Cormorant Garamond', serif;
-   margin-top: 50px;
-   text-align: center;
-   display: flex;
-}
-
-ul.menu-box li {
-   flex: 1;
+ul.smenu-box {
+  font-size: 20px;
+  font-weight: 500;
+  font-family: "Cormorant Garamond", serif;
+  margin-top: 50px;
+  text-align: center;
+  display: flex;
+  li {
+    flex: 1;
+    a {
+      font-size: clamp(15px, 2vw, 4vw);
+    }
+  }
 }
 
 ol.submenu {
-   margin-top: 20px;
-   transition: 0.3s;
-   overflow: hidden;
-   position: absolute;
-   left: 0;
-   width: 100%;
-   display: flex;
+  background: black;
+  height: 0px;
+  margin-top: 20px;
+  transition: 0.3s;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  display: flex;
+  a {
+    color: white;
+  }
 }
 
 .cont-wrap {
-   padding-top: 100px;
+  padding-top: 100px;
+}
+p.smenu-tit {
+  font-weight: 400;
+  font-size: clamp(30px, 3vw, 10vw);
+  font-family: "Cormorant Garamond", serif;
+  padding: 50px;
+  text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+  ul.smenu-box {
+    flex-direction: column;
+    li a {
+      line-height: 1.5;
+      font-size: clamp(20px, 2vw, 4vw);
+    }
+  }
+
+  ol.submenu {
+    height: 130px;
+    margin-bottom: 20px;
+    position: relative;
+    flex-direction: column;
+  }
 }

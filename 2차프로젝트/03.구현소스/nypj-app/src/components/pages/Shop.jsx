@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import "../../css/_shop.scss";
 import { Link } from "react-router-dom";
 import MakeItemList from "../modules/make_itemList";
+import SwiperItemSlide from "../plugin/SwiperItemSlide";
 
 export default function Shop() {
   const [isSub, setIsSub] = useState(false);
@@ -34,7 +35,7 @@ export default function Shop() {
     let ol = el.querySelector("ol"); // 각 li안의 서브메뉴 ol 덩어리
     let toSetText; //전역변수
 
-    if (a.innerText === "collection") {
+    if (a.innerText === "COLLECTION") {
       // 컬렉션일때 높이토글  (하위보이게)
       ol.style.height = ol.style.height === "21px" ? "0" : "21px";
       // txt 값을 유지하므로 toSetText를 업데이트하지 않음
@@ -62,10 +63,10 @@ export default function Shop() {
           <a href="###">BATH &amp; BODY</a>
         </li>
         <li>
-          <a href="###">home</a>
+          <a href="###">HOME</a>
         </li>
         <li>
-          <a href="###">collection</a>
+          <a href="###">COLLECTION</a>
           <ol className="submenu">
             <li>
               <a href="###">British Tales</a>
@@ -82,9 +83,10 @@ export default function Shop() {
           </ol>
         </li>
       </ul>
-      {/* 뿌리는컴포넌트 */}
-      <div className="gwrap">
-        <MakeItemList menuTxt={txt} isSub={isSub} />
+      <div className="cont-wrap">
+        <SwiperItemSlide idname={"bestitem-area"} />
+        {/* 뿌리는컴포넌트 */}
+          <MakeItemList menuTxt={txt} isSub={isSub} />
       </div>
     </>
   );

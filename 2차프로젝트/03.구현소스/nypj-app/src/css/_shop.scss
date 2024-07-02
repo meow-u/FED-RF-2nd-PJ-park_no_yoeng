@@ -1,0 +1,26 @@
+ul.menu-box {
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Cormorant Garamond', serif;
+   margin-top: 50px;
+   text-align: center;
+   display: flex;
+}
+
+ul.menu-box li {
+   flex: 1;
+}
+
+ol.submenu {
+   margin-top: 20px;
+   transition: 0.3s;
+   overflow: hidden;
+   position: absolute;
+   left: 0;
+   width: 100%;
+   display: flex;
+}
+
+.cont-wrap {
+   padding-top: 100px;
+}

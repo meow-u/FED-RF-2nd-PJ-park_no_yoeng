@@ -288,6 +288,9 @@ button.fixed {
     li:nth-child(4) a {
       transition-delay: 1.1s;
     }
+    li:nth-child(5) a {
+      transition-delay: 1.3s;
+    }
   } /*hamBox on*/
 
   ul,
@@ -445,7 +448,24 @@ ul.sidebox {
       }
     }
   }
+
   h1.logo + .col-4 {
     flex-basis: 100%;
+  }
+
+  ul.sidebox li > a {
+    scale: 1.3;
+    width: 12px;
+    padding: 0 7px;
+  }
+
+  #top-area .tmenu.col-4 {
+    padding-right: 27px;
+  }
+  #top-area nav.gnb.col-4 {
+    padding-left: 10px;
+}
+  .logo > a img {
+    width: min(384px, 47vw);
   }
 }

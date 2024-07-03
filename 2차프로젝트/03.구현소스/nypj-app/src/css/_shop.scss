@@ -14,8 +14,8 @@ ul.smenu-box {
 }
 
 ol.submenu {
+  height: 24px;
   background: black;
-  height: 0px;
   margin-top: 20px;
   transition: 0.3s;
   overflow: hidden;
@@ -28,9 +28,6 @@ ol.submenu {
   }
 }
 
-.cont-wrap {
-  padding-top: 100px;
-}
 p.smenu-tit {
   font-weight: 400;
   font-size: clamp(30px, 3vw, 10vw);
@@ -49,9 +46,19 @@ p.smenu-tit {
   }
 
   ol.submenu {
-    height: 130px;
+    margin-top: 0px;
+    height: 0px;
     margin-bottom: 20px;
     position: relative;
     flex-direction: column;
+  }
+
+  .coll{
+    transition:0.2s;
+    filter: invert(1);
+    display: block;
+    position: relative;
+    width: 100%;
+    background: white;
   }
 }

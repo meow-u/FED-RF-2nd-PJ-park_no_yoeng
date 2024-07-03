@@ -4,6 +4,8 @@ import {
   // faUserSecret,
   faCartShopping,
   faUserSecret,
+  faRightToBracket,
+  faUserPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import {
@@ -40,6 +42,10 @@ const hamMenu = [
     txt: "COLLECTIONS",
     link: "/Collections",
   },
+  {
+    txt: "OPINIONS",
+    link: "/board",
+  },
 ];
 
 const collMenu = [
@@ -60,6 +66,10 @@ const menu = [
   {
     txt: "OUR STORY",
     link: "/OurStory",
+  },
+  {
+    txt: "OPINIONS",
+    link: "/board",
   },
 ];
 // 메인배너 이미지 데이터
@@ -118,8 +128,8 @@ const snsMenu = [
 const sideMenu = [
   { txt: "검색", link: "/Search", icon: faMagnifyingGlass },
   { txt: "장바구니", link: "/Cart", icon: faCartShopping },
-  { txt: "회원가입", link: "/Member", icon: faUser },
-  {txt: "로그인", link: "/Login", icon: faUserSecret},
+  { txt: "회원가입", link: "/Member", icon: faUserPlus},
+  {txt: "로그인", link: "/Login", icon: faUser}, 
 ];
 
 // 타이틀 컴포넌트 텍스트 데이터

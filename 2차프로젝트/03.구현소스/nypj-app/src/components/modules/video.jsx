@@ -21,10 +21,10 @@ export default function Video({ vidName = (process.env.PUBLIC_URL+"/images/main.
       // 관찰대상이 화면에 들어온 경우
       if (ele[0].isIntersecting) {
         // 비디오 재생하기
-        vid.play();
+        if(vid.paused){vid.play();}
       } else {
         // 비디오 멈추기
-        vid.pause();
+        if(!vid.paused){vid.pause();}
       }
     });
     // 2. 관찰대상 지정하기

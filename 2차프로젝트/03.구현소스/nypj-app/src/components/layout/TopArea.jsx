@@ -6,7 +6,7 @@ import { Con } from "../modules/myCon";
 
 // 아이콘 불러오기 (추가로 필요한 import는 데이터화로 main_data.js 상단에 있음)
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faRightToBracket, faSearch } from "@fortawesome/free-solid-svg-icons";
 
 // 리액트 모듈 불러오기
 import { useContext, useEffect } from "react";
@@ -190,8 +190,8 @@ export default function TopArea({ scrollFn }) {
                             <ol className="sub-menu">
                               {v.sub.map((v, i) => (
                                 <li key={i}>
-                                  {/* <a href={v.link}>{v.txt}</a> */}
                                   {v.txt !== "BACK" ? (
+                                    // <Link to={v.link}>{v.txt}</Link>
                                     <Link to={v.link}>{v.txt}</Link>
                                   ) : (
                                     <a
@@ -284,6 +284,7 @@ export default function TopArea({ scrollFn }) {
                            <li>
                               <a
                                  href="###"
+                                 title="로그아웃"
                                  onClick={(e) => {
                                     // 기본이동막기
                                     e.preventDefault();
@@ -291,7 +292,7 @@ export default function TopArea({ scrollFn }) {
                                     myCon.logoutFn();
                                  }}
                               >
-                                 LOG OUT
+                                <FontAwesomeIcon icon={faRightToBracket} />
                               </a>
                            </li>
                         </>

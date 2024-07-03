@@ -20,6 +20,7 @@ import Search from "./components/pages/Search";
 import Product from "./components/pages/Product";
 import Member from "./components/pages/Member";
 import Login from "./components/pages/Login";
+import Board from "./components/pages/board";
 
 let subMenu = hamMenu[1].sub; //서브메뉴 데이터
 
@@ -59,6 +60,7 @@ export default function App() {
             <Route
               key={i}
               path={v.link}
+
               element={<Shop sMenu={v.txt} />}  //서브메뉴데이터전달
             />
           ))}
@@ -70,6 +72,8 @@ export default function App() {
           <Route path="Member" element={<Member />} />
           <Route path="Login" element={<Login />} />
           <Route path="search" element={<Search />} />
+          <Route path="board" element={<Board />} />
+          
           {ourStoryArr.map((v, i) => (
             <Route
               key={i}

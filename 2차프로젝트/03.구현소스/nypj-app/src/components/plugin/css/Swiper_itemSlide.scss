@@ -158,7 +158,9 @@
       }
 
       button {
-        margin-top: 30px;
+        
+    margin-top: 2.5vw;
+        // margin-top: 30px;
         background-color: #fff;
         border: 1px solid #000;
         border-radius: 0px;
@@ -167,6 +169,10 @@
       }
     }
   }
+}
+
+.bestitem-area.inshop{
+  width: 100%;
 }
 
 @media screen and (max-width: 900px) {

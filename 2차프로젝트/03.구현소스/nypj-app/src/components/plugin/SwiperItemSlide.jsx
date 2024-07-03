@@ -75,6 +75,10 @@ export default function SwiperItemSlide({ idname, selData, itemIdx }) {
          slidesPerView: 1,
          spaceBetween: 0,
       },
+      400: {
+         slidesPerView: idname === "bestitem-area inshop" ? 2 : 1,
+         spaceBetween: idname === "bestitem-area inshop" ? 20 : 0,
+      },
       520: {
          slidesPerView: 2,
          spaceBetween: 30,

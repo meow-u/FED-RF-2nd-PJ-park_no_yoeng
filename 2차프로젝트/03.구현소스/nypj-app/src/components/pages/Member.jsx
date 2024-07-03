@@ -465,8 +465,9 @@ function Member() {
                 )
               }
             </li>
-            <li className="txt">Are you already a Member?</li>
+          
             <li className="btnBox" style={{ overflow: "hidden" }}>
+            <p className="txt">Are you already a Member?</p>
               <button className="sbtn create" onClick={onSubmit}>
                 Create Account
               </button>

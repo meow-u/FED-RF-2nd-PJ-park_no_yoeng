@@ -128,8 +128,8 @@ export default function TopArea({ scrollFn }) {
     });
   }, []); //useEffect
 
-  // 사이드메뉴 필터링
-  const filteredSideMenu = myCon.loginSts === null ? sideMenu : sideMenu.slice(0, 2);
+  // 로그인여부에따라 탑 메뉴 필터링
+  const loginStsMenu = myCon.loginSts === null ? sideMenu : sideMenu.slice(0, 2);
 
   // 코드 리턴구역 /////
   return (
@@ -250,7 +250,7 @@ export default function TopArea({ scrollFn }) {
               {/* 사이드메뉴  */}
               <div className="sideMenu">
                 <ul className="sidebox">
-                  {filteredSideMenu.map((v, i) => (
+                  {loginStsMenu.map((v, i) => (
                     <li key={i}>
                       <Link
                         to={v.link}

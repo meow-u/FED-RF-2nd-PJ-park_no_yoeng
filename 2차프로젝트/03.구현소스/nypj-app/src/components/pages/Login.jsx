@@ -5,6 +5,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "../../css/member.scss";
 import { initData } from "../func/mem_fn";
 import { Con } from "../modules/myCon";
+import { Link } from "react-router-dom";
 
 function Login(props) {
   // ====== layout에서 불러온  컨텍스트 사용 =======
@@ -263,9 +264,16 @@ function Login(props) {
                 )
               }
             </li>
-            <li style={{ overflow: "hidden" }}>
-              <button className="sbtn" onClick={onSubmit}>
-                Submit
+            <li className="txt">Are you need create account?</li>
+            <li className="btnBox" style={{ overflow: "hidden" }}>
+              <button className="sbtn create" onClick={onSubmit}>
+              Log In
+              </button>
+              <button className="sbtn loginBtn">
+              Create Account
+                <Link className="loginLink" to="/Member">
+                Create Account
+                </Link>
               </button>
             </li>
           </ul>

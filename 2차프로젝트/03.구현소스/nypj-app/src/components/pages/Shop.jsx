@@ -6,8 +6,6 @@ import { Link } from "react-router-dom";
 import MakeItemList from "../modules/make_itemList";
 import SwiperItemSlide from "../plugin/SwiperItemSlide";
 
-import $ from "jquery";
-
 // 사용 데이터 가져오기 (타이틀데이터)
 import { titleTxt } from "../data/main_data";
 
@@ -18,46 +16,47 @@ import { Title } from "../modules/title";
 let subMenu = hamMenu[1].sub; //서브메뉴 데이터
 
 export default function Shop({ sMenu }) {
-let Msize = window.innerWidth <= 800
-
   // sMenu는 상위 컴포넌트에서 받아온 클릭된 서브메뉴 데이터
-  console.log("클릭된 sMenu :", sMenu);
   const [isSub, setIsSub] = useState(false);
-  const [txt, setTxt] = useState("");
-  //클릭단어가 컬렉션이 아닐경우 a.innerText를 할당
+  // 클릭해서 들어오면 해당값으로 설정, 없으면 '초기값 null= 그냥 shop으로 들어왔을시'
+  // txt 값은 클릭시 내부 텍스트값으로 변경됨
+  const [txt, setTxt] = useState(sMenu); 
+  console.log("클릭된 sMenu :", sMenu);
+  console.log("랜더링! txt:", txt);
 
 
   useEffect(() => {
- 
-
     let menuBox = document.querySelector(".smenu-box");
     let li = menuBox.querySelectorAll("li");
     console.log("모든 li(서브메뉴포함)", li);
 
+    // 모든메뉴박스 li에 클릭이벤트 걸기
     li.forEach((el) =>
       el.addEventListener("click", (e) => {
         e.stopPropagation();
+        // 내부 a링크 클릭시 기본이벤트 막기
         e.preventDefault();
+        // 컬렉션토글+상태변수변경함수 호출
         toggleCollection(el);
       })
     );
-
   }, []); // 빈 배열을 전달하여 컴포넌트가 마운트될 때 한 번만 실행되도록 함
 
   useEffect(() => {
-    // txt 값이 업데이트된 후에 필요한 작업을 수행
-    console.log("Updated txt:", txt);
     window.addEventListener("resize", () => {
-      // 클릭메뉴가 컬렉션이면 ol높이토글
-      if (txt === "COLLECTIONS") {
-        console.log("COLLECTIONS 클릭됨 하위 토글!");
-        let submenu = document.querySelector(".submenu");
-        if (window.innerWidth <= 800) {
-          submenu.style.height =
-            submenu.style.height === "130px" ? "0" : "130px";
-        } else {
-          submenu.style.height = submenu.style.height === "24px" ? "0" : "24px";
-        }
+      // 리사이즈 발생시 컬렉션 클릭시 하위메뉴 높이 초기화
+      let submenu = document.querySelector(".submenu");
+      if (window.innerWidth <= 800) {
+        // 모바일시 서브 닫힘상태
+        submenu.style.height = "0px";
+
+        // 초기 필터효과
+        document.querySelector(".coll").style.filter = "invert(1)";
+      } else {
+        // 데스크탑시 서브 열림상태 (css 열린값 clamp(15px, 2vw, 4vw) 지정해두었음)
+        submenu.style.height = "";
+        // 초기 필터효과 없애기
+        document.querySelector(".coll").style.filter = "none";
       }
     });
 
@@ -65,41 +64,47 @@ let Msize = window.innerWidth <= 800
     return () => window.removeEventListener("resize", () => {});
   }, [txt]); // txt 값이 변경될 때만 실행되도록 함
 
-  if (txt === "") {
-    // txt가 초기값이면
-    // sMenu가 있고 txt와 sMenu가 다르면 txt를 sMenu로 설정
-    sMenu && txt !== sMenu && setTxt(sMenu);
-  }
-
-  // 컬렉션 메뉴 토글 함수 ////////////////////////////////////
+  // 컬렉션 메뉴 토글 + 클릭시 txt상태변수 변경 함수 ////////////////////////////////////
   function toggleCollection(el) {
     // 개별 li 클릭시 호출되는 함수( el은 개별 li)
     let a = el.querySelector("a"); // 각 li안의 이너텍스트를 포함한 개별 a링크
-    let ol = el.querySelector("ol"); // 각 li안의 서브메뉴 ol (컬렉션만있음)
+    let submenu = document.querySelector(".submenu"); // 서브메뉴 ol
     let toSetText; //전역변수
 
     console.log("클릭된 a:", a.innerText);
-    console.log("클릭된 ol:", ol);
-    
- 
-    if (a.innerText === "COLLECTIONS") {
-      // 컬렉션일때 높이토글  (하위보이게)
-      let submenu = document.querySelector(".submenu");
-      if (window.innerWidth <= 800) {
-        submenu.style.height = submenu.style.height === "130px" ? "0" : "130px";
-      } else {
-        submenu.style.height = submenu.style.height === "24px" ? "0" : "24px";
-      }
-      setTxt("COLLECTIONS");
-    } else {
-      toSetText = a.innerText;
-      // 이부분이 else문에만 있어야함. if문 바깥에 있으면 collection을 클릭했을 때도 txt가 업데이트됨
 
-      setTxt(toSetText);
-      // 나머지 li 메뉴클릭시 내부 a의 이너텍스트값으로  'txt상태변수변경 '
+    if (a.innerText === "COLLECTIONS") {
+      // 클릭된 메뉴가 컬렉션일때 높이토글  (하위보이게)
+      if (window.innerWidth <= 800) {
+        // 서브오픈여부(true 열림)
+        let isSubOpen = submenu.style.height === "130px";
+        // coll메뉴
+        let coll = document.querySelector(".coll");
+
+        submenu.style.height = isSubOpen ? "0" : "130px";
+        // 서브메뉴 높이에 따라 coll 필터효과 변경 (클릭시점 기준)
+        coll.style.filter = isSubOpen ? "invert(1)" : "invert(0)";
+      } else {
+        submenu.style.height = submenu.style.height === "" ? "0" : "";
+      }
     }
-    setIsSub(el.parentElement.classList.contains("submenu"));
+    // 클릭된 메뉴가 컬렉션이 아닐때
+    else {
+      console.log("컬렉션이 아닌 메뉴 클릭됨!");
+      // txt가 collMenu에 없으면 서브메뉴 닫기
+      if (!collMenu.includes(a.innerText)) {
+        // 만약 서브가 열려있다면 닫기
+        submenu.style.height = "0";
+      }
+    }
+
+    toSetText = a.innerText;
+    // 클릭된 메뉴 내부 텍스트값으로 전역상태변수 변경
+    setTxt(toSetText);
+
+    // 서브메뉴 여부 전역상태변수 변경
     // 클릭된 각 li 부모 클래스가 submenu가 있으면 true (서브메뉴인지확인)
+    setIsSub(el.parentElement.classList.contains("submenu"));
   } ///////////////////////////////////////////////////// ///////
 
   return (
@@ -111,10 +116,8 @@ let Msize = window.innerWidth <= 800
               <a
                 className={v.txt === "COLLECTIONS" ? "coll" : null}
                 href="###"
-                style={v.txt === txt ? { fontWeight: "bold" } : null}
+                style={v.txt === txt ? { fontWeight: "900"} : null}
               >
-                {/* /*  { (v.txt === txt) && Msize ? { fontWeight: "bold", filter: ("invert(0)" ? "invert(1)" : "invert(0)") }:
-                  (v.txt === txt) && !Msize ?  { fontWeight: "bold" } :null}  */}
                 {v.txt}
               </a>
               {v.txt === "COLLECTIONS" ? (
@@ -123,7 +126,6 @@ let Msize = window.innerWidth <= 800
                     <li key={i}>
                       <a
                         href="###"
-                        onClick={(e) => e.preventDefault()}
                         style={v === txt ? { fontWeight: "bold" } : null}
                       >
                         {v}
@@ -138,9 +140,10 @@ let Msize = window.innerWidth <= 800
       </ul>
       <Title txtData={titleTxt} type={"brand"} />
       <div className="cont-wrap">
-        <SwiperItemSlide idname={"bestitem-area inshop"} />
-        {/* 뿌리는컴포넌트 */}
+        <SwiperItemSlide idname={"newitem-area inshop"} shoptxt={txt} />
+        <SwiperItemSlide idname={"bestitem-area inshop"} shoptxt={txt} />
         <p className="smenu-tit">{txt}</p>
+        {/* 뿌리는컴포넌트 */}
         <MakeItemList menuTxt={txt} isSub={isSub} />
       </div>
     </>

@@ -14,7 +14,8 @@ ul.smenu-box {
 }
 
 ol.submenu {
-  height: 24px;
+  /* 폰트크기와 통일 */
+  height: clamp(15px, 2vw, 4vw);
   background: black;
   margin-top: 20px;
   transition: 0.3s;
@@ -35,6 +36,9 @@ p.smenu-tit {
   padding: 50px;
   text-align: center;
 }
+
+.swiper {
+  box-sizing: border-box;}
 
 @media screen and (max-width: 800px) {
   ul.smenu-box {

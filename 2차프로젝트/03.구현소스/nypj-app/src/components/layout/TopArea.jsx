@@ -263,7 +263,7 @@ export default function TopArea({ scrollFn }) {
                       </Link>
                       {i === 0 && ( // 검색 아이콘일 때만 추가 출력
                         <div className="search-box">
-                          <div className="icon" onClick={hideSearch}>
+                          <div className="search-icon" onClick={hideSearch}>
                             <FontAwesomeIcon icon={faSearch} />
                           </div>
                           <input

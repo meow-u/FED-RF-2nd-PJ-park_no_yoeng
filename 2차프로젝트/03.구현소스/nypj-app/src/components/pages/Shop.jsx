@@ -18,6 +18,8 @@ import { Title } from "../modules/title";
 let subMenu = hamMenu[1].sub; //서브메뉴 데이터
 
 export default function Shop({ sMenu }) {
+let Msize = window.innerWidth <= 800
+
   // sMenu는 상위 컴포넌트에서 받아온 클릭된 서브메뉴 데이터
   console.log("클릭된 sMenu :", sMenu);
   const [isSub, setIsSub] = useState(false);
@@ -73,7 +75,7 @@ export default function Shop({ sMenu }) {
   function toggleCollection(el) {
     // 개별 li 클릭시 호출되는 함수( el은 개별 li)
     let a = el.querySelector("a"); // 각 li안의 이너텍스트를 포함한 개별 a링크
-    let ol = el.querySelector("ol"); // 각 li안의 서브메뉴 ol 덩어리
+    let ol = el.querySelector("ol"); // 각 li안의 서브메뉴 ol (컬렉션만있음)
     let toSetText; //전역변수
 
     console.log("클릭된 a:", a.innerText);
@@ -110,8 +112,9 @@ export default function Shop({ sMenu }) {
                 className={v.txt === "COLLECTIONS" ? "coll" : null}
                 href="###"
                 style={v.txt === txt ? { fontWeight: "bold" } : null}
-                
               >
+                {/* /*  { (v.txt === txt) && Msize ? { fontWeight: "bold", filter: ("invert(0)" ? "invert(1)" : "invert(0)") }:
+                  (v.txt === txt) && !Msize ?  { fontWeight: "bold" } :null}  */}
                 {v.txt}
               </a>
               {v.txt === "COLLECTIONS" ? (

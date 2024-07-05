@@ -140,7 +140,6 @@ export default function Shop({ sMenu }) {
       </ul>
       <Title txtData={titleTxt} type={"brand"} />
       <div className="cont-wrap">
-        <SwiperItemSlide idname={"newitem-area inshop"} shoptxt={txt} />
         <SwiperItemSlide idname={"bestitem-area inshop"} shoptxt={txt} />
         <p className="smenu-tit">{txt}</p>
         {/* 뿌리는컴포넌트 */}

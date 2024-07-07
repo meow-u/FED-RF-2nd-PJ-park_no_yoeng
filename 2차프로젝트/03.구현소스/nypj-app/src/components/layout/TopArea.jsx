@@ -191,7 +191,6 @@ export default function TopArea({ scrollFn }) {
                               {v.sub.map((v, i) => (
                                 <li key={i}>
                                   {v.txt !== "BACK" ? (
-                                    // <Link to={v.link}>{v.txt}</Link>
                                     <Link to={v.link}>{v.txt}</Link>
                                   ) : (
                                     <a
@@ -214,7 +213,8 @@ export default function TopArea({ scrollFn }) {
                 {menu.map((v, i) => (
                   <li key={i}>
                     {/* link to -> 라우터에서 a링크대신 지원함 */}
-                    <Link className="menu" to={v.link}>
+                    <Link className="menu" to={v.link} 
+                    state={v.link === "/Shop" && {smenu:null}}>
                       {v.txt}
                     </Link>
                   </li>

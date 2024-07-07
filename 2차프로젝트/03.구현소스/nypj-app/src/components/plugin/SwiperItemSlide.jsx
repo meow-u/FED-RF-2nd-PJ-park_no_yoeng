@@ -25,14 +25,26 @@ import { Title } from "../modules/title";
 // 스와이퍼 개별 CSS
 import "./css/Swiper_itemSlide.scss";
 
-export default function SwiperItemSlide({ idname, selData, itemIdx, shoptxt }) {
+export default function SwiperItemSlide({
+  idname,
+  selData,
+  itemIdx,
+  shoptxt,
+  shop,
+  setTxt,
+  setIsSub,
+}) {
   let [index, setIndex] = useState(0);
   // 리랜더링을 위해 상태값으로 itemIdx 받아옴
 
   //idname은 호출시 영역구분아이디
   // selData는 sub_detail에서 넘어온 선택데이터
   // itemIdx는 상품상세페이지일시 받아온 idx
-  // shoptxt는 상품상세페이지일시 받아온 txt
+
+  // [ shop 컴포넌트에서 전달]
+  // shoptxt는 각각 받아온 상품카테고리명
+  // shop는 상품페이지에서 받아온 shop텍스트
+  // setTxt는 클릭시 변경할 상태관리함수
 
   // 상품상세페이지일때 받아온 idx로 상품데이터 필터링
   let detaildata;
@@ -43,7 +55,7 @@ export default function SwiperItemSlide({ idname, selData, itemIdx, shoptxt }) {
     // 이름을 공백으로 나눠서 두번째 단어를 필터링
     filterName = detaildata.name[0].split(" ")[1];
   }
-  console.log("detaildata", detaildata, "filterName", filterName);
+  // console.log("detaildata", detaildata, "filterName", filterName);
 
   // 영역 아이디별 스와이퍼 반응형변경
   const newItem = {
@@ -104,12 +116,12 @@ export default function SwiperItemSlide({ idname, selData, itemIdx, shoptxt }) {
 
   const isCollecMenu = idname.includes("colletion");
   const isProductMenu = idname.includes("product");
-  console.log("idname.includes('colletion')", idname.includes("colletion"));
-  console.log("idname.includes('product')", idname.includes("product"));
-  console.log(
-    selData ? console.log("컬렉션상품필터selData.tit[4]:", selData.tit[4]) : ""
-  );
-  console.log("idname:", idname);
+  // console.log("idname.includes('colletion')", idname.includes("colletion"));
+  // console.log("idname.includes('product')", idname.includes("product"));
+  // console.log(
+  //   selData ? console.log("컬렉션상품필터selData.tit[4]:", selData.tit[4]) : ""
+  // );
+  // console.log("idname:", idname);
 
   return (
     <div id={idname}>
@@ -126,16 +138,38 @@ export default function SwiperItemSlide({ idname, selData, itemIdx, shoptxt }) {
         ) : (
           ""
         )}
-        <h3 className="catag">
-          {idname === "newitem-area"
-            ? "NEW"
-            : isCollecMenu || isProductMenu // 컬렉션상세, 상품상세일떄만 true
-            ? "Related products".toUpperCase()
-            : "BEST"}
-        </h3>
-        <Swiper
-          uniqueNavElements={true}
-          speed={500}
+        <h3 className="catag shop">
+          {idname === "newitem-area" ? (
+            "NEW"
+          ) : isCollecMenu || isProductMenu ? ( // 컬렉션상세, 상품상세일떄만 true
+            "Related products".toUpperCase()
+          ) : // 전달받은 shoptxt가 있으면서 값이 Shop/ALL이 아닐때
+          shoptxt && shoptxt !== "Shop" && shoptxt !== "ALL" ? (
+            // 하나의 요소로 반환하기위해 감쌈
+            <>
+              {shoptxt} <p>BEST</p> 
+
+              {/* shop 메인일때  영역별 버튼클릭시 txt, issub 상태관리변수 변경 */}
+              {shop && <button className="more"
+              onClick={() => {
+              if (shoptxt === "British Tales" || shoptxt === "Potions & Remedies" || shoptxt === "Trade Routes" || shoptxt === "Portraits") {
+                console.log("컬렉션하위메뉴클릭", shoptxt);
+
+                // setIsSub(true); // 서브메뉴면 상태변수 변경 (아이템리스트 뿌릴때 필터에서 사용)
+              } else {
+                // setIsSub(false);
+              }
+              setTxt(shoptxt);
+              }}
+              > See All in Category</button>}
+            </>
+            ) : (
+            "BEST"
+            )}
+          </h3>
+          <Swiper
+            uniqueNavElements={true}
+            speed={500}
           // 마우스 커서를 손가락 모양으로 변경
           // grabCursor={true}
           // 슬라이드 보이는갯수
@@ -146,10 +180,12 @@ export default function SwiperItemSlide({ idname, selData, itemIdx, shoptxt }) {
           navigation={true}
           // 아래쪽 불릿 (모듈)
           pagination={{ clickable: true }}
-          // 슬라이드반복여부
+          // 슬라이드반복여부 (메인 shop이 아닐때만 반복)
           loop={true}
           // 자동넘김 (모듈)
-          autoplay={idname === "newitem-area" ? newAuto : bestAuto}
+          autoplay={
+            shop ? false : idname === "newitem-area" ? newAuto : bestAuto
+          }
           /* 영역별 가로 사이즈 스와이퍼 설정변경 */
           breakpoints={idname === "newitem-area" ? newItem : bestItem}
           // 스와이퍼 사용모듈
@@ -197,7 +233,10 @@ export default function SwiperItemSlide({ idname, selData, itemIdx, shoptxt }) {
                   shoptxt === "ALL"
                   ? v
                   : shoptxt === "COLLECTIONS"
-                  ? v.collection === "British Tales" || v.collection === "Potions & Remedies" || v.collection === "Trade Routes" || v.collection === "Portraits"
+                  ? v.collection === "British Tales" ||
+                    v.collection === "Potions & Remedies" ||
+                    v.collection === "Trade Routes" ||
+                    v.collection === "Portraits"
                   : //shoptxt가 null이 아니면 타입, 컬렉션에서 찾기
                   shoptxt
                   ? v.type === shoptxt || v.collection === shoptxt

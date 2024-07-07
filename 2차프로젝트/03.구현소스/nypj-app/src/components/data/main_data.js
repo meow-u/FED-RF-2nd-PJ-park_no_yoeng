@@ -27,7 +27,7 @@ const hamMenu = [
     sub: [
       { txt: "FRAGRANCES", link: "/Shop/Fragrances" },
       { txt: "BATH & BODY", link: "/Shop/BathAndBody" },
-      { txt: "HOME", link: "/Home" },
+      { txt: "HOME", link: "/Shop/Home" },
       { txt: "COLLECTIONS", link: "/Shop/Collections" },
       { txt: "GIFTING", link: "/Shop/Gifting" },
       { txt: "ALL", link: "/Shop/All" },
@@ -128,12 +128,14 @@ const snsMenu = [
 const sideMenu = [
   { txt: "검색", link: "/Search", icon: faMagnifyingGlass },
   { txt: "장바구니", link: "/Cart", icon: faCartShopping },
-  { txt: "회원가입", link: "/Member", icon: faUserPlus},
-  {txt: "로그인", link: "/Login", icon: faUser}, 
+  { txt: "회원가입", link: "/Member", icon: faUserPlus },
+  { txt: "로그인", link: "/Login", icon: faUser },
 ];
 
 // 타이틀 컴포넌트 텍스트 데이터
 const titleTxt = {
+  list: ["All Products", "View All Items in This Category", "Find everything you need in one place"],
+  best: ["Must-Have Items", "Customer Favorite", "See why these items are fan favorites."],
   brand: ["The value of trust", "Enjoy NewProduct", "Check our this item"],
   blog: ["Our new stories", "Penhaligon's Magazine", "Learn more"],
   Penhaligons: [
@@ -145,4 +147,42 @@ const titleTxt = {
   collection: ["Our collection", "Take a closer look", "Check our this video"],
 };
 
-export { menu, hamMenu, bannerImg, titleTxt, footerMenu, snsMenu, sideMenu ,collMenu };
+// shop 페이지 카테고리 서브메뉴 배열
+const ctgList = [ "FRAGRANCES", "BATH & BODY", "HOME", "COLLECTIONS", "British Tales", "Potions & Remedies", "Trade Routes", "Portraits", "GIFTING", "ALL" ];
+
+// 카테고리 데이터 생성함수
+const ctgTxt = (ctg)=>{
+  // 소문자 카테고리명
+  let lowerCtg = ctg.toLowerCase();
+
+  if(ctg === "ALL") lowerCtg = "products";
+  if(ctg === "HOME") lowerCtg = `${lowerCtg} items`;
+  if(ctg === "BATH & BODY") lowerCtg = `${lowerCtg} items`;
+  
+  
+  // ctg를 받아서 텍스트 데이터를 생성하는 함수
+  return (
+    [ctg,[ctg,`${ctg} - See all ${lowerCtg}`,"Choosing your signature scent is a big deal. Luckily, Penhaligons has been smelling the great and good of society for over 150 years, so we're well versed in the matter."]]
+  )
+};
+// 카테고리 데이터 리스트를 생성하고  객체로 변환
+let ctgTxtData = Object.fromEntries(// 키와 값으로 이루어진 배열을 객체로 변환하는 메서드
+  ctgList.map(v=>{
+    // console.log(ctgTxt(v));
+    return ctgTxt(v)})
+);
+
+// SHOP 데이터항목 추가
+ctgTxtData["Shop"] = ["SHOP","SHOP - See Best products","Choosing your signature scent is a big deal. Luckily, Penhaligons has been smelling the great and good of society for over 150 years, so we're well versed in the matter."];
+export {
+  menu,
+  hamMenu,
+  bannerImg,
+  titleTxt,
+  footerMenu,
+  snsMenu,
+  sideMenu,
+  collMenu,
+  ctgList,
+  ctgTxtData,
+};

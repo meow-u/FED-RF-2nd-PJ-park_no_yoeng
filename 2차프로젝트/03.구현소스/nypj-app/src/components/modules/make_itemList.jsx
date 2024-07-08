@@ -109,7 +109,12 @@ function MakeItemList({ dt, menuTxt, isSub, sort }) {
                   : a.review < b.review
                   ? 1
                   : 0
+                  : // 높은가격순
+                  sort === "bprice"
+                  // let a = parseInt(a.price.replace(/,/g,""))
+                  ? parseInt()
                 : // 전부아닐때 정렬하지 않음
+                // parseInt(str.replace(/,/g, '')) "151,000"을 151000으로 반환
                   0
             )
             .map((v, i) => (

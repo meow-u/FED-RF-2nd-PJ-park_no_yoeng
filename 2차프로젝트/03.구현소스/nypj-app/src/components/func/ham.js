@@ -97,7 +97,9 @@ const hamFn = () => {
             });
          } else if (txt !== "BACK") {
             // 다른 서브 메뉴 링크 클릭 시
-            e.stopPropagation(); // 이벤트 전파 중지 (없으면 메인 메뉴 항목 클릭 이벤트가 같이 발생하여 class remove가 제대로 동작하지 않음)
+            // ->>> stopPropagation 처리할 경우 라우터 a링크 처리가 페이지 리로드되면서 문제발생함!!!
+            // 라우터 Link처리는 기본적으로 a링크 기본 이동막기처리가 되어 있다!
+            // e.stopPropagation(); // 이벤트 전파 중지 (없으면 메인 메뉴 항목 클릭 이벤트가 같이 발생하여 class remove가 제대로 동작하지 않음)
             submenu.classList.remove("on"); // 서브 메뉴 숨기기
             toggleMenu(); // 메뉴 여닫기
          }

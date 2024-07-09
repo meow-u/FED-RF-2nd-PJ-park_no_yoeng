@@ -26,6 +26,9 @@ export default function Shop({ sMenu = "Shop" }) {
   // 정렬 상태변수
   const [sort, setSort] = useState("asc");
 
+  // 전달값과 이전값이 같지 않으면 상태변수를 업데이트 해라!
+  if(sMenu != txt) setTxt(sMenu);
+
   console.log("랜더링! 클릭된 sMenu :", sMenu);
   console.log("랜더링! txt:", txt);
     

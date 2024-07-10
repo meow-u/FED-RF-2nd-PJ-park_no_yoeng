@@ -1,6 +1,8 @@
 // 로그인 페이지 컴포넌트  - Login.jsx
 
 import React, { useContext, useEffect, useState } from "react";
+import $ from "jquery";
+
 // css불러오기
 import "../../css/member.scss";
 import { initData } from "../func/mem_fn";
@@ -8,6 +10,16 @@ import { Con } from "../modules/myCon";
 import { Link } from "react-router-dom";
 
 function Login(props) {
+
+  useEffect(() => {
+    $("html,body").animate(
+      {
+        scrollTop: $(".main-wrap").offset().top - 75 + "px",
+      },
+      400
+    );
+  }, []);
+
   // ====== layout에서 불러온  컨텍스트 사용 =======
   const myCon = useContext(Con);
   console.log(myCon.loginSts);

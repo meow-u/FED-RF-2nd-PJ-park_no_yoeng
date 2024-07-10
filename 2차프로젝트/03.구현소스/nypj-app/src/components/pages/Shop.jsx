@@ -15,23 +15,52 @@ import { hamMenu, collMenu } from "../data/main_data";
 import { Title } from "../modules/title";
 
 let subMenu = hamMenu[1].sub; //서브메뉴 데이터
+// 컴포넌트 프로퍼티(props) 값의 지속성:
+// initSmenu는 컴포넌트의 프롭(prop)으로, 부모 컴포넌트에서 전달됩니다. 컴포넌트가 리렌더링되어도 이 프롭 값은 부모 컴포넌트에서 변경하지 않는 한 그대로 유지됩니다. 즉, 리렌더링으로 인해 initSmenu가 자동으로 초기화되지 않습니다.
+// 컴포넌트 함수 내에서 initSmenu의 값을 직접 변경하거나 초기화할 수 없습니다. 그 이유는 다음과 같습니다:
 
-export default function Shop({ sMenu = "Shop" }) {
-  // sMenu는 상위 컴포넌트에서 받아온 클릭된 서브메뉴 데이터
+// 프롭(prop)의 특성:
+// initSmenu는 부모 컴포넌트에서 전달받은 프롭입니다. React의 데이터 흐름 원칙에 따라, 프롭은 읽기 전용(read-only)입니다.
+// 함수 매개변수의 특성:
+// JavaScript에서 함수 매개변수는 함수 내부에서 지역 변수처럼 취급됩니다. 따라서 함수 내에서 initSmenu에 새 값을 할당하더라도, 이는 함수의 지역 범위에만 영향을 미치며 부모 컴포넌트나 다음 렌더링에 영향을 주지 않습니다.
+// React의 단방향 데이터 흐름:
+// React는 단방향 데이터 흐름을 따릅니다. 자식 컴포넌트는 부모로부터 받은 프롭을 변경할 수 없습니다.
+
+export default function Shop({ initSmenu = "Shop" }) {
+  // initSmenu index.js에서 받아온 클릭된 서브메뉴 데이터
   // 하위메뉴를 클릭해서 들어오면 해당값으로 설정,  그냥 shop으로 들어왔을시 '초기값 "Shop"
 
-  const [isSub, setIsSub] = useState(false); // 서브메뉴인지 여부
-  // txt 값은 클릭시 내부 텍스트값으로 변경됨
+  // props로 받아온 초기값으로 sMenu 상태변수 초기화
+  const [sMenu, setSmenu] = useState(initSmenu);
+  // txt 값은 클릭시 내부 텍스트값으로 변경됨 초기값 sMenu로 설정
   const [txt, setTxt] = useState(sMenu);
+  // 서브메뉴 여부 상태변수
+  const [isSub, setIsSub] = useState(false); // 서브메뉴인지 여부
   // 정렬 상태변수
   const [sort, setSort] = useState("asc");
+  console.log(">>>>>>처음랜더링");
+  // initSMenu가 "Shop"이 아니면서 sMenu와 같지 않을 때 : 햄버거통한 메뉴값 읽어올 때
 
-  // 전달값과 이전값이 같지 않으면 상태변수를 업데이트 해라!
-  if(sMenu != txt) setTxt(sMenu);
+
+  // initSmune값이 변경되면 (상단 메뉴통해 들어올때)
+  // 해당 값의 버튼을 찾아서 클릭이벤트 발생시키기 (sMenu값 변경 후 랜더링시키기위함)
+  useEffect(() => {
+    // 모든 메뉴 선택
+    let li = $(".smenu-box li");
+    li.each((i, el) => {
+      // console.log(el.innerText);
+      if (el.innerText === initSmenu) {
+        // console.log('클릭할 메뉴:', el.innerText);
+        // 클릭할 메뉴에 클릭이벤트 발생시켜서 sMenu값 변경!!
+
+        el.click();
+      }
+    });
+  }, [initSmenu]);
 
   console.log("랜더링! 클릭된 sMenu :", sMenu);
-  console.log("랜더링! txt:", txt);
-    
+  console.log("그리구 txt:", txt);
+
   useEffect(() => {
     // 스크롤 이동
       $("html,body").animate(
@@ -58,28 +87,30 @@ export default function Shop({ sMenu = "Shop" }) {
   }, []); // 빈 배열을 전달하여 컴포넌트가 마운트될 때 한 번만 실행되도록 함
 
   useEffect(() => {
-      // sMenu가 기본값이고 txt랑 비일치시 전역변수 맞추기
-      if (sMenu === "Shop" && txt !== "Shop") {
-        // 값 통일
-        sMenu = txt;
-        console.log("비일치로 sMenu 통일시킴!:", sMenu);
+    // sMenu가 기본값이고 txt랑 비일치시 전역변수 맞추기
+    if (sMenu !== txt) {
+      console.log("두 값이 달라요!! sMenu:", sMenu, "txt:", txt);
 
-        if( sMenu === "British Tales" || sMenu === "Potions & Remedies" || sMenu === "Trade Routes" || sMenu === "Portraits" ){
-          // 서브메뉴면 상태변수 변경 (아이템리스트 뿌릴때 필터에서 사용)
-          setIsSub(true);
-        }
-        // 전역변수 리랜더링
-        setTxt(sMenu);
-      }
-      // txt값이 컬렉션하위메뉴일때 서브메뉴여부 상태변수 변경
-      if (txt === "British Tales" || txt === "Potions & Remedies" || txt === "Trade Routes" || txt === "Portraits") {
-        console.log("컬렉션하위메뉴발견!", txt);
-        
+      // 전역변수 값 통일
+      setTxt(sMenu);
+      console.log("비일치로 sMenu 통일시킴! 랜더링확인");
+
+      if (
+        sMenu === "British Tales" ||
+        sMenu === "Potions & Remedies" ||
+        sMenu === "Trade Routes" ||
+        sMenu === "Portraits"
+      ) {
+        // 서브메뉴면 상태변수 변경 (아이템리스트 뿌릴때 필터에서 사용)
         setIsSub(true);
       } else {
+        // 서브메뉴 아닐때
         setIsSub(false);
       }
+    }
+  }, [sMenu, txt]); 
 
+  useEffect(() => {
     window.addEventListener("resize", () => {
       // 리사이즈 발생시 컬렉션 클릭시 하위메뉴 높이 초기화
       let submenu = document.querySelector(".submenu");
@@ -97,12 +128,11 @@ export default function Shop({ sMenu = "Shop" }) {
           document.querySelector(".coll").style.filter = "none";
         }
       }
-      
     });
 
     // 리턴함수는 언마운트시 실행됨
     return () => window.removeEventListener("resize", () => {});
-  }, [txt]); // txt 값이 변경될 때만 실행되도록 함
+  });
 
   // 컬렉션 메뉴 토글 + 클릭시 txt상태변수 변경 함수 ////////////////////////////////////
   function toggleCollection(el) {
@@ -140,9 +170,8 @@ export default function Shop({ sMenu = "Shop" }) {
     }
 
     toSetText = a.innerText;
-    // 클릭된 메뉴 내부 텍스트값으로 전역상태변수 변경
-    setTxt(toSetText);
-
+    // 클릭된 메뉴 내부 텍스트값으로 SMenu전역상태변수 변경
+    setSmenu(toSetText);
     // 서브메뉴 여부 전역상태변수 변경
     // 클릭된 각 li 부모 클래스가 submenu가 있으면 true (서브메뉴인지확인)
     setIsSub(el.parentElement.classList.contains("submenu"));
@@ -194,10 +223,8 @@ export default function Shop({ sMenu = "Shop" }) {
               {">"}
               <button
                 onClick={() => {
-                  // 클릭시 읽어온 서브메뉴데이터 다시 초기화 (shop기본 페이지)
-                  sMenu = "Shop";
-                  // 클릭시 전역변수 변경
-                  setTxt(sMenu);
+                  // 클릭시 읽어온 sMenu 초기화 (shop기본 페이지)
+                  setSmenu("Shop");
                 }}
               >
                 SHOP
@@ -262,7 +289,6 @@ export default function Shop({ sMenu = "Shop" }) {
         <SwiperItemSlide
           idname={"bestitem-area inshop"}
           shoptxt={txt}
-          sMenu={sMenu}
           setIsSub={setIsSub}
         />
       </div>
@@ -292,7 +318,7 @@ export default function Shop({ sMenu = "Shop" }) {
                     idname={"bestitem-area inshop"}
                     shoptxt={v}
                     shop={txt}
-                    setTxt={setTxt}
+                    setSmenu={setSmenu}
                   />
                 </React.Fragment>
               );

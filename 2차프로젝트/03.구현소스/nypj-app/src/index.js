@@ -61,7 +61,7 @@ export default function App() {
               key={i}
               path={v.link}
 
-              element={<Shop sMenu={v.txt} />}  //서브메뉴데이터전달
+              element={<Shop initSmenu={v.txt} />}  //서브메뉴데이터전달
             />
           ))}
 

@@ -31,7 +31,7 @@ export default function SwiperItemSlide({
   itemIdx,
   shoptxt,
   shop,
-  setTxt,
+  setSmenu,
   setIsSub,
 }) {
   let [index, setIndex] = useState(0);
@@ -44,7 +44,7 @@ export default function SwiperItemSlide({
   // [ shop 컴포넌트에서 전달]
   // shoptxt는 각각 받아온 상품카테고리명
   // shop는 상품페이지에서 받아온 shop텍스트
-  // setTxt는 클릭시 변경할 상태관리함수
+  // setSmenu는 클릭시 변경할 상태관리함수
 
   // 상품상세페이지일때 받아온 idx로 상품데이터 필터링
   let detaildata;
@@ -159,7 +159,7 @@ export default function SwiperItemSlide({
               } else {
                 // setIsSub(false);
               }
-              setTxt(shoptxt);
+              setSmenu(shoptxt);
               }}
               > See All in Category</button>}
             </>

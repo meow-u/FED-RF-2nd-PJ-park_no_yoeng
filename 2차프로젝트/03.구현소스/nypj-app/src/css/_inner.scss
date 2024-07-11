@@ -1,92 +1,172 @@
 // 콘텐츠 이너 모듈 SCSS - _inner.scss
 
 .textbox-wrap {
-  top: 100px;
-  padding: 15px;
-  span.stit {
-    display: inline-block;
-    width: min(200px, 13vw);
-    border-bottom: 1px solid #777;
-  }
-  small {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 20px;
-    font-size: clamp(10px, 3vw, 15px);
-    font: {
-      family: "Cormorant Garamond", serif;
-      style: italic;
-      weight: bold;
-    }
-  }
-  h2 {
-    /* block이지만 인라인블록처럼 */
-    width: min-content;
-    color: #000;
-    font-size: clamp(14px, 7vw, 9vw);
-    font-family: "Cormorant Garamond", serif;
-    padding-bottom: 20px;
-  }
-  span.text {
-    text-align: justify;
-    line-height: 1.5;
-    display: block;
-    width: min(327px, 34vw);
-    font-size: 14px;
-    font-family: "Open Sans", sans-serif;
-  }
-  button {
-    display: block;
-    width: auto;
-    border-radius: 100px;
-    border: 1px solid #6e6e6e;
-    padding: 14px;
-    margin: 20px 0;
-    font-size: 15px;
-    font-family: "Open Sans", sans-serif;
-    background-color: #fff;
-    font-weight: 500;
-  }
+   top: 100px;
+   padding: 15px;
+   span.stit {
+      display: inline-block;
+      width: min(200px, 13vw);
+      border-bottom: 1px solid #777;
+   }
+   small {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
+      font-size: clamp(10px, 3vw, 15px);
+      font: {
+         family: "Cormorant Garamond", serif;
+         style: italic;
+         weight: bold;
+      }
+   }
+   h2 {
+      /* block이지만 인라인블록처럼 */
+      width: min-content;
+      color: #000;
+      font-size: clamp(14px, 7vw, 9vw);
+      font-family: "Cormorant Garamond", serif;
+      padding-bottom: 20px;
+   }
+   span.text {
+      text-align: justify;
+      line-height: 1.5;
+      display: block;
+      width: min(327px, 34vw);
+      font-size: 14px;
+      font-family: "Open Sans", sans-serif;
+   }
+   button {
+      display: block;
+      width: auto;
+      border-radius: 100px;
+      border: 1px solid #6e6e6e;
+      padding: 14px;
+      margin: 20px 0;
+      font-size: 15px;
+      font-family: "Open Sans", sans-serif;
+      background-color: #fff;
+      font-weight: 500;
+   }
+   .opt-wrap {
+      &.next {
+         border-top: none;
+         margin: 0 0px;
+         margin-bottom: 10px;
+      }
+      .item-name {
+         font-size: 12px;
+      }
+
+      margin-top: 20px;
+      border-top: 1px solid gray;
+      border-bottom: 1px solid gray;
+      padding: 10px 0px;
+
+      .opt-box {
+         display: flex;
+         padding: 5px 0px;
+         align-items: center;
+         .btn-wrap {
+            flex-basis: 50%;
+            display: flex;
+            input.icount {
+               text-align: end;
+               aspect-ratio: 1 / 1;
+               width: 100%;
+               border: 1px solid gray;
+               box-sizing: border-box;
+               padding: 0px;
+               margin: 0px;
+            }
+            .item {
+               aspect-ratio: 1/1;
+
+               position: relative;
+               background: #00000005;
+               margin: 0;
+               translate: 0;
+               border-radius: 0px;
+               height: 100%;
+
+               width: 100%;
+               border: 1px solid gray;
+            }
+         }
+         .price-wrap {
+            &.gift {
+               margin: 0 auto;
+               display: flex;
+               flex-direction: column;
+               span.gift-tit {
+                  font-weight: 600;
+                  padding: 5px 0;
+                  font-family: "Open Sans", sans-serif;
+                  span.delete.gift {
+                     position: absolute;
+                     left: 100%;
+                     translate: -280%;
+                  }
+               }
+            }
+
+            span.gift-info {
+               font-size: 12px;
+            }
+            margin-left: auto;
+            .result {
+               font-weight: bold;
+               padding: 0 10px;
+               font-family: "Open Sans", sans-serif;
+            }
+            .delete {
+               font-family: "Open Sans", sans-serif;
+               font-weight: bolder;
+               display: inline-block;
+               transform: scaleY(0.8);
+               scale: 1.4;
+            }
+         }
+      }
+   }
 }
 
 @media screen and (max-width: 800px) {
-  section.main-wrap #ItemDetail-area .ItemDetail .cont-box {
-    .col-4 {
-      .textbox-wrap small {
-        margin-bottom: auto;
-      }
-      .btn-wrap {
-        display: flex;
-        box-sizing: border-box;
-        button.item-button {
-          margin: 1vw;
-        }
-      }
+   section.main-wrap #ItemDetail-area .ItemDetail .cont-box {
+      .col-4 {
+         .textbox-wrap small {
+            margin-bottom: auto;
+         }
+         .btn-wrap {
+            display: flex;
+            box-sizing: border-box;
+            button.item-button {
+               margin: 1vw;
+            }
+         }
 
-      select.option {
-        width: 105px;
-        margin: 10px 10px;
-        display: inline-block;
-      }
+         select.option {
+            width: 105px;
+            margin: 10px 10px;
+            display: inline-block;
+         }
 
-      .reviews span.star-box {
-        position: absolute;
-        left: 100%;
-        translate: -100% 30%;
+         .reviews span.star-box {
+            position: absolute;
+            left: 100%;
+            translate: -100% 30%;
+         }
       }
-    }
-    .left-box {
-      margin-top: -550px;
-      width: auto;
-    }
-    svg {
-      padding: 1.5vw;
-      top: 0;
-      translate: 0 175%;
-    }
-    .tit-bx {
-    
-      padding-bottom: 5px;
-    }
-  }
+      .left-box {
+         margin-top: -550px;
+         width: auto;
+      }
+      svg {
+         padding: 1.5vw;
+         top: 0;
+         translate: 0 175%;
+      }
+      .tit-bx {
+         padding-bottom: 5px;
+      }
+   }
 }

@@ -90,7 +90,7 @@ export default function App() {
               path={"Shop/product/" + (i + 1)}
               element={<Product/>}
             />))}
-        </Route>{" "}
+        </Route>
         {/* 레이아웃 라우트 끝 */}
       </Routes>
     </BrowserRouter>

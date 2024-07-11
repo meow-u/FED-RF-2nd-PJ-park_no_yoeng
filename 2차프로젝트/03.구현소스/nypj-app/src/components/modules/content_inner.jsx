@@ -87,11 +87,16 @@ export function Inner({ type, data, idx }) {
                <div className="opt-wrap">
                   <span className="item-name">{itemdata.name[0]}</span>
                   <div className="opt-box">
-                     <div className="btn-wrap">
+                  <div className="btn-box">
+                                  <button className="up detail"></button>
+                                  <input className="cntval" type="number" />
+                                  <button className="down detail"></button>
+                                </div>
+                     {/* <div className="btn-wrap">
                         <button className="item up">-</button>
                         <input className="icount" type="number" />
                         <button className="item down">+</button>
-                     </div>
+                     </div> */}
 
                      <div className="price-wrap">
                         <span className="result">{itemdata.price}원</span>

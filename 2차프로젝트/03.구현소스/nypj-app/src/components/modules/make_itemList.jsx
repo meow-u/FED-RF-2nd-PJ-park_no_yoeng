@@ -34,7 +34,7 @@ function MakeItemList({ dt, menuTxt, isSub, sort }) {
               <Link to={`/shop/product/${v.idx}`} state={{ itemIdx: v.idx }}>
                 <img
                   src={`${process.env.PUBLIC_URL}/images/${v.img}`}
-                  alt={`banner${i + 1}`}
+                  alt={`product${i + 1}`}
                 />
               </Link>
               <div className="item-wrap">
@@ -122,7 +122,7 @@ function MakeItemList({ dt, menuTxt, isSub, sort }) {
                 <Link to={`/shop/product/${v.idx}`} state={{ itemIdx: v.idx }}>
                   <img
                     src={`${process.env.PUBLIC_URL}/images/${v.img}`}
-                    alt={`banner${i + 1}`}
+                    alt={`product${i + 1}`}
                   />
                 </Link>
                 <div className="item-wrap">

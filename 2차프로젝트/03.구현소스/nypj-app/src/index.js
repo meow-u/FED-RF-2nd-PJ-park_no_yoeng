@@ -68,7 +68,8 @@ export default function App() {
           <Route path="Collections" element={<Collections />} />
           <Route path="OurStory" element={<OurStory />} />
           <Route path="Penhaligons" element={<Penhaligons />} />
-          <Route path="cart" element={<Cart />} />
+          {/* 레이아웃 영역에서 항상보여지도록 컴포넌트 연결 */}
+          {/* <Route path="cart" element={<Cart />} /> */}
           <Route path="Member" element={<Member />} />
           <Route path="Login" element={<Login />} />
           <Route path="search" element={<Search />} />

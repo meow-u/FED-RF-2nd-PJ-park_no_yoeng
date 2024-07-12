@@ -70,10 +70,23 @@ export function Inner({ type, data, idx }) {
                </div>
                <p className="kname">{itemdata.name[0]}</p>
                <span className="price">₩{itemdata.price}</span>
-               <select className="option">
-                  <option value="">옵션 선택</option>
-                  <option value="1">1개</option>
-                  <option value="2">선물 포장(+0)</option>
+               <select className="option"
+               onChange={// 옵션박스 값체인지시 이벤트
+                  (e)=>{
+                     // 바뀐 옵션값
+                   let option = $(e.target).val();
+                   console.log(option);
+
+                   if(option === "item"){// 상품을 선택한 경우
+                     $('.opt-wrap.first').css('height',"55px");
+                   }else if(option ==="gift"){// 포장을 선택한 경우
+                     $('.opt-wrap.next').css('height',"55px");
+                   }
+                  }
+               }>
+                  <option defaultvalue="옵션 선택">옵션 선택</option>
+                  <option value="item">1개</option>
+                  <option value="gift">선물 포장(+0)</option>
                </select>
 
                <span
@@ -84,14 +97,30 @@ export function Inner({ type, data, idx }) {
                ></span>
                {/* 선택 옵션출력박스 */}
 
-               <div className="opt-wrap">
+               <div className="opt-wrap first">
                   <span className="item-name">{itemdata.name[0]}</span>
                   <div className="opt-box">
-                  <div className="btn-box">
-                                  <button className="up detail"></button>
-                                  <input className="cntval" type="number" />
-                                  <button className="down detail"></button>
-                                </div>
+                     <div className="btn-box"
+                     onClick={
+                        (e)=>{
+                           //버튼 id 읽어오기
+                           let btn = $(e.target).attr("data-id");
+                           console.log(btn);
+                           // input박스
+                           let tg = $(e.target).siblings(".cntval");
+
+                           if(btn === "up"){// up일시 1증가
+                              tg.val(Number(tg.val())+1)
+                           }else if( btn === "down" ){// down일시 1이 아니면 -1
+                              tg.val(tg.val() == 1? 1 : Number(tg.val())-1)
+                           }
+                        }   
+                     }
+                     >
+                        <button className="up detail" data-id="up"></button>
+                        <input className="cntval" type="number" defaultValue="1" />
+                        <button className="down detail" data-id="down"></button>
+                     </div>
                      {/* <div className="btn-wrap">
                         <button className="item up">-</button>
                         <input className="icount" type="number" />
@@ -108,7 +137,9 @@ export function Inner({ type, data, idx }) {
                <div className="opt-wrap next">
                   <div className="opt-box">
                      <div className="price-wrap gift">
-                        <span className="gift-tit">Penhaligon's Gift Wrapping Service</span>
+                        <span className="gift-tit">
+                           Penhaligon's Gift Wrapping Service
+                        </span>
                         <span className="gift-info">
                            정성을 담아 소중한 분에게 마음을 전달해 드립니다.
                         </span>

@@ -1,5 +1,5 @@
 // 메인영역 컴포넌트
-import { React, useLayoutEffect } from "react";
+import { React, useContext, useLayoutEffect } from "react";
 
 import { Outlet } from "react-router-dom";
 // Outlet 컴포넌트는 리액트라우터에서
@@ -9,6 +9,8 @@ import SwiperBanner from "../plugin/SwiperBanner";
 import { FotBanner } from "../modules/fot_banner";
 
 export default function MainArea() {
+
+
   useLayoutEffect(() => {
     /////////////// 작동안함 왜?
     console.log("여기야~!");

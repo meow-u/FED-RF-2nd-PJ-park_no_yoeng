@@ -34,29 +34,98 @@ export function Layout() {
   const [loginMsg, setLoginMsg] = useState(null);
   // console.log('랜더링후loginMsg :',loginMsg);
 
-  ////////// [ 카트 관련 상태관리변수 ] ///////////
+  // [ 카트 관련 상태관리변수 ] /////////////////////////////
 
-  //카드 존재여부 변수 (처음 false로 셋팅)
-  let cartTemp = true;
+  // [ 카드 로컬 데이터 상태변수 ] : 초기상태로 로컬스토리지에 저장된 카드데이터를 가져오기
+
+  let savedCart;
+  const [localsCart, setLocalsCart] = useState(() => {
+    // 로컬스토리지에 저장된 데이터 가져오는 변수
+    savedCart = localStorage.getItem("cart-data");
+
+    if (!savedCart) {
+      // 로컬스에 저장된 데이터가 없으면 빈 배열을 localStorage에 저장
+      localStorage.setItem("cart-data", "[]");
+      // 그리고 useState 상태의 초기값으로 빈 배열 반환
+      console.log("초기값을가져왔다");
+      return [];
+    } else if (savedCart) {
+      // 로컬스에 저장된 데이터가 있으면 파싱하여 반환
+      console.log("저장된걸가져왔다");
+      return JSON.parse(savedCart);
+    }
+  });
 
   // [ 카트 사용여부 상태변수 ] : true 일때 사용
-  const [cartSts, setCartSts] = useState(cartTemp);
+  const [cartSts, setCartSts] = useState(() => {
+    //카드 존재여부 변수 (처음 false로 셋팅)
+    let cartTemp = false;
 
-  // [ 카드 로컬 데이터 상태변수 ] : 로컬스토리지에 저장된 카드데이터를 가져오기
-  const [localCart, setLocalCart] = useState(localStorage.getItem("cart-data"));
+    if (savedCart) {
+      // 만약 로컬카트가 존재하면 갯수확인후 0이상일시 카트를 보여준다.
+      // 카트에 담긴 갯수확인
+      let cartCnt = localsCart.length;
+      if (cartCnt > 0) {
+        // 담긴갯수가 0 이상이면 카드 존재여부 true
+        cartTemp = true;
+        console.log("카트존재여부:", cartTemp);
+        return cartTemp;
+      }
+    } /////////////////// if ///////////////////
+  });
 
-  // 로컬스 카트 데이터 존재여부에 따라 상태값 변경
-  if (localCart) {
-    // 만약 로컬카트가 존재하면 갯수확인후 0이상일시 카트를 보여준다.
-    // 카트에 담긴 갯수확인
-    let cartCnt = JSON.parse(localCart).length;
-    if (cartCnt > 0) {
-      // 담긴갯수가 0 이상이면 카드 존재여부 변수를 true로 변경
-      cartTemp = true;
-    }
-  } /////////////////// if ///////////////////
+  // [ 카트 관련 함수 ] //////////////////////////////////
+
+  // 0. 장바구니 데이터 업데이트 함수
+  // 내보내면 안됨. 사용하다가 배열대신 다른거들어오면 원본이 위험함!
+  // 참조만 하는 함수로 사용해야함! <- 써야할때만 쓰는 함수..
+  const updateCart = (toUpdateCartItems) => {
+    // toUpdateCartItems 객체나 배열이어야 함 (JSON 문자열이 아님)
+    setLocalsCart(toUpdateCartItems); // React 상태 업데이트
+
+    // localStorage에는 JSON 문자열로 저장
+    localStorage.setItem("cart-data", JSON.stringify(toUpdateCartItems));
+  };
+
+  // 1. 장바구니에 아이템 추가 함수
+  const addToCart = (item) => {
+
+      // 장바구니에 추가할 아이템이 이미 존재하는지 확인
+      const isSame = localsCart.some((cartItem) => cartItem.idx === item.idx);
+      console.log("isSame:", isSame);
+
+      // 이미 존재하는 아이템이면 제외 후 추가
+      if (isSame) { 
+         alert("장바구니 담겨있던 상품의 정보가 변경되었습니다")
+         // 같은 아이템 삭제 후 다시 추가
+         let deleteSame = localsCart.filter((cartItem) => cartItem.idx !== item.idx); 
+         const updatedCart = [...deleteSame, item];
+         console.log("같은아이템삭제후 새롭게 추가된카트:", updatedCart);
+         updateCart(updatedCart);
+         return;
+      }
+     
+
+
+    // 로컬스 카트 데이터에 아이템 추가
+    const updatedCart = [...localsCart, item];
+    console.log("추가된카트:", updatedCart);
+    updateCart(updatedCart);
+   }
+ 
+
+  // 2. 장바구니에서 아이템 삭제 함수
+  const deleteCart = (item) => {
+    // 로컬스 카트 데이터에서 아이템 삭제 : idx가 일치하지 않는 것만 필터링 (일치하는 것만 삭제)
+    const updatedCart = localsCart.filter(
+      (cartItem) => cartItem.idx !== item.idx
+    );
+    console.log("삭제된카트:", updatedCart);
+    updateCart(updatedCart);
+  };
 
   // [ 공통 함수 ] ////////////////////////////////////////
+
   // 1. 라우팅 이동함수  (로그인페이지, 로그아웃시 셋팅)
   const goPage = useNavigate();
   // 2. 로그인 환영메세지 생성함수 (로그인후 셋팅)
@@ -86,7 +155,7 @@ export function Layout() {
     // -> [ 로그인상태 체크함수 ] //
 
     // (새로고침시에도 로그인이 유지되도록)
-    // 만약 세션스(minfo)의 값이 null 이 아니면
+    // 만약 세션스(minfo)의 값이 null 이 아니면2
     // 로그인 상태변수를 업데이트한다!
     // -> null이 아니면 조건문이 true처리 된다!
     if (sessionStorage.getItem("minfo")) {
@@ -107,24 +176,27 @@ export function Layout() {
     ////코드 리턴구역
     <Con.Provider
       value={{
-        //로그인상태, 로긴상태셋팅, 환영메세지, ㅡ상태변수
-        loginSts,
-        setLoginSts,
-        loginMsg,
-        // nav라우터, 환영메세지생성 , 로그아웃함수 ㅡ공통함수
-        goPage,
-        makeMsg,
-        logoutFn,
+        // [ 로그인 상태변수 ]
+        loginSts, // 로그인상태
+        setLoginSts, // 로그인상태셋팅함수
+        loginMsg, // 환영메세지
 
-        // [카트관련 상태변수]
-        // 카트사용 상태값, 카트사용 상태셋팅,
-        //로컬카트데이터, 로컬카트데이터셋팅
-        setCartSts,
-        localCart,
-        setLocalCart,
+        // [ 공통함수 ]
+        goPage, // 라우터이동함수
+        makeMsg, // 환영메세지생성함수
+        logoutFn, // 로그아웃함수
+
+        // [ 카트관련 상태변수 ]
+        setCartSts, // 카트 사용여부 셋팅함수
+        localsCart, // 로컬카트데이터
+        setLocalsCart, // 로컬카트데이터셋팅함수
+
+        updateCart, // 카트데이터 업데이트함수
+        addToCart, // 카트에 아이템 추가함수
+        deleteCart, // 카트에 아이템 삭제함수
       }}
     >
-      {/* 카트리스트 : 카트상태값 true 출력 */}
+      {/* 카트리스트 : 카트상태값 true일시 출력 */}
       {cartSts && <Cart />}
       {/* 1. 상단영역 */}
       <TopArea scrollFn={scrollTop} />

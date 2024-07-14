@@ -72,10 +72,10 @@
       }
       /* 스티키박스 */
       .col-4 {
-        background: var(--bg-color1);
+        background: #ffffff linear-gradient(-45deg, #f3f3f3, transparent);
         margin-left: auto;
         position: sticky;
-        top: 75px;
+        top: 0px;
         /* auto하게 지정후 js로 처리 */
         //   height: 400px;
         width: 33.33%;

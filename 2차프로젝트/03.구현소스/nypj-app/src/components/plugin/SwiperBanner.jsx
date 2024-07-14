@@ -36,7 +36,7 @@ export default function Banner() {
 
   const rdArrIdx = Math.floor(Math.random() * bannerImg.length); 
   // 랜덤한 인덱스값 만들기 ( 결과는 0 부터 배열길이-1 사이의 idx 값이 나온다. )
-  console.log('rdArrIdx(배너랜덤인덱스)',rdArrIdx); // 랜덤한 인덱스값 확인
+  // console.log('rdArrIdx(배너랜덤인덱스)',rdArrIdx); // 랜덤한 인덱스값 확인
 
 
   return (

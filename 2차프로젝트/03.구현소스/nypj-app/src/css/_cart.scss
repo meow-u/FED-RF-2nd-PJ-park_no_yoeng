@@ -14,7 +14,7 @@
       translate: -88% 0;
       position: fixed;
       left: 100%;
-      top: 50%;
+      top: 25%;
       font-style: italic;
       font-weight: bold;
       font-family: "Cormorant Garamond", serif;
@@ -139,7 +139,7 @@
 
             .cnt {
                font-weight: bold;
-               width: 100%;
+               width: auto;
             }
 
             .etit {
@@ -151,6 +151,14 @@
                font-weight: bold;
                width: 100%;
             }
+            &>span.gift {
+               font-size: 12px;
+               padding: 5px;
+               background: #b6d1ff;
+               font-weight: 600;
+               position: absolute;
+               translate: 7% -20%;
+           }
 
             // .price,
             // .total {
@@ -297,6 +305,7 @@
 
    button {
       &.buy {
+        line-height: 1;
          font-weight: 700;
          font-family: "Cormorant Garamond", serif;
          transition: 0.2s;

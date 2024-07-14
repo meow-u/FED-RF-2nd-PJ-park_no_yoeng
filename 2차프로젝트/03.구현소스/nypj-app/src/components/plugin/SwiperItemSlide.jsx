@@ -1,4 +1,3 @@
-
 // 펜할리곤스 스와이퍼 -신상품 모듈 (메인페이지)
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
@@ -148,29 +147,39 @@ export default function SwiperItemSlide({
           shoptxt && shoptxt !== "Shop" && shoptxt !== "ALL" ? (
             // 하나의 요소로 반환하기위해 감쌈
             <>
-              {shoptxt} <p>BEST</p> 
-
+              {shoptxt} <p>BEST</p>
               {/* shop 메인일때  영역별 버튼클릭시 txt, issub 상태관리변수 변경 */}
-              {shop && <button className="more"
-              onClick={() => {
-              if (shoptxt === "British Tales" || shoptxt === "Potions & Remedies" || shoptxt === "Trade Routes" || shoptxt === "Portraits") {
-                console.log("컬렉션하위메뉴클릭", shoptxt);
+              {shop && (
+                <button
+                  className="more"
+                  onClick={() => {
+                    if (
+                      shoptxt === "British Tales" ||
+                      shoptxt === "Potions & Remedies" ||
+                      shoptxt === "Trade Routes" ||
+                      shoptxt === "Portraits"
+                    ) {
+                      console.log("컬렉션하위메뉴클릭", shoptxt);
 
-                // setIsSub(true); // 서브메뉴면 상태변수 변경 (아이템리스트 뿌릴때 필터에서 사용)
-              } else {
-                // setIsSub(false);
-              }
-              setSmenu(shoptxt);
-              }}
-              > See All in Category</button>}
+                      // setIsSub(true); // 서브메뉴면 상태변수 변경 (아이템리스트 뿌릴때 필터에서 사용)
+                    } else {
+                      // setIsSub(false);
+                    }
+                    setSmenu(shoptxt);
+                  }}
+                >
+                  {" "}
+                  See All in Category
+                </button>
+              )}
             </>
-            ) : (
+          ) : (
             "BEST"
-            )}
-          </h3>
-          <Swiper
-            uniqueNavElements={true}
-            speed={500}
+          )}
+        </h3>
+        <Swiper
+          uniqueNavElements={true}
+          speed={500}
           // 마우스 커서를 손가락 모양으로 변경
           // grabCursor={true}
           // 슬라이드 보이는갯수

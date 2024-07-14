@@ -277,7 +277,7 @@ export default function SwiperItemSlide({
                     <h3 className="ktit">{v.name[0]}</h3>
                     <p className="rev">review</p>
                     <span className="rev2">{v.review}</span>
-                    <button className="item">Add to Cart</button>
+                    <button className="item">Add wish List</button>
                   </div>
                 </SwiperSlide>
               ))}

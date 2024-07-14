@@ -137,24 +137,25 @@ section.bestitem-area.inshop.inbox.swiper.mySwiper2>.catag.shop {
         font-size: clamp(20px, 2vw, 4vw);
       }
     }
+
+    ol.submenu {
+      margin-top: 0px;
+      height: 0px;
+      margin-bottom: 20px;
+      position: relative;
+      flex-direction: column;
+    }
+  
+    .coll {
+      transition: 0.2s;
+      filter: invert(1);
+      display: block;
+      position: relative;
+      width: 100%;
+      background: white;
+    }
   }
 
-  ol.submenu {
-    margin-top: 0px;
-    height: 0px;
-    margin-bottom: 20px;
-    position: relative;
-    flex-direction: column;
-  }
-
-  .coll {
-    transition: 0.2s;
-    filter: invert(1);
-    display: block;
-    position: relative;
-    width: 100%;
-    background: white;
-  }
   .shop-img {
     border-radius: 0%;
   }

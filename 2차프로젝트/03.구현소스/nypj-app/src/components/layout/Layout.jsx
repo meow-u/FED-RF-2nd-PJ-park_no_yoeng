@@ -38,6 +38,16 @@ export function Layout() {
 
   // [ 카드 로컬 데이터 상태변수 ] : 초기상태로 로컬스토리지에 저장된 카드데이터를 가져오기
 
+
+  // [ 이전값 꿀팁 ]
+  // [arr,setArr] = useState([a,b,c])일때  
+  // setArr( prev => [..prev, new]) 
+  // 이렇게 하면 결과가 arr 변수값이 [a,b,c,new] 로 되면서 랜더링 됨!
+  // -> 즉, 이전값을 복사한후 새로운값을 추가하여 업데이트함!
+  // 이전값을 가지고 계산이나 필터도 가능함!
+  // 계산예시) setArr( prev => prev.map(v=>v+1) ) 이런식으로!
+  // 필터예시) setArr( prev => prev.filter(v=>v>0) ) 이런식으로!
+  
   let savedCart;
   const [localsCart, setLocalsCart] = useState(() => {
     // 로컬스토리지에 저장된 데이터 가져오는 변수

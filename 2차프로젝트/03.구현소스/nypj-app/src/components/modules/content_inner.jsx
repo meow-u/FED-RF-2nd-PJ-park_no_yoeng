@@ -38,13 +38,13 @@ export function Inner({ type, data, idx }) {
   }, [cnt]);
 
   useEffect(() => {
-// 재랜더링시 상품선택여부 초기화
-console.log("아이템이너 재랜더링!! 새로운 상품 선택!");
+    // 재랜더링시 상품선택여부 초기화
+    console.log("아이템이너 재랜더링!! 새로운 상품 선택!");
     setIsChoice(false);
     setIsGift(false);
     setCnt(1);
   }, [idx]); // 전달받은 상품 idx가 변경될때만 재랜더링
-  
+
   // 전체상품중 전달받은 idx와 같은 데이터 추출 후 변수에 재할당
 
   // filter() 함수는 조건에 맞는 모든 요소를 포함하는 '배열을 반환'
@@ -94,8 +94,16 @@ console.log("아이템이너 재랜더링!! 새로운 상품 선택!");
       confirm = window.confirm("상품을 삭제하시겠습니까?");
       if (confirm) {
         if (isGift) {
-          alert("상품제외시 포장주문이 불가합니다.");
-          return false;
+          alert("단독 주문이 불가한 옵션이 포함되어 있어, 함께 삭제됩니다.");
+
+          //상태값 변경 (옵션박스 닫기)
+          setIsChoice(false);
+          //상태값 변경 (선물포장 삭제)
+          setIsGift(false);
+          //데이터에서 gift 키 속성 삭제
+          delete itemdata.gift;
+
+          return;
         }
         //상태값 변경 (옵션박스 닫기)
         setIsChoice(false);
@@ -162,12 +170,15 @@ console.log("아이템이너 재랜더링!! 새로운 상품 선택!");
           <p className="kname">{itemdata.name[0]}</p>
           <span className="price">₩{itemdata.price}</span>
           <select
+          defaultValue="옵션 선택"
             className="option"
             onChange={(e) => {
               handleOptionChange(e);
+              // 옵션박스 초기화 하기 selectedIndex는 옵션박스의 내장메서드
+              e.target.selectedIndex = 0
             }}
           >
-            <option defaultValue="옵션 선택">옵션 선택</option>
+            <option value="옵션 선택" disabled >옵션 선택</option>
             <option value="item">1개</option>
             <option value="gift">선물 포장(+0)</option>
           </select>
@@ -206,7 +217,22 @@ console.log("아이템이너 재랜더링!! 새로운 상품 선택!");
                 }}
               >
                 <button className="up detail" data-id="up"></button>
-                <input className="cntval" type="number" defaultValue="1" />
+                <input
+                  className="cntval"
+                  type="number"
+                  defaultValue="1"
+                  onBlur={(e) => {
+                    // 포커스 아웃시 빈값이면 1로 고정
+                    if (e.target.value === "") {
+                      e.target.value = 1;
+                    }
+                    // 선택수량 변경
+                    setCnt(Number(e.target.value));
+                  }}
+                  onKeyDown={(e) => {
+                    e.key === "Enter" && e.target.blur();
+                  }}
+                />
                 <button className="down detail" data-id="down"></button>
               </div>
 
@@ -235,8 +261,8 @@ console.log("아이템이너 재랜더링!! 새로운 상품 선택!");
                 <span
                   className="delete gift"
                   data-id="gift"
-                  onClick={(e) => {deleteOption(e);
-        
+                  onClick={(e) => {
+                    deleteOption(e);
                   }}
                 >
                   X
@@ -288,7 +314,6 @@ console.log("아이템이너 재랜더링!! 새로운 상품 선택!");
 
                   // 3. 선택된 상품데이터를 로컬카트에 추가하기
                   myCon.addToCart(itemdata);
-
                 } else {
                   alert("최소 하나의 상품을 선택해 주세요!");
                 }

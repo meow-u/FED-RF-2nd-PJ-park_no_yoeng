@@ -40,9 +40,13 @@ export function Inner({ type, data, idx }) {
   useEffect(() => {
     // 재랜더링시 상품선택여부 초기화
     console.log("아이템이너 재랜더링!! 새로운 상품 선택!");
+
+    // 옵션상태변수 & 갯수변수 초기화
     setIsChoice(false);
     setIsGift(false);
     setCnt(1);
+    // 셀렉박스 값 초기화
+    $('.cntval').val(1);
   }, [idx]); // 전달받은 상품 idx가 변경될때만 재랜더링
 
   // 전체상품중 전달받은 idx와 같은 데이터 추출 후 변수에 재할당
@@ -95,15 +99,7 @@ export function Inner({ type, data, idx }) {
       if (confirm) {
         if (isGift) {
           alert("단독 주문이 불가한 옵션이 포함되어 있어, 함께 삭제됩니다.");
-
-          //상태값 변경 (옵션박스 닫기)
-          setIsChoice(false);
-          //상태값 변경 (선물포장 삭제)
           setIsGift(false);
-          //데이터에서 gift 키 속성 삭제
-          delete itemdata.gift;
-
-          return;
         }
         //상태값 변경 (옵션박스 닫기)
         setIsChoice(false);
@@ -294,9 +290,6 @@ export function Inner({ type, data, idx }) {
                 console.log("장바구니 클릭!");
 
                 if (isChoice) {
-                  // alert(
-                  //   "상품이 장바구니에 담겼습니다! 장바구니를 확인해주세요"
-                  // );
 
                   // 1. 카트 사용여부 true로 변경
                   myCon.setCartSts(true);
@@ -314,6 +307,13 @@ export function Inner({ type, data, idx }) {
 
                   // 3. 선택된 상품데이터를 로컬카트에 추가하기
                   myCon.addToCart(itemdata);
+
+                  // 4. 추가시마다 애니작동을위한 카드사용상태변수 변경  
+                  myCon.setCartSts(false);
+                  setTimeout(()=>{
+                    myCon.setCartSts(true);
+
+                  },0);
                 } else {
                   alert("최소 하나의 상품을 선택해 주세요!");
                 }

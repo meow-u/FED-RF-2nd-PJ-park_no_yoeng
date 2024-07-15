@@ -106,7 +106,7 @@ export function Layout() {
 
       // 이미 존재하는 아이템이면 제외 후 추가
       if (isSame) { 
-         alert("장바구니 담겨있던 상품의 정보가 변경되었습니다")
+         alert("장바구니 담겨있던 동일상품의 정보가 변경되었습니다")
          // 같은 아이템 삭제 후 다시 추가
          let deleteSame = localsCart.filter((cartItem) => cartItem.idx !== item.idx); 
          const updatedCart = [...deleteSame, item];

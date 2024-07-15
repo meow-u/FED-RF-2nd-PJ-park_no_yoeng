@@ -34,20 +34,32 @@ export function Layout() {
   const [loginMsg, setLoginMsg] = useState(null);
   // console.log('랜더링후loginMsg :',loginMsg);
 
+  // 3. 위시리스트 상태관리변수 (위시리스트 페이지에서 사용)
+  const [wishList, setWishList] = useState(() => {
+    // 로컬스토리지에 저장된 데이터가 있다면 파싱해서 리턴
+    if (localStorage.getItem("wish-data")) {
+      return (
+      JSON.parse(localStorage.getItem("wish-data")));
+    } // 로컬스토리지에 저장된 데이터가 없으면 새로 저장하고 빈배열 리턴
+     else {
+      localStorage.setItem("wish-data", "[]");
+      return [];
+    }
+  });
+
   // [ 카트 관련 상태관리변수 ] /////////////////////////////
 
   // [ 카드 로컬 데이터 상태변수 ] : 초기상태로 로컬스토리지에 저장된 카드데이터를 가져오기
 
-
   // [ 이전값 꿀팁 ]
-  // [arr,setArr] = useState([a,b,c])일때  
-  // setArr( prev => [..prev, new]) 
+  // [arr,setArr] = useState([a,b,c])일때
+  // setArr( prev => [..prev, new])
   // 이렇게 하면 결과가 arr 변수값이 [a,b,c,new] 로 되면서 랜더링 됨!
   // -> 즉, 이전값을 복사한후 새로운값을 추가하여 업데이트함!
   // 이전값을 가지고 계산이나 필터도 가능함!
   // 계산예시) setArr( prev => prev.map(v=>v+1) ) 이런식으로!
   // 필터예시) setArr( prev => prev.filter(v=>v>0) ) 이런식으로!
-  
+
   let savedCart;
   const [localsCart, setLocalsCart] = useState(() => {
     // 로컬스토리지에 저장된 데이터 가져오는 변수
@@ -99,30 +111,28 @@ export function Layout() {
 
   // 1. 장바구니에 아이템 추가 함수
   const addToCart = (item) => {
+    // 장바구니에 추가할 아이템이 이미 존재하는지 확인
+    const isSame = localsCart.some((cartItem) => cartItem.idx === item.idx);
+    console.log("isSame:", isSame);
 
-      // 장바구니에 추가할 아이템이 이미 존재하는지 확인
-      const isSame = localsCart.some((cartItem) => cartItem.idx === item.idx);
-      console.log("isSame:", isSame);
-
-      // 이미 존재하는 아이템이면 제외 후 추가
-      if (isSame) { 
-         alert("장바구니 담겨있던 동일상품의 정보가 변경되었습니다")
-         // 같은 아이템 삭제 후 다시 추가
-         let deleteSame = localsCart.filter((cartItem) => cartItem.idx !== item.idx); 
-         const updatedCart = [...deleteSame, item];
-         console.log("같은아이템삭제후 새롭게 추가된카트:", updatedCart);
-         updateCart(updatedCart);
-         return;
-      }
-     
-
+    // 이미 존재하는 아이템이면 제외 후 추가
+    if (isSame) {
+      alert("장바구니 담겨있던 동일상품의 정보가 변경되었습니다");
+      // 같은 아이템 삭제 후 다시 추가
+      let deleteSame = localsCart.filter(
+        (cartItem) => cartItem.idx !== item.idx
+      );
+      const updatedCart = [...deleteSame, item];
+      console.log("같은아이템삭제후 새롭게 추가된카트:", updatedCart);
+      updateCart(updatedCart);
+      return;
+    }
 
     // 로컬스 카트 데이터에 아이템 추가
     const updatedCart = [...localsCart, item];
     console.log("추가된카트:", updatedCart);
     updateCart(updatedCart);
-   }
- 
+  };
 
   // 2. 장바구니에서 아이템 삭제 함수
   const deleteCart = (item) => {
@@ -204,6 +214,9 @@ export function Layout() {
         updateCart, // 카트데이터 업데이트함수
         addToCart, // 카트에 아이템 추가함수
         deleteCart, // 카트에 아이템 삭제함수
+
+        wishList, // 위시리스트
+        setWishList, // 위시리스트셋팅함수
       }}
     >
       {/* 카트리스트 : 카트상태값 true일시 출력 */}

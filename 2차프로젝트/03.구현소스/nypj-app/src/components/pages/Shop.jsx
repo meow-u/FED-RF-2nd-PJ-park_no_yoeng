@@ -116,14 +116,14 @@ export default function Shop({ initSmenu = "Shop" }) {
       let submenu = document.querySelector(".submenu");
       if (window.innerWidth <= 800) {
         // 모바일시 서브 닫힘상태
-        submenu.style.height = "0px";
+        submenu && (submenu.style.height = "0px");
 
         // 초기 필터효과
         document.querySelector(".coll").style.filter = "invert(1)";
       } else {
         // 데스크탑시 서브 열림상태 (css 열린값 clamp(15px, 2vw, 4vw) 지정해두었음)
         if (submenu.style.height === "0px") {
-          submenu.style.height = "";
+          submenu && (submenu.style.height = "");
           // 초기 필터효과 없애기
           document.querySelector(".coll").style.filter = "none";
         }

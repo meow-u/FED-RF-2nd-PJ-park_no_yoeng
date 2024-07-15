@@ -129,6 +129,24 @@ export function Inner({ type, data, idx }) {
     return addComma(total);
   };
 
+  // 위시리스트 버튼 이벤트 함수
+  $('svg.wish-btn').on('click', (e)=> addWishFn());
+
+  // 위시리스트 추가함수
+  let addWishFn = (e) => {
+    // 위시리스트 추가여부 확인
+    let isWish = myCon.localsWish.some((v) => v.idx === idx);
+    console.log("위시리스트여부:", isWish);
+
+    if (isWish) {
+      alert("이미 위시리스트에 추가된 상품입니다.");
+    } else {
+      // 위시리스트에 추가하기
+      myCon.addToWish(itemdata);
+    }
+  };
+
+
   return (
     <section className="textbox-wrap">
       <div className="tit-bx">

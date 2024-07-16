@@ -1,6 +1,6 @@
 // 펜할리곤스 레이아웃 컴포넌트 : 실제적인 최상위 컴포넌트임!
 // Import react
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 // 각영역 불러오기
 import TopArea from "./TopArea";
@@ -11,6 +11,7 @@ import Cart from "../pages/Cart";
 
 // 전역 상태관리변수를 공유하기위한 컨텍스트 API 불러오기
 import { Con } from "../modules/myCon";
+import $ from "jquery";
 
 // [1] 메인 페이지 전체 레이아웃 로딩 컴포넌트 ///
 export function Layout() {
@@ -189,6 +190,46 @@ export function Layout() {
     } ////// if ////
   }, []); // 랜더링후 처음한번만체크
 
+  // 4. 위시리스트 추가 함수
+  // 위시리스트 추가함수 (idx는 각상품 idx, itemdata는 각상품객체)
+  let WishHandler = (idx,itemdata) => {
+    // 계속 새로 랜더링되는 값을 써야하는 이곳은 myCon.wishList 쓰면 랜더링이 한템포 늦음
+    let wishData = JSON.parse(localStorage.getItem("wish-data"));
+
+    console.log("wishData:", wishData);
+    // 추가할 아이템 (전체데이터와 해당상품의 idx가 같은 데이터 = itemdata)
+
+    // 위시리스트에 추가할 아이템이 있는지 확인하는 변수
+    let isinWish = wishData.some((v) => v.idx === idx);
+    console.log("현재 wishData 갯수", wishData.length);
+    console.log("위시리스트 포함여부:", isinWish);
+
+    if (isinWish) {
+      // 이미 해당상품이 위시리스트에 있으면 해당아이템 삭제
+      wishData = wishData.filter((v) => v.idx !== idx); // 같지 않는것만 반환
+      console.log("해당아이템 삭제 wishData", wishData);
+
+      // 하트비우기 (content_inner에서 하트색상변경)
+      $(".wish-btn") && $(".wish-btn").css({ color: "" });
+    } else if (!isinWish) {
+      // 위시에 없으면 기존배열직전값에  해당아이템 추가하기
+      wishData = [...wishData, itemdata];
+      // 상태관리변수 업데이트
+      setWishList(wishData);
+      console.log("[...wishData, itemdata]", wishData);
+
+      // 하트칠하기
+      // $(".wish-btn").css({ color: "red" });
+    }
+
+    console.log("결과 wishData :", wishData);
+    // 결과 제이슨 문자화
+    wishData = JSON.stringify(wishData);
+    // 결과 로컬스 실제 반영
+    localStorage.setItem("wish-data", wishData);
+  }; ////////////////// WishHandler 함수////////////////////
+
+
   /**************************************** 
    [ 컨텍스트 API 공개 변수들 ] :Provider value 속성으로 전역노출 변수를 설정
    ****************************************/
@@ -205,6 +246,7 @@ export function Layout() {
         goPage, // 라우터이동함수
         makeMsg, // 환영메세지생성함수
         logoutFn, // 로그아웃함수
+        WishHandler, // 위시리스트 추가공통함수
 
         // [ 카트관련 상태변수 ]
         setCartSts, // 카트 사용여부 셋팅함수
@@ -217,6 +259,7 @@ export function Layout() {
 
         wishList, // 위시리스트
         setWishList, // 위시리스트셋팅함수
+       
       }}
     >
       {/* 카트리스트 : 카트상태값 true일시 출력 */}

@@ -128,6 +128,11 @@ export default function Shop({ initSmenu = "Shop" }) {
           document.querySelector(".coll").style.filter = "none";
         }
       }
+
+      return () => {
+        //소멸구역
+        window.removeEventListener("resize", () => {});
+      };
     });
 
     // 리턴함수는 언마운트시 실행됨

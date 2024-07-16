@@ -13,6 +13,18 @@ function MakeItemList({ dt, menuTxt, isSub, sort }) {
   let resultShop;
 
   useEffect(() => {
+    // 위시리스트 포함 아이템 버튼 스타일변경
+    const buttons = document.querySelectorAll('button.item');
+    buttons.forEach(el => {
+      if (el.innerText === "Remove Wishlist") {
+        el.style.filter = 'invert(1)'
+        el.style.border = '1px solid #fff'
+      }
+    });
+  }, []);
+
+
+  useEffect(() => {
     console.log("useEffect - menuTxt:", menuTxt); // useEffect 내에서 menuTxt 값을 확인
     /* menuTxt값은 클릭해야 찍히도록 되어있음  */
     let result = allProducts.filter((v) => v.collection === menuTxt);
@@ -43,7 +55,10 @@ function MakeItemList({ dt, menuTxt, isSub, sort }) {
                 <h3 className="ktit">{v.name[0]}</h3>
                 <p className="rev">review</p>
                 <span className="rev2">{v.review}</span>
-                <button className="item">Add wish List</button>
+                <button className="item">
+                   {/* 로컬 위시데이터에 해당 idx 포함여부에따라 출력 */}
+                      {JSON.parse(localStorage.getItem("wish-data")).some(
+                      (v1) => v1.idx === v.idx) ? "Remove Wishlist" : "Add wish List"}</button>
               </div>
             </li>
           ))}
@@ -131,7 +146,10 @@ function MakeItemList({ dt, menuTxt, isSub, sort }) {
                   <h3 className="ktit">{v.name[0]}</h3>
                   <p className="rev">review</p>
                   <span className="rev2">{v.review}</span>
-                  <button className="item">Add wish List </button>
+                  <button className="item">
+                     {/* 로컬 위시데이터에 해당 idx 포함여부에따라 출력 */}
+                      {JSON.parse(localStorage.getItem("wish-data")).some(
+                      (v1) => v1.idx === v.idx) ? "Remove Wishlist" : "Add wish List"}</button>
                 </div>
               </li>
             )))

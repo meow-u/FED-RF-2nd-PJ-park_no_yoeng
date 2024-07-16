@@ -1,9 +1,11 @@
 // 펜할리곤스 스와이퍼 -신상품 모듈 (메인페이지)
-import React, { useState } from "react";
+import React, { useEffect, useContext ,useState } from "react";
 import { Link } from "react-router-dom";
+import {Con} from "../modules/myCon";
 // 스와이퍼 불러오기
 import { Swiper, SwiperSlide } from "swiper/react";
 // 사용할 스와이퍼 모듈을 불러오기
+import $ from "jquery";
 import {
   Pagination,
   Navigation,
@@ -35,6 +37,7 @@ export default function SwiperItemSlide({
   setIsSub,
 }) {
   let [index, setIndex] = useState(0);
+  const myCon = useContext(Con);
   // 리랜더링을 위해 상태값으로 itemIdx 받아옴
 
   //idname은 호출시 영역구분아이디
@@ -122,6 +125,19 @@ export default function SwiperItemSlide({
   //   selData ? console.log("컬렉션상품필터selData.tit[4]:", selData.tit[4]) : ""
   // );
   // console.log("idname:", idname);
+
+
+  useEffect(() => {
+    // 위시리스트 포함 아이템 버튼 스타일변경
+    const buttons = document.querySelectorAll('button.item');
+    buttons.forEach(el => {
+      if (el.innerText === "Remove Wishlist") {
+        el.style.filter = 'invert(1)'
+        el.style.border = '1px solid #fff'
+      }
+    });
+  }, []);
+
 
   return (
     <div id={idname}>
@@ -277,7 +293,13 @@ export default function SwiperItemSlide({
                     <h3 className="ktit">{v.name[0]}</h3>
                     <p className="rev">review</p>
                     <span className="rev2">{v.review}</span>
-                    <button className="item">Add wish List</button>
+                    <button className="item"
+                    // 위시리스트 버튼클릭시 공통함수연결
+                    onClick={myCon.WishHandler(v.idx,v)}>
+                      {/* 로컬 위시데이터에 해당 idx 포함여부에따라 출력 */}
+                      {JSON.parse(localStorage.getItem("wish-data")).some(
+                      (v1) => v1.idx === v.idx) ? "Remove Wishlist" : "Add wish List"}</button>
+                   
                   </div>
                 </SwiperSlide>
               ))}

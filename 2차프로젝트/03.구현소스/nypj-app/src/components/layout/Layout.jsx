@@ -53,7 +53,7 @@ export function Layout() {
 
   // [ 이전값 꿀팁 ]
   // [arr,setArr] = useState([a,b,c])일때
-  // setArr( prev => [..prev, new])
+  // setArr( prev => [...prev, new])
   // 이렇게 하면 결과가 arr 변수값이 [a,b,c,new] 로 되면서 랜더링 됨!
   // -> 즉, 이전값을 복사한후 새로운값을 추가하여 업데이트함!
   // 이전값을 가지고 계산이나 필터도 가능함!

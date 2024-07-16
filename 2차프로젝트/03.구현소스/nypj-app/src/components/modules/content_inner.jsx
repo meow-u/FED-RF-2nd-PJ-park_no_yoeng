@@ -135,8 +135,46 @@ export function Inner({ type, data, idx }) {
     return addComma(total);
   };
 
+//   // 위시리스트 추가함수
+//   let WishHandler = (idx) => {
+//     // 계속 새로 랜더링되는 값을 써야하는 이곳은 myCon.wishList 쓰면 랜더링이 한템포 늦음
+//     let wishData = JSON.parse(localStorage.getItem("wish-data"));
+
+//     console.log("wishData:", wishData);
+//     // 추가할 아이템 (전체데이터와 해당상품의 idx가 같은 데이터 = itemdata)
+// $(".wish-btn")
+//     // 위시리스트에 추가할 아이템이 있는지 확인하는 변수
+//     let isinWish = wishData.some((v) => v.idx === idx);
+//     console.log("현재 wishData 갯수", wishData.length);
+//     console.log("위시리스트 포함여부:", isinWish);
+
+//     if (isinWish) {
+//       // 이미 해당상품이 위시리스트에 있으면 해당아이템 삭제
+//       wishData = wishData.filter((v) => v.idx !== idx); // 같지 않는것만 반환
+//       console.log("해당아이템 삭제 wishData", wishData);
+
+//       // 하트비우기
+//       $(".wish-btn") && $(".wish-btn").css({ color: "" });
+//     } else if (!isinWish) {
+//       // 위시에 없으면 기존배열직전값에  해당아이템 추가하기
+//       wishData = [...wishData, itemdata];
+//       // 상태관리변수 업데이트
+//       myCon.setWishList(wishData);
+//       console.log("[...wishData, itemdata]", wishData);
+
+//       // 하트칠하기
+//       // $(".wish-btn").css({ color: "red" });
+//     }
+
+//     console.log("결과 wishData :", wishData);
+//     // 결과 제이슨 문자화
+//     wishData = JSON.stringify(wishData);
+//     // 결과 로컬스 실제 반영
+//     localStorage.setItem("wish-data", wishData);
+//   }; ////////////////// WishHandler 함수////////////////////
+
   useLayoutEffect(() => {
-    // 레이아웃에서 받아온 위시리스트 버튼 이벤트 공통함수 WishHandler
+    // 위시리스트 버튼 이벤트 함수
     let wishBtn = $(".wish-btn");
     wishBtn.on("click", (e) => myCon.WishHandler(idx,itemdata));
 

@@ -38,7 +38,7 @@ export function Inner({ type, data, idx }) {
    // 선물포장 선택여부 상태변수
    const [isGift, setIsGift] = useState(false);
    // 위시리스트 선택여부 상태변수
-   // const [isWish, setIsWish] = useState(true); // <-- 필요한가..?
+   const [isWish, setIsWish] = useState(false); // <-- 필요한가..?
    // 선택수량 상태변수
    const [cnt, setCnt] = useState(1);
 
@@ -53,6 +53,7 @@ export function Inner({ type, data, idx }) {
       // 옵션상태변수 & 갯수변수 초기화
       setIsChoice(false);
       setIsGift(false);
+      setIsWish(false);
       setCnt(1);
       // 셀렉박스 값 초기화
       $(".cntval").val(1);
@@ -346,9 +347,9 @@ export function Inner({ type, data, idx }) {
                            itemdata.cnt = cnt;
                            // (3) 선물포장여부 gift추가하기 (확인은 Cart.jsx에서)
                            isGift && (itemdata.gift = "Gift Wrapping Service");
-
-                           // (4) 위시리스트 포함여부용 버튼 추가하기
-                           itemdata.wish = "♡";
+                           // (4) 위시리스트 포함여부 wish 추가하기
+                           // myCon.Wishhandler에서 키값 할당 됨 .
+                           itemdata.wish ? setIsWish(true) : setIsWish(false);
 
                            // 3. 선택된 상품데이터를 로컬카트에 추가하기
                            myCon.addToCart(itemdata);

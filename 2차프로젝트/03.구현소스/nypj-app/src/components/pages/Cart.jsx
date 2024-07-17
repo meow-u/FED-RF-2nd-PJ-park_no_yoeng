@@ -111,9 +111,8 @@ export default function Cart() {
 
                         {/* 위시여부표시 여기서 분기해서 칠! */}
                         <button className="item" 
-                        style={
-                         JSON.parse(localStorage.getItem("wish-data")).some((v) => v.idx === v.idx) ? {color : "red"}
-                           :{color :""}
+                        style={v.wish ? {color : "red"}
+                           :{color :"black"}
                         }>{v.wish}</button>
                         
                         <h3 className="etit">{v.name[1]}</h3>

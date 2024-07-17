@@ -108,8 +108,13 @@ export default function Cart() {
                         <h4 className="cnt">{i + 1}</h4>
                         {/* 선물포장표시 */}
                         {<span className="gift">{v.gift}</span>}
+
                         {/* 위시여부표시 여기서 분기해서 칠! */}
-                        {v.wish && <button className="item">{v.wish}</button>}
+                        <button className="item" 
+                        style={
+                         JSON.parse(localStorage.getItem("wish-data")).some((v) => v.idx === v.idx) ? {color : "red"}
+                           :{color :""}
+                        }>{v.wish}</button>
                         
                         <h3 className="etit">{v.name[1]}</h3>
                         <h2 className="ktit">{v.name[0]}</h2>

@@ -141,6 +141,21 @@
             justify-content: space-between;
             flex-wrap: wrap;
 
+            button.item {
+               font-style: normal;
+               transform: scaleX(1.4);
+               display: inline;
+               width: auto;
+               height: 22px;
+               margin: 0;
+               margin-right: 10px;
+               padding: 0;
+               border: none;
+               font-weight: bolder;
+               font-size: 20px;
+               text-align: center;
+           }
+
             > * {
                margin: 5px 10px;
             }

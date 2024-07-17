@@ -106,7 +106,11 @@ export default function Cart() {
                       </Link>
                       <div className="item-wrap">
                         <h4 className="cnt">{i + 1}</h4>
-                        {v.gift && <span className="gift">{v.gift}</span>}
+                        {/* 선물포장표시 */}
+                        {<span className="gift">{v.gift}</span>}
+                        {/* 위시여부표시 여기서 분기해서 칠! */}
+                        {v.wish && <button className="item">{v.wish}</button>}
+                        
                         <h3 className="etit">{v.name[1]}</h3>
                         <h2 className="ktit">{v.name[0]}</h2>
                         <div className="itemlist-wrap">

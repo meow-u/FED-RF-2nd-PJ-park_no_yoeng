@@ -1,6 +1,7 @@
 // 펜할리곤스 스와이퍼 -신상품 모듈 (메인페이지)
 import React, { useEffect, useContext ,useState } from "react";
 import { Link } from "react-router-dom";
+// 전역 컨텍스트 API 불러오기
 import {Con} from "../modules/myCon";
 // 스와이퍼 불러오기
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -128,15 +129,20 @@ export default function SwiperItemSlide({
 
 
   useEffect(() => {
-    // 위시리스트 포함 아이템 버튼 스타일변경
+    // [아이템리스트 위시리스트 포함/ 미포함  버튼 스타일분기 ]
+    // SwiperItemSlide.jsx , make_itemList.jsx
     const buttons = document.querySelectorAll('button.item');
     buttons.forEach(el => {
       if (el.innerText === "Remove Wishlist") {
         el.style.filter = 'invert(1)'
         el.style.border = '1px solid #fff'
       }
+      else if (el.innerText ==="Add wish List"){
+        el.style.filter = 'invert(0)'
+        el.style.border = '1px solid #000'
+      }
     });
-  }, []);
+  });
 
 
   return (
@@ -295,7 +301,8 @@ export default function SwiperItemSlide({
                     <span className="rev2">{v.review}</span>
                     <button className="item"
                     // 위시리스트 버튼클릭시 공통함수연결
-                    onClick={myCon.WishHandler(v.idx,v)}>
+                    onClick={()=>myCon.WishHandler(v.idx,v)}
+                    >
                       {/* 로컬 위시데이터에 해당 idx 포함여부에따라 출력 */}
                       {JSON.parse(localStorage.getItem("wish-data")).some(
                       (v1) => v1.idx === v.idx) ? "Remove Wishlist" : "Add wish List"}</button>

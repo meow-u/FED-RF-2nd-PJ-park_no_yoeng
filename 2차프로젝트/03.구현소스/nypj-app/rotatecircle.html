@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+   </head>
+   <style>
+      svg {
+         animation: rotate_txt 10s linear infinite;
+      }
+
+      @keyframes rotate_txt {
+         100% {
+            transform: rotate(360deg);
+         }
+      }
+   </style>
+   <body>
+      <div class="circle_txt fade top">
+         <svg viewBox="0 0 100 100" width="100" height="100">
+            <defs>
+               <path
+                  id="circle"
+                  d="M 50, 50
+                                     m -37, 0
+                                     a 37,37 0 1,1 74,0
+                                     a 37,37 0 1,1 -74,0"
+               ></path>
+            </defs>
+            <text class="cardo" font-size="8.5">
+               <textPath xlink:href="#circle">
+                  <!-- 사용하실 텍스트를 기재하세요 -->
+                  BEST PRODUCT - BEST PRODUCT - BEST PRODUCT -
+               </textPath>
+            </text>
+         </svg>
+      </div>
+   </body>
+</html>

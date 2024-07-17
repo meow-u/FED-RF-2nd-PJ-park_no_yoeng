@@ -107,7 +107,7 @@ export default function Cart() {
                       <div className="item-wrap">
                         <h4 className="cnt">{i + 1}</h4>
                         {/* 선물포장표시 */}
-                        {<span className="gift">{v.gift}</span>}
+                        {v.gift && <span className="gift">{v.gift}</span>}
 
                         {/* 위시여부표시 여기서 분기해서 칠! */}
                         <button className="item" 

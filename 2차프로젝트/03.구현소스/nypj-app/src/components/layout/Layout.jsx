@@ -190,8 +190,10 @@ export function Layout() {
    }, []); // 랜더링후 처음한번만체크
 
    // [4. (공통) 위시리스트 추가 기능 함수]
-   // 위시리스트 추가함수 (idx는 각상품 idx, itemdata는 각상품객체)
-   let WishHandler = (idx, itemData) => {
+   // 위시리스트 추가함수 (idx는 각상품 idx, itemdata는 각상품객체, e는 클릭이벤트 )
+   let WishHandler = (idx, itemData,e) => {
+      // 관련상품 슬라이더만 e를 전달하지 않음 !!!
+
       // 계속 새로 랜더링되는 값을 써야하는 이곳은 myCon.wishList 쓰면 랜더링이 한템포 늦음
       let wishData = JSON.parse(localStorage.getItem("wish-data"));
 
@@ -215,13 +217,18 @@ export function Layout() {
          // 이부분이 없으면 버튼색 변경이 화면에 반영되지 않음
          setWishList(wishData);
 
-         // 하트비우기 (content_inner에서 하트색상변경)
-         $(".wish-btn") && $(".wish-btn").css({ color: "" });
+         // 하트비우기 (content_inner, cart 에서 하트색상변경)
+         $(".wish-btn").length>0 && $(".wish-btn").css({ color: "" });
+         
+         // 전달받은 e가 존재하고 해당선택자가 존재할때 코드실행 ( length를 안적으면 무조건 true임)
+         // -> 결과적으로 상품디테일페이지에서 카트안의 하트 클릭시에만 실행
+        e && $(".cart-wish-btn").length > 0 && $(e.target).css({ color: "" });
+         // $(".cart-wish-btn") && $(".cart-wish-btn").css({ color: "" });
          console.log(">>>>>>>this :", $(this));
          // $('button.item') && $(this).css({ filter: "invert(0)" });
       } else if (!isinWish) {
          // 추가전 해당상품객체에 wish 키값 true 할당
-         itemData.wish = true;
+         itemData && (itemData.wish = true);
 
          // 위시에 없으면 기존배열직전값에  해당아이템 추가하기
          wishData = [...wishData, itemData];
@@ -231,7 +238,7 @@ export function Layout() {
          console.log("[...wishData, itemData]", wishData);
 
          // 하트칠하기
-         // $(".wish-btn").css({ color: "red" });
+         e && $(".cart-wish-btn").length>0 && $(e.target).css({ color: "red" });
       }
 
       console.log("결과 wishData :", wishData);

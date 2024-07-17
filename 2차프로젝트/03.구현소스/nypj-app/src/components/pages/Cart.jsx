@@ -1,7 +1,7 @@
 // 펜할리곤스 Shop 서브페이지 컴포넌트
 // 상품 전체 데이터 불러오기
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useLayoutEffect } from "react";
 // import { allProducts } from "../data/products_data";
 import $ from "jquery";
 
@@ -40,6 +40,25 @@ export default function Cart() {
     // 변경된 데이터로 다시 셋팅
     myCon.updateCart(selData);
     }; 
+
+
+////////////////////////////////////////////////////////////////////////
+// 장바구니 selData 배열의 각 객체에 대해 로컬스 wishData와 일치하는 idx 찾기
+// -> 장바구니상품중 위시리스트 상품인것 찾기
+let wishData = JSON.parse(localStorage.getItem("wish-data")) || [];
+
+let matchItem = selData.map(v => {
+  const matchingItem = wishData.find(wishItem => wishItem.idx === v.idx);
+  console.log('장바구니속 위시리스트 존재:', matchingItem);
+  return matchingItem; // -> matchingItem이 없을 경우 자동으로 undefined가 반환
+}).filter(Boolean); // -> 배열에서 falsy 값(null, undefined, 0, "", false, NaN)을 모두 제거
+
+console.log('matchItem:', matchItem);
+// map 함수는 항상 원본 배열과 같은 길이의 새 배열을 반환함. matchingItem가 없어도 undefind가 저장되서
+//결과 적으로 길이가 기존 데이터 요소갯수만큼 생기기 떄문에 아닌값은 꼭 필터로 빼줘야 함
+////////////////////////////////////////////////////////////////////////
+
+
 
   // 리턴구역
   return (
@@ -110,10 +129,13 @@ export default function Cart() {
                         {v.gift && <span className="gift">{v.gift}</span>}
 
                         {/* 위시여부표시 여기서 분기해서 칠! */}
-                        <button className="item" 
-                        style={v.wish ? {color : "red"}
-                           :{color :"black"}
-                        }>{v.wish}</button>
+                        <button className="cart-wish-btn" 
+                        style={matchItem.some((v1)=>v1.idx === v.idx) ? 
+                          {color : "red"}
+                           :{color :""}
+                        }
+                        onClick={(e) => {myCon.WishHandler(v.idx,v,e)}}
+                        >♡</button>
                         
                         <h3 className="etit">{v.name[1]}</h3>
                         <h2 className="ktit">{v.name[0]}</h2>

@@ -149,7 +149,7 @@ export function Inner({ type, data, idx }) {
       // 위시리스트 버튼 이벤트 함수
       let wishBtn = $(".wish-btn");
       // 클릭시 레이아웃에서 전달받은 myCon.WishHandler 연결
-      wishBtn.on("click", () => myCon.WishHandler(idx, itemdata));
+      wishBtn.on("click", (e) => myCon.WishHandler(idx, itemdata,e));
 
       // 처음 랜더링시 위시리스트에 해당상품이 있으면 '하트색상' 변경하기
       let isinWish = JSON.parse(localStorage.getItem("wish-data")).some(

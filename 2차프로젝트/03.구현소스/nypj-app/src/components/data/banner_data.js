@@ -98,8 +98,8 @@ export const bannerData = {
   ],
   member: [
     {
-      filename: "login_1",
-      alt: "Member",
+      filename: "member_1",
+      alt: "member",
       text: "Welcome Our World",
     },
   ],

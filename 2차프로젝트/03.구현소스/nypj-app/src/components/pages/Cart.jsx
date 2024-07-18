@@ -48,10 +48,13 @@ export default function Cart() {
 let wishData = JSON.parse(localStorage.getItem("wish-data")) || [];
 
 let matchItem = selData.map(v => {
-  const matchingItem = wishData.find(wishItem => wishItem.idx === v.idx);
-  console.log('장바구니속 위시리스트 존재:', matchingItem);
-  return matchingItem; // -> matchingItem이 없을 경우 자동으로 undefined가 반환
-}).filter(Boolean); // -> 배열에서 falsy 값(null, undefined, 0, "", false, NaN)을 모두 제거
+  return wishData.find(wishItem => wishItem.idx === v.idx);
+  // -> 겹치는게 없을 경우 자동으로 undefined가 반환
+})
+.filter(Boolean); // -> 배열에서 falsy 값(null, undefined, 0, "", false, NaN)을 모두 제거
+
+//[ 다른방법 ] `filter(Boolean)`과 동일한 결과를 제공
+// .filter(item => item); // -> filter(item => item)`은 배열의 각 요소를 그대로 평가하여 `truthy` 값만 남깁니다. (`item`이 `truthy` 값일 경우 `true`가 되고, `falsy` 값일 경우 `false`가 되어 필터링됩니다.)
 
 console.log('matchItem:', matchItem);
 // map 함수는 항상 원본 배열과 같은 길이의 새 배열을 반환함. matchingItem가 없어도 undefind가 저장되서

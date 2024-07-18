@@ -1,12 +1,18 @@
 // 펜할리곤스 상품상세 컴포넌트  Product.jsx
 import { useLocation } from "react-router-dom";
+import { Con } from "../modules/myCon";
 
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ItemDetail from "../modules/ItemDetail";
 import SwiperItemSlide from "../plugin/SwiperItemSlide";
 
 
 function Product({ idx }) {
+   //컨텍스트 API사용
+  const myCon = useContext(Con);
+  // 배너변경
+  useEffect(()=>{
+  myCon.setMenu('shop');})
 console.log("Product 컴포넌트 리랜더링");
    // idx는 상품클릭시 받아온 매칭 값
    //  <Link  <-- swiperItemSlide에서 state로 product에 idx값을 넘겨서 전달

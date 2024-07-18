@@ -72,34 +72,7 @@ const menu = [
     link: "/board",
   },
 ];
-// 메인배너 이미지 데이터
-const bannerImg = [
-  {
-    filename: "banner_1.jpg",
-    alt: "banner1",
-    text:"Penhaligons Trade Routes",
-  },
-  {
-    filename: "banner_2.jpg",
-    alt: "banner2",
-    text:"Penhaligons ALULA",
-  },
-  {
-    filename: "banner_3.jpg",
-    alt: "banner3",
-    text:"Potions & Remedies",
-  },
-  {
-    filename: "banner_4.jpg",
-    alt: "banner4",
-    text:"Penhaligons Portraits",
-  },
-  {
-    filename: "banner_5.jpg",
-    alt: "banner5",
-    text:"Customer's Favorite",
-  },
-];
+
 
 const footerMenu = {
   SERVICES: [
@@ -182,7 +155,6 @@ ctgTxtData["Shop"] = ["SHOP","SHOP - See Best products","Choosing your signature
 export {
   menu,
   hamMenu,
-  bannerImg,
   titleTxt,
   footerMenu,
   snsMenu,

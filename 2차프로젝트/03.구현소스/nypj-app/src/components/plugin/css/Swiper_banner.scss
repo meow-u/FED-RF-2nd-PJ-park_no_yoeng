@@ -1,140 +1,142 @@
 /* 스와이퍼 플러그인 CSS */
 
 .swiper.swiper {
-   height: 100%;
+  height: 100%;
 }
 
 // ****** 2. 배너영역 **************
 #ban-area {
-   // 배너 텍스트
-   .img-text {
-      opacity: 0;
+  // 배너 텍스트
+  .img-text {
+    left: 50%;
+    translate: -50%;
+    opacity: 0;
+    top: 65%;
+    position: absolute;
+    width: 94%;
+    z-index: 100;
+    text-align: center;
+    color: white;
+    font-size: clamp(30px, 14vw, 140px);
+    font-weight: 500;
+    line-height: 1;
+    font-family: "Cormorant Garamond", serif;
+    text-shadow: 2px 2px 20px #0000006e;
+  }
+  .init-ani {
+    animation: lodingani 1.5s ease-out 2s forwards; // 총 4초
+    transform: scale(0);
+  }
+  @keyframes lodingani {
+    0% {
+      // opacity: 0;
       top: 65%;
-      position: absolute;
-      width: 100%;
-      z-index: 100;
-      text-align: center;
+      transform: scale(1.5);
+    }
+    50% {
+      transform: scale(1.5);
+      color: rgb(255, 212, 93);
+      top: 40%;
+    }
+    100% {
+      //  opacity: 1;
+      transform: scale(1);
+      top: 40%;
       color: white;
-      font-size: clamp(30px, 14vw, 140px);
-      font-weight: 500;
-      line-height: 1;
-      font-family: "Cormorant Garamond", serif;
-      text-shadow: 2px 2px 20px #0000006e;
-   }
-   .init-ani {
-      animation: lodingani 1.5s ease-out 2s forwards; // 총 4초
-      transform: scale(0);
-   }
-   @keyframes lodingani {
-      0% {
-         // opacity: 0;
-         top: 65%;
-         transform: scale(1.5);
-      }
-      50% {
-         transform: scale(1.5);
-         color: rgb(255, 212, 93);
-         top: 40%;
-      }
-      100% {
-         //  opacity: 1;
-         transform: scale(1);
-         top: 40%;
-         color: white;
-      }
-   }
+    }
+  }
 
-   user-select: none;
-   position: relative;
-   z-index: 2;
-   background: radial-gradient(black, #000000b5);
+  user-select: none;
+  position: relative;
+  z-index: 2;
+  background: radial-gradient(black, #000000b5);
 
-   @keyframes loding-ani {
-      0% {
-      }
-      50% {
-         mask-size: 90%;
-         mask-position: center 11%;
-      }
-      100% {
-         mask-size: 500%;
-         mask-position: center;
-      }
-   }
-   .loading {
-      mask-image: url("../../../../public/images/loading_icon.svg");
-      mask-size: 0%;
-      mask-repeat: no-repeat;
-      mask-position: center top;
-      pointer-events: none;
-      position: relative;
-      // 로딩애니
-      animation: loding-ani 2s linear 0s forwards;
-   }
-   overflow: hidden;
+  @keyframes loding-ani {
+    0% {
+    }
+    50% {
+      mask-size: 90%;
+      mask-position: center 11%;
+    }
+    100% {
+      mask-size: 500%;
+      mask-position: center;
+    }
+  }
+  .loading {
+    mask-image: url("../../../../public/images/loading_icon.svg");
+    mask-size: 0%;
+    mask-repeat: no-repeat;
+    mask-position: center top;
+    pointer-events: none;
+    position: relative;
+    // 로딩애니
+    animation: loding-ani 2s linear 0s forwards;
+  }
+  overflow: hidden;
 
-   .ban-area {
-      width: 100vw;
-      height: 100vh;
-   }
+  .ban-area {
+    width: 100vw;
+    height: 100vh;
+  }
 
-   .swiper-scrollbar {
-      cursor: none;
-      z-index: 10;
-      background: rgb(0 0 0 / 0%);
-   }
-   .swiper-pagination-bullet {
-      cursor: none;
-   }
-   .ban-area {
-      .cont-box {
-         > div {
-            width: 100%;
-            height: 100%;
-            img {
-               position: relative;
-               left: 0%;
-               width: 100%;
-               height: 100%;
-               object-fit: cover;
-               object-position: center center;
-            }
-         }
+  .swiper-scrollbar {
+    cursor: none;
+    z-index: 10;
+    background: rgb(0 0 0 / 0%);
+  }
+  .swiper-pagination-bullet {
+    cursor: none;
+  }
+  .ban-area {
+    .cont-box {
+      > div {
+        width: 100%;
+        height: 100%;
+        img {
+          position: relative;
+          left: 0%;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center center;
+        }
       }
-   }
+    }
+  }
 } /// ban-area
 
 .swiper-scrollbar-drag {
-   background-color: #fff;
+  background-color: #fff;
 }
 .swiper-button-prev,
 .swiper-button-next {
-   pointer-events: auto;
-   filter: drop-shadow(2px 4px 6px black);
-   cursor: none;
-   font-weight: 500;
-   transform: scaleX(0.5) scaleY(0.6) scale(1.3);
-   padding: 10px 15px;
-   background-color: transparent;
+  pointer-events: auto;
+  filter: drop-shadow(2px 4px 6px black);
+  cursor: none;
+  font-weight: 500;
+  transform: scaleX(0.5) scaleY(0.6) scale(1.3);
+  padding: 10px 15px;
+  background-color: transparent;
 }
 :root {
-   --swiper-theme-color: #ffffff;
+  --swiper-theme-color: #ffffff;
 }
 
 /* Swiper_banner.scss 미디어쿼리 */
 @media screen and (max-width: 750px) {
-   #ban-area .ban-area {
-      animation: height-ani 0.5s linear 2s forwards;
-      @keyframes height-ani {
-         from {
-            height: 100vh;
-         }
-         to {
-            height: 80vh;
-         }
+  #ban-area .ban-area {
+    animation: height-ani 0.5s linear 2s forwards;
+    @keyframes height-ani {
+      from {
+        height: 100vh;
       }
-   }
-   .newitem-area .tit-wrap {
-      padding-top: 40px;
-   }
+      to {
+        height: 80vh;
+      }
+    }
+  }
+  .newitem-area .tit-wrap {
+    padding-top: 40px;
+  }
 }

@@ -3,7 +3,7 @@
   overflow: hidden;
   position: relative;
   background: linear-gradient(45deg, #000000, #ffffff14),
-    urL("../../../../public/images/banner_2.jpg") no-repeat fixed center / cover;
+    urL("../../../../public/images/banner/main_2.jpg") no-repeat fixed center / cover;
 
   &::before {
     backdrop-filter: blur(4.3px) grayscale(0.7) saturate(1) brightness(2);

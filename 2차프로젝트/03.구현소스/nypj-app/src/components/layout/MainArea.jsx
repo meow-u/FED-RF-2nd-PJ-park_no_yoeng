@@ -1,5 +1,6 @@
 // 메인영역 컴포넌트
-import { React, useContext, useLayoutEffect } from "react";
+import { React, useContext, useEffect, useLayoutEffect } from "react";
+import { Con } from "../modules/myCon";
 
 import { Outlet } from "react-router-dom";
 // Outlet 컴포넌트는 리액트라우터에서
@@ -7,18 +8,28 @@ import { Outlet } from "react-router-dom";
 // 공통배너불러오기
 import SwiperBanner from "../plugin/SwiperBanner";
 import { FotBanner } from "../modules/fot_banner";
+import $ from "jquery";
 
 export default function MainArea() {
+  const myCon = useContext(Con);
 
-
-  useLayoutEffect(() => {
-    /////////////// 작동안함 왜?
-    console.log("여기야~!");
-    setTimeout(() => {
+  useEffect(() => {
+    let scrollFn = () => {
       window.scrollTo(0, 0);
-    }, 200);
-    // (타임아웃없이 바로 실행하면 스크롤이 안됨... 가끔비디오랑 충돌함)
-  }, []);
+
+      setTimeout(() => {
+        $("html,body").animate(
+          {
+            scrollTop: $(".main-wrap").offset().top - 75 + "px",
+          },
+          800
+        );
+      }, 1000);
+    };
+    // 메인페이지가 아닐떄만 실행
+   myCon.menu !=="main" && scrollFn();
+
+  },[myCon.menu]);
   // 코드 리턴구역
   return (
     <main className="cont">

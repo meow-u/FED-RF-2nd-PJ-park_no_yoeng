@@ -11,18 +11,14 @@ import { Link } from "react-router-dom";
 
 function Login(props) {
 
-  useEffect(() => {
-    $("html,body").animate(
-      {
-        scrollTop: $(".main-wrap").offset().top - 75 + "px",
-      },
-      400
-    );
-  }, []);
 
   // ====== layout에서 불러온  컨텍스트 사용 =======
   const myCon = useContext(Con);
   console.log(myCon.loginSts);
+  // 배너변경
+  useEffect(()=>{
+  myCon.setMenu('login');
+})
   // =============================================
 
   // [ 상태관리 변수 ] /////////////////////////////

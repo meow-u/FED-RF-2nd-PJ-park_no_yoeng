@@ -1,5 +1,7 @@
 // 펜할리곤스 스와이퍼 -배너 모듈 (메인페이지)
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+// 컨텍스트 API 사용
+import { Con } from "../modules/myCon";
 // 스와이퍼 불러오기
 import { Swiper, SwiperSlide } from "swiper/react";
 // 사용할 스와이퍼 모듈을 불러오기
@@ -19,12 +21,13 @@ import "swiper/css/pagination"; // 불릿 페이지네이션 CSS
 import "swiper/css/scrollbar"; // 스크롤바 CSS
 
 // 사용 데이터 가져오기 (배너이미지)
-import { bannerImg } from "../data/main_data";
+import { bannerData } from "../data/banner_data";
 // 스와이퍼 개별 CSS
 import "./css/Swiper_banner.scss";
 
 
 export default function Banner() {
+const myCon = useContext(Con);
 // 시작애니 상태변수 ( true 시작슬라이드 클래스 들어감 ) 
   const [initAni,setInitAni] = useState(true);
   
@@ -33,6 +36,7 @@ export default function Banner() {
     setTimeout(() => {
       setInitAni(false);
     }, 4000); // 최소 애니 지속시간합계 보내 커야 함  swiper_banner.scss line25
+    console.log("최초한번텍스트모션");
   },[]); // 한번만 실행
 
    console.log("메인배너리랜더링");
@@ -46,7 +50,7 @@ export default function Banner() {
    // ()=> 는  Math.random() 함수가 바로 실행되지 않게 함
    // [ 랜덤배열 만들기 (2)]
 
-   const rdArrIdx = Math.floor(Math.random() * bannerImg.length);
+   const rdArrIdx = Math.floor(Math.random() * bannerData[myCon.menu].length);
    // 랜덤한 인덱스값 만들기 ( 결과는 0 부터 배열길이-1 사이의 idx 값이 나온다. )
    // console.log('rdArrIdx(배너랜덤인덱스)',rdArrIdx); // 랜덤한 인덱스값 확인
 
@@ -162,17 +166,17 @@ export default function Banner() {
                >
                   {/* ********************swiper-wrapper************************* */}
                   <div className="swiper-wrapper">
-                     {bannerImg.map((v, i) => (
+                     {bannerData[myCon.menu].map((v, i) => (
                         <SwiperSlide key={i} className="col-12 swiper-slide">
                            <img
                               className={i == 0 ? "first" : ""}
-                              src={`${process.env.PUBLIC_URL}/images/banner_${
+                              src={`${process.env.PUBLIC_URL}/images/banner/${myCon.menu}_${
                                  i + 1
                               }.jpg`}
                               alt={`banner${i + 1}`}
                            />
                            
-                           <div className={`img-text ${initAni && i === rdArrIdx ? "init-ani" : ""}`}>
+                           <div className={`img-text ${initAni && i === rdArrIdx ? "init-ani " : ""}${myCon.menu}`}>
                            {/* <div className={"img-text"}> */}
                             {v.text}</div>
                         </SwiperSlide>

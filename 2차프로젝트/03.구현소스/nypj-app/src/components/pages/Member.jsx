@@ -1,5 +1,6 @@
 // 펜할리곤스 Member 서브페이지 컴포넌트
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Con } from "../modules/myCon";
 import { Link, useNavigate } from "react-router-dom";
 import $ from "jquery";
 // 로컬스토리지 생성함수 불러오기
@@ -9,19 +10,17 @@ import { initData } from "../func/mem_fn";
 import "../../css/member.scss";
 
 function Member() {
+  //컨텍스트 API사용
+  const myCon = useContext(Con);
+  // 배너변경
+  useEffect(()=>{
+  myCon.setMenu('member');
+})
   // [ 리액트 라우터 내비게이션 사용하기 ]
   // 라우터 이동 네비게이트
   const goNav = useNavigate();
   // goNav(라우터 주소, state변수(선택))
 
-  useEffect(() => {
-    $("html,body").animate(
-      {
-        scrollTop: $(".main-wrap").offset().top - 75 + "px",
-      },
-      400
-    );
-  }, []);
   // [ 회원가입 페이지 요구사항 ]
   // 1. 각 입력 항목별로 유효성 검사를 실행함
   // 2. 상태체크를 통하여 적절한 유효성검사시

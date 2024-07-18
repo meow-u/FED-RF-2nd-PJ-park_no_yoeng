@@ -25,13 +25,6 @@ function ItemDetail({ itemIdx }) {
   useEffect(() => {
     console.log("아이템디테일 랜더링");
 
-    //////////////////////////// 부드럽게 상단이동
-    $("html,body").animate(
-      {
-        scrollTop: $(".main-wrap").offset().top + "px",
-      },
-      400
-    );
     // 상세페이지 우측박스높이로 좌측 마진탑 - 값 설정
     let imgH = () =>
       $(".left-box").css({ marginTop: -$(".right-box").height() + 15 });

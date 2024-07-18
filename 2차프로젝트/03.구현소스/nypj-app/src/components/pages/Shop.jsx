@@ -1,6 +1,7 @@
 // 펜할리곤스 Shop 서브페이지 컴포넌트
 
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Con } from "../modules/myCon";
 import "../../css/_shop.scss";
 import { Link } from "react-router-dom";
 import MakeItemList from "../modules/make_itemList";
@@ -27,6 +28,12 @@ let subMenu = hamMenu[1].sub; //서브메뉴 데이터
 // React는 단방향 데이터 흐름을 따릅니다. 자식 컴포넌트는 부모로부터 받은 프롭을 변경할 수 없습니다.
 
 export default function Shop({ initSmenu = "Shop" }) {
+
+  const myCon = useContext(Con);
+  // 배너변경
+  useEffect(()=>{
+  myCon.setMenu("shop");
+  });
   // initSmenu index.js에서 받아온 클릭된 서브메뉴 데이터
   // 하위메뉴를 클릭해서 들어오면 해당값으로 설정,  그냥 shop으로 들어왔을시 '초기값 "Shop"
 
@@ -40,7 +47,6 @@ export default function Shop({ initSmenu = "Shop" }) {
   const [sort, setSort] = useState("asc");
   console.log(">>>>>>처음랜더링");
   // initSMenu가 "Shop"이 아니면서 sMenu와 같지 않을 때 : 햄버거통한 메뉴값 읽어올 때
-
 
   // initSmune값이 변경되면 (상단 메뉴통해 들어올때)
   // 해당 값의 버튼을 찾아서 클릭이벤트 발생시키기 (sMenu값 변경 후 랜더링시키기위함)
@@ -60,14 +66,6 @@ export default function Shop({ initSmenu = "Shop" }) {
 
   console.log("랜더링! 클릭된 sMenu :", sMenu);
   console.log("그리구 txt:", txt);
-
-  useEffect(() => {
-    // 스크롤 이동
-      $("html,body").animate(
-        { scrollTop: $(".main-wrap").offset().top + "px" },
-        400
-      );
-  });
 
   useEffect(() => {
     let menuBox = document.querySelector(".smenu-box");
@@ -108,7 +106,7 @@ export default function Shop({ initSmenu = "Shop" }) {
         setIsSub(false);
       }
     }
-  }, [sMenu, txt]); 
+  }, [sMenu, txt]);
 
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -118,7 +116,7 @@ export default function Shop({ initSmenu = "Shop" }) {
         // 모바일시 서브 닫힘상태
         // 초기 필터효과
         document.querySelector(".coll").style.filter = "invert(1)";
-      }  else if (window.innerWidth > 800) {
+      } else if (window.innerWidth > 800) {
         // 데스크탑시 서브 열림상태 (css 열린값 clamp(15px, 2vw, 4vw) 지정해두었음)
         if (submenu.style.height === "130px") {
           submenu && (submenu.style.height = "");

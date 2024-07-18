@@ -1,13 +1,19 @@
 // 펜할리곤스 Search 서브페이지 컴포넌트
 import { useLocation } from "react-router-dom";
+import { Con } from "../modules/myCon";
 import SearchInner from "./SearchInner";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import {changebgFn, resetBgFn} from "../func/bgFn";
 
 
 
 export default function Search(){
-
+    //컨텍스트 API사용
+  const myCon = useContext(Con);
+  // 배너변경
+  useEffect(()=>{
+  myCon.setMenu('search');
+})
     // useEffect(()=>{
     //     changebgFn();
     //     return () => {

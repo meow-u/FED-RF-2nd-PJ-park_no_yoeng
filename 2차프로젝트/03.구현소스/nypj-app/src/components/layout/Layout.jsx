@@ -23,6 +23,8 @@ export function Layout() {
    };
 
    // [ 상태관리 변수 ] ////////////////////////////////////
+   // 0. 배너 메뉴명 상태관리변수
+   const [menu,setMenu] = useState("main");
    // 1. 로그인 상태관리변수 (로그인후,로그아웃,처음랜더링시 셋팅,
    // loginSts는 상단영역 로그인 상태 null여부확인하여 로그인/아웃버튼 노출시 사용)
    const [loginSts, setLoginSts] =
@@ -277,6 +279,10 @@ export function Layout() {
 
             wishList, // 위시리스트
             setWishList, // 위시리스트셋팅함수
+
+            //[ 배너관련 상태관리변수 ]
+            menu,
+            setMenu,
          }}
       >
          {/* 카트리스트 : 카트상태값 true일시 출력 */}

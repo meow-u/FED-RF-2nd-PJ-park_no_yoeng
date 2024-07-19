@@ -8,6 +8,7 @@ import "../../css/member.scss";
 import { initData } from "../func/mem_fn";
 import { Con } from "../modules/myCon";
 import { Link } from "react-router-dom";
+import CartInner from "../modules/cart_inner";
 
 function Login(props) {
 
@@ -287,6 +288,7 @@ function Login(props) {
           </ul>
         </form>
       </section>
+      <CartInner/>
     </div>
   );
 }

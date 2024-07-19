@@ -1,20 +1,13 @@
 // 펜할리곤스 Shop 서브페이지 컴포넌트
 // 상품 전체 데이터 불러오기
-import { Link } from "react-router-dom";
-import { useContext } from "react";
-// import { allProducts } from "../data/products_data";
 import $ from "jquery";
-
 import { addComma } from "../func/common_fn";
-import { Con } from "../modules/myCon";
 
 // css불러오기
 import "../../css/_cart.scss";
 import CartInner from "../modules/cart_inner";
 
 export default function Cart() {
-  // 전역 상태관리변수를 공유하기위한 컨텍스트 API 불러오기
-  const myCon = useContext(Con);
 
   // 로컬스 카트 데이터 가져오기
   // let selData = myCon.localsCart;
@@ -29,19 +22,6 @@ export default function Cart() {
     console.log("총합계 : ", result);
     return result;
   };
-
-  // 대상 데이터에서 선택된 갯수와 총가격 변경 후 업데이트 함수
-  const upChangeCntTotal = (v,i,tg) => {  // v:데이터, i:인덱스, tg:타겟
-    // 대상 데이터에서 선택된 갯수와 총가격 변경
-    selData[i].cnt = tg.val();
-    selData[i].total = addComma(
-      Number(v.price.replace(",", "")) *
-        Number(tg.val())
-    );
-    // 변경된 데이터로 다시 셋팅
-    myCon.updateCart(selData);
-    }; 
-
 
 ////////////////////////////////////////////////////////////////////////
 // 장바구니 selData 배열의 각 객체에 대해 로컬스 wishData와 일치하는 idx 찾기
@@ -111,7 +91,8 @@ console.log('matchItem:', matchItem);
           </div>
 
           <div className="center">
-            <CartInner selData={selData} upChangeCntTotal={upChangeCntTotal}/>
+          {/* 장바구니 상품 츌력 */}
+            <CartInner/>
             <div className="bottom-btn-box">
               <div>
                 <p className="total-tit">SUBTOTAL</p>

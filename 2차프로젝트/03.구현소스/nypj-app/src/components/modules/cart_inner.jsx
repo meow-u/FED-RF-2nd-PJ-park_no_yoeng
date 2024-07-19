@@ -3,11 +3,28 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import $ from "jquery";
 import { Con } from "../modules/myCon";
-import "../../css/_cart.scss";
+import "../../css/_cart_inner.scss";
+import { addComma } from "../func/common_fn";
 
 
-function CartInner({selData , upChangeCntTotal}) {
+function CartInner() {
     const myCon = useContext(Con);
+
+  // 로컬스 카트 데이터 가져오기
+  let selData = JSON.parse(localStorage.getItem("cart-data"));
+
+  
+  // 대상 데이터에서 선택된 갯수와 총가격 변경 후 업데이트 함수
+  const upChangeCntTotal = (v,i,tg) => {  // v:데이터, i:인덱스, tg:타겟
+    // 대상 데이터에서 선택된 갯수와 총가격 변경
+    selData[i].cnt = tg.val();
+    selData[i].total = addComma(
+      Number(v.price.replace(",", "")) *
+        Number(tg.val())
+    );
+    // 변경된 데이터로 다시 셋팅
+    myCon.updateCart(selData);
+    }; 
 
 
 ////////////////////////////////////////////////////////////////////////

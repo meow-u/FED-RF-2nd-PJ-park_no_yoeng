@@ -26,7 +26,7 @@ export default function Board() {
   const myCon = useContext(Con);
   // 배너변경
   useEffect(()=>{
-  myCon.setMenu('ourstory');
+  myCon.setMenu('board');
 })
    // [ 상태관리 변수 ] //
 

@@ -70,6 +70,18 @@ export const bannerData = {
       text: "Inside Our World",
     },
   ],
+  board: [
+    {
+      filename: "board_1",
+      alt: "board_1",
+      text: "Stories from Us",
+    },
+    {
+      filename: "board_2",
+      alt: "board_2",
+      text: "Inside Our World",
+    },
+  ],
   penhaligons: [
     {
       filename: "penhaligons_1",
@@ -95,10 +107,20 @@ export const bannerData = {
       alt: "login",
       text: "Welcome back!",
     },
+    {
+      filename: "login_2",
+      alt: "login",
+      text: "Welcome back!",
+    },
   ],
   member: [
     {
       filename: "member_1",
+      alt: "member",
+      text: "Welcome Our World",
+    },
+    {
+      filename: "member_2",
       alt: "member",
       text: "Welcome Our World",
     },

@@ -67,7 +67,7 @@ function CartInner() {
             selData.length > 0 ? (
               <li className="item cont-box" key={i}>
                 <span className="check">
-                  <input type="checkbox" defaultChecked />
+                  <input type="checkbox" defaultChecked className={"checkbox"+i}/>
                 </span>
                 <Link
                   className="img-wrap"
@@ -213,6 +213,8 @@ function CartInner() {
                             $(".item input:checked").trigger("change");
                           }, 100); // 셋타임있어야 작동잘됨
                           // (혼자체크시 X삭제 -> 삭제된거남아잇는 문제 해결해야함)
+                          // 해당 인덱스의 체크박스 클래스에 강제 클릭 이벤트 트리거!
+                          $(".checkbox"+i).trigger("click");
                         }
                       }}
                     >

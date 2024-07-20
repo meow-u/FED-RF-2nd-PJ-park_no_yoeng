@@ -35,6 +35,7 @@ function CartInner() {
     });
     // checkarr 상태변수 업데이트
     myCon.setCheckarr(checkData);
+
   };
 
   ////////////////////////////////////////////////////////////////////////

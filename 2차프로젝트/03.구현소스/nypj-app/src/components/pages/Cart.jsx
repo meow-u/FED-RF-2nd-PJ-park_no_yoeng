@@ -32,7 +32,7 @@ export default function Cart() {
   useEffect(() => {
     // 체크아이템이 변경될때마다 checkarr 상태변수에 저장
     let names;
-    $(".item input:checked").on("change", function () {
+    $(".item input").on("change", function () {
       //체크된 아이템의 이름값을 배열로 모아서 저장하기
       names = $(".item input:checked")
         .map((i, v) => {
@@ -219,7 +219,7 @@ export default function Cart() {
             <CartInner />
             <div className="bottom-btn-box">
               <div>
-                <p className="total-tit">SUBTOTAL</p>
+                <p className="total-tit">SUBTOTAL ({myCon.checkarr.length}) Item</p>
                 <p className="total-price">₩{addComma(sumTotalPrice())}</p>
               </div>
               <p className="total-info">

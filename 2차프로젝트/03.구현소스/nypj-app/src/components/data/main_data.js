@@ -13,7 +13,7 @@ import {
   faFacebook,
   faTwitter,
   faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
+} from "@fortawesome/free-brands-svg-icons";  
 
 //  [ 메인영역 데이터 ]'
 const hamMenu = [

@@ -15,19 +15,19 @@ export default function Cart() {
   let selData = JSON.parse(localStorage.getItem("cart-data"));
 
   //체크 아이템 상태관리변수
-  const [checkarr, setCheckarr] = useState([]);
+  // const [checkarr, setCheckarr] = useState([]);
 
-useEffect(() => {
-  // // 처음 랜더링시 체크박스 트리거로 상태변수에 체크아이템 저장하기
-  //  if(checkarr.length === 0){
-  //   $(".item input:checked").trigger("change");
-  //  }
- 
-// 체크박스가 하나라도 체크 안 되어있으면 전체선택 체크박스 해제하기
-if ($(".check input:not(:checked)").length > 0) {
-  $(".checkbox>input").prop("checked", false);
-}
-})
+  useEffect(() => {
+    // 처음 랜더링시 체크박스 트리거로 상태변수에 체크아이템 저장하기
+    if (myCon.checkarr.length === 0) {
+      $(".item input:checked").trigger("change");
+    }
+
+    // 체크박스가 하나라도 체크 안 되어있으면 전체선택 체크박스 해제하기
+    if ($(".check input:not(:checked)").length > 0) {
+      $(".checkbox>input").prop("checked", false);
+    }
+  });
 
   useEffect(() => {
     // 체크아이템이 변경될때마다 checkarr 상태변수에 저장
@@ -46,15 +46,15 @@ if ($(".check input:not(:checked)").length > 0) {
       });
       console.log(checkData);
 
-      setCheckarr(checkData);
+      myCon.setCheckarr(checkData);
     });
-    console.log("checkarr:", checkarr);
-  }, [checkarr]); //체크아이템이 변경될때마다 실행
+    console.log("myCon.checkarr:", myCon.checkarr);
+  }, [myCon.checkarr]); //체크아이템이 변경될때마다 실행
 
   // 총 가격 계산 함수
   const sumTotalPrice = () => {
     // 총가격 계산
-    let result = checkarr.reduce((sumTotal, item) => {
+    let result = myCon.checkarr.reduce((sumTotal, item) => {
       //item은  selData의 순회 중인 배열의 각 요소(v)를 의미
 
       console.log("지금 값 : ", sumTotal, "더할값", item.total);
@@ -134,20 +134,18 @@ if ($(".check input:not(:checked)").length > 0) {
               <span className="checkbox">
                 <input
                   type="checkbox"
-                  // defaultChecked 
+                  defaultChecked // 체크박스 기본선택
                   onClick={(e) => {
-
-                   
                     if (e.target.checked) {
                       // 체크시 아이템체크박스 전체선택
                       $(".item input").prop("checked", true);
+                      // 체크박스 체크시 체크아이템 저장
                       $(".item input:checked").trigger("change");
-
                     } else if (e.target.checked === false) {
                       // 체크해제시 아이템체크박스 전체해제
                       $(".item>.check>input").prop("checked", false);
-                      setCheckarr([]); //체크박스 해제시 체크아이템 초기화
-                    }                     
+                      myCon.setCheckarr([]); //체크박스 해제시 체크아이템 초기화
+                    }
                   }}
                 />
                 <span>전체선택</span>
@@ -183,9 +181,12 @@ if ($(".check input:not(:checked)").length > 0) {
 
                       // 선택된 상품으로 카트업데이트
                       myCon.updateCart(selData);
+
                       // 상단 체크박스 해제
                       $(".checkbox>input").prop("checked", false);
 
+                      // checkarr 상태변수 업데이트를 위해 체크박스 트리거
+                      $(".item input:checked").trigger("change");
                       if (
                         // 만약 장바구니에 상품이 없을시
                         JSON.parse(localStorage.getItem("cart-data")).length ===

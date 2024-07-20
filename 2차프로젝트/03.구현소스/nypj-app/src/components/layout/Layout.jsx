@@ -50,8 +50,7 @@ export function Layout() {
   });
   // 4. 체크박스 체크된아이템 상태관리변수
 
-  const [checkItem, setCheckItem] = useState(null);
-
+  const [checkarr, setCheckarr] = useState([]);
   // [ 카트 관련 상태관리변수 ] /////////////////////////////
 
   // [ 카드 로컬 데이터 상태변수 ] : 초기상태로 로컬스토리지에 저장된 카드데이터를 가져오기
@@ -137,7 +136,10 @@ export function Layout() {
     const updatedCart = [...localsCart, item];
     console.log("추가된카트:", updatedCart);
     updateCart(updatedCart);
-  };
+
+    // 체크박스 체크된 아이템 업데이트
+    setCheckarr(updatedCart);
+  }; ///// addToCart 함수 //////
 
   // 2. 장바구니에서 아이템 삭제 함수
   const deleteCart = (item) => {
@@ -147,6 +149,7 @@ export function Layout() {
     );
     console.log("삭제된카트:", updatedCart);
     updateCart(updatedCart);
+
   };
 
   // [ 공통 함수 ] ////////////////////////////////////////
@@ -280,8 +283,8 @@ export function Layout() {
         addToCart, // 카트에 아이템 추가함수
         deleteCart, // 카트에 아이템 삭제함수
 
-        checkItem, // 체크박스 체크된 아이템
-        setCheckItem, // 체크된아이템셋팅함수
+        checkarr, // 체크박스 체크된 아이템
+        setCheckarr, // 체크된아이템셋팅함수
 
         wishList, // 위시리스트
         setWishList, // 위시리스트셋팅함수

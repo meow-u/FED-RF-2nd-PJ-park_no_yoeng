@@ -1,5 +1,5 @@
 // 게시판 페이지 컴포넌트
-import { Fragment, useContext, useEffect, useRef, useState } from "react";
+import { Fragment, useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Con } from "../modules/myCon";
 
 // 사용자 기본정보 생성 함수
@@ -25,7 +25,7 @@ export default function Board() {
 //컨텍스트 API사용
   const myCon = useContext(Con);
   // 배너변경
-  useEffect(()=>{
+  useLayoutEffect(()=>{
   myCon.setMenu('board');
 })
    // [ 상태관리 변수 ] //

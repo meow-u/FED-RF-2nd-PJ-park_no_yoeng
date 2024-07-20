@@ -11,13 +11,13 @@ import {
   story_detail,
   collection_detail,
 } from "../data/sub_detail_data";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useLayoutEffect } from "react";
 
 export default function Penhaligons() {
   //컨텍스트 API사용
   const myCon = useContext(Con);
   // 배너변경
-  useEffect(()=>{
+  useLayoutEffect(()=>{
   myCon.setMenu('penhaligons');
 })
    // Link to 호출시 보낸 state 객체값을 연결된 컴포넌트에서 받아준다!

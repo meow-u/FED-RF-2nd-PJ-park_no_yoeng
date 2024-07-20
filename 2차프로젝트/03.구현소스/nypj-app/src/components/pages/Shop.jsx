@@ -1,6 +1,6 @@
 // 펜할리곤스 Shop 서브페이지 컴포넌트
 
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useLayoutEffect, useState } from "react";
 import { Con } from "../modules/myCon";
 import "../../css/_shop.scss";
 import { Link } from "react-router-dom";
@@ -31,7 +31,7 @@ export default function Shop({ initSmenu = "Shop" }) {
 
   const myCon = useContext(Con);
   // 배너변경
-  useEffect(()=>{
+  useLayoutEffect(()=>{
   myCon.setMenu("shop");
   });
   // initSmenu index.js에서 받아온 클릭된 서브메뉴 데이터

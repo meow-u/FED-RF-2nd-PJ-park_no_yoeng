@@ -1,6 +1,6 @@
 // 로그인 페이지 컴포넌트  - Login.jsx
 
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useLayoutEffect, useState } from "react";
 import $ from "jquery";
 
 // css불러오기
@@ -17,7 +17,7 @@ function Login(props) {
   const myCon = useContext(Con);
   console.log(myCon.loginSts);
   // 배너변경
-  useEffect(()=>{
+  useLayoutEffect(()=>{
   myCon.setMenu('login');
 })
   // =============================================

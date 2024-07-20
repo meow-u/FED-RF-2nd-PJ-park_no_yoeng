@@ -4,13 +4,13 @@ import { Con } from "../modules/myCon";
 
 import { story } from "../data/sub_page_data";
 import $ from "jquery";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useLayoutEffect } from "react";
 
 export default function OurStory() {
   //컨텍스트 API사용
   const myCon = useContext(Con);
   // 배너변경
-  useEffect(()=>{
+  useLayoutEffect(()=>{
   myCon.setMenu('ourstory');
 })
   // 리턴구역

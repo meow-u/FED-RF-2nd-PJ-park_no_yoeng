@@ -9,7 +9,7 @@ import SwiperItemSlide from "../plugin/SwiperItemSlide";
 import Video from "../modules/video";
 import Content from "../modules/content";
 import BrandBlog from "../modules/brand_blog";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useLayoutEffect } from "react";
 import $ from "jquery";
 
 export default function Main() {
@@ -17,7 +17,7 @@ export default function Main() {
   //컨텍스트 API사용
   const myCon = useContext(Con);
   // 배너변경
-  useEffect(()=>{
+  useLayoutEffect(()=>{
     myCon.setMenu("main");
   })
   // 메인페이지일때만 실행되는 useEffect

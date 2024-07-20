@@ -2,7 +2,7 @@
 import { useLocation } from "react-router-dom";
 import { Con } from "../modules/myCon";
 import SearchInner from "./SearchInner";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useLayoutEffect } from "react";
 import {changebgFn, resetBgFn} from "../func/bgFn";
 
 
@@ -11,7 +11,7 @@ export default function Search(){
     //컨텍스트 API사용
   const myCon = useContext(Con);
   // 배너변경
-  useEffect(()=>{
+  useLayoutEffect(()=>{
   myCon.setMenu('search');
 })
     // useEffect(()=>{

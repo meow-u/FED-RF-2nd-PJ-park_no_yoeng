@@ -22,7 +22,7 @@ export default function MainArea() {
           {
             scrollTop: $(".main-wrap").offset().top - 75 + "px",
           },
-          800
+          400
         );
       }, 1000);
     };
@@ -34,7 +34,8 @@ export default function MainArea() {
   return (
     <main className="cont">
       {/* 공통배너 */}
-      <SwiperBanner />
+      {/* key prop 사용: menu가 변경될때마다 컴포넌트를 완전히 새로 마운트하라고 지시*/}
+      <SwiperBanner/> 
       <section className="main-wrap">
         <Outlet />
       </section>

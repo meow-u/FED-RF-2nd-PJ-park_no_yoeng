@@ -1,5 +1,6 @@
 // 펜할리곤스 스와이퍼 -배너 모듈 (메인페이지)
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useLayoutEffect, useState } from "react";
+import $ from "jquery";             
 // 컨텍스트 API 사용
 import { Con } from "../modules/myCon";
 // 스와이퍼 불러오기
@@ -30,6 +31,17 @@ export default function Banner() {
 const myCon = useContext(Con);
 // 시작애니 상태변수 ( true 시작슬라이드 클래스 들어감 ) 
   const [initAni,setInitAni] = useState(true);
+
+    useLayoutEffect(() => {
+   //스와이퍼가 메뉴전환시 멈추어서 강제 트리거로 해결
+   if (myCon.menu !== "main") {
+      setTimeout(() => {
+         $('.swiper-button-next').trigger('click');
+   
+      }, 0);
+   }
+  }, [myCon.menu]);
+
   
 // 처음 true이후 해당시간뒤애 시작애니 false 처리 
   useEffect(()=>{

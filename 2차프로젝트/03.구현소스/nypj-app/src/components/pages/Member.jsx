@@ -1,5 +1,5 @@
 // 펜할리곤스 Member 서브페이지 컴포넌트
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useLayoutEffect, useState } from "react";
 import { Con } from "../modules/myCon";
 import { Link, useNavigate } from "react-router-dom";
 import $ from "jquery";
@@ -13,7 +13,7 @@ function Member() {
   //컨텍스트 API사용
   const myCon = useContext(Con);
   // 배너변경
-  useEffect(()=>{
+  useLayoutEffect(()=>{
   myCon.setMenu('member');
 })
   // [ 리액트 라우터 내비게이션 사용하기 ]

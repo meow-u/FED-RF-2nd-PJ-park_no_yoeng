@@ -17,8 +17,20 @@ export default function Cart() {
   //체크 아이템 상태관리변수
   const [checkarr, setCheckarr] = useState([]);
 
+useEffect(() => {
+  // // 처음 랜더링시 체크박스 트리거로 상태변수에 체크아이템 저장하기
+  //  if(checkarr.length === 0){
+  //   $(".item input:checked").trigger("change");
+  //  }
+ 
+// 체크박스가 하나라도 체크 안 되어있으면 전체선택 체크박스 해제하기
+if ($(".check input:not(:checked)").length > 0) {
+  $(".checkbox>input").prop("checked", false);
+}
+})
+
   useEffect(() => {
-    // 체크아이템이 변경될때마다 실행
+    // 체크아이템이 변경될때마다 checkarr 상태변수에 저장
     let names;
     $(".item input:checked").on("change", function () {
       //체크된 아이템의 이름값을 배열로 모아서 저장하기
@@ -42,7 +54,7 @@ export default function Cart() {
   // 총 가격 계산 함수
   const sumTotalPrice = () => {
     // 총가격 계산
-    let result = selData.reduce((sumTotal, item) => {
+    let result = checkarr.reduce((sumTotal, item) => {
       //item은  selData의 순회 중인 배열의 각 요소(v)를 의미
 
       console.log("지금 값 : ", sumTotal, "더할값", item.total);
@@ -122,15 +134,20 @@ export default function Cart() {
               <span className="checkbox">
                 <input
                   type="checkbox"
-                  defaultChecked
+                  // defaultChecked 
                   onClick={(e) => {
+
+                   
                     if (e.target.checked) {
                       // 체크시 아이템체크박스 전체선택
                       $(".item input").prop("checked", true);
+                      $(".item input:checked").trigger("change");
+
                     } else if (e.target.checked === false) {
                       // 체크해제시 아이템체크박스 전체해제
                       $(".item>.check>input").prop("checked", false);
-                    }
+                      setCheckarr([]); //체크박스 해제시 체크아이템 초기화
+                    }                     
                   }}
                 />
                 <span>전체선택</span>

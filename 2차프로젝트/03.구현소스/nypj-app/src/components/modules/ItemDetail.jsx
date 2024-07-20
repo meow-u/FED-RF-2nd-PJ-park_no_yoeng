@@ -1,6 +1,6 @@
 // 펜할리곤스 상품상세 모듈  ItemDetail.jsx
 
-import React, { useContext, useEffect, } from "react";
+import React, { useContext, useEffect } from "react";
 // 데이터 불러오기
 import { allProducts } from "../data/products_data";
 // css 불러오기
@@ -11,23 +11,21 @@ import { Inner } from "./content_inner";
 // 제이쿼리 불러오기
 import $ from "jquery";
 
-
-
 function ItemDetail({ itemIdx }) {
-
-   //////////////////////////// 부드럽게 상단이동
-   $("html,body").animate(
-    {
-      scrollTop: $(".main-wrap").offset().top + "px",
-    },
-    400
-  );
+  useEffect(() => {
+    //////////////////////////// 부드럽게 상단이동
+    $("html,body").animate(
+      {
+        scrollTop: $(".main-wrap").offset().top + "px",
+      },
+      400
+    );
+  });
 
   // 해당순서의 상품객체 데이터 추출 하기 --> content_inner.jsx에 있음!
-// let seldata=  allProducts.find((v) => v.idx === itemIdx);
-// console.log("seldata:", seldata);
+  // let seldata=  allProducts.find((v) => v.idx === itemIdx);
+  // console.log("seldata:", seldata);
 
-  
   console.log("product에서 받아온 itemIdx:", itemIdx);
 
   useEffect(() => {

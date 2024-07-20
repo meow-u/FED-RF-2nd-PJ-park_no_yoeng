@@ -9,6 +9,16 @@
   right: 0;
   bottom: 0;
   z-index: 100;
+  span.allcheck {
+    margin-top: 5px;
+    display: flex;
+    margin-bottom: -20px;
+    text-align: end;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+// span.check {
+//   align-self: flex-start;}
   .cart-btn {
     pointer-events: all;
     translate: -88% 0;
@@ -83,7 +93,7 @@
         font-weight: 500;
         transform: scaleY(0.8) scale(1.2);
       }
-      > span {
+      > span.text {
         display: block;
         font-size: 12px;
       }

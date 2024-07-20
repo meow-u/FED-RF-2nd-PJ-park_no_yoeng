@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import $ from "jquery";
@@ -8,10 +8,11 @@ import { addComma } from "../func/common_fn";
 
 
 function CartInner() {
-    const myCon = useContext(Con);
+  const myCon = useContext(Con);
 
   // 로컬스 카트 데이터 가져오기
   let selData = JSON.parse(localStorage.getItem("cart-data"));
+
 
   
   // 대상 데이터에서 선택된 갯수와 총가격 변경 후 업데이트 함수
@@ -57,6 +58,9 @@ console.log('matchItem:', matchItem);
                   // 데이터의 갯수가 0이상일때만 렌더링
                   selData.length > 0 ? (
                     <li className="item cont-box" key={i}>
+                       <span className="check">
+              <input type="checkbox" defaultChecked />
+            </span>
                       <Link
                         className="img-wrap"
                         to={`/shop/product/${v.idx}`}
@@ -147,7 +151,7 @@ console.log('matchItem:', matchItem);
                             className="delete"
                             onClick={(e) => {
                               let confirm = window.confirm(
-                                "선택하신 상품을 장바구니에서 삭제하시겠습니까?"
+                                "해당 상품을 장바구니에서 삭제하시겠습니까?"
                               );
 
                               if (confirm) {

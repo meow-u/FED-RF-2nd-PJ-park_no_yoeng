@@ -116,6 +116,7 @@ function MyPage() {
                   <div>
                     <span>회원 계정: </span>
                     <input
+                      className="id"
                       readOnly
                       type="text"
                       defaultValue={member.uid}
@@ -123,11 +124,42 @@ function MyPage() {
                   </div>
                   <div>
                     <span>회원 이름: </span>
-                    <input  type="text" defaultValue={member.unm}></input>
+                    <input  
+                    className="name"
+                    type="text" defaultValue={member.unm}></input>
                   </div>
                   <div>
                     <span>회원 이메일: </span>
-                    <input type="text" defaultValue={member.eml}></input>
+                    <input 
+                    className="email"
+                    type="text" defaultValue={member.eml}></input>
+                  </div>
+                </div>
+                <div className="mem-box next">
+                <h2 className="cart-tit">Need to change password?</h2>
+                  <div>
+                    <span>현재 비밀번호: </span>
+                    <input
+                      className="pw"
+                      type="text"
+                      placeholder={'현재 비밀번호를 입력해 주세요.'}
+                    ></input>
+                  </div>
+                  <div>
+                    <span>새 비밀번호: </span>
+                    <input
+                      className="cpw"
+                      type="text"
+                      placeholder={'변경할 비밀번호를 입력해 주세요.'}
+                    ></input>
+                  </div>
+                  <div>
+                    <span>새 비밀번호 확인: </span>
+                    <input
+                      className="cpw-confirm"
+                      type="text"
+                      placeholder={'변경할 비밀번호를 입력해 주세요.'}
+                    ></input>
                   </div>
                 </div>
 

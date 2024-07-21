@@ -2,12 +2,15 @@
 import React, { useContext, useEffect, useLayoutEffect, useState } from "react";
 import { Con } from "../modules/myCon";
 import { Link, useNavigate } from "react-router-dom";
-import $ from "jquery";
-// 로컬스토리지 생성함수 불러오기
+
+// 로컬스토리지 생성 JS
 import { initData } from "../func/mem_fn";
 
-// 회원가입 css 불러오기
+import $ from "jquery";
+
+// 회원가입 CSS 불러오기
 import "../../css/member.scss";
+import AddressInput from "../modules/AddressInput";
 
 function Member() {
   //컨텍스트 API사용
@@ -42,6 +45,10 @@ function Member() {
   const [userName, setUserName] = useState("");
   // 5. 이메일변수
   const [email, setEmail] = useState("");
+  // 6. 주소변수
+  const [addr, setAddr] = useState("");
+  // 7. 우편번호변수
+  const [zipcode, setZipcode] = useState("");
 
   // [2] 에러상태관리 변수
   // -> 에러상태값 초기값은 에러아님(false)
@@ -55,16 +62,18 @@ function Member() {
   const [userNameError, setUserNameError] = useState(false);
   // 5. 이메일변수
   const [emailError, setEmailError] = useState(false);
+  // 6. 주소변수
+  const [addrError, setAddrError] = useState("");
 
   console.log(">>>>랜더링후 변경확인", userIdError);
 
   // [ 아이디관련 메시지 프리셋 ] ///////////////////////////
   const msgId = [
-    // 최소 5글자이상 입력
+    // 1. 최소 5글자 이상 입력할것
     "User ID must contain a minimum of 5 characters",
-    // 사용중인 아이디
+    // 2. 이미 사용중인 아이디임
     "This ID is already in use!",
-    // 훌륭한 아이디
+    // 3. 훌륭한 아이디!
     "That's a great ID!",
   ];
 
@@ -115,19 +124,7 @@ function Member() {
       memData = JSON.parse(memData);
       // -> 문자형에서 배열데이터로 변환!
       // 주의: JSON 파싱할때 원본형식이 제이슨 파일형식으로
-      // 엄격하게 작성되어야 에러가 없음(마지막 콤마 등..)
-      // (에러뜨면 로컬스토리지 삭제후 해보기)
-
-      // [ @@@새로운 배열메서드: some() ]
-      // -> 조건에 맞는 값이 하나만 나오면 true 처리함
-      // @@@비교참고) every()는 하나만 false이면 false리턴 (다안돔)
-      //  let isT = memData.every(v=>{
-      //     console.log('돌아!',v.uid);
-      //조건에맞으면 끝나고 더 안돔
-      //     return v.uid===val}); //값을 구체적으로 알필요없이 true /false만 필요할 경우엔 some / every 사용
-
-      // 아이디 에러상태변수 업데이트(false)
-      //  setUserIdError(false);
+      // 엄격하게 작성되어야 에러가 없음(마지막콤마 불허용 등)
 
       // 3. 배열이니까 현재 입력데이터의 아이디가
       // 기존 배열값으로 있는지 검사함!
@@ -146,8 +143,23 @@ function Member() {
       else {
         // 에러상태값 업데이트 : 에러가아님(false)
         setUserIdError(false);
-      } /// else ///
-    } //if//
+      } ///// else //////
+
+      // [ 새로운 배열메서드 : some() ]
+      // -> 조건에 맞는 값이 하나만 나오면 true처리함
+      // 비교참고) every() 는 하나만 false이면 false리턴
+      // let isT = memData.some(v=>{
+      //     console.log("돌아!",v.uid);
+      //     return v.uid===val;
+      // });
+      // let isT = memData.every(v=>{
+      //     console.log("돌아!",v.uid);
+      //     return v.uid===val;
+      // });
+
+      // 아이디 에러상태 업데이트(false)
+      //   setUserIdError(false);
+    } /// if /////////////////////////
     // 3-2. 에러일때 : 유효성 검사 에러
     else {
       console.log("에러!");
@@ -227,7 +239,29 @@ function Member() {
     setEmail(val);
   }; ///////// changeEmail 함수 //////////
 
-  // ===================================================
+  // 6. 주소 유효성 검사 ///////////
+  const changeAddr = () => {
+    // 입력된 값읽기
+    // 앞주소(자동입력값)
+    let address1 = $(".addr1").val();
+    // 뒷주소(직접입력값)
+    let address2 = $(".addr2").val();
+    // 우편번호(자동입력값)
+    let zc = $(".zipcode").val();
+
+    // 2. 빈값체크 : 세 값 모두 빈값이 아니면 에러아님!
+    if (address1 !== "" && address2 !== "" && zc !== "") setAddrError(false);
+    else setAddrError(true);
+
+    // 3. 기존입력값 반영하기 : 상태변수에 반영함
+    // (1) 전체주소값 저장 (앞주소+뒷주소)
+    setAddr(address1 + " " + address2);
+    console.log(addr);
+    // (2) 우편번호 저장
+    setZipcode(zc);
+    console.log(zipcode);
+  }; ///////// changeUserName 함수 //////////
+
   // [ 전체 유효성검사 체크함수 ] ///////////
   const totalValid = () => {
     // 1. 모든 상태변수에 '빈값일때 에러'상태값 업데이트!
@@ -236,6 +270,11 @@ function Member() {
     if (!chkPwd) setChkPwdError(true);
     if (!userName) setUserNameError(true);
     if (!email) setEmailError(true);
+    // 주소체크 추가
+    if (!addr) setAddrError(true);
+    // 우편번호체크 추가
+    // -> 주소에러로 등록(우편번호에러값이 따로없음)
+    if (!zipcode) setAddrError(true);
 
     // 2. 통과시 true, 불통과시 false 리턴처리
     // 통과조건 : 빈값아님 + 에러후크변수가 모두 false
@@ -245,11 +284,14 @@ function Member() {
       chkPwd &&
       userName &&
       email &&
+      addr &&
       !userIdError &&
       !pwdError &&
       !chkPwdError &&
       !userNameError &&
-      !emailError
+      !emailError &&
+      // 주소에러항목추가
+      !addrError
     )
       return true;
     // 하나라도 false이면 false를 리턴함!
@@ -278,6 +320,7 @@ function Member() {
       // 최대수를 위한 배열값 뽑기 (idx항목)
       let temp = memData.map((v) => v.idx);
       // 다음 번호는 항상 최대수+1 이다!
+      // ...temp는 배열값만 꺼내서 ex) 1,2,3 그중에 최대수를 찾아서 +1
       console.log("다음번호:", Math.max(...temp) + 1);
 
       // 4. 새로운 데이터 구성하기
@@ -287,6 +330,10 @@ function Member() {
         pwd: pwd,
         unm: userName,
         eml: email,
+        // 추가항목1 : 우편번호
+        zcode: zipcode,
+        // 추가항목2 : 주소
+        addr: addr,
       };
 
       // 5. 데이터 추가하기: 배열에 데이터 추가 push()
@@ -311,6 +358,7 @@ function Member() {
 
     // [3]. 불퉁과시
     else {
+      console.log($(".msg").eq(0).text());
       alert("Change your input!");
     } /// else ////
   }; ///// onSubmit 함수 //////////////
@@ -352,6 +400,7 @@ function Member() {
                 placeholder="Please enter your ID"
                 value={userId}
                 onChange={changeUserId}
+                onBlur={changeUserId}
               />
               {
                 // [에러일경우(true) 메세지 출력]
@@ -363,7 +412,7 @@ function Member() {
                 )
               }
               {
-                // [에러 아닐경우(false) 메세지 출력]
+                // 통과시: [에러 아닐경우(false) 메세지 출력]
                 // 조건문 && 출력요소
                 // 조건추가 : userId가 입력전일때 안보임처리
                 // userId가 입력전엔 false로 리턴됨!
@@ -392,6 +441,7 @@ function Member() {
                 placeholder="Please enter your Password"
                 value={pwd}
                 onChange={changePwd}
+                onBlur={changePwd}
               />
               {
                 // [에러일경우(true) 메세지 출력]
@@ -412,6 +462,7 @@ function Member() {
                 placeholder="Please enter your Confirm Password"
                 value={chkPwd}
                 onChange={changeChkPwd}
+                onBlur={changeChkPwd}
               />
               {
                 // [에러일경우(true) 메세지 출력]
@@ -432,12 +483,29 @@ function Member() {
                 placeholder="Please enter your Name"
                 value={userName}
                 onChange={changeUserName}
+                onBlur={changeUserName}
               />
               {
                 // [에러일경우(true) 메세지 출력]
                 // 조건문 && 출력요소
 
                 userNameError && ( // 에러상태변수가 true일경우
+                  <div className="msg">
+                    <small>{msgEtc.req}</small>
+                  </div>
+                )
+              }
+            </li>
+            <li>
+              <label>Address</label>
+              {/* 다음우편번호 모듈
+              - 보내줄값은 내가 정해야함!
+              - 변경체크함수를 프롭스다운시킴! */}
+              <AddressInput changeAddr={changeAddr} />
+              {
+                // 에러일 경우 메시지 출력
+                // 조건문 && 출력요소
+                addrError && (
                   <div className="msg">
                     <small>{msgEtc.req}</small>
                   </div>
@@ -452,6 +520,7 @@ function Member() {
                 placeholder="Please enter your Email"
                 value={email}
                 onChange={changeEmail}
+                onBlur={changeEmail}
               />
               {
                 // [에러일경우(true) 메세지 출력]

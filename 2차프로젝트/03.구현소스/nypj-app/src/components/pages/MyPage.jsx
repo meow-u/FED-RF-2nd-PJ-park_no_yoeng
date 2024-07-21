@@ -114,7 +114,7 @@ function MyPage() {
 
                 <div className="mem-box">
                   <div>
-                    <span>가입 아이디: </span>
+                    <span>회원 계정: </span>
                     <input
                       readOnly
                       type="text"
@@ -123,7 +123,7 @@ function MyPage() {
                   </div>
                   <div>
                     <span>회원 이름: </span>
-                    <input type="text" defaultValue={member.unm}></input>
+                    <input  type="text" defaultValue={member.unm}></input>
                   </div>
                   <div>
                     <span>회원 이메일: </span>

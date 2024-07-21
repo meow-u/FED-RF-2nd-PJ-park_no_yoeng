@@ -7,7 +7,7 @@ import { Con } from "../modules/myCon";
 // 아이콘 불러오기 (추가로 필요한 import는 데이터화로 main_data.js 상단에 있음)
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // 리액트 아이콘 불러오기
-import { FaHouseUser } from 'react-icons/fa';
+import { FaHouseUser } from "react-icons/fa";
 import { faRightToBracket, faSearch } from "@fortawesome/free-solid-svg-icons";
 
 // 리액트 모듈 불러오기
@@ -16,7 +16,13 @@ import { useContext, useEffect } from "react";
 import hamFn from "../func/ham";
 import cursorFn from "../func/cursor";
 // gnb 데이터
-import { menu, hamMenu, snsMenu, sideMenu, loginsideMenu } from "../data/main_data";
+import {
+  menu,
+  hamMenu,
+  snsMenu,
+  sideMenu,
+  loginsideMenu,
+} from "../data/main_data";
 // 상단영역 css 불러오기
 import "../../css/top_area.scss";
 // 제이쿼리불러오기
@@ -27,11 +33,11 @@ import $ from "jquery";
 export default function TopArea({ scrollFn }) {
   const myCon = useContext(Con);
 
-  useEffect(()=>{
-    $(".logmsg .close").click(function(){
-      $(".logmsg").css("display","none");
+  useEffect(() => {
+    $(".logmsg .close-notice").click(function () {
+      $(".logmsg").css("display", "none");
     });
-  })
+  });
 
   // scrollFn은 부모로부터 받은 함수
   // 이동함수
@@ -163,8 +169,15 @@ export default function TopArea({ scrollFn }) {
       <div id="top-area">
         <header className="top-area inbox common-area">
           {/* 로그인 환영메시지 박스 */}
-          <div className="logmsg"><span className="welcome-msg">welcome {myCon.loginMsg} {myCon.localsCart && ` You now have ${myCon.localsCart.length} items in your cart!`}</span>
-          <span className="close">X</span></div>
+          <div className="logmsg">
+            <span className="welcome-msg">
+              welcome {myCon.loginMsg}
+              {myCon.localsCart.length > 0 ?
+                ` You now have ${myCon.localsCart.length} items in your cart!`
+                : <span className="event">15만원 이상 주문 시 루나 향 5ml, 워시 및 로션 30ml를 한정판 파우치에 담아 무료로 증정합니다. "</span> }
+            </span>
+            <span className="close-notice">X</span>
+          </div>
           <h2 className="temp-tit">1. 상단영역</h2>
 
           <div className="cont-box">
@@ -222,8 +235,11 @@ export default function TopArea({ scrollFn }) {
                 {menu.map((v, i) => (
                   <li key={i}>
                     {/* link to -> 라우터에서 a링크대신 지원함 */}
-                    <Link className="menu" to={v.link} 
-                    state={v.link === "/Shop" && {smenu:null}}>
+                    <Link
+                      className="menu"
+                      to={v.link}
+                      state={v.link === "/Shop" && { smenu: null }}
+                    >
                       {v.txt}
                     </Link>
                   </li>
@@ -267,8 +283,10 @@ export default function TopArea({ scrollFn }) {
                         onClick={i === 0 ? showSearch : null}
                         title={v.txt}
                       >
-                       {v.txt !=="마이페이지" && <FontAwesomeIcon icon={v.icon} />}
-                       {v.txt ==="마이페이지" && <FaHouseUser />}
+                        {v.txt !== "마이페이지" && (
+                          <FontAwesomeIcon icon={v.icon} />
+                        )}
+                        {v.txt === "마이페이지" && <FaHouseUser />}
                         <span className="ir">{v.txt}</span>
                       </Link>
                       {i === 0 && ( // 검색 아이콘일 때만 추가 출력
@@ -285,29 +303,28 @@ export default function TopArea({ scrollFn }) {
                         </div>
                       )}
                     </li>
-                    
                   ))}
-                    {
-                     /* 로그인 상태이면 로그아웃 버튼보이기 */
-                     myCon.loginSts !== null && (
-                        <>
-                           <li>
-                              <a
-                                className="logout"
-                                 href="###"
-                                 title="로그아웃"
-                                 onClick={(e) => {
-                                    // 기본이동막기
-                                    e.preventDefault();
-                                    // 로그아웃 처리함수 호출
-                                    myCon.logoutFn();
-                                 }}
-                              >
-                                <FontAwesomeIcon icon={faRightToBracket} />
-                              </a>
-                           </li>
-                        </>
-                     )
+                  {
+                    /* 로그인 상태이면 로그아웃 버튼보이기 */
+                    myCon.loginSts !== null && (
+                      <>
+                        <li>
+                          <a
+                            className="logout"
+                            href="###"
+                            title="로그아웃"
+                            onClick={(e) => {
+                              // 기본이동막기
+                              e.preventDefault();
+                              // 로그아웃 처리함수 호출
+                              myCon.logoutFn();
+                            }}
+                          >
+                            <FontAwesomeIcon icon={faRightToBracket} />
+                          </a>
+                        </li>
+                      </>
+                    )
                   }
                 </ul>
               </div>

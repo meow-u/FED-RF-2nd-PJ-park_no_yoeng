@@ -81,8 +81,11 @@ button.fixed {
       white-space: nowrap;
       display: inline-block;
       animation: welcome-ani 15s linear 0s infinite;
+      span.event {
+        font-size: 12px;
     }
-    span.close {
+    }
+    span.close-notice {
       padding: 0 5px;
       height: 100%;
       position: absolute;

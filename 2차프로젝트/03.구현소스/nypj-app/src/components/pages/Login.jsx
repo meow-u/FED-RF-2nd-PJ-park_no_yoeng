@@ -8,17 +8,27 @@ import "../../css/member.scss";
 import { initData } from "../func/mem_fn";
 import { Con } from "../modules/myCon";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function Login(props) {
-
-
-
   const myCon = useContext(Con);
+  const loc = useLocation();
+
+  // cart에서 checkout버튼 누른후 구매상품, 총가격 가져오기 (옵셔널체이닝으로 값이 없을경우에는 undefined를 반환한다)
+  // 받은 데이터를 다시 ckeckout메뉴로 넘겨주기 위해 변수에 할당
+  let buyData = loc.state?.buyData; 
+  let totalPrice = loc.state?.totalPrice;
+  console.log(buyData);
+  console.log(totalPrice);
+
+
+
+
   console.log(myCon.loginSts);
   // 배너변경
-  useLayoutEffect(()=>{
-  myCon.setMenu('login');
-})
+  useLayoutEffect(() => {
+    myCon.setMenu("login");
+  });
 
   // [ 상태관리 변수 ] /////////////////////////////
   // [1] 입력요소 상태변수
@@ -177,7 +187,15 @@ function Login(props) {
 
           // 5. 라우팅 페이지 이동
           setTimeout(() => {
-            myCon.goPage("/");
+            //비회원 버튼이 여부 (cart에서 넘어왔는지 여부)
+            $("a.gest").css("display") !== "block"
+            // 없다면 기본값 루트로 이동
+            ? myCon.goPage("/")
+            // 있다면 checkout페이지로 이동
+              : myCon.goPage("/checkout",{state: {
+                // Cart에서 넘어온 데이터
+                buyData: buyData,
+                totalPrice: totalPrice}});
           }, 1000);
         } //// if ////
         // 로그인 실패시 메시지 출력!
@@ -273,16 +291,35 @@ function Login(props) {
             </li>
             <li className="txt">Are you need create account?</li>
             <li className="btnBox" style={{ overflow: "hidden" }}>
+              {/* onSubmit 함수 하단에서 비회원일시 checkout페이지로 이동시킴 */}
               <button className="sbtn create" onClick={onSubmit}>
-              Log In
+                Log In
               </button>
               <button className="sbtn loginBtn">
-              Create Account
-                <Link className="loginLink" to="/Member">
                 Create Account
+                <Link className="loginLink" to="/Member">
+                  Create Account
                 </Link>
               </button>
             </li>
+            {/* cart에서 값을 받아올 경우에만 보이게 설정한 버튼 */}
+            <a
+              href="###"
+              className="gest"
+              onClick={(e) => {
+                e.preventDefault();
+                let gest = true;
+                myCon.goPage("/checkout",{state: {
+                  // Cart에서 넘어온 데이터
+                  buyData: buyData,
+                  totalPrice: totalPrice,
+                  // 비회원여부
+                  gest: gest,
+                }});
+              }}
+            >
+              비회원으로 이어서 주문하기 &gt;&gt;
+            </a>
           </ul>
         </form>
       </section>

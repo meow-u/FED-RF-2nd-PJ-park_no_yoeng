@@ -27,14 +27,18 @@ const clearData = () => {
                   "uid":"admin",
                   "pwd":"1111",
                   "unm":"Administrator",
-                  "eml":"admin@dc.com"
+                  "eml":"admin@dc.com",
+                  "zcode": "12345",
+                  "addr":"사랑시 고백구 행복동 123-45"
               },
               {
                   "idx": 2,
                   "uid":"tomtom",
                   "pwd":"1111",
                   "unm":"Tom",
-                  "eml":"tom@gmail.com"
+                  "eml":"tom@gmail.com",
+                  "zcode": "12345",
+                  "addr":"사랑시 고백구 행복동 123-45"
               }
           ]
       `
@@ -44,3 +48,15 @@ const clearData = () => {
   
   export { clearData, initData };
   
+  /*  // 회원가입시 구성되는 데이터 
+      let newData = {
+        idx: Math.max(...temp) + 1,
+        uid: userId,
+        pwd: pwd,
+        unm: userName,
+        eml: email,
+        // 추가항목1 : 우편번호
+        zcode: zipcode,
+        // 추가항목2 : 주소
+        addr: addr,
+      }; */

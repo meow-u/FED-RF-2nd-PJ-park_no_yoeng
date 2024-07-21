@@ -111,7 +111,7 @@ export default function Cart() {
           <div className="info-wrap">
             <h3>{`Your Cart List: ${selData.length} items `}</h3>
             <p
-              className="close"
+              className="close-cart"
               onClick={(e) => {
                 /* 카드닫기 */
                 $("#cart-page").css({
@@ -219,7 +219,9 @@ export default function Cart() {
             <CartInner />
             <div className="bottom-btn-box">
               <div>
-                <p className="total-tit">SUBTOTAL ({myCon.checkarr.length}) Item</p>
+                <p className="total-tit">
+                  SUBTOTAL ({myCon.checkarr.length}) Item
+                </p>
                 <p className="total-price">₩{addComma(sumTotalPrice())}</p>
               </div>
               <p className="total-info">
@@ -228,7 +230,45 @@ export default function Cart() {
               <button
                 className="buy"
                 onClick={() => {
-                  alert("결제기능이 준비중 입니다.");
+                  let confirm = window.confirm(
+                    `선택된 ${myCon.checkarr.length}품목을 주문하시겠습니까?`
+                  );
+                  if (confirm) {
+                    //주문할래요?
+                    // [1]네
+
+                    //goNav(보낼라우터주소,{state:{속성:값}})
+                    //state로 전달할 수 있는 값은 함수나 상태 관리 메서드가 아닌, 원시 값, 객체, 그리고 함수 호출의 결과물만!
+                    if (myCon.loginSts) {
+                      // (1)로그인상태일 때
+                      alert("주문정보 확인을 위한 결제 페이지로 이동합니다");
+                      
+                      // 체크아웃 메뉴로 이동 ( state로 buyData와 totalPrice 전달)
+                      myCon.goPage("/checkout", {
+                        state: {
+                          buyData: myCon.checkarr,
+                          totalPrice: addComma(sumTotalPrice()),
+                        },
+                      });
+                    } else if (!myCon.loginSts) {
+                      // (2)로그인상태가 아닐때
+                      alert("주문정보 확인을 위해 로그인 페이지로 이동합니다.");
+                      // 로그인창 아래에 비회원진행 버튼 보이기
+                      setTimeout(() => {
+                        $("a.gest").css({ display: "block" });
+                      }, 0);
+                      //로그인 메뉴로 이동 ( state로 buyData와 totalPrice 전달)
+                      myCon.goPage("Login",{state: {
+                        buyData: myCon.checkarr,
+                        totalPrice: addComma(sumTotalPrice()),
+                      }});
+                    }
+                  } else if (!confirm) {
+                    // [2]아니오
+                    return;
+                  } ////////// confirm /////////
+                  //카트 숨기기
+                  $(".close-cart").trigger("click");
                 }}
               >
                 Go to CheckOut

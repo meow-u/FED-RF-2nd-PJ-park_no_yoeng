@@ -98,7 +98,7 @@ function MyPage() {
             {/* {selecMenu === "MY ACCOUNT" && ()} */}
             {selecMenu === "MY CART" && (
               <>
-                <h2 className="cart-tit">{`Your Cart List (${myCon.localsCart.length})`}</h2>
+                <h2 className="cart-tit ">{`Your Cart List (${myCon.localsCart.length})`}</h2>
                 <CartInner selecMenu={selecMenu} />
               </>
             )}
@@ -110,12 +110,13 @@ function MyPage() {
             )}
             {selecMenu === "MY ACCOUNT" && (
               <>
-                <h2 className="cart-tit">Check your Account</h2>
+                <h2 className="cart-tit top">Check your Account</h2>
 
                 <div className="mem-box">
                   <div>
-                    <span>회원 계정: </span>
+                    <label for="id">회원 계정:</label>
                     <input
+                      id="id"
                       className="id"
                       readOnly
                       type="text"
@@ -123,42 +124,60 @@ function MyPage() {
                     ></input>
                   </div>
                   <div>
-                    <span>회원 이름: </span>
-                    <input  
-                    className="name"
-                    type="text" defaultValue={member.unm}></input>
+                    <label for="name">회원 이름:</label>
+                    <input
+                      id="name"
+                      className="name"
+                      type="text"
+                      defaultValue={member.unm}
+                    ></input>
                   </div>
                   <div>
-                    <span>회원 이메일: </span>
-                    <input 
-                    className="email"
-                    type="text" defaultValue={member.eml}></input>
+                    <label for="email">회원 이메일:</label>
+                    <input
+                      id="email"
+                      className="email"
+                      type="text"
+                      defaultValue={member.eml}
+                    ></input>
+                  </div>
+                  <div>
+                    <label for="address">회원 주소:</label>
+                    <input
+                      id="address"
+                      className="address"
+                      type="text"
+                      defaultValue={member.addr}
+                    ></input>
                   </div>
                 </div>
                 <div className="mem-box next">
-                <h2 className="cart-tit">Need to change password?</h2>
+                  <h2 className="cart-tit">Need to change password?</h2>
                   <div>
-                    <span>현재 비밀번호: </span>
+                    <label for="pw">현재 비밀번호: </label>
                     <input
+                      id="pw"
                       className="pw"
                       type="text"
-                      placeholder={'현재 비밀번호를 입력해 주세요.'}
+                      placeholder={"현재 비밀번호를 입력해 주세요."}
                     ></input>
                   </div>
                   <div>
-                    <span>새 비밀번호: </span>
+                    <label for="cpw">새 비밀번호: </label>
                     <input
+                      id="cpw"
                       className="cpw"
                       type="text"
-                      placeholder={'변경할 비밀번호를 입력해 주세요.'}
+                      placeholder={"변경할 비밀번호를 입력해 주세요."}
                     ></input>
                   </div>
                   <div>
-                    <span>새 비밀번호 확인: </span>
+                    <label for="cpw-confirm">새 비밀번호 확인: </label>
                     <input
+                      id="cpw-confirm"
                       className="cpw-confirm"
                       type="text"
-                      placeholder={'변경할 비밀번호를 입력해 주세요.'}
+                      placeholder={"변경할 비밀번호를 입력해 주세요."}
                     ></input>
                   </div>
                 </div>

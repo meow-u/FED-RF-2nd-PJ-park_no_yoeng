@@ -6,6 +6,14 @@
 }
 /* 전체박스 */
 .membx {
+
+  a.gest {
+    font-size: small;
+    text-align: center;
+    font-weight: 700;
+    display: none;
+}
+
   -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(10px) sepia(1);
   background: #ffffffcf;
@@ -86,6 +94,7 @@
         display: inline-block;
       }
     }
+
   }
 
   ul {

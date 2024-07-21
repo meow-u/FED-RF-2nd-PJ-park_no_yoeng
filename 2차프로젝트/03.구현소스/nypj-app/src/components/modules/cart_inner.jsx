@@ -6,12 +6,18 @@ import { Con } from "../modules/myCon";
 import "../../css/_cart_inner.scss";
 import { addComma } from "../func/common_fn";
 
-function CartInner() {
+function CartInner({ selecMenu }) {
+  //selecMenu는 mypage에서 선택한 메뉴이름을 받아옴
   const myCon = useContext(Con);
   console.log("변경된 myCon.checkarr:", myCon.checkarr);
 
   // 로컬스 카트 데이터 가져오기
-  let selData = JSON.parse(localStorage.getItem("cart-data"));
+  let selData =
+    !selecMenu || selecMenu === "MY CART"
+      ? JSON.parse(localStorage.getItem("cart-data"))
+      : selecMenu === "WISHLIST"
+      ? JSON.parse(localStorage.getItem("wish-data"))
+      : [];
 
   // [대상 데이터에서 선택된 갯수와 총가격 변경 후 업데이트 함수]
   const upChangeCntTotal = (v, i, tg) => {
@@ -35,7 +41,6 @@ function CartInner() {
     });
     // checkarr 상태변수 업데이트
     myCon.setCheckarr(checkData);
-
   };
 
   ////////////////////////////////////////////////////////////////////////
@@ -68,7 +73,14 @@ function CartInner() {
             selData.length > 0 ? (
               <li className="item cont-box" key={i}>
                 <span className="check">
-                  <input type="checkbox" defaultChecked className={"checkbox"+i}/>
+                  {/* 마이페이지 아닐때만 체크박스 랜더링 */}
+                  {!selecMenu && (
+                    <input
+                      type="checkbox"
+                      defaultChecked
+                      className={"checkbox" + i}
+                    />
+                  )}
                 </span>
                 <Link
                   className="img-wrap"
@@ -83,139 +95,152 @@ function CartInner() {
                 <div className="item-wrap">
                   <h4 className="cnt">{i + 1}</h4>
                   {/* 선물포장표시 */}
-                  {v.gift && <span className="gift">{v.gift}</span>}
+                  {selecMenu !== "WISHLIST" && v.gift && <span className="gift">{v.gift}</span>}
 
                   {/* 위시여부표시 여기서 분기해서 칠! */}
-                  <button
-                    className="cart-wish-btn"
-                    style={
-                      matchItem.some((v1) => v1.idx === v.idx)
-                        ? { color: "red" }
-                        : { color: "" }
-                    }
-                    onClick={(e) => {
-                      myCon.WishHandler(v.idx, v, e);
-                    }}
-                  >
-                    ♡
-                  </button>
+                  {selecMenu !== "MY CART" && (
+                    <button
+                      className="cart-wish-btn"
+                      style={
+                        matchItem.some((v1) => v1.idx === v.idx)
+                          ? { color: "red" }
+                          : { color: "" }
+                      }
+                      onClick={(e) => {
+                        selecMenu !== "WISHLIST" &&
+                          myCon.WishHandler(v.idx, v, e);
+                      }}
+                    >
+                      {selecMenu !== "WISHLIST" ? `♡` : `♥`}
+                    </button>
+                  )}
 
                   <h3 className="etit">{v.name[1]}</h3>
                   <h2 className="ktit">{v.name[0]}</h2>
                   <div className="itemlist-wrap">
                     <h4 className="price">{v.price + "원"}</h4>
-                    <h2 className="num">
-                      <span>QTY</span>
-                      <div className="btn-box">
-                        <button
-                          className="up"
-                          onClick={(e) => {
-                            let tg = $(e.target).next();
-                            // console.log(tg);
-                            tg.val(Number(tg.val()) + 1);
+                    {selecMenu !== "WISHLIST" && (
+                      <h2 className="num">
+                        <span>QTY</span>
+                        <div className="btn-box">
+                          <button
+                            className="up"
+                            onClick={(e) => {
+                              let tg = $(e.target).next();
+                              // console.log(tg);
+                              tg.val(Number(tg.val()) + 1);
 
-                            // 대상 데이터에서 선택된 갯수와 총가격 변경
-                            upChangeCntTotal(v, i, tg);
-                          }}
-                        ></button>
-                        <input
-                          className="cntval"
-                          type="number"
-                          value={v.cnt}
-                          onChange={(e) => {
-                            console.log("입력값:", e.target.value);
-                            let tg = $(e.target);
-
-                            // 대상 데이터에서 선택된 갯수와 총가격 변경
-                            upChangeCntTotal(v, i, tg);
-                          }}
-                          onBlur={(e) => {
-                            // 포커스 아웃시 빈값이면 1로 고정
-                            if (e.target.value === "") {
-                              e.target.value = 1;
+                              // 대상 데이터에서 선택된 갯수와 총가격 변경
+                              upChangeCntTotal(v, i, tg);
+                            }}
+                          ></button>
+                          <input
+                            className="cntval"
+                            type="number"
+                            value={v.cnt}
+                            onChange={(e) => {
+                              console.log("입력값:", e.target.value);
                               let tg = $(e.target);
 
                               // 대상 데이터에서 선택된 갯수와 총가격 변경
                               upChangeCntTotal(v, i, tg);
-                            }
-                          }}
-                          onKeyDown={(e) => {
-                            e.key === "Enter" && e.target.blur();
-                          }}
-                        />
-                        <button
-                          className="down"
-                          onClick={(e) => {
-                            let tg = $(e.target).prev();
-                            // console.log(tg);
-                            tg.val(tg.val() == 1 ? 1 : Number(tg.val()) - 1);
+                            }}
+                            onBlur={(e) => {
+                              // 포커스 아웃시 빈값이면 1로 고정
+                              if (e.target.value === "") {
+                                e.target.value = 1;
+                                let tg = $(e.target);
 
-                            // 대상 데이터에서 선택된 갯수와 총가격 변경
-                            upChangeCntTotal(v, i, tg);
-                          }}
-                        ></button>
-                      </div>
-                    </h2>
+                                // 대상 데이터에서 선택된 갯수와 총가격 변경
+                                upChangeCntTotal(v, i, tg);
+                              }
+                            }}
+                            onKeyDown={(e) => {
+                              e.key === "Enter" && e.target.blur();
+                            }}
+                          />
+                          <button
+                            className="down"
+                            onClick={(e) => {
+                              let tg = $(e.target).prev();
+                              // console.log(tg);
+                              tg.val(tg.val() == 1 ? 1 : Number(tg.val()) - 1);
+
+                              // 대상 데이터에서 선택된 갯수와 총가격 변경
+                              upChangeCntTotal(v, i, tg);
+                            }}
+                          ></button>
+                        </div>
+                      </h2>
+                    )}
                   </div>
                   <div className="itemlist-wrap">
-                    <h2 className="item-price">₩{v.total}</h2>
+                    <h2 className="item-price">
+                      {selecMenu !== "WISHLIST" && `₩${v.total}`}
+                    </h2>
+                    {selecMenu === "WISHLIST" && <p>{v.subtit}</p>}
                     <button
                       className="delete"
                       onClick={(e) => {
-                        let confirm = window.confirm(
-                          "해당 상품을 장바구니에서 삭제하시겠습니까?"
-                        );
+                        selecMenu === "WISHLIST" &&
+                          myCon.WishHandler(v.idx, v, e);
 
-                        if (confirm) {
-                          // 선택된 상품 삭제
-                          myCon.deleteCart(v);
+                        if (selecMenu !== "WISHLIST") {
+                          let confirm = window.confirm(
+                            "해당 상품을 장바구니에서 삭제하시겠습니까?"
+                          );
 
-                          // 결과 0개
-                          //   console.log(
-                          //     "localStorage.getItem('cart-data')",
-                          //     JSON.parse(
-                          //       localStorage.getItem("cart-data")
-                          //     ).length
-                          //   );
+                          if (confirm) {
+                            // 선택된 상품 삭제
+                            myCon.deleteCart(v);
 
-                          // 결과 1개
-                          //   console.log(
-                          //     "selData.length",
-                          //     selData.length,
-                          //     selData
-                          //   );
+                            // 결과 0개
+                            //   console.log(
+                            //     "localStorage.getItem('cart-data')",
+                            //     JSON.parse(
+                            //       localStorage.getItem("cart-data")
+                            //     ).length
+                            //   );
 
-                          // 상태 업데이트의 비동기성:  React의 상태 업데이트는 비동기적!
-                          // myCon.deleteCart(v)를 호출한 직후에 selData를 조회하면, 아직 업데이트되지 않은 이전 상태를 보여줌.
+                            // 결과 1개
+                            //   console.log(
+                            //     "selData.length",
+                            //     selData.length,
+                            //     selData
+                            //   );
 
-                          // 로컬 스토리지와 React 상태의 불일치:
-                          // localStorage.getItem("cart-data")는 실시간으로 최신 데이터를 반영하지만, React의 selData 상태는 컴포넌트가 리렌더링될 때까지 업데이트되지 않는다.
+                            // 상태 업데이트의 비동기성:  React의 상태 업데이트는 비동기적!
+                            // myCon.deleteCart(v)를 호출한 직후에 selData를 조회하면, 아직 업데이트되지 않은 이전 상태를 보여줌.
 
-                          // 클로저(Closure) 효과:
-                          // selData는 컴포넌트가 렌더링될 때의 값을 참조하고 있어, 이벤트 핸들러 내에서 사용될 때 최신 값을 반영하지 않을 수 있습니다.
+                            // 로컬 스토리지와 React 상태의 불일치:
+                            // localStorage.getItem("cart-data")는 실시간으로 최신 데이터를 반영하지만, React의 selData 상태는 컴포넌트가 리렌더링될 때까지 업데이트되지 않는다.
 
-                          if (
-                            JSON.parse(localStorage.getItem("cart-data"))
-                              .length === 0
-                          ) {
-                            // 장바구니에 상품이 없을시 close버튼 강제 트리거
-                            setTimeout(() => {
-                              $(".close").trigger("click");
-                              console.log("x 클릭!");
+                            // 클로저(Closure) 효과:
+                            // selData는 컴포넌트가 렌더링될 때의 값을 참조하고 있어, 이벤트 핸들러 내에서 사용될 때 최신 값을 반영하지 않을 수 있습니다.
+
+                            if (
+                              JSON.parse(localStorage.getItem("cart-data"))
+                                .length === 0
+                            ) {
+                              // 장바구니에 상품이 없을시 close버튼 강제 트리거
                               setTimeout(() => {
-                                // 카드 사용여부 상태변수 변경
-                                myCon.setCartSts(false);
+                                $(".close").trigger("click");
+                                console.log("x 클릭!");
+                                setTimeout(() => {
+                                  // 카드 사용여부 상태변수 변경
+                                  myCon.setCartSts(false);
+                                }, 200);
                               }, 200);
-                            }, 200);
-                          }
+                            }
 
-                          // // checkarr 상태변수 업데이트 위해  각 input 강제 트리거
-                          setTimeout(() => {
-                            $(".item input:checked").trigger("change");
-                          }, 100); // 셋타임있어야 작동잘됨
-                          // (혼자체크시 X삭제 -> 삭제된거남아잇는 문제 해결해야함)
-                          // 해당 인덱스의 체크박스 클래스에 강제 클릭 이벤트 트리거!
-                          $(".checkbox"+i).trigger("click");
+                            // // checkarr 상태변수 업데이트 위해  각 input 강제 트리거
+                            setTimeout(() => {
+                              $(".item input:checked").trigger("change");
+                            }, 100); // 셋타임있어야 작동잘됨
+                            // (혼자체크시 X삭제 -> 삭제된거남아잇는 문제 해결해야함)
+                            // 해당 인덱스의 체크박스 클래스에 강제 클릭 이벤트 트리거!
+                            $(".checkbox" + i).trigger("click");
+                          }
                         }
                       }}
                     >

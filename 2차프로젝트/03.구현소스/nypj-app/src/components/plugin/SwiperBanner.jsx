@@ -33,7 +33,7 @@ const myCon = useContext(Con);
   const [initAni,setInitAni] = useState(true);
 
     useLayoutEffect(() => {
-   //스와이퍼가 메뉴전환시 멈추어서 강제 트리거로 해결
+   //스와이퍼가 메뉴전환시 멈추어서 강제 트리거로 임시해결
    if (myCon.menu !== "main") {
       setTimeout(() => {
          $('.swiper-button-next').trigger('click');

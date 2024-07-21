@@ -17,14 +17,14 @@ export default function MainArea() {
     let scrollFn = () => {
       window.scrollTo(0, 0);
 
-      setTimeout(() => {
-        $("html,body").animate(
-          {
-            scrollTop: $(".main-wrap").offset().top - 75 + "px",
-          },
-          400
-        );
-      }, 1000);
+      // setTimeout(() => {
+      //   $("html,body").animate(
+      //     {
+      //       scrollTop: $(".main-wrap").offset().top - 75 + "px",
+      //     },
+      //     400
+      //   );
+      // }, 1000);
     };
     // 메인페이지가 아닐떄만 실행
    myCon.menu !=="main" && scrollFn();

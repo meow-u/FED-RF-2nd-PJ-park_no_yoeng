@@ -163,7 +163,7 @@ export function Layout() {
     // 랜덤수 : 0~4사이의 수
     let rdm = Math.floor(Math.random() * 5);
 
-    setLoginMsg(`welcome ${name} ${usrIcon[rdm]}`);
+    setLoginMsg(`${name} ${usrIcon[rdm]}`);
   };
   // [3. (공통) 로그아웃 함수] ////// (상단영역 로그아웃버튼 온클릭 이벤트로 호출)
   const logoutFn = () => {

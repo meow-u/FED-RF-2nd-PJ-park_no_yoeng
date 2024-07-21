@@ -28,11 +28,10 @@ let subMenu = hamMenu[1].sub; //서브메뉴 데이터
 // React는 단방향 데이터 흐름을 따릅니다. 자식 컴포넌트는 부모로부터 받은 프롭을 변경할 수 없습니다.
 
 export default function Shop({ initSmenu = "Shop" }) {
-
   const myCon = useContext(Con);
   // 배너변경
-  useLayoutEffect(()=>{
-  myCon.setMenu("shop");
+  useLayoutEffect(() => {
+    myCon.setMenu("shop");
   });
   // initSmenu index.js에서 받아온 클릭된 서브메뉴 데이터
   // 하위메뉴를 클릭해서 들어오면 해당값으로 설정,  그냥 shop으로 들어왔을시 '초기값 "Shop"
@@ -109,32 +108,30 @@ export default function Shop({ initSmenu = "Shop" }) {
   }, [sMenu, txt]);
 
   useEffect(() => {
-    window.addEventListener("resize", () => {
+    window.addEventListener("resize", shopResizeFn);
+
+    function shopResizeFn() {
       // 리사이즈 발생시 컬렉션 클릭시 하위메뉴 높이 초기화
       let submenu = document.querySelector(".submenu");
       if (window.innerWidth <= 800) {
         // 모바일시 서브 닫힘상태
-        // 초기 필터효과 (에러가나서 있을떄만 실행하도록 함)
-        document.querySelector(".coll")&&( document.querySelector(".coll").style.filter = "invert(1)");
+        // 초기 필터효과
+        document.querySelector(".coll").style.filter = "invert(1)";
       } else if (window.innerWidth > 800) {
         // 데스크탑시 서브 열림상태 (css 열린값 clamp(15px, 2vw, 4vw) 지정해두었음)
-        if (submenu &&(submenu.style.height === "130px")) {
-           submenu.style.height = "";
+        if (submenu.style.height === "130px") {
+          submenu.style.height = "";
           // 초기 필터효과 없애기
         }
         // 초기 필터효과
         document.querySelector(".coll").style.filter = "";
       }
-
-      return () => {
-        //소멸구역
-        window.removeEventListener("resize", () => {});
-      };
-    });
-
-    // 리턴함수는 언마운트시 실행됨
-    return () => window.removeEventListener("resize", () => {});
-  });
+    }
+    return () => {
+      //소멸구역
+      window.removeEventListener("resize", shopResizeFn);
+    };
+  },[]);
 
   // 컬렉션 메뉴 토글 + 클릭시 txt상태변수 변경 함수 ////////////////////////////////////
   function toggleCollection(el) {

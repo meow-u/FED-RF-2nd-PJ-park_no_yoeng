@@ -103,9 +103,13 @@ const snsMenu = [
   { txt: "유튜브", link: "###", icon: faYoutube },
 ];
 
+const loginsideMenu = [
+  { txt: "검색", link: "/Search", icon: faMagnifyingGlass },
+  { txt: "마이페이지", link: "/MyPage", icon: "" },
+
+];
 const sideMenu = [
   { txt: "검색", link: "/Search", icon: faMagnifyingGlass },
-  { txt: "장바구니", link: "/Cart", icon: faCartShopping },
   { txt: "회원가입", link: "/Member", icon: faUserPlus },
   { txt: "로그인", link: "/Login", icon: faUser },
 ];
@@ -158,8 +162,10 @@ export {
   titleTxt,
   footerMenu,
   snsMenu,
+  loginsideMenu,
   sideMenu,
   collMenu,
   ctgList,
   ctgTxtData,
+  
 };

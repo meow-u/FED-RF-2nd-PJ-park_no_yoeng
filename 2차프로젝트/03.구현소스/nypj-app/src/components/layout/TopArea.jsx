@@ -6,6 +6,8 @@ import { Con } from "../modules/myCon";
 
 // 아이콘 불러오기 (추가로 필요한 import는 데이터화로 main_data.js 상단에 있음)
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// 리액트 아이콘 불러오기
+import { FaHouseUser } from 'react-icons/fa';
 import { faRightToBracket, faSearch } from "@fortawesome/free-solid-svg-icons";
 
 // 리액트 모듈 불러오기
@@ -14,7 +16,7 @@ import { useContext, useEffect } from "react";
 import hamFn from "../func/ham";
 import cursorFn from "../func/cursor";
 // gnb 데이터
-import { menu, hamMenu, snsMenu, sideMenu } from "../data/main_data";
+import { menu, hamMenu, snsMenu, sideMenu, loginsideMenu } from "../data/main_data";
 // 상단영역 css 불러오기
 import "../../css/top_area.scss";
 // 제이쿼리불러오기
@@ -24,6 +26,12 @@ import $ from "jquery";
 
 export default function TopArea({ scrollFn }) {
   const myCon = useContext(Con);
+
+  useEffect(()=>{
+    $(".logmsg .close").click(function(){
+      $(".logmsg").css("display","none");
+    });
+  })
 
   // scrollFn은 부모로부터 받은 함수
   // 이동함수
@@ -129,7 +137,7 @@ export default function TopArea({ scrollFn }) {
   }, []); //useEffect
 
   // 로그인여부에따라 탑 메뉴 필터링
-  const loginStsMenu = myCon.loginSts === null ? sideMenu : sideMenu.slice(0, 2);
+  const loginStsMenu = myCon.loginSts === null ? sideMenu : loginsideMenu;
 
   // 코드 리턴구역 /////
   return (
@@ -155,7 +163,8 @@ export default function TopArea({ scrollFn }) {
       <div id="top-area">
         <header className="top-area inbox common-area">
           {/* 로그인 환영메시지 박스 */}
-          <div className="logmsg">{myCon.loginMsg}</div>
+          <div className="logmsg"><span className="welcome-msg">welcome {myCon.loginMsg} {myCon.localsCart && ` You now have ${myCon.localsCart.length} items in your cart!`}</span>
+          <span className="close">X</span></div>
           <h2 className="temp-tit">1. 상단영역</h2>
 
           <div className="cont-box">
@@ -258,7 +267,8 @@ export default function TopArea({ scrollFn }) {
                         onClick={i === 0 ? showSearch : null}
                         title={v.txt}
                       >
-                        <FontAwesomeIcon icon={v.icon} />
+                       {v.txt !=="마이페이지" && <FontAwesomeIcon icon={v.icon} />}
+                       {v.txt ==="마이페이지" && <FaHouseUser />}
                         <span className="ir">{v.txt}</span>
                       </Link>
                       {i === 0 && ( // 검색 아이콘일 때만 추가 출력
@@ -283,6 +293,7 @@ export default function TopArea({ scrollFn }) {
                         <>
                            <li>
                               <a
+                                className="logout"
                                  href="###"
                                  title="로그아웃"
                                  onClick={(e) => {

@@ -8,19 +8,17 @@ import "../../css/member.scss";
 import { initData } from "../func/mem_fn";
 import { Con } from "../modules/myCon";
 import { Link } from "react-router-dom";
-import CartInner from "../modules/cart_inner";
 
 function Login(props) {
 
 
-  // ====== layout에서 불러온  컨텍스트 사용 =======
+
   const myCon = useContext(Con);
   console.log(myCon.loginSts);
   // 배너변경
   useLayoutEffect(()=>{
   myCon.setMenu('login');
 })
-  // =============================================
 
   // [ 상태관리 변수 ] /////////////////////////////
   // [1] 입력요소 상태변수
@@ -288,7 +286,6 @@ function Login(props) {
           </ul>
         </form>
       </section>
-      <CartInner/>
     </div>
   );
 }

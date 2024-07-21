@@ -56,7 +56,7 @@
 /* 공사중 표시 */
 body * {
 // outline: 1px dashed rgb(205, 205, 205);
-  // cursor: none;
+  cursor: none;
  
 }
 
@@ -237,4 +237,11 @@ main.cont button {
 
 :root {
 --bg-color1: linear-gradient(45deg, #f9f9f9 38%, transparent)
+}
+
+@media screen and (max-width: 700px) {
+body *{
+  cursor: auto;
+}
+  
 }

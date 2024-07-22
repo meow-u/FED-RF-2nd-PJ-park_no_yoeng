@@ -36,7 +36,7 @@
 
   li {
     position: relative;
-    padding: 25px;
+    padding: 2vw 3vw;
     font-family: math;
     &.btnBox {
       padding-top: 10px;
@@ -136,9 +136,14 @@ li.btnBox {
     margin: 0 auto;
     width: 70%;
   }
+  .membx label {
+    padding-bottom: 2vw;
+  }
 }
 @media screen and (max-width: 550px) {
   .membx li {
+    
+    padding-bottom: 20px;
     width: 100%;
   }
 }

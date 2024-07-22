@@ -86,12 +86,13 @@ button.fixed {
     }
     }
     span.close-notice {
-      padding: 0 5px;
-      height: 100%;
       position: absolute;
-      left: 100%;
-      top: 0;
-      transform: scaleX(1.5) scale(0.8) translate(-150%);
+      right: 0%;
+      top: 0%;
+      height: 100%;
+      padding-right: clamp(5px, 3vw, 22px);
+      padding-left: 5px;
+      transform: scaleY(0.7) scale(1.2);
       background: #000;
     }
   }
@@ -433,6 +434,8 @@ ul.sidebox {
   gap: 100px;
   .sidebox {
     li {
+      
+    padding: 4px;
       display: inline-block;
     }
   }
@@ -492,7 +495,7 @@ ul.sidebox {
   }
 
   #top-area .tmenu.col-4 {
-    padding-right: 27px;
+    // padding-right: 27px;
   }
   #top-area nav.gnb.col-4 {
     padding-left: 10px;

@@ -18,6 +18,7 @@
 }
 
 #content-area {
+  padding-bottom: 10px;
   background: var(--bg-color1);
   .wrap {
     //스티키부모상자
@@ -166,6 +167,8 @@
 
         .img-wrap {
           overflow: hidden;
+          
+        padding-bottom: 10px;
 
           a {
             aspect-ratio: 1 / 1;

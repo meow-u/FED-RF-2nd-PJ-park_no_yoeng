@@ -1,10 +1,9 @@
 .item-box {
    margin-bottom: 5vh;
-   height: 55vh;
+   min-height: 55vh;
    overflow: auto;
 
    .item {
-      max-height: 300px;
       padding: 1vw;
 
       background: #fff;
@@ -119,13 +118,15 @@
 
          .delete {
             z-index: auto;
-            background: #7126e49c;
+            height: 24px;
+            background: rgba(113, 38, 228, 0.6117647059);
             color: #fff;
             border: none;
             padding: 5px 10px;
             border-radius: 4px;
             cursor: pointer;
             transition: background 0.3s ease;
+            overflow: visible;
 
             &:hover {
                background: #c13b1b;

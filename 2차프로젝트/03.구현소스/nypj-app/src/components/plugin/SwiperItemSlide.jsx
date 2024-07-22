@@ -86,11 +86,11 @@ export default function SwiperItemSlide({
 
   const bestItem = {
     200: {
-      slidesPerView: 1,
+      slidesPerView: 2,
       spaceBetween: 0,
     },
     400: {
-      slidesPerView: idname === "bestitem-area inshop" ? 2 : 1,
+      slidesPerView: idname === "bestitem-area inshop" ? 2 : 2,
       spaceBetween: idname === "bestitem-area inshop" ? 20 : 0,
     },
     520: {

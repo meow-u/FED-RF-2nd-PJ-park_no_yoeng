@@ -1,11 +1,14 @@
 /* 스와이퍼 플러그인 CSS */
 
 .swiper.swiper {
+  
   height: 100%;
 }
 
 // ****** 2. 배너영역 **************
 #ban-area {
+
+
   // 배너 텍스트
   .img-text {
     left: 50%;
@@ -111,6 +114,8 @@
 }
 .swiper-button-prev,
 .swiper-button-next {
+  
+  translate: 0 50%;
   pointer-events: auto;
   filter: drop-shadow(2px 4px 6px black);
   cursor: none;
@@ -125,6 +130,9 @@
 
 /* Swiper_banner.scss 미디어쿼리 */
 @media screen and (max-width: 750px) {
+  
+#newitem-area .swiper.swiper {
+  width: 100%;}
   #ban-area .ban-area {
     animation: height-ani 0.5s linear 2s forwards;
     @keyframes height-ani {
@@ -135,8 +143,20 @@
         height: 80vh;
       }
     }
+
+    
   }
   .newitem-area .tit-wrap {
     padding-top: 40px;
   }
+
+  section.ban-area .swiper-button-prev {
+    transform: scaleX(0.5) scaleY(0.6) scale(1.3) translateX(-15px);
 }
+  section.ban-area .swiper-button-next {
+    transform: scaleX(0.5) scaleY(0.6) scale(1.3) translateX(15px);
+}
+}
+
+#newitem-area .swiper.swiper {
+  width: 80%;}

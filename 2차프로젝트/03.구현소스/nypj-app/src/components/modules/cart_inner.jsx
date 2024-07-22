@@ -5,6 +5,7 @@ import $ from "jquery";
 import { Con } from "../modules/myCon";
 import "../../css/_cart_inner.scss";
 import { addComma } from "../func/common_fn";
+import {FilledHeartSvg, OutlineHeartSvg} from "../data/svg/empty_heart";
 
 function CartInner({ selecMenu }) {
   //selecMenu는 mypage에서 선택한 메뉴이름을 받아옴
@@ -111,7 +112,7 @@ function CartInner({ selecMenu }) {
                           myCon.WishHandler(v.idx, v, e);
                       }}
                     >
-                      {selecMenu !== "WISHLIST" ? `♡` : `♥`}
+                      {selecMenu !== "WISHLIST" ? `♡` : <FilledHeartSvg/>}
                     </button>
                   )}
 

@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 // 1. 대상요소
 const hamFn = () => {
    const ham = document.querySelector(".ham"); // 햄버거 메뉴 버튼
@@ -128,5 +130,17 @@ const hamFn = () => {
          document.querySelector(".tmenu.col-4").style.pointerEvents = "none";
       }
    }
+
+   // 햄버거 박스 닫기 키입력이벤트 ( 왜 되다말다하지?)
+   if($("li.ham.on").length) {// 햄버거박스 열려있을때(버튼)
+      window.addEventListener("keyup",(event)=>{
+         if  (event.key === "Escape"){
+            console.log("event.key === 'Escape'")
+            // $('.ham.on').removeClass("on")
+            // $('.hambox.on').removeClass("on")
+            $('li.ham.on').trigger('click'); // 클릭시켜서 닫기 
+         }
+      });
+   }  
 };
 export default hamFn;

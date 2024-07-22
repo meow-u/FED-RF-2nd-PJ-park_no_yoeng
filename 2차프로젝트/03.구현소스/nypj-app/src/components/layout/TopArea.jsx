@@ -37,6 +37,9 @@ export default function TopArea({ scrollFn }) {
     $(".logmsg .close-notice").click(function () {
       $(".logmsg").css("display", "none");
     });
+
+    
+
   });
 
   // scrollFn은 부모로부터 받은 함수

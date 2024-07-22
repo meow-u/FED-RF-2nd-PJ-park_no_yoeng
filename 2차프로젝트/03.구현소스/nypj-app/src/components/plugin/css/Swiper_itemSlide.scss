@@ -138,13 +138,19 @@
     // border: 1px solid #999;
     /* box-shadow: 1px 1px 6px 0px #c1c1c1; */
     padding-bottom: 150px;
-
     img {
+      transition: 0.2s;
       width: 100%;
       scale: 1.2;
       aspect-ratio: 1/1;
       object-fit: cover;
       object-position: center center;
+      overflow: hidden;
+      &:hover {
+        rotate: 10deg;
+        scale: 1.4;
+      }
+      
     }
     .wrap {
       text-align: center;

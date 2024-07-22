@@ -42,10 +42,11 @@ const hamMenu = [
     txt: "COLLECTIONS",
     link: "/Collections",
   },
-  {
-    txt: "OPINIONS",
-    link: "/board",
-  },
+    // 페이지 진행단계가 더디어서 일단 숨기기
+  // {
+  //   txt: "OPINIONS",
+  //   link: "/board",
+  // },
 ];
 
 const collMenu = [

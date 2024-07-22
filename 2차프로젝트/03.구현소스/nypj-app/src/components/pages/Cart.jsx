@@ -9,15 +9,13 @@ import { Con } from "../modules/myCon";
 import { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-
-
 export default function Cart() {
-// checkout 컴포넌트에서 주소변경 클릭시 주소박스로 상태전환하기
-const { pathname } = useLocation();  
-// console.log("내경로는?",pathname)
+   // checkout 컴포넌트에서 주소변경 클릭시 주소박스로 상태전환하기
+   const { pathname } = useLocation();
+   // console.log("내경로는?",pathname)
 
-//   const [addrBox,setAddrBox] = useState(pathname== "/checkout" ? true: false);
-// console.log('>>>>>>>>>>>>addrBox',addrBox)
+   //   const [addrBox,setAddrBox] = useState(pathname== "/checkout" ? true: false);
+   // console.log('>>>>>>>>>>>>addrBox',addrBox)
 
    const myCon = useContext(Con);
    // 로컬스 카트 데이터 가져오기
@@ -26,6 +24,29 @@ const { pathname } = useLocation();
 
    //체크 아이템 상태관리변수
    // const [checkarr, setCheckarr] = useState([]);
+
+   useEffect(() => {
+      // 이벤트 리스너 함수 정의
+      function closeFn(event) {
+         // 클릭한 영역이 .cart-page가 아니라면
+         if ($(".cart-page").css("translate") == "-100%") {
+            // 만약 카드 열려있을때
+
+            // 이벤트타켓의 조상중 카트페이지 갯수가 없으면 닫기버튼을 눌러라
+            if (!$(event.target).closest(".cart-page").length) {
+               $(".close-cart").trigger("click");
+            }
+         }
+      }
+
+      // window 객체에 클릭 이벤트 리스너 추가
+      window.addEventListener("click", closeFn);
+
+      // cleanup 함수 정의: 컴포넌트가 언마운트될 때 이벤트 리스너 제거
+      return () => {
+         window.removeEventListener("click", closeFn);
+      };
+   }, []);
 
    useEffect(() => {
       // 처음 랜더링시 체크박스 트리거로 상태변수에 체크아이템 저장하기
@@ -54,7 +75,7 @@ const { pathname } = useLocation();
          let checkData = selData.filter((v) => {
             return names.includes(v.name[0]);
          });
-        //  console.log(checkData);
+         //  console.log(checkData);
 
          myCon.setCheckarr(checkData);
       });

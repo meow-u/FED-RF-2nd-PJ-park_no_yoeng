@@ -81,6 +81,11 @@ h3.catag {
       vertical-align: middle;
       object-fit: cover;
       width: 100%;
+      transition: 0.2s;
+      &:hover {
+        rotate: 10deg;
+        scale: 1.2;
+      }
     }
   }
 }

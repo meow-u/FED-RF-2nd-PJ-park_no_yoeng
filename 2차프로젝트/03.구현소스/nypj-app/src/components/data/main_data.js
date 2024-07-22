@@ -67,10 +67,11 @@ const menu = [
     txt: "OUR STORY",
     link: "/OurStory",
   },
-  {
-    txt: "OPINIONS",
-    link: "/board",
-  },
+  // 페이지 진행단계가 더디어서 일단 숨기기
+  // {
+  //   txt: "OPINIONS",
+  //   link: "/board",
+  // },
 ];
 
 

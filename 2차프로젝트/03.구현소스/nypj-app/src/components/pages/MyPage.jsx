@@ -114,7 +114,7 @@ function MyPage() {
 
                 <div className="mem-box">
                   <div>
-                    <label for="id">회원 계정:</label>
+                    <label htmlFor="id">회원 계정:</label>
                     <input
                       id="id"
                       className="id"
@@ -124,7 +124,7 @@ function MyPage() {
                     ></input>
                   </div>
                   <div>
-                    <label for="name">회원 이름:</label>
+                    <label htmlFor="name">회원 이름:</label>
                     <input
                       id="name"
                       className="name"
@@ -133,7 +133,7 @@ function MyPage() {
                     ></input>
                   </div>
                   <div>
-                    <label for="email">회원 이메일:</label>
+                    <label htmlFor="email">회원 이메일:</label>
                     <input
                       id="email"
                       className="email"
@@ -142,7 +142,7 @@ function MyPage() {
                     ></input>
                   </div>
                   <div>
-                    <label for="address">회원 주소:</label>
+                    <label htmlFor="address">회원 주소:</label>
                     <input
                       id="address"
                       className="address"
@@ -154,7 +154,7 @@ function MyPage() {
                 <div className="mem-box next">
                   <h2 className="cart-tit">Need to change password?</h2>
                   <div>
-                    <label for="pw">현재 비밀번호: </label>
+                    <label htmlFor="pw">현재 비밀번호: </label>
                     <input
                       id="pw"
                       className="pw"
@@ -163,7 +163,7 @@ function MyPage() {
                     ></input>
                   </div>
                   <div>
-                    <label for="cpw">새 비밀번호: </label>
+                    <label htmlFor="cpw">새 비밀번호: </label>
                     <input
                       id="cpw"
                       className="cpw"
@@ -172,7 +172,7 @@ function MyPage() {
                     ></input>
                   </div>
                   <div>
-                    <label for="cpw-confirm">새 비밀번호 확인: </label>
+                    <label htmlFor="cpw-confirm">새 비밀번호 확인: </label>
                     <input
                       id="cpw-confirm"
                       className="cpw-confirm"

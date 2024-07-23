@@ -27,8 +27,8 @@ export default function Cart() {
 
    useEffect(()=>{
       // 전체선택 체크가 안되어있으면 체크하라 !( 근데 반영안됨 ..)
-      let allcheck = $('.all-check').prop('checked', true) 
-      if(!allcheck) $('.all-check').trigger('click'); 
+      // let allcheck = $('.all-check').prop('checked', true) 
+      // if(!allcheck) $('.all-check').trigger('click'); 
    },[])
    
    useEffect(() => {
@@ -141,6 +141,10 @@ export default function Cart() {
                   transition: "0.3s",
                   pointerEvents: "none",
                });
+
+               $(".up").first().trigger("click");
+               $(".down").first().trigger("click");
+
             }}
          >
             <p>{`CART(${selData.length})`}</p>

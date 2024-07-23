@@ -8,8 +8,9 @@ export default function Collections(){
   //컨텍스트 API사용
   const myCon = useContext(Con);
   // 배너변경
+  useLayoutEffect(()=>{
     myCon.setMenu('collection');
-
+  })
     // 리턴구역
     return(<>
         <Content type={collection} />

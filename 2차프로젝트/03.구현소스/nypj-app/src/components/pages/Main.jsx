@@ -17,7 +17,9 @@ export default function Main() {
   //컨텍스트 API사용
   const myCon = useContext(Con);
   // 배너변경
+  useLayoutEffect(()=>{
     myCon.setMenu("main");
+  })
   // 메인페이지일때만 실행되는 useEffect
   useEffect(() => {
     let backBtn = $(".fixed").find(".fixbtn").eq(0);

@@ -11,7 +11,9 @@ function Product({ idx }) {
    //컨텍스트 API사용
   const myCon = useContext(Con);
   // 배너변경
-  myCon.setMenu('shop');
+  useLayoutEffect(()=>{
+   myCon.setMenu('shop');
+})
 console.log("Product 컴포넌트 리랜더링");
    // idx는 상품클릭시 받아온 매칭 값
    //  <Link  <-- swiperItemSlide에서 state로 product에 idx값을 넘겨서 전달

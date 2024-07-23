@@ -24,8 +24,9 @@ export default function Board() {
 
 //컨텍스트 API사용
   const myCon = useContext(Con);
-  // 배너변경
-  myCon.setMenu('board');
+  useLayoutEffect(()=>{
+   myCon.setMenu('board');
+ })
    // [ 상태관리 변수 ] //
 
    // [1] 페이지 번호

@@ -39,8 +39,9 @@ export default function Checkout() {
   console.log(totalPrice);
 
   // 배너변경
+  useLayoutEffect(()=>{
     myCon.setMenu("main");
-
+  })
   useEffect(() => {
     // 컴포넌트가 마운트될 때  카드버튼의 초기 텍스트 저장
     // 주소변경버튼 누르면 cart창 열리게 하기

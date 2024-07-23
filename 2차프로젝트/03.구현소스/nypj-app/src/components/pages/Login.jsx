@@ -26,7 +26,9 @@ function Login(props) {
 
   console.log(myCon.loginSts);
   // 배너변경
+  useLayoutEffect(() => {
     myCon.setMenu("login");
+  });
 
   // [ 상태관리 변수 ] /////////////////////////////
   // [1] 입력요소 상태변수

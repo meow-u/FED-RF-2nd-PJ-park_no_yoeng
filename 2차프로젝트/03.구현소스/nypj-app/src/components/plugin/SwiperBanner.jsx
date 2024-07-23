@@ -49,7 +49,7 @@ export default function Banner() {
    if (myCon.menu !== "main") {
       setTimeout(() => {
          $('.swiper-button-next').trigger('click');
-      }, 0);
+      }, 1000);
    }
 
   }, [myCon.menu]);
@@ -195,12 +195,17 @@ export default function Banner() {
                   <div className="swiper-wrapper">
                      {bannerData[myCon.menu].map((v, i) => (
                         <SwiperSlide key={i} className="col-12 swiper-slide">
-                           <img
+                           {/* <img
                               className={i == 0 ? "first" : ""}
                               src={`${process.env.PUBLIC_URL}/images/banner/${myCon.menu}_${
                                  i + 1
                               }.jpg`}
                               alt={`banner${i + 1}`}
+                           /> */}
+                           <img
+                              className={i == 0 ? "first" : ""}
+                              src={`${process.env.PUBLIC_URL}/images/banner/${v.filename}.jpg`}
+                              alt={`${v.alt}`}
                            />
                            
                            <div className={`img-text ${initAni && i === rdArrIdx ? "init-ani " : ""}${myCon.menu}`}>

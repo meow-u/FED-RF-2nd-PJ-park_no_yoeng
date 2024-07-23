@@ -40,6 +40,11 @@ export const bannerData = {
       alt: "shop_2",
       text: "Shop Quality Products",
     },
+    {
+      filename: "shop_3",
+      alt: "shop_3",
+      text: "Shop Quality Products",
+    },
   ],
   collection: [
     {
@@ -69,6 +74,11 @@ export const bannerData = {
       alt: "ourstory_2",
       text: "Inside Our World",
     },
+    {
+      filename: "ourstory_3",
+      alt: "ourstory_3",
+      text: "Inside Our World",
+    },
   ],
   board: [
     {
@@ -79,6 +89,11 @@ export const bannerData = {
     {
       filename: "board_2",
       alt: "board_2",
+      text: "Inside Our World",
+    },
+    {
+      filename: "board_3",
+      alt: "board_3",
       text: "Inside Our World",
     },
   ],
@@ -93,6 +108,11 @@ export const bannerData = {
       alt: "Penhaligons_2",
       text: "About Us",
     },
+    {
+      filename: "penhaligons_3",
+      alt: "Penhaligons_3",
+      text: "About Us",
+    },
   ],
   search: [
     {
@@ -100,28 +120,48 @@ export const bannerData = {
       alt: "search_1",
       text: "Search here!",
     },
+    {
+      filename: "search_2",
+      alt: "search_2",
+      text: "Search here!",
+    },
+    {
+      filename: "search_3",
+      alt: "search_3",
+      text: "Search here!",
+    },
   ],
   login: [
     {
       filename: "login_1",
-      alt: "login",
+      alt: "login_1",
       text: "Welcome back!",
     },
     {
       filename: "login_2",
-      alt: "login",
+      alt: "login_2",
+      text: "Welcome back!",
+    },
+    {
+      filename: "login_3",
+      alt: "login_3",
       text: "Welcome back!",
     },
   ],
   member: [
     {
       filename: "member_1",
-      alt: "member",
+      alt: "member_1",
       text: "Welcome Our World",
     },
     {
       filename: "member_2",
-      alt: "member",
+      alt: "member_2",
+      text: "Welcome Our World",
+    },
+    {
+      filename: "member_3",
+      alt: "member_3",
       text: "Welcome Our World",
     },
   ],

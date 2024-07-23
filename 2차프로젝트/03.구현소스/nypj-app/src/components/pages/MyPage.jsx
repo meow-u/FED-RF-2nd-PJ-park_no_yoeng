@@ -30,7 +30,9 @@ function MyPage() {
   });
 
   // 배너변경
+  useLayoutEffect(() => {
     myCon.setMenu("login");
+  });
 
   return (
     <div id="mypage">

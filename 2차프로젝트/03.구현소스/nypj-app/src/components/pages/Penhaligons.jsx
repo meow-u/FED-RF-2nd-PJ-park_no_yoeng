@@ -17,7 +17,9 @@ export default function Penhaligons() {
   //컨텍스트 API사용
   const myCon = useContext(Con);
   // 배너변경
-  myCon.setMenu('penhaligons');
+  useLayoutEffect(()=>{
+    myCon.setMenu('penhaligons');
+  })
   
    // Link to 호출시 보낸 state 객체값을 연결된 컴포넌트에서 받아준다!
    // state는 해당 메뉴를 사용자가 직접 클릭하는 컴포넌트의 <link> 부분에서 보냄 

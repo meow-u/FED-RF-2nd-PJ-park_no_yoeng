@@ -177,7 +177,7 @@ export default function TopArea({ scrollFn }) {
               welcome {myCon.loginMsg}
               {myCon.localsCart.length > 0 ?
                 ` You now have ${myCon.localsCart.length} items in your cart!`
-                : <span className="event">15만원 이상 주문 시 루나 향 5ml, 워시 및 로션 30ml를 한정판 파우치에 담아 무료로 증정합니다. "</span> }
+                : <span className="event">  15만원 이상 주문 시 루나 향 5ml, 워시 및 로션 30ml를 한정판 파우치에 담아 무료로 증정합니다. </span> }
             </span>
             <span className="close-notice">X</span>
           </div>

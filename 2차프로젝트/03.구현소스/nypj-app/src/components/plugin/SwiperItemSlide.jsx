@@ -211,9 +211,9 @@ export default function SwiperItemSlide({
           // 슬라이드반복여부 (메인 shop이 아닐때만 반복)
           loop={true}
           // 자동넘김 (모듈)
-          // autoplay={
-          //   shop ? false : idname === "newitem-area" ? newAuto : bestAuto
-          // }
+          autoplay={
+            shop ? false : idname === "newitem-area" ? newAuto : bestAuto
+          }
           /* 영역별 가로 사이즈 스와이퍼 설정변경 */
           breakpoints={idname === "newitem-area" ? newItem : bestItem}
           // 스와이퍼 사용모듈

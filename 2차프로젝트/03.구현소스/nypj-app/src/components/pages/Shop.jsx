@@ -30,9 +30,8 @@ let subMenu = hamMenu[1].sub; //서브메뉴 데이터
 export default function Shop({ initSmenu = "Shop" }) {
   const myCon = useContext(Con);
   // 배너변경
-  useLayoutEffect(() => {
     myCon.setMenu("shop");
-  });
+ 
   // initSmenu index.js에서 받아온 클릭된 서브메뉴 데이터
   // 하위메뉴를 클릭해서 들어오면 해당값으로 설정,  그냥 shop으로 들어왔을시 '초기값 "Shop"
 

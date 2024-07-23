@@ -11,9 +11,7 @@ export default function Search(){
     //컨텍스트 API사용
   const myCon = useContext(Con);
   // 배너변경
-  useLayoutEffect(()=>{
   myCon.setMenu('search');
-})
     // useEffect(()=>{
     //     changebgFn();
     //     return () => {

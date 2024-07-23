@@ -10,9 +10,7 @@ export default function OurStory() {
   //컨텍스트 API사용
   const myCon = useContext(Con);
   // 배너변경
-  useLayoutEffect(()=>{
   myCon.setMenu('ourstory');
-})
   // 리턴구역
   return (
     <>

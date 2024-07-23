@@ -18,9 +18,7 @@ function Member() {
   //컨텍스트 API사용
   const myCon = useContext(Con);
   // 배너변경
-  useLayoutEffect(()=>{
   myCon.setMenu('member');
-})
   // [ 리액트 라우터 내비게이션 사용하기 ]
   // 라우터 이동 네비게이트
   const goNav = useNavigate();

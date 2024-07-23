@@ -39,9 +39,7 @@ export default function Checkout() {
   console.log(totalPrice);
 
   // 배너변경
-  useLayoutEffect(() => {
     myCon.setMenu("main");
-  });
 
   useEffect(() => {
     // 컴포넌트가 마운트될 때  카드버튼의 초기 텍스트 저장

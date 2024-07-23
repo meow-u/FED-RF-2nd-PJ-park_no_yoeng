@@ -25,6 +25,12 @@ export default function Cart() {
    //체크 아이템 상태관리변수
    // const [checkarr, setCheckarr] = useState([]);
 
+   useEffect(()=>{
+      // 전체선택 체크가 안되어있으면 체크하라 !( 근데 반영안됨 ..)
+      let allcheck = $('.all-check').prop('checked', true) 
+      if(!allcheck) $('.all-check').trigger('click'); 
+   },[])
+   
    useEffect(() => {
       // 이벤트 리스너 함수 정의
       function closeFn(event) {
@@ -49,9 +55,11 @@ export default function Cart() {
    }, []);
 
    useEffect(() => {
+      
       // 처음 랜더링시 체크박스 트리거로 상태변수에 체크아이템 저장하기
-      if (myCon.checkarr.length === 0) {
+      if (myCon.checkarr.length <=0) {
          $(".item input:checked").trigger("change");
+
       }
 
       // 체크박스가 하나라도 체크 안 되어있으면 전체선택 체크박스 해제하기
@@ -121,6 +129,7 @@ export default function Cart() {
          <section
             className="cart-btn"
             onClick={(e) => {
+              
                /* 카드열기 */
                $(".cart-page").css({
                   translate: "-100%",
@@ -164,8 +173,9 @@ export default function Cart() {
                   <span className="allcheck">
                      <span className="checkbox">
                         <input
+                           className="all-check"
                            type="checkbox"
-                           defaultChecked // 체크박스 기본선택
+                           // defaultChecked // 체크박스 기본선택
                            onClick={(e) => {
                               if (e.target.checked) {
                                  // 체크시 아이템체크박스 전체선택

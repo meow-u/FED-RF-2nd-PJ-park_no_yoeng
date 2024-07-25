@@ -1,6 +1,6 @@
 // 펜할리곤스 레이아웃 컴포넌트 : 실제적인 최상위 컴포넌트임!
 // Import react
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 // 각영역 불러오기
 import TopArea from "./TopArea";
@@ -295,14 +295,14 @@ export function Layout() {
         setMenu,
       }}
     >
-      {/* 카트리스트 : 카트상태값 true일시 출력 */}
-      {cartSts && <Cart />}
-      {/* 1. 상단영역 */}
-      <TopArea scrollFn={scrollTop} />
-      {/* 2. 메인영역 */}
-      <MainArea />
-      {/* 3. 하단영역 */}
-      <FooterArea />
+        {/* 카트리스트 : 카트상태값 true일시 출력 */}
+        {cartSts && <Cart />}
+        {/* 1. 상단영역 */}
+        <TopArea scrollFn={scrollTop} />
+        {/* 2. 메인영역 */}
+        <MainArea />
+        {/* 3. 하단영역 */}
+        <FooterArea />
     </Con.Provider>
   );
 } ///////// Layout 컴포넌트 /////////

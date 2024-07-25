@@ -37,9 +37,6 @@ export default function TopArea({ scrollFn }) {
     $(".logmsg .close-notice").click(function () {
       $(".logmsg").css("display", "none");
     });
-
-    
-
   });
 
   // scrollFn은 부모로부터 받은 함수
@@ -71,31 +68,37 @@ export default function TopArea({ scrollFn }) {
   // 탑메뉴 휠 위아래에 따라 보이기/숨기기 함수
   const TopMenuFn = () => {
     window.addEventListener("wheel", (e) => {
-      if (e.deltaY > 0) {
-        // console.log("아래로 스크롤발생값",e.deltaY);
-        $("#top-area").css("transform", "translateY(-100%)");
-      } else {
-        // console.log("위로 스크롤발생값",e.deltaY);
-        $("#top-area").css("transform", "translateY(0%)");
+      // 햄버거메뉴가 열려있지 않을때만 실행
+      if ($(".hambox.on").length === 0) {
+        if (e.deltaY > 0) {
+          // console.log("아래로 스크롤발생값",e.deltaY);
+          $("#top-area").css("transform", "translateY(-100%)");
+        } else {
+          // console.log("위로 스크롤발생값",e.deltaY);
+          $("#top-area").css("transform", "translateY(0%)");
+        }
       }
     });
 
     window.addEventListener("scroll", () => {
-      let innerHeight = window.innerHeight; // 100vh
-      // console.log("스크롤위치누적값", window.scrollY);
+      // 햄버거메뉴가 열려있지 않을때만 실행
+      if ($(".hambox.on").length === 0) {
+        let innerHeight = window.innerHeight; // 100vh
+        // console.log("스크롤위치누적값", window.scrollY);
 
-      // 탑메뉴 스크롤위치가 0이면 다시 보이기
-      if (window.scrollY <= 0) {
-        $("#top-area").css("transform", "translateY(0%)");
-      }
+        // 탑메뉴 스크롤위치가 0이면 다시 보이기
+        if (window.scrollY <= 0) {
+          $("#top-area").css("transform", "translateY(0%)");
+        }
 
-      // 스크롤위치가 100vh보다 크면 버튼 보이기
-      if (window.scrollY < innerHeight) {
-        $(".fixed").css("opacity", "0");
-        $(".fixed").css("pointer-events", "none");
-      } else if (window.scrollY >= innerHeight) {
-        $(".fixed").css("opacity", "1");
-        $(".fixed").css("pointer-events", "auto");
+        // 스크롤위치가 100vh보다 크면 버튼 보이기
+        if (window.scrollY < innerHeight) {
+          $(".fixed").css("opacity", "0");
+          $(".fixed").css("pointer-events", "none");
+        } else if (window.scrollY >= innerHeight) {
+          $(".fixed").css("opacity", "1");
+          $(".fixed").css("pointer-events", "auto");
+        }
       }
     });
   };
@@ -175,9 +178,15 @@ export default function TopArea({ scrollFn }) {
           <div className="logmsg">
             <span className="welcome-msg">
               welcome {myCon.loginMsg}
-              {myCon.localsCart.length > 0 ?
+              {myCon.localsCart.length > 0 ? (
                 ` You now have ${myCon.localsCart.length} items in your cart!`
-                : <span className="event">  15만원 이상 주문 시 루나 향 5ml, 워시 및 로션 30ml를 한정판 파우치에 담아 무료로 증정합니다. </span> }
+              ) : (
+                <span className="event">
+                  {" "}
+                  15만원 이상 주문 시 루나 향 5ml, 워시 및 로션 30ml를 한정판
+                  파우치에 담아 무료로 증정합니다.{" "}
+                </span>
+              )}
             </span>
             <span className="close-notice">X</span>
           </div>

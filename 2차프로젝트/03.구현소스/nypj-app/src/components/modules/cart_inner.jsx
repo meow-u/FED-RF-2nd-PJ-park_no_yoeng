@@ -67,7 +67,7 @@ function CartInner({ selecMenu }) {
   //코드 리턴구역
   return (
     <>
-      <div className="item-box scbar">
+      <div className="item-box subbar">
         {selData.map((v, i) => {
           return (
             // 데이터의 갯수가 0이상일때만 렌더링

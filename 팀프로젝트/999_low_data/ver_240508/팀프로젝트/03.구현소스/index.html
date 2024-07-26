@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STAR WARS</title>
+    <!-- 파비콘 -->
+    <link rel="shortcut icon" href="./images/main_images/starwars_icon.png" />
+    <!-- 폰트어썸 아이콘CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <!-- 메인 CSS -->
+    <link rel="stylesheet" href="./css/main.css" />
+    <!-- 미디어쿼리 CSS -->
+    <link rel="stylesheet" href="./css/main_media.css" />
+    <!-- 메인JS 불러오기 : 모듈로 불러오기 -->
+    <script type="module" src="./js/main.js"></script>
+  </head>
+
+  <body class="scbar">
+    <!-- 1. (공통) 상단영역 -->
+    <header id="top-area"></header> 
+    <!-- 2. 배너영역 -->
+    <div id="ban-area">
+      <div class="ban-area col-12">
+        <div class="ban_wrap">
+          <video
+            class="video"
+            preload="auto"
+            muted="muted"
+            autoplay="1"
+            loop
+            playsinline=""
+            src="./images/main_images/starwars_mv1.mp4"
+          ></video>
+          <div class="blur-wrap">
+            <div class="blur-box"></div>
+            <img src="./images/main_images/news04.jpg" alt="메인배너이미지" />
+          </div>
+        </div>
+        <div class="ban-btn">
+          <div class="banbtn L">&lt;</div>
+          <span class="pageInfo">01 / 02</span>
+          <div class="banbtn R">&gt;</div>
+        </div>
+        <div class="scroll_induce"></div>
+        <div class="video_control">
+         <img class="play" src="./images/main_images/ic_play.png">
+         <img class="pause" src="./images/main_images/ic_pause.png">
+         <span class="pause">STOP Video</span>
+         <span class="play">PLAY Video</span>
+     </div>
+      </div>
+    </div>
+
+    <!-- 3. 메인 영역 -->
+    <main id="main-area">
+      <!-- 메인페이지 로딩애니메이션 -->
+      <!-- <section class="intro_section"></section> -->
+
+      <div class="content-area inbox">
+        <!-- 3-1. 컨텐츠영역(세계관) -->
+        <section class="content-area"></section>
+        <!-- 3-2. 뉴스영역(뉴스,시리즈) -->
+        <section class="news-area"></section>
+        <!-- 3-3.메인 하단 배너 박스 -->
+        <section class="visualView-ban inbox"></section>
+      </div>
+    </main>
+    <!-- 4. (공통) 하단 영역 -->
+    <footer id="footer-area"></footer>
+  </body>
+</html>

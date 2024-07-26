@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+/************* 서브 하단 배너 *************/
+#bt-banner-area {
+  position: relative;
+  margin-top: 0rem;
+
+  margin-bottom: 7%;
+}
+
+.sub-ban-wrap {
+  width: 82%;
+  translate: -50%;
+  left: 50%;
+
+  position: relative;
+  height: 50rem;
+  overflow: hidden;
+  border-radius: 4rem;
+}
+
+.sub-ban-wrap .desc-wrap {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  translate: 14% -50%;
+}
+
+.sub-ban-wrap .sub-ban-img {
+  overflow: hidden;
+  height: 50rem;
+}
+
+
+  /* a링크 호버 효과 */
+
+  
+/* 카테고리 */
+.sub-ban-wrap .Kategorie {
+  padding: 2rem 0;
+}
+
+.sub-ban-wrap .Kategorie a {
+  color: #797979;
+  margin: 0 2rem;
+  transition: 0.2s;
+}
+
+/* 클래스 on 추가시  */
+.sub-ban-wrap .Kategorie li:hover a {
+  color: #fff;
+  text-decoration: underline;
+}

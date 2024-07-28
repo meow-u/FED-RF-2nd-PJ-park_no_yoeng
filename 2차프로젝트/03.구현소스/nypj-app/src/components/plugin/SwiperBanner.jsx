@@ -125,7 +125,7 @@ export default function Banner() {
                         const activeSlide = swiper.slides[swiper.activeIndex];
                         // 활성화된 슬라이드 내부의 이미지컨텐츠 요소 가져오기
                         const slideContent = activeSlide.querySelector("img");
-                        console.log("야야야야야야야야야야야야야야",slideContent);
+                        // console.log("야야야야야야야야야야야야야야",slideContent);
                         // 활성화된 슬라이드 내부의 이미지컨텐츠 요소 가져오기
                         const slideText = activeSlide.querySelector(".img-text");
                         // 현재 활성화된 슬라이드의 data-swiper-slide-index 속성값 가져오기

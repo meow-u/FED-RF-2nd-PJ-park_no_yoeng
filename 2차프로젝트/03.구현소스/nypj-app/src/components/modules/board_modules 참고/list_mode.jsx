@@ -1,109 +1,113 @@
-// lIST 모드 서브 컴포넌트
-// 리스트 모드 서브 컴포넌트는 리스트형태의 게시판을 보여주는 컴포넌트
-
-// 바인드 리스트 함수 불러오기
-import { bindList } from "../../func/board_fn/bind_list_fn";
-
+// 게시판 하위 컴포넌트 불러오기
 // 페이지 구성 컴포넌트
+import { PagingList } from "../board_modules/pasing_list";
 
 import $ from "jquery";
 /****************************************** 
         리스트 모드 서브 컴포넌트
 ******************************************/
 export const ListMode = ({
+  bindList,
+  totalCount,
+  unitSize,
+  pageNum,
+  setPageNum,
+  pgPgNum,
+  pgPgSize,
+  keyword,
+  setKeyword,
   sort,
   setSort,
   sortCta,
   setSortCta,
-  keyword,
-  setKeyword,
-  /* 바인드리스트용 */
+/* 바인드리스트에서 필요로함  */
   baseData,
-  totalCount,
+  setMode,
+  selRecord,
 }) => {
-  console.log("정렬방향:", sort);
-  console.log("정렬항목:", sortCta);
-  console.log("검색기준,검색어:", keyword);
   /******************************************* 
-      [ 전달변수 ] 
+      [ 전달변수 ] - 2~5까지 4개는 페이징전달변수
+      1. bindList : 리스트 결과 요소
+      2. totalCount : 전체 레코드 개수
       3. unitSize : 게시판 리스트 당 레코드 개수
       4. pageNum : 현재 페이지번호
       5. setPageNum : 현재 페이지번호 변경 메서드
       6. pgPgNum : 페이지번호
       7. pgPgSize : 페이징의 페이지 크기
- 5     8. keyword : 검색어
- 6     9. setKeyword : 검색어셋팅
- 1     10. sort : 정렬기준
- 2     11. setSort : 정렬기준셋팅
- 3     12. sortCta : 정렬항목
- 4     13. setSortCta : 정렬항목셋팅
- 7    14. baseData : 원본데이터
-  8    15. totalCount : 전체개수
+      8. keyword : 검색어
+      9. setKeyword : 검색어셋팅
+      10. sort : 정렬기준
+      11. setSort : 정렬기준셋팅
+      12. sortCta : 정렬항목
+      13. setSortCta : 정렬항목셋팅
     *******************************************/
 
   // 코드리턴구역 //////////////////////
   return (
     <>
-      <div className="select-option-box">
-        {/* 검색기준 박스 (타이틀/콘텐츠/작성자) */}
-        <select name="keyword-cta" id="keyword-cta" className="keyword-cta">
+      <div className="selbx">
+        <select name="cta" id="cta" className="cta">
           <option value="tit">Title</option>
           <option value="cont">Contents</option>
           <option value="unm">Writer</option>
         </select>
 
-        {/* 정렬방향 박스*/}
         <select
-          name="sort-direc"
-          id="sort-direc"
-          className="sort-direc"
-          onChange={() => {
-            setSort(sort * -1);
-          }} //정렬기준 반대로 뒤집기
-          defaultValue={sort} // 1또는 -1이 들어옴
+          name="sel"
+          id="sel"
+          className="sel"
+          onChange={() => setSort(sort * -1)
+          }
+          defaultValue={sort === 1 ? "0" : "1"}
         >
-          <option value="1">Ascending</option>
-          <option value="-1">Descending</option>
+          <option value="0">
+            Descending
+          </option>
+          <option value="1">
+            Ascending
+          </option>
         </select>
-        {/* 검색창 */}
         <input
-          id="search-text"
+          id="stxt"
           type="text"
           maxLength="50"
           onKeyUp={(e) => {
-            // e.keyCode 13이 엔터 , e.key 는 문자로 "Enter"가 엔터
-            if (e.key === "Enter") $(".search-btn").trigger("click");
+            // e.keyCode는 번호로 13이 엔터
+            // e.key 는 문자로 "Enter"가 엔터
+            // console.log(e.key,e.keyCode);
+            if (e.key === "Enter") {
+              $(e.currentTarget).next().trigger("click");
+            }
           }}
         />
         <button
-          className="search-btn"
+          className="sbtn"
           onClick={(e) => {
-            console.log("검색버튼 클릭");
-
             // 검색기준값 읽어오기
-            let criteria = $(".keyword-cta").val();
+            let creteria = $(e.target).siblings(".cta").val();
+            console.log("기준값:", creteria);
             // 검색어 읽어오기
-            let searchTxt = $("#search-text").val();
-            console.log("기준값:", criteria, "/검색어:", searchTxt);
+            let txt = $(e.target).prev().val();
+            console.log(typeof txt, "/검색어:", txt);
             // input값은 안쓰면 빈스트링이 넘어옴!
-            if (searchTxt !== "") {
-              // 검색어가 빈값이 아닐시 검색하기
-              setKeyword([criteria, searchTxt]);
-            } else {
-              // 빈값이면 경고창
+            if (txt !== "") {
+              console.log("검색해!");
+              // [검색기준,검색어] -> setKeyword 업데이트
+              setKeyword([creteria, txt]);
+              // 검색후엔 첫페이지로 보내기
+              setPageNum(1);
+              // 검색후엔 페이지의 페이징 번호 초기화(1)
+              pgPgNum.current = 1;
+            }
+            // 빈값일 경우
+            else {
               alert("Please enter a keyword!");
             }
           }}
-
-          //     // 검색후엔 첫페이지로 보내기
-          //     setPageNum(1);
-          //     // 검색후엔 페이지의 페이징 번호 초기화(1)
-          //     pgPgNum.current = 1;
-          //   }
         >
           Search
         </button>
-        {/* {
+        {
           // 키워드가 있는 경우에 전체 리스트 돌아가기 버튼출력
           keyword[0] !== "" && (
             <button
@@ -126,7 +130,7 @@ export const ListMode = ({
               Back to Total List
             </button>
           )
-        } */}
+        }
 
         {/* 정렬기준선택박스 */}
         <select
@@ -137,8 +141,12 @@ export const ListMode = ({
           style={{ float: "right", translate: "0 5px" }}
           defaultValue={sortCta}
         >
-          <option value="idx">Recent</option>
-          <option value="tit">Title</option>
+          <option value="idx">
+            Recent
+          </option>
+          <option value="tit">
+            Title
+          </option>
         </select>
       </div>
       <table className="data-table" id="board">
@@ -152,23 +160,34 @@ export const ListMode = ({
           </tr>
         </thead>
         <tbody>
-          {/* 바인드리스트*/}
           {bindList(
             keyword,
             baseData,
             totalCount,
             sortCta,
             sort,
-            // pageNum,
-            // unitSize,
-            // setMode,
-            // selRecord
+            pageNum,
+            unitSize,
+            setMode,
+            selRecord
           )}
         </tbody>
         <tfoot>
           <tr>
             <td colSpan="5" className="paging">
-              {/* 페이징리스트 */}
+              {
+                // 데이터 개수가 0이상일때만 출력
+                totalCount.current > 0 && (
+                  <PagingList
+                    totalCount={totalCount}
+                    unitSize={unitSize}
+                    pageNum={pageNum}
+                    setPageNum={setPageNum}
+                    pgPgNum={pgPgNum}
+                    pgPgSize={pgPgSize}
+                  />
+                )
+              }
             </td>
           </tr>
         </tfoot>

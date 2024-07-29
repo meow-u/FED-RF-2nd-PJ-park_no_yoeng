@@ -4,7 +4,7 @@
   **********************************************/
        export const bindList = (keyword,baseData,totalCount,sortCta,sort,pageNum,unitSize,setMode,selRecord) => {
         console.log('setMode',setMode);
-            console.log(baseData);
+            // console.log(baseData);
         
             // 1. 전체 원본데이터 선택
             let orgData;

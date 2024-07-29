@@ -12,7 +12,7 @@ export const ModifyMode = ({ selRecord }) => {
 
   return (
     <>
-      <table className="dtblview readone">
+      <table className="data-table-view readone">
         <caption>OPINION : Modify</caption>
         <tbody>
           <tr>

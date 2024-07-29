@@ -442,7 +442,7 @@ export default function Board() {
       }
       <br />
       {/* 모드별 버튼출력 박스 */}
-      <table className="dtbl btngrp">
+      <table className="data-table btngrp">
         <tbody>
           <tr>
             <td>
@@ -629,7 +629,7 @@ const ListMode = ({
           <option value={SORT_BY_PROPERTY.TITLE}>Title</option>
         </select>
       </div>
-      <table className="dtbl" id="board">
+      <table className="data-table" id="board">
         <thead>
           <tr>
             <th>Number</th>
@@ -745,7 +745,7 @@ const ReadMode = ({ selRecord, sts }) => {
   /////// 코드리턴 구역 ///////////
   return (
     <>
-      <table className="dtblview readone">
+      <table className="data-table-view readone">
         <caption>OPINION : Read</caption>
         <tbody>
           <tr>
@@ -805,7 +805,7 @@ const WriteMode = ({ sts }) => {
 
   return (
     <>
-      <table className="dtblview readone">
+      <table className="data-table-view readone">
         <caption>OPINION : Write</caption>
         <tbody>
           <tr>
@@ -868,7 +868,7 @@ const ModifyMode = ({ selRecord }) => {
 
   return (
     <>
-      <table className="dtblview readone">
+      <table className="data-table-view readone">
         <caption>OPINION : Modify</caption>
         <tbody>
           <tr>

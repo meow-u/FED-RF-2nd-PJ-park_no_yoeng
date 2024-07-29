@@ -81,7 +81,7 @@ export const ReadMode = ({ selRecord, sts }) => {
     /////// 코드리턴 구역 ///////////
     return (
       <>
-        <table className="dtblview readone">
+        <table className="data-table-view readone">
           <caption>OPINION : Read</caption>
           <tbody>
             <tr>

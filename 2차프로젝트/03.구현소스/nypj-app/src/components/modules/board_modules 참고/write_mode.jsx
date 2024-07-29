@@ -9,7 +9,7 @@ export const WriteMode = ({ sts }) => {
   
     return (
       <>
-        <table className="dtblview readone">
+        <table className="data-table-view readone">
           <caption>OPINION : Write</caption>
           <tbody>
             <tr>

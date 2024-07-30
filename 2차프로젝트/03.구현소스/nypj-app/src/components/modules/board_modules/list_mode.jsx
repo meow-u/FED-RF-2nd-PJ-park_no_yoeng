@@ -3,6 +3,8 @@
 
 // 바인드 리스트 함수 불러오기
 import { bindList } from "../../func/board_fn/bind_list_fn";
+// 페이지 구성 컴포넌트
+import { PagingList } from "../board_modules/pasing_list";
 
 // 페이지 구성 컴포넌트
 
@@ -18,27 +20,34 @@ export const ListMode = ({
   keyword,
   setKeyword,
   /* 바인드리스트용 */
+  setMode,
   baseData,
   totalCount,
+  /* 페이지 구성용 */
+  currentPageNum,
+  setCurrentPageNum,
+  boardBlockSize,
+  pageBlockSize,
+  currentPageBlockNum,
 }) => {
   console.log("정렬방향:", sort);
   console.log("정렬항목:", sortCta);
   console.log("검색기준,검색어:", keyword);
   /******************************************* 
       [ 전달변수 ] 
-      3. unitSize : 게시판 리스트 당 레코드 개수
-      4. pageNum : 현재 페이지번호
-      5. setPageNum : 현재 페이지번호 변경 메서드
-      6. pgPgNum : 페이지번호
-      7. pgPgSize : 페이징의 페이지 크기
+11     3. boardBlockSize : 게시판 리스트 당 레코드 개수
+ 9     4. currentPageNum : 현재 페이지번호
+10     5. setCurrentPageNum : 현재 페이지번호 변경 메서드
+       6. currentPageBlockNum : 페이지번호
+       7. pageBlockSize : 페이징의 페이지 크기
  5     8. keyword : 검색어
  6     9. setKeyword : 검색어셋팅
  1     10. sort : 정렬기준
  2     11. setSort : 정렬기준셋팅
  3     12. sortCta : 정렬항목
  4     13. setSortCta : 정렬항목셋팅
- 7    14. baseData : 원본데이터
-  8    15. totalCount : 전체개수
+ 7     14. baseData : 원본데이터
+ 8     15. totalCount : 전체개수
     *******************************************/
 
   // 코드리턴구역 //////////////////////
@@ -86,20 +95,18 @@ export const ListMode = ({
             let searchTxt = $("#search-text").val();
             console.log("기준값:", criteria, "/검색어:", searchTxt);
             // input값은 안쓰면 빈스트링이 넘어옴!
-            if (searchTxt !== "") {
-              // 검색어가 빈값이 아닐시 검색하기
-              setKeyword([criteria, searchTxt]);
-            } else {
+            if (searchTxt === "") {
               // 빈값이면 경고창
               alert("Please enter a keyword!");
             }
-          }}
 
-          //     // 검색후엔 첫페이지로 보내기
-          //     setPageNum(1);
-          //     // 검색후엔 페이지의 페이징 번호 초기화(1)
-          //     pgPgNum.current = 1;
-          //   }
+            setKeyword([criteria, searchTxt]);
+            // 검색후엔 항상 첫페이지로 보내기
+            setCurrentPageNum(1);
+
+            // 검색후엔 페이지의 페이징 번호 초기화(1)
+            //     currentPageBlockNum.current = 1;
+          }}
         >
           Search
         </button>
@@ -120,7 +127,7 @@ export const ListMode = ({
                 // 정렬항목초기화
                 setSortCta("idx");
                 // 첫페이지번호변경
-                setPageNum(1);
+                setCurrentPageNum(1);
               }}
             >
               Back to Total List
@@ -159,16 +166,25 @@ export const ListMode = ({
             totalCount,
             sortCta,
             sort,
-            // pageNum,
-            // unitSize,
-            // setMode,
+            currentPageNum,
+            boardBlockSize,
+            setMode,
+            baseData
             // selRecord
           )}
         </tbody>
         <tfoot>
           <tr>
             <td colSpan="5" className="paging">
-              {/* 페이징리스트 */}
+              <PagingList
+               totalCount={totalCount}
+               boardBlockSize={boardBlockSize}
+               currentPageNum={currentPageNum}
+               setCurrentPageNum={setCurrentPageNum}
+             
+               currentPageBlockNum={currentPageBlockNum}
+               pageBlockSize={pageBlockSize}
+              />
             </td>
           </tr>
         </tfoot>

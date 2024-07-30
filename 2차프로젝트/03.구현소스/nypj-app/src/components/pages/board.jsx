@@ -65,6 +65,7 @@ export default function Board() {
 
   ///////// [ 상태관리 변수 ] //////////////
   // [1] 페이지 번호
+  const [currentPageNum, setCurrentPageNum] = useState(1);
 
   // [2] 기능모드
   const [mode, setMode] = useState(BOARD_COMPONENT_MODE.LIST);
@@ -79,6 +80,18 @@ export default function Board() {
   // [ 참조변수 ] ///
   // [1] 전체 개수 - 매번 계산하지 않도록 참조변수로!
   const totalCount = useRef(baseData.length);
+  // console.log("전체개수:", totalCount);
+  // [2] 선택 데이터 저장
+  const selRecord = useRef(null);
+  // -> 특정리스트 글 제목 클릭시 데이터 저장함!
+  // [3] 페이징의 페이징 번호
+  const currentPageBlockNum = useRef(1);
+
+  // [ 일반 변수로 매번 같은값을 유지하면 되는 변수 ]
+  // 페이지당 개수 : 페이지당 레코드수
+  const boardBlockSize = 4;
+  // 페이징의 페이징 개수 : 한번에 보여줄 페이징개수
+  const pageBlockSize = 3;
 
   //// 코드 리턴구역 /////////////////////////////////////////////////////
   return (
@@ -87,21 +100,24 @@ export default function Board() {
         // 1. 리스트 모드일 경우 리스트 출력하기
         mode === BOARD_COMPONENT_MODE.LIST && (
           <ListMode
-            // unitSize={unitSize}
-            // pageNum={pageNum}
-            // setPageNum={setPageNum}
-            // pgPgNum={pgPgNum}
-            // pgPgSize={pgPgSize}
             setKeyword={setKeyword}
             keyword={keyword}
             sort={sort}
             setSort={setSort}
             sortCta={sortCta}
             setSortCta={setSortCta}
-            // /* bindList에서 필요함 */
-            // baseData={baseData}
-            // setMode={setMode}
-            // selRecord={selRecord}
+            /* bindList에서 필요함 */
+            totalCount={totalCount}
+            baseData={baseData}
+            setMode={setMode}
+            /* 페이지관련 */
+            currentPageNum={currentPageNum}
+            setCurrentPageNum={setCurrentPageNum}
+            boardBlockSize={boardBlockSize}
+            currentPageBlockNum={currentPageBlockNum}
+            pageBlockSize={pageBlockSize}
+            selRecord={selRecord}
+            
           />
         )
       }

@@ -119,7 +119,7 @@ export const bindList = (
     ) : (
       // 데이터가 없을 때 출력 /////////
       <tr>
-        <td colSpan="5">There is no data.</td>
+        <td colSpan="5">There is no data. try new search</td>
       </tr>
     )
   ); //// return /////

@@ -19,6 +19,7 @@ export const ListMode = ({
   setSortCta,
   keyword,
   setKeyword,
+  selRecord,
   /* 바인드리스트용 */
   setMode,
   baseData,
@@ -110,6 +111,7 @@ export const ListMode = ({
         >
           Search
         </button>
+        {/* 빈값검색시 전체 결과 뜨게 하여 하단부분 주석 */}
         {/* {
           // 키워드가 있는 경우에 전체 리스트 돌아가기 버튼출력
           keyword[0] !== "" && (
@@ -169,8 +171,8 @@ export const ListMode = ({
             currentPageNum,
             boardBlockSize,
             setMode,
-            baseData
-            // selRecord
+            baseData,
+            selRecord
           )}
         </tbody>
         <tfoot>

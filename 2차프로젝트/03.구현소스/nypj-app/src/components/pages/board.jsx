@@ -81,7 +81,7 @@ export default function Board() {
   // [1] 전체 개수 - 매번 계산하지 않도록 참조변수로!
   const totalCount = useRef(baseData.length);
   // console.log("전체개수:", totalCount);
-  // [2] 선택 데이터 저장
+  // [2] 선택 게시글 데이터 저장
   const selRecord = useRef(null);
   // -> 특정리스트 글 제목 클릭시 데이터 저장함!
   // [3] 페이징의 페이징 번호

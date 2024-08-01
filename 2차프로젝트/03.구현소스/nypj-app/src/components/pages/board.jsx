@@ -6,13 +6,16 @@ import { useContext, useRef, useState } from "react";
 // 리스트모드 컴포넌트
 import { ListMode } from "../modules/board_modules/list_mode";
 // 읽기모드 컴포넌트
+import { ReadMode } from "../modules/board_modules/read_mode";
 // 쓰기모드 컴포넌트
-// 수정모드 컴포넌트
 
+// 수정모드 컴포넌트
+import { ModifyMode } from "../modules/board_modules/modify_mode";
 // [ 게시판 기능 함수 불러오기 ]
 // 바인드리스트는 리스트모드에서 사용함
 // 서브밋 처리함수
 // 삭제처리 함수
+import { deleteFn } from "../func/board_fn/delete_fn";
 
 // 게시판용 CSS
 import "../../css/board.scss";
@@ -27,7 +30,7 @@ const SORT_DIRECTION = {
   DESC: -1, // a>b : -1 내림차순
 };
 
-const BOARD_COMPONENT_MODE = {
+const BOARD_MODE = {
   LIST: "L", // (1) 리스트 모드(L) : List Mode
   READ: "R", // (2) 글보기 모드(R) : Read Mode
   WRITE: "W", // (3) 글쓰기 모드(W) : Write Mode
@@ -68,7 +71,7 @@ export default function Board() {
   const [currentPageNum, setCurrentPageNum] = useState(1);
 
   // [2] 기능모드
-  const [mode, setMode] = useState(BOARD_COMPONENT_MODE.LIST);
+  const [mode, setMode] = useState(BOARD_MODE.LIST);
   // [3] 검색어 저장변수 : 배열 [기준,검색어]
   const [keyword, setKeyword] = useState(["", ""]);
   console.log("[기준,키워드]", keyword);
@@ -82,7 +85,7 @@ export default function Board() {
   const totalCount = useRef(baseData.length);
   // console.log("전체개수:", totalCount);
   // [2] 선택 게시글 데이터 저장
-  const selRecord = useRef(null);
+  const [selRecord, setSelRecord] = useState(null);
   // -> 특정리스트 글 제목 클릭시 데이터 저장함!
   // [3] 페이징의 페이징 번호
   const currentPageBlockNum = useRef(1);
@@ -93,12 +96,74 @@ export default function Board() {
   // 페이징의 페이징 개수 : 한번에 보여줄 페이징개수
   const pageBlockSize = 3;
 
+  // Board 컴포넌트 내부
+  // const wrappedSubmitFn = (...args) => submitFn(mode, sts, baseData, totalCount, setMode, setPageNum, selRecord, ...args);
+  // const wrappedDeleteFn = () => deleteFn(selRecord, baseData, totalCount, setMode, setPageNum);
+
+  // const clickButton = (e, {setMode, setKeyword, wrappedSubmitFn, wrappedDeleteFn}) => {
+  //   // 함수 내용
+  // };
+
+  // 버튼 클릭시 변경함수 ////////////////////////////////
+  const clickButton = (e) => {
+    // 버튼글자 읽기
+    let btnText = e.target.innerText;
+    // console.log(btnText);
+    // 버튼별 분기
+    switch (btnText) {
+      // 글쓰기 모드로 변경
+      case "WRITE":
+        setMode(BOARD_MODE.WRITE);
+        break;
+      // 리스트모드로 변경
+      case "LIST":
+        setMode(BOARD_MODE.LIST);
+        // 검색시에도 전체 데이터나오게 함
+        setKeyword(["", ""]);
+        break;
+      // 서브밋일 경우 함수호출!
+      // case "Submit":
+      //   submitFn(
+      //     mode,
+      //     sts,
+      //     baseData,
+      //     totalCount,
+      //     setMode,
+      //     setPageNum,
+      //     selRecord
+      //   );
+      //   break;
+      // 수정일 경우 수정모드로 변경
+      case "MODIFY":
+        setMode(BOARD_MODE.MODIFY);
+        break;
+      case "CANCEL":
+        setMode(BOARD_MODE.READ);
+        break;
+      // 삭제일 경우 삭제함수 호출
+      case "DELETE":
+        deleteFn(
+          selRecord,
+          baseData,
+          totalCount,
+          setMode,
+          BOARD_MODE,
+          setCurrentPageNum
+        );
+        break;
+
+      default:
+        break;
+    }
+  }; ////////// clickButton //////////////////////
+
+  console.log("나 랜더링댔어요 selRecord:", selRecord);
   //// 코드 리턴구역 /////////////////////////////////////////////////////
   return (
     <main className="cont">
       {
         // 1. 리스트 모드일 경우 리스트 출력하기
-        mode === BOARD_COMPONENT_MODE.LIST && (
+        mode === BOARD_MODE.LIST && (
           <ListMode
             setKeyword={setKeyword}
             keyword={keyword}
@@ -109,6 +174,7 @@ export default function Board() {
             /* bindList에서 필요함 */
             totalCount={totalCount}
             baseData={baseData}
+            BOARD_MODE={BOARD_MODE}
             setMode={setMode}
             /* 페이지관련 */
             currentPageNum={currentPageNum}
@@ -117,9 +183,19 @@ export default function Board() {
             currentPageBlockNum={currentPageBlockNum}
             pageBlockSize={pageBlockSize}
             selRecord={selRecord}
-            
+            setSelRecord={setSelRecord}
           />
         )
+      }
+      {
+        // 2. 읽기 모드일 경우 읽기 출력하기
+        mode === BOARD_MODE.READ && (
+          <ReadMode selRecord={selRecord} loginSts={loginSts} />
+        )
+      }
+      {
+        // 3. 수정 모드일 경우 수정 출력하기
+        mode === BOARD_MODE.MODIFY && <ModifyMode selRecord={selRecord} />
       }
 
       <br />
@@ -127,7 +203,43 @@ export default function Board() {
       <table className="data-table btn-group">
         <tbody>
           <tr>
-            <td>{/* 버튼위치 */}</td>
+            <td>
+              {/* 모드별 버튼 출력*/}
+              {/* LIST 모드에서 로그인상태면  글쓰기 버튼 출력 */}
+              {mode === BOARD_MODE.LIST && loginSts && (
+                <button onClick={clickButton}>WRITE</button>
+              )}
+              {/* READ 모드에서는 목록 버튼 출력 */}
+              {mode === BOARD_MODE.READ && (
+                <>
+                  <button onClick={clickButton}>LIST</button>
+                  {/* 해당 글이 본인 글이면 수정버튼 출력 */}
+                  {JSON.parse(loginSts).uid === selRecord.uid && (
+                    <button onClick={clickButton}>MODIFY</button>
+                  )}
+                </>
+              )}
+              {
+                // 3. WRITE 모드
+                mode === BOARD_MODE.WRITE && (
+                  <>
+                    <button onClick={clickButton}>SUBMIT</button>
+                    <button onClick={clickButton}>LIST</button>
+                  </>
+                )
+              }
+              {
+                // 4. MODIFY 모드
+                mode === BOARD_MODE.MODIFY && (
+                  <>
+                    <button onClick={clickButton}>SUBMIT</button>
+                    <button onClick={clickButton}>DELETE</button>
+                    <button onClick={clickButton}>CANCEL</button>
+                    <button onClick={clickButton}>LIST</button>
+                  </>
+                )
+              }
+            </td>
           </tr>
         </tbody>
       </table>

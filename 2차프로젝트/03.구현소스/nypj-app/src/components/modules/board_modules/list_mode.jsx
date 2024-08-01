@@ -20,7 +20,9 @@ export const ListMode = ({
   keyword,
   setKeyword,
   selRecord,
+  setSelRecord,
   /* 바인드리스트용 */
+  BOARD_MODE,
   setMode,
   baseData,
   totalCount,
@@ -31,6 +33,8 @@ export const ListMode = ({
   pageBlockSize,
   currentPageBlockNum,
 }) => {
+
+console.log('setSelRecord:',setSelRecord);
   console.log("정렬방향:", sort);
   console.log("정렬항목:", sortCta);
   console.log("검색기준,검색어:", keyword);
@@ -39,8 +43,8 @@ export const ListMode = ({
 11     3. boardBlockSize : 게시판 리스트 당 레코드 개수
  9     4. currentPageNum : 현재 페이지번호
 10     5. setCurrentPageNum : 현재 페이지번호 변경 메서드
-       6. currentPageBlockNum : 페이지번호
-       7. pageBlockSize : 페이징의 페이지 크기
+12     6. currentPageBlockNum : 페이지번호
+13     7. pageBlockSize : 페이징의 페이지 크기
  5     8. keyword : 검색어
  6     9. setKeyword : 검색어셋팅
  1     10. sort : 정렬기준
@@ -170,22 +174,22 @@ export const ListMode = ({
             sort,
             currentPageNum,
             boardBlockSize,
+            BOARD_MODE,
             setMode,
-            baseData,
-            selRecord
+            selRecord,
+            setSelRecord,
           )}
         </tbody>
         <tfoot>
           <tr>
             <td colSpan="5" className="paging">
               <PagingList
-               totalCount={totalCount}
-               boardBlockSize={boardBlockSize}
-               currentPageNum={currentPageNum}
-               setCurrentPageNum={setCurrentPageNum}
-             
-               currentPageBlockNum={currentPageBlockNum}
-               pageBlockSize={pageBlockSize}
+                totalCount={totalCount}
+                boardBlockSize={boardBlockSize}
+                currentPageNum={currentPageNum}
+                setCurrentPageNum={setCurrentPageNum}
+                currentPageBlockNum={currentPageBlockNum}
+                pageBlockSize={pageBlockSize}
               />
             </td>
           </tr>

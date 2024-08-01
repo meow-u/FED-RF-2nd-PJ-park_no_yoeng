@@ -13,9 +13,13 @@ export const bindList = (
   sort,
   currentPageNum,
   boardBlockSize,
+  BOARD_MODE,
   setMode,
-  selRecord
+  selRecord,
+  setSelRecord,
+
 ) => {
+  console.log('setSelRecord:',setSelRecord);
   console.log("setMode", setMode);
   console.log("baseData", baseData);
   console.log("totalCount", totalCount);
@@ -102,10 +106,12 @@ export const bindList = (
               href="###"
               onClick={(e) => {
                 e.preventDefault();
-                // 읽기모드로 변경!
-                setMode("R");
                 // 해당 데이터 저장하기
-                selRecord.current = v;
+                setSelRecord(v);
+                // selRecord.current = v;
+                // console.log("선택데이터저장(selRecord.current)", selRecord.current);
+                // 읽기모드로 변경!
+                setMode(BOARD_MODE.READ);
               }}
             >
               {v.tit}
@@ -113,7 +119,7 @@ export const bindList = (
           </td>
           <td>{v.unm}</td>
           <td>{v.date}</td>
-          <td>{v.cnt}</td>
+          <td>{v.vcnt}</td>
         </tr>
       ))
     ) : (

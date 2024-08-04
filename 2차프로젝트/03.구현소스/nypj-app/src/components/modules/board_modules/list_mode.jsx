@@ -60,61 +60,46 @@ console.log('setSelRecord:',setSelRecord);
     <>
       <div className="select-option-box">
         {/* 검색기준 박스 (타이틀/콘텐츠/작성자) */}
-        <select name="keyword-cta" id="keyword-cta" className="keyword-cta">
-          <option value="tit">Title</option>
-          <option value="cont">Contents</option>
-          <option value="unm">Writer</option>
-        </select>
-
-        {/* 정렬방향 박스*/}
-        <select
-          name="sort-direc"
-          id="sort-direc"
-          className="sort-direc"
-          onChange={() => {
-            setSort(sort * -1);
-          }} //정렬기준 반대로 뒤집기
-          defaultValue={sort} // 1또는 -1이 들어옴
-        >
-          <option value="1">Ascending</option>
-          <option value="-1">Descending</option>
-        </select>
-        {/* 검색창 */}
-        <input
-          id="search-text"
-          type="text"
-          maxLength="50"
-          onKeyUp={(e) => {
-            // e.keyCode 13이 엔터 , e.key 는 문자로 "Enter"가 엔터
-            if (e.key === "Enter") $(".search-btn").trigger("click");
-          }}
-        />
-        <button
-          className="search-btn"
-          onClick={(e) => {
-            console.log("검색버튼 클릭");
-
-            // 검색기준값 읽어오기
-            let criteria = $(".keyword-cta").val();
-            // 검색어 읽어오기
-            let searchTxt = $("#search-text").val();
-            console.log("기준값:", criteria, "/검색어:", searchTxt);
-            // input값은 안쓰면 빈스트링이 넘어옴!
-            if (searchTxt === "") {
-              // 빈값이면 경고창
-              alert("Please enter a keyword!");
-            }
-
-            setKeyword([criteria, searchTxt]);
-            // 검색후엔 항상 첫페이지로 보내기
-            setCurrentPageNum(1);
-
-            // 검색후엔 페이지의 페이징 번호 초기화(1)
-            //     currentPageBlockNum.current = 1;
-          }}
-        >
-          Search
-        </button>
+        <div className="left-box">
+          <select name="keyword-cta" id="keyword-cta" className="keyword-cta">
+            <option value="tit">Title</option>
+            <option value="cont">Contents</option>
+            <option value="unm">Writer</option>
+          </select>
+          {/* 검색창 */}
+          <input
+            id="search-text"
+            type="text"
+            maxLength="50"
+            onKeyUp={(e) => {
+              // e.keyCode 13이 엔터 , e.key 는 문자로 "Enter"가 엔터
+              if (e.key === "Enter") $(".search-btn").trigger("click");
+            }}
+          />
+          <button
+            className="search-btn"
+            onClick={(e) => {
+              console.log("검색버튼 클릭");
+              // 검색기준값 읽어오기
+              let criteria = $(".keyword-cta").val();
+              // 검색어 읽어오기
+              let searchTxt = $("#search-text").val();
+              console.log("기준값:", criteria, "/검색어:", searchTxt);
+              // input값은 안쓰면 빈스트링이 넘어옴!
+              if (searchTxt === "") {
+                // 빈값이면 경고창
+                alert("Please enter a keyword!");
+              }
+              setKeyword([criteria, searchTxt]);
+              // 검색후엔 항상 첫페이지로 보내기
+              setCurrentPageNum(1);
+              // 검색후엔 페이지의 페이징 번호 초기화(1)
+              //     currentPageBlockNum.current = 1;
+            }}
+          >
+            Search
+          </button>
+        </div>
         {/* 빈값검색시 전체 결과 뜨게 하여 하단부분 주석 */}
         {/* {
           // 키워드가 있는 경우에 전체 리스트 돌아가기 버튼출력
@@ -142,19 +127,34 @@ console.log('setSelRecord:',setSelRecord);
         } */}
 
         {/* 정렬기준선택박스 */}
-        <select
-          name="sort_cta"
-          id="sort_cta"
-          className="sort_cta"
-          onChange={(e) => setSortCta(e.currentTarget.value)}
-          style={{ float: "right", translate: "0 5px" }}
-          defaultValue={sortCta}
-        >
-          <option value="idx">Recent</option>
-          <option value="tit">Title</option>
-        </select>
+        <div className="right-box">
+          <select
+            name="sort_cta"
+            id="sort_cta"
+            className="sort_cta"
+            onChange={(e) => setSortCta(e.currentTarget.value)}
+            defaultValue={sortCta}
+          >
+            <option value="idx">Recent</option>
+            <option value="tit">Title</option>
+          </select>
+             {/* 정렬방향 박스*/}
+             <select
+            name="sort-direc"
+            id="sort-direc"
+            className="sort-direc"
+            onChange={() => {
+              setSort(sort * -1);
+            }} //정렬기준 반대로 뒤집기
+            defaultValue={sort} // 1또는 -1이 들어옴
+          >
+            <option value="1">Ascending</option>
+            <option value="-1">Descending</option>
+          </select>
+        </div>
       </div>
       <table className="data-table" id="board">
+      <caption>Notice</caption>
         <thead>
           <tr>
             <th>Number</th>

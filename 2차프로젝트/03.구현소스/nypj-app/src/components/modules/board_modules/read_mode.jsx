@@ -1,12 +1,15 @@
+import { useRef } from "react";
 
 /****************************************** 
         읽기 모드 서브 컴포넌트
 ******************************************/
-export const ReadMode = ({ selRecord, loginSts }) => {
+export const ReadMode = ({ selRecord, loginSts, beforeSelRecords }) => {
   // selRecord - 게시글 클릭으로 저장된 현재글정보 / loginSts - 로그인 사용자정보
   console.log("전달된 selRecord:", selRecord);
+  console.log("전달된 loginSts:", loginSts);
   // 전달된 데이터 객체를 변수에 할당
   const selectBoardData = selRecord;
+  console.log("beforeSelRecords:", beforeSelRecords.current);
 
   // [ 조회수 증가하기 ]
   // 규칙1 : 타인의 글만 증가한다!
@@ -25,7 +28,6 @@ export const ReadMode = ({ selRecord, loginSts }) => {
   // (1) 세션스 파싱하여 변수할당
   let viewedBoards = JSON.parse(sessionStorage.getItem("viewed-boards"));
 
-
   // (2) 기존 배열값에 현재글번호 존재여부검사하기
   // isViewed 결과가 true이면 조회수를 증가하지 않는다!
   let isViewed = viewedBoards.includes(selectBoardData.idx);
@@ -33,7 +35,8 @@ export const ReadMode = ({ selRecord, loginSts }) => {
 
   // (3) 로그인한 본인의 글이면 isViewed값을 true처리
   //(본것으로 처리해서 조회수 안올림)
-  if (loginSts) {// 로그인상태
+  if (loginSts) {
+    // 로그인상태
 
     // 글쓴이 아이디와 로그인사용자 아이디가 같은가?
     if (selectBoardData.uid === JSON.parse(loginSts).uid) {
@@ -58,9 +61,9 @@ export const ReadMode = ({ selRecord, loginSts }) => {
 
     // (2) 게시판 해당데이터 vcnt값 증가
     // 조건: isViewed값이 false일때
-    allBoardData.some((v) => { 
+    allBoardData.some((v) => {
       if (v.idx === selectBoardData.idx) {
-        // 각각의 게시글중 선택게시글과 idx가 같은것 만 
+        // 각각의 게시글중 선택게시글과 idx가 같은것 만
         // 조회수 기존값에 1증가하여 넣기
         v.vcnt = Number(v.vcnt) + 1;
         return true;
@@ -87,6 +90,11 @@ export const ReadMode = ({ selRecord, loginSts }) => {
                 readOnly
                 value={selectBoardData.unm}
               />
+              <span className="modify-data">
+                {selectBoardData.modifydate
+                  ? "마지막 수정일: " + selectBoardData.modifydate
+                  : ""}
+              </span>
             </td>
           </tr>
           <tr>
@@ -109,7 +117,15 @@ export const ReadMode = ({ selRecord, loginSts }) => {
                 cols="60"
                 rows="10"
                 readOnly
-                value={selectBoardData.cont}
+                value={
+                  /* 해당게시글에 수정key값이 있으면 직전레코드참조변수에서 해당 idx의 객체를 찾아 cont를 보여준다. */
+                  (selectBoardData.modifydate
+                    ? "[수정 전 내용] : " +
+                      beforeSelRecords.current.find(
+                        (v) => v.idx === selectBoardData.idx
+                      ).cont +"\n──────────────────────\n\n"
+                    : "") + selectBoardData.cont
+                }
               ></textarea>
             </td>
           </tr>

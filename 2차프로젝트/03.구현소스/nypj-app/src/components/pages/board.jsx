@@ -8,12 +8,14 @@ import { ListMode } from "../modules/board_modules/list_mode";
 // 읽기모드 컴포넌트
 import { ReadMode } from "../modules/board_modules/read_mode";
 // 쓰기모드 컴포넌트
-
+import { WriteMode } from "../modules/board_modules/write_mode";
 // 수정모드 컴포넌트
 import { ModifyMode } from "../modules/board_modules/modify_mode";
+
 // [ 게시판 기능 함수 불러오기 ]
-// 바인드리스트는 리스트모드에서 사용함
+// 바인드리스트는 리스트모드에서 적용함
 // 서브밋 처리함수
+import { submitFn } from "../func/board_fn/submit_fn";
 // 삭제처리 함수
 import { deleteFn } from "../func/board_fn/delete_fn";
 
@@ -26,11 +28,13 @@ import { initBoardData } from "../func/board_fn";
 import { Con } from "../modules/myCon";
 
 const SORT_DIRECTION = {
+  //정렬방향 객체
   ASC: 1, // a>b :1 오름차순
   DESC: -1, // a>b : -1 내림차순
 };
 
 const BOARD_MODE = {
+  //리스트모드 객체
   LIST: "L", // (1) 리스트 모드(L) : List Mode
   READ: "R", // (2) 글보기 모드(R) : Read Mode
   WRITE: "W", // (3) 글쓰기 모드(W) : Write Mode
@@ -38,6 +42,7 @@ const BOARD_MODE = {
 };
 
 const SORT_BY_CTA = {
+  //정렬 항목값 객체
   // 정렬 항목값 상수 categories
   IDX: "idx",
   TITLE: "tit",
@@ -51,7 +56,7 @@ export default function Board() {
   const loginSts = myCon.loginSts;
   //   console.log("로그인상태:", loginSts);
 
-  // 로컬스토리지 게시판 데이터 정보확인! //
+  // 로컬스토리지 게시판 데이터 정보확인!
   initBoardData();
 
   // 보드 초기 로컬스 데이터 파싱 후 변수할당하기!
@@ -86,6 +91,19 @@ export default function Board() {
   // console.log("전체개수:", totalCount);
   // [2] 선택 게시글 데이터 저장
   const [selRecord, setSelRecord] = useState(null);
+  // [2-5] 수정전 데이터 저장
+  const beforeSelRecords = useRef([{// 49번 샘플로 넣어둠
+    "idx": "49",
+    "tit": "This is a Title49",
+    "cont": "hello there! ",
+    "att": "",
+    "date": "2024-07-01",
+    "uid": "admin",
+    "unm": "Administrator",
+    "vcnt": "0",
+    "modifydate": "2024. 8. 2. 오후 16:23:05"
+}]);
+  console.log("beforeSelRecords:", beforeSelRecords.current);
   // -> 특정리스트 글 제목 클릭시 데이터 저장함!
   // [3] 페이징의 페이징 번호
   const currentPageBlockNum = useRef(1);
@@ -122,17 +140,19 @@ export default function Board() {
         setKeyword(["", ""]);
         break;
       // 서브밋일 경우 함수호출!
-      // case "Submit":
-      //   submitFn(
-      //     mode,
-      //     sts,
-      //     baseData,
-      //     totalCount,
-      //     setMode,
-      //     setPageNum,
-      //     selRecord
-      //   );
-      //   break;
+      case "SUBMIT":
+        submitFn(
+          mode,
+          loginSts,
+          baseData,
+          totalCount,
+          setMode,
+          BOARD_MODE,
+          setCurrentPageNum,
+          selRecord,
+          beforeSelRecords,
+        );
+        break;
       // 수정일 경우 수정모드로 변경
       case "MODIFY":
         setMode(BOARD_MODE.MODIFY);
@@ -190,8 +210,12 @@ export default function Board() {
       {
         // 2. 읽기 모드일 경우 읽기 출력하기
         mode === BOARD_MODE.READ && (
-          <ReadMode selRecord={selRecord} loginSts={loginSts} />
+          <ReadMode selRecord={selRecord} loginSts={loginSts} beforeSelRecords={beforeSelRecords} />
         )
+      }
+      {
+        // 2. 쓰기 모드일 경우 읽기 출력하기
+        mode === BOARD_MODE.WRITE && <WriteMode loginSts={loginSts} />
       }
       {
         // 3. 수정 모드일 경우 수정 출력하기
@@ -209,15 +233,15 @@ export default function Board() {
               {mode === BOARD_MODE.LIST && loginSts && (
                 <button onClick={clickButton}>WRITE</button>
               )}
+
+              {/* READ모드에서 로그인상태면 본인 글일시 수정버튼 출력 */}
+              {mode === BOARD_MODE.READ && loginSts && 
+                JSON.parse(loginSts).uid === selRecord.uid && (
+                  <button onClick={clickButton}>MODIFY</button>
+                )}
               {/* READ 모드에서는 목록 버튼 출력 */}
               {mode === BOARD_MODE.READ && (
-                <>
-                  <button onClick={clickButton}>LIST</button>
-                  {/* 해당 글이 본인 글이면 수정버튼 출력 */}
-                  {JSON.parse(loginSts).uid === selRecord.uid && (
-                    <button onClick={clickButton}>MODIFY</button>
-                  )}
-                </>
+                <button onClick={clickButton}>LIST</button>
               )}
               {
                 // 3. WRITE 모드

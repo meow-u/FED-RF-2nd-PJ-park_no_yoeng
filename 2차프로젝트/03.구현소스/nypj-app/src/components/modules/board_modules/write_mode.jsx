@@ -2,11 +2,12 @@
 /****************************************** 
         쓰기 모드 서브 컴포넌트
 ******************************************/
-export const WriteMode = ({ sts }) => {
-    // sts - 로그인 상태정보
+export const WriteMode = ({ loginSts }) => {
+    // loginSts - 로그인 상태정보 
     // 로그인한 사람만 글쓰기 가능!
-    // console.log(sts);
-  
+    let Writer = JSON.parse(loginSts);
+    console.log('loginSts:',loginSts,'Writer:', Writer);
+    
     return (
       <>
         <table className="data-table-view readone">
@@ -21,7 +22,7 @@ export const WriteMode = ({ sts }) => {
                   size="20"
                   readOnly
                   // 로그인한 사람이름
-                  value={sts.unm}
+                  value={Writer.unm}
                 />
               </td>
             </tr>
@@ -34,7 +35,7 @@ export const WriteMode = ({ sts }) => {
                   size="40"
                   readOnly
                   // 로그인한 사람이메일
-                  value={sts.eml}
+                  value={Writer.eml}
                 />
               </td>
             </tr>

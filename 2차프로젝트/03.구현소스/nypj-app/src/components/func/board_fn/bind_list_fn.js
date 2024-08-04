@@ -16,13 +16,13 @@ export const bindList = (
   BOARD_MODE,
   setMode,
   selRecord,
-  setSelRecord,
-
+  setSelRecord
 ) => {
-  console.log('setSelRecord:',setSelRecord);
+  console.log("setSelRecord:", setSelRecord);
   console.log("setMode", setMode);
   console.log("baseData", baseData);
   console.log("totalCount", totalCount);
+  console.log('Number(totalCount.current)-1:',Number(totalCount.current)-1);
 
   // 1. 검색어에 따라 데이터 필터하기
   let filteredBoardData;
@@ -38,13 +38,13 @@ export const bindList = (
       let searchTxt = keyword[1].toLowerCase();
 
       console.log(v[keyword[0]].indexOf(keyword[1]));
-      // 2. 필터 검색조건에 맞는 데이터 수집하기 
+      // 2. 필터 검색조건에 맞는 데이터 수집하기
       if (BoardCtaValue.indexOf(searchTxt) != -1) return true;
     });
   } /////// if //////////
   // 1-2.검색어가 없는경우 전체넣기
   else {
-  filteredBoardData = baseData;
+    filteredBoardData = baseData;
   } //////// else ///////
 
   // 1-3. 새로 데이터를 담은 후 바로 전체개수 업데이트 필수!
@@ -66,7 +66,7 @@ export const bindList = (
     getSortCriteria(a) > getSortCriteria(b)
       ? 1 * sort // * 1은 내림차순 그대로
       : getSortCriteria(a) < getSortCriteria(b)
-      ? -1 * sort // * -1은 오름차순 변경 
+      ? -1 * sort // * -1은 오름차순 변경
       : 0
   );
 
@@ -81,7 +81,7 @@ export const bindList = (
   const selectedBoards = [];
 
   // for문으로 배열 만들기 (해당 상태관리 페이지번호 변수에 보여줄 레코드 idx 수집)
-  for (let i =startingBoardIdx; i <endingBoardIndex; i++) {
+  for (let i = startingBoardIdx; i < endingBoardIndex; i++) {
     // console.log(i);
     // idx 번호가 보드데이터의 전체 개수보다 크면 push하지말고 나가라!
     if (i >= totalCount.current) break;
@@ -89,9 +89,8 @@ export const bindList = (
     selectedBoards.push(filteredBoardData[i]);
   } ///// for //////
 
-  console.log('currentPageNum',currentPageNum,"선택데이터:", selectedBoards);
+  console.log("currentPageNum", currentPageNum, "선택데이터:", selectedBoards);
   console.log("보여줄 갯수", selectedBoards.length);
-
 
   return (
     // 전체 데이터 개수가 0 초과일 경우 출력
@@ -115,6 +114,14 @@ export const bindList = (
               }}
             >
               {v.tit}
+              {v.modifydate ? (
+                <span className="update-label">Updated</span>
+              ) : (
+                ""
+              )}
+              {v.idx == Number(totalCount.current) && (
+                <span className="update-label new">NEW</span>
+              )}
             </a>
           </td>
           <td>{v.unm}</td>

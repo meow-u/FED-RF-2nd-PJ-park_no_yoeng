@@ -1,4 +1,11 @@
 #shop-area > section.shop-area.inbox {
+
+  select {
+    display: block;
+    margin-left: auto;
+    font-size: 17px;
+    border: 2px solid;
+  }
   .tit-wrap:nth-of-type(2) {
     padding: 0 2vw;
     padding-top: min(150px, 20vw);
@@ -111,12 +118,7 @@ p.smenu-tit {
   font-size: initial;
 }
 
-select {
-  display: block;
-  margin-left: auto;
-  font-size: 17px;
-  border: 2px solid;
-}
+
 
 section.bestitem-area.inshop.inbox.swiper.mySwiper2>.catag.shop {
   

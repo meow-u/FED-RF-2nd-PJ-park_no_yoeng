@@ -59,7 +59,7 @@ export const PagingList = ({
   // 한계값 : 페페넘*페페단
   let endingPageIdx = currentPageBlockNum.current * pageBlockSize;
 
-  console.log("시작값:", startingPageIdx, "/한계값:", endingPageIdx);
+  console.log("시작값startingPageIdx:", startingPageIdx, "/한계값endingPageIdx:", endingPageIdx);
 
   ///// [ 페이징 바 출력하기 ] /////////////////
   const pagingBar = [];
@@ -96,8 +96,8 @@ export const PagingList = ({
         }
         {/* 사이에 구분 바넣기 */}
         {/* 일반페이징 */}
-        {/* {i + 1 !== totalPageCount && " | "} */}
-        {i + 1 !== endingPageIdx && " | "}
+        {/* {i + 1 !== endingPageIdx && " | "} */}
+        {(i + 1 !== endingPageIdx) && (i + 1 !==totalPageCount) && " | "}
       </Fragment>
     );
   } ////// [1] for : 페이징 리스트 출력 끝 /////

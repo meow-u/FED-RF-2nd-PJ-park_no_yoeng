@@ -30,10 +30,11 @@ export const deleteFn = (
 
     // findIndex 메서드는 배열의 각 요소에 대해 주어진 테스트 함수를 실행하고, 조건을 만족하는 첫 번째 요소의 인덱스를 반환합니다.
 
-    // indexOf: 기본형 데이터(문자열, 숫자 등)에서 사용합니다.
     // findIndex: 객체 배열에서 특정 조건을 만족하는 요소의 인덱스를 찾을 때 사용합니다.
-    // 따라서, 객체 배열에서 인덱스를 찾으려면 findIndex를 사용해야 합니다.
-    // indexOf로 동일한 값의 객체를 비교하면 참조를 예민하게 비교하기때문에 사용하지말자
+    // ->>> 객체 배열에서 인덱스를 찾으려면 findIndex를 사용해야 합니다.
+    
+    // indexOf: 기본형 데이터(문자열, 숫자 등)에서 사용합니다.
+    // indexOf로 동일한 값의 객체를 비교하면 값이 같더라도 참조 주소가 다를수 있기 때문에 -1이 반환됩니다.
     const thisIdx = baseData.findIndex((item) => item.idx === selRecord.idx);
     console.log('selRecord:',selRecord);
     console.log('thisIdx:',thisIdx);
@@ -47,8 +48,8 @@ export const deleteFn = (
     // 3. 로컬스에 업데이트하기 //////
     localStorage.setItem("board-data", JSON.stringify(baseData));
 
-    // 4. 삭제후 리스트 리랜더링시 리스트 불일치로 인한
-    // 에러를 방지하기 위하여 전체 개수를 바로 업데이트한다!
+    // 4. 삭제후 리스트 리랜더링시 리스트갯수 불일치로 인한
+    // 페이징바 에러를 방지하기 위하여 전체 개수를 바로 업데이트한다!
     totalCount.current = baseData.length;
 
     // 4. 리스트로 돌아가기 -> 리랜더링 /////

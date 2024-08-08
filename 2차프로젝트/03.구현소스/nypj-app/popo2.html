@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>포트폴리오 소개 페이지</title>
+    <style>
+      :root {
+        --background-gradient: linear-gradient(to bottom right, #bdaef7, #ffffff);
+        --header-bg: linear-gradient(to right, #72a0d9, #313ca2);
+        --header-text: #fff;
+        --sidebar-bg: #f9f9f9;
+        --tab-bg: linear-gradient(to right, #6e6e6e, #2b2b2b);
+        --tab-active-bg: linear-gradient(to right, #72a0d9, #313ca2);
+        --button-bg: linear-gradient(to right, #6e6e6e, #2b2b2b);
+        --button-text: #fff;
+        --border-color: #ddd;
+        --box-shadow: rgba(0, 0, 0, 0.1);
+        --profile-img-border-radius: 50%;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: var(--background-gradient);
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
+        margin: 40px 0px;
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        max-width: 1200px;
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px var(--box-shadow);
+        overflow: hidden;
+      }
+
+      .header {
+        background: var(--header-bg);
+        color: var(--header-text);
+        padding: 1.5rem;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+
+      .banner {
+        width: 100%;
+        height: 250px;
+        background-color: #f4f4f4;
+        background-size: cover;
+        background-position: center;
+        transition: background-image 0.3s ease-in-out;
+      }
+
+      .content {
+        display: flex;
+        flex: 1;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .sidebar {
+        background-color: var(--sidebar-bg);
+        padding: 2rem 1rem;
+        width: 300px;
+        box-shadow: 2px 0 4px var(--box-shadow);
+      }
+
+      .main {
+        flex: 1;
+        padding: 2rem;
+        background-color: #ffffff;
+      }
+
+      .tab-buttons {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .tab-buttons button {
+        background: var(--tab-bg);
+        color: var(--button-text);
+        border: none;
+        padding: 0.75rem 2rem;
+        cursor: pointer;
+        margin: 0.5rem;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: background 0.3s ease;
+      }
+
+      .tab-buttons button.active {
+        background: var(--tab-active-bg);
+      }
+
+      .tab-content {
+        display: none;
+        animation: fadeIn 0.3s ease-in-out;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      .profile {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      .profile > img {
+        cursor: pointer;
+        border-radius: var(--profile-img-border-radius);
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .profile > img:hover {
+        transform: scale(1.1);
+      }
+
+      .expandable {
+        display: none;
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        padding: 1rem;
+        background-color: #f5f5f5;
+        border-radius: 8px;
+      }
+
+      .expandable.show {
+        display: block;
+      }
+
+      .expand-btn {
+        background: var(--button-bg);
+        color: var(--button-text);
+        border: none;
+        padding: 0.75rem 1.5rem;
+        cursor: pointer;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: background 0.3s ease;
+      }
+
+      .expand-btn:hover {
+        background: var(--tab-active-bg);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* 모바일 및 작은 화면에서의 스타일 */
+      @media (max-width: 768px) {
+        .container {
+          width: 90%;
+          max-width: none;
+        }
+
+        .header {
+          font-size: 1.5rem;
+          padding: 1rem;
+        }
+
+        .banner {
+          height: 180px;
+        }
+
+        .sidebar {
+          width: 100%;
+          padding: 1rem;
+          box-shadow: none;
+        }
+
+        .content {
+          flex-direction: column;
+        }
+
+        .main {
+          padding: 1rem;
+        }
+
+        .tab-buttons {
+          flex-direction: column;
+        }
+
+        .tab-buttons button {
+          width: 100%;
+        }
+
+        .profile > img {
+          width: 100px;
+          height: 100px;
+        }
+      }
+
+      /* 태블릿 및 중간 크기 화면에서의 스타일 */
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .container {
+          width: 80%;
+        }
+
+        .header {
+          font-size: 1.75rem;
+          padding: 1.25rem;
+        }
+
+        .banner {
+          height: 220px;
+        }
+
+        .sidebar {
+          width: 280px;
+        }
+
+        .tab-buttons button {
+          font-size: 0.9rem;
+        }
+
+        .profile > img {
+          width: 110px;
+          height: 110px;
+        }
+      }
+
+      /* 모달관련 */
+      /* 모달 기본 스타일 */
+      .modal {
+        display: none; /* 기본적으로 모달은 숨김 */
+        position: fixed; /* 화면 전체에 고정 */
+        z-index: 1; /* 다른 요소 위에 표시 */
+        left: 0;
+        top: 0;
+        width: 100%; /* 전체 너비 */
+        height: 100%; /* 전체 높이 */
+        overflow: auto; /* 필요시 스크롤 */
+        background-color: rgb(0, 0, 0); /* 배경색 */
+        background-color: rgba(0, 0, 0, 0.8); /* 투명 배경색 */
+      }
+
+      /* 모달 컨텐츠 스타일 */
+      .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+      }
+
+      /* 이미지 스타일 */
+      .profile-img {
+        cursor: pointer; /* 클릭 가능한 커서 */
+      }
+
+      /* 모달 닫기 버튼 스타일 */
+      .close {
+        position: absolute;
+        top: 10px;
+        right: 25px;
+        color: #fff;
+        font-size: 35px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      /* Additional styling for links */
+      .main a {
+        color: #72a0d9;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .main a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">프로페셔널 웹개발자를 꿈꾸는 OOO 입니다.</div>
+      <div class="banner" id="banner"></div>
+      <div class="content">
+        <div class="sidebar">
+          <div class="profile">
+            <img
+              src="https://picsum.photos/200/300"
+              alt="나의 사진"
+              onclick="openModal()"
+            />
+            <div id="myModal" class="modal">
+              <span class="close" onclick="closeModal()">&times;</span>
+              <img
+                class="modal-content"
+                id="modalImage"
+                src="https://picsum.photos/500/700"
+                alt="모달 이미지"
+              />
+              <div id="caption"></div>
+            </div>
+            <h2>박노영</h2>
+            <p>배우고싶은게 너무 많은 예비 개발자</p>
+            <button class="expand-btn" onclick="toggleResume()">
+              이력서 보기
+            </button>
+            <div class="expandable" id="resume">
+              <p>
+                저는 프론트엔드 개발자로서 다양한 웹 애플리케이션을
+                개발해왔습니다. JavaScript, HTML, CSS를 사용하여 사용자 경험을
+                향상시키는 데 중점을 두고 작업하고 있습니다. 최근에는 React와
+                Vue.js를 활용한 프로젝트를 진행하였습니다.
+              </p>
+              <p>
+                경험이 풍부한 프론트엔드 개발자로서, 복잡한 웹 애플리케이션을
+                구현하는 데 필요한 기술적 역량과 문제 해결 능력을 갖추고
+                있습니다. 계속해서 최신 기술 트렌드를 학습하며 성장하고
+                있습니다.
+              </p>
+              <p>
+                웹 개발 외에도 디자인에 대한 이해를 바탕으로 사용자 친화적인
+                인터페이스를 제공하는 것을 목표로 하고 있습니다. 나의 이력을
+                자세히 확인해 주세요.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="main">
+          <div class="tab-buttons">
+            <button
+              class="tab-button active"
+              onclick="showTab('project1', 'https://picsum.photos/200/400')"
+            >
+              프로젝트 1
+            </button>
+            <button
+              class="tab-button"
+              onclick="showTab('project2', 'https://picsum.photos/200/500')"
+            >
+              프로젝트 2
+            </button>
+            <button
+              class="tab-button"
+              onclick="showTab('project3', 'https://picsum.photos/200/600')"
+            >
+              프로젝트 3
+            </button>
+          </div>
+          <div class="tab-content active" id="project1">
+            <h2>프로젝트 1</h2>
+            <p>
+              프로젝트 1의 설명 및 가이드문서. 이 프로젝트는 최신 웹 기술을
+              사용하여 개발된 웹 애플리케이션입니다. 사용자 인터페이스와 사용자
+              경험을 고려하여 설계되었습니다.
+            </p>
+            <p>
+              프로젝트의 주요 기능은 사용자 맞춤형 대시보드, 실시간 데이터
+              업데이트, 강력한 검색 기능 등이 포함되어 있습니다. 개발 과정에서의
+              주요 기술 스택과 도전 과제는 문서에 상세히 설명되어 있습니다.
+            </p>
+            <a href="https://example.com/project1" target="_blank"
+              >프로젝트 1 결과물 보기</a
+            >
+          </div>
+          <div class="tab-content" id="project2">
+            <h2>프로젝트 2</h2>
+            <p>
+              프로젝트 2의 설명 및 가이드문서. 이 프로젝트는 팀 협업을 통해
+              개발된 복잡한 웹 애플리케이션입니다. 사용자의 피드백을 반영하여
+              지속적으로 개선되었습니다.
+            </p>
+            <p>
+              주요 기능으로는 데이터 시각화, 사용자 정의 가능한 보고서 생성,
+              다양한 필터링 옵션이 제공됩니다. 프로젝트 문서에는 기술적 세부
+              사항과 설계 과정이 포함되어 있습니다.
+            </p>
+            <a href="https://example.com/project2" target="_blank"
+              >프로젝트 2 결과물 보기</a
+            >
+          </div>
+          <div class="tab-content" id="project3">
+            <h2>프로젝트 3</h2>
+            <p>
+              프로젝트 3의 설명 및 가이드문서. 이 프로젝트는 최신 웹 표준을
+              준수하며 높은 성능과 안정성을 자랑합니다. 전체적인 사용자 경험을
+              고려하여 설계되었습니다.
+            </p>
+            <p>
+              특징으로는 반응형 디자인, 접근성 향상, 사용자 맞춤형 기능이
+              포함되어 있습니다. 프로젝트 문서에서는 개발 과정에서의 주요 결정
+              사항과 문제 해결 방법을 설명합니다.
+            </p>
+            <a href="https://example.com/project3" target="_blank"
+              >프로젝트 3 결과물 보기</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showTab(tabId, bannerImage) {
+        const contents = document.querySelectorAll(".tab-content");
+        contents.forEach((content) => {
+          content.classList.remove("active");
+        });
+        const buttons = document.querySelectorAll(".tab-button");
+        buttons.forEach((button) => {
+          button.classList.remove("active");
+        });
+        document.getElementById(tabId).classList.add("active");
+        document
+          .querySelector(
+            `.tab-button[onclick="showTab('${tabId}', '${bannerImage}')"]`
+          )
+          .classList.add("active");
+        document.getElementById(
+          "banner"
+        ).style.backgroundImage = `url(${bannerImage})`;
+      }
+
+      function toggleResume() {
+        const resume = document.getElementById("resume");
+        resume.classList.toggle("show");
+
+        if (resume.classList.contains("show")) {
+          event.target.style.background =
+            "linear-gradient(to right, #72a0d9, #313ca2)"; // Expanded
+        } else {
+          event.target.style.background =
+            "linear-gradient(to right, #6e6e6e, #2b2b2b)"; // Collapsed
+        }
+      }
+
+      // 프로필 모달관련
+      function openModal() {
+        const modal = document.getElementById("myModal");
+        const modalImage = document.getElementById("modalImage");
+        const profileImage = document.querySelector(".profile > img");
+
+        // 모달과 이미지 소스 설정
+        modal.style.display = "block";
+        modalImage.src = profileImage.src;
+      }
+
+      function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

@@ -11,7 +11,7 @@ export const WriteMode = ({ loginSts }) => {
     return (
       <>
         <table className="data-table-view readone">
-          <caption>OPINION : Write</caption>
+          <caption>Write</caption>
           <tbody>
             <tr>
               <td>Name</td>

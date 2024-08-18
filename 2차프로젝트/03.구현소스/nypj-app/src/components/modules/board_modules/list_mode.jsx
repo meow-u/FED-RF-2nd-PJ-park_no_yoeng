@@ -58,6 +58,49 @@ console.log('setSelRecord:',setSelRecord);
   // 코드리턴구역 //////////////////////
   return (
     <>
+      
+      <table className="data-table" id="board">
+      <caption>Notice</caption>
+        <thead>
+          <tr>
+            <th>Number</th>
+            <th>Title</th>
+            <th>Writer</th>
+            <th>Date</th>
+            <th>Hits</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* 바인드리스트*/}
+          {bindList(
+            keyword,
+            baseData,
+            totalCount,
+            sortCta,
+            sort,
+            currentPageNum,
+            boardBlockSize,
+            BOARD_MODE,
+            setMode,
+            selRecord,
+            setSelRecord,
+          )}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colSpan="5" className="paging">
+              <PagingList
+                totalCount={totalCount}
+                boardBlockSize={boardBlockSize}
+                currentPageNum={currentPageNum}
+                setCurrentPageNum={setCurrentPageNum}
+                currentPageBlockNum={currentPageBlockNum}
+                pageBlockSize={pageBlockSize}
+              />
+            </td>
+          </tr>
+        </tfoot>
+      </table>
       <div className="select-option-box">
         {/* 검색기준 박스 (타이틀/콘텐츠/작성자) */}
         <div className="left-box">
@@ -153,48 +196,6 @@ console.log('setSelRecord:',setSelRecord);
           </select>
         </div>
       </div>
-      <table className="data-table" id="board">
-      <caption>Notice</caption>
-        <thead>
-          <tr>
-            <th>Number</th>
-            <th>Title</th>
-            <th>Writer</th>
-            <th>Date</th>
-            <th>Hits</th>
-          </tr>
-        </thead>
-        <tbody>
-          {/* 바인드리스트*/}
-          {bindList(
-            keyword,
-            baseData,
-            totalCount,
-            sortCta,
-            sort,
-            currentPageNum,
-            boardBlockSize,
-            BOARD_MODE,
-            setMode,
-            selRecord,
-            setSelRecord,
-          )}
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colSpan="5" className="paging">
-              <PagingList
-                totalCount={totalCount}
-                boardBlockSize={boardBlockSize}
-                currentPageNum={currentPageNum}
-                setCurrentPageNum={setCurrentPageNum}
-                currentPageBlockNum={currentPageBlockNum}
-                pageBlockSize={pageBlockSize}
-              />
-            </td>
-          </tr>
-        </tfoot>
-      </table>
     </>
   );
 }; //////////// ListMode ///////////////////

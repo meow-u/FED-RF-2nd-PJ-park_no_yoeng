@@ -9,7 +9,10 @@ export const ReadMode = ({ selRecord, loginSts, beforeSelRecords }) => {
   console.log("전달된 loginSts:", loginSts);
   // 전달된 데이터 객체를 변수에 할당
   const selectBoardData = selRecord;
-  console.log("beforeSelRecords:", beforeSelRecords.current);
+  console.log(
+    "basedata에 before 키를 추가함  beforeSelRecords:",
+    beforeSelRecords.current
+  );
 
   // [ 조회수 증가하기 ]
   // 규칙1 : 타인의 글만 증가한다!
@@ -78,7 +81,7 @@ export const ReadMode = ({ selRecord, loginSts, beforeSelRecords }) => {
   return (
     <>
       <table className="data-table-view readone">
-        <caption>OPINION : Read</caption>
+        <caption>Notice</caption>
         <tbody>
           <tr>
             <td>Name</td>
@@ -92,7 +95,7 @@ export const ReadMode = ({ selRecord, loginSts, beforeSelRecords }) => {
               />
               <span className="modify-data">
                 {selectBoardData.modifydate
-                  ? "마지막 수정일: " + selectBoardData.modifydate
+                  ? "최종 수정일: " + selectBoardData.modifydate
                   : ""}
               </span>
             </td>
@@ -112,20 +115,18 @@ export const ReadMode = ({ selRecord, loginSts, beforeSelRecords }) => {
           <tr>
             <td>Content</td>
             <td>
+              {
+                /* 해당게시글에 수정key값이 있으면 직전레코드참조변수에서 해당 idx의 객체를 찾아 cont를 보여준다. */
+                selectBoardData.modifydate
+                  ? <span className="beforecont">[수정 전 내용] : " + {selectBoardData.beforecont}</span>
+                  : ""
+              }
               <textarea
                 className="content"
                 cols="60"
                 rows="10"
                 readOnly
-                value={
-                  /* 해당게시글에 수정key값이 있으면 직전레코드참조변수에서 해당 idx의 객체를 찾아 cont를 보여준다. */
-                  (selectBoardData.modifydate
-                    ? "[수정 전 내용] : " +
-                      beforeSelRecords.current.find(
-                        (v) => v.idx === selectBoardData.idx
-                      ).cont +"\n──────────────────────\n\n"
-                    : "") + selectBoardData.cont
-                }
+                value={selectBoardData.cont}
               ></textarea>
             </td>
           </tr>

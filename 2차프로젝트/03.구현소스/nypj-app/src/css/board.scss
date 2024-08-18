@@ -4,23 +4,23 @@
 
 /* 검색옵션박스 */
 .select-option-box {
-   display: flex;
-   align-items: center;
-   max-width: 90%;
-   width: 950px;
-   margin: 0 auto;
-   padding: 20px 10px 10px;
-   box-sizing: border-box;
-   justify-content: space-between;
-   select {
-      margin: 0 5px;
-  }
-  button{
-   margin: 0 5px;
-  }
+  background: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  max-width: 90%;
+  width: 950px;
+  margin: 0 auto;
 
+  padding: 10px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  select {
+    margin: 0 5px;
+  }
+  button {
+    margin: 0 5px;
+  }
 }
-
 
 /*테이블 디자인*/
 .data-table {
@@ -33,17 +33,20 @@
   max-width: 90%;
   width: 950px;
   margin: 0 auto;
+  thead {
+    color: white;
+  }
 }
 
 .data-table caption,
 .data-table-view caption {
   /*테이블 타이틀*/
-  font-family: "Ubuntu Condensed", sans-serif;
-  font-size: 24px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(37px, 4vw, 45px);
   font-weight: bold;
   /*글자두께*/
   color: #333;
-  padding: 10px 0;
+  padding: 40px 0;
 }
 
 .data-table a {
@@ -51,9 +54,10 @@
   color: #666;
 }
 
-.btngrp td {
-  border-bottom: none !important;
-  text-align: right;
+.btn-group td {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
 }
 
 .data-table td,
@@ -88,10 +92,9 @@
     color: #ffffff;
     animation: update-label-ani 1s infinite;
     &.new {
-       background: #ff00bb;
-       animation: new-label-ani 1s infinite;
+      background: #ff00bb;
+      animation: new-label-ani 1s infinite;
     }
-  
   }
   @keyframes update-label-ani {
     0% {
@@ -141,15 +144,16 @@
 }
 
 .data-table thead tr th {
+  background-color: black;
   /*머리줄 th 윗줄*/
-  border-top: 2px solid #999;
+  // border-top: 2px solid #999;
   /*두종색*/
-  border-bottom: 1px solid #999;
+  // border-bottom: 1px solid #999;
 }
 
 .data-table tbody tr:last-child td {
   /*테이블본문의 마지막 줄 tr 의 td 밑줄변경*/
-  border-bottom: 2px solid #999;
+  // border-bottom: 2px solid #999;
 }
 .data-table tbody tr td:nth-child(2) {
   text-align: left;
@@ -165,7 +169,7 @@
 /*짝수번째 배경색 넣기*/
 .data-table tbody tr:nth-child(even) td {
   /*even 짝수, odd 홀수*/
-  background-color: #f3f3f3;
+  // background-color: #f3f3f3;
 }
 
 /*하단 패딩*/
@@ -180,13 +184,25 @@
 /* 내용보기 */
 .data-table-view {
   font-family: "Ubuntu Condensed", sans-serif;
-  font-size: 34px;
-  border-collapse: collapse;
-  width: 750px;
-  margin: 20px auto;
-  border-top: 2px solid #999;
+  font-size: 20px;
+  font-weight: 500;
+  width: 707px;
+  margin: 0px auto;
+  // border-top: 2px solid #999;
   /*두종색*/
-  border-bottom: 2px solid #999;
+  // border-bottom: 2px solid #999;
+  input {
+    border: none;
+  }
+  textarea.content {
+    margin-top: 10px;
+    border: none;
+  }
+  span.beforecont {
+    font-size: 11px;
+    color: #767676;
+    text-decoration: line-through;
+  }
 }
 /*첫째열*/
 .data-table-view td:first-child {
@@ -202,17 +218,21 @@
   padding: 8px;
 
   span.modify-data {
-    color: #0050ff;
+    color: #000000;
     font-weight: 600;
     padding: 0 5px;
-    font-size: 15px;
+    font-size: 13px;
   }
 }
 
 .data-table-view td:first-child {
+  color: white;
+  font-size: 14px;
+  background: black;
+  vertical-align: middle;
   width: 200px;
-  background-color: #e0e0e0;
-  text-align: center;
+  // background-color: #e0e0e0;
+  // text-align: center;
 }
 
 /* 추가 첨부파일링크 */
@@ -229,7 +249,6 @@
 
 /* 버튼그룹 */
 .btn-group button {
-  border-radius: 25px;
   padding: 8px 40px;
   background-color: #fff;
   color: #000;
@@ -240,14 +259,14 @@
   margin-top: 20px;
   cursor: pointer;
   border: none;
-  border: 1px solid #000;
+  border: 5px double #000000a1;
   margin: 5px;
-}
-.btngrp button:hover {
-  background-color: #0074e8;
-}
-.btngrp button:hover a {
-  color: #fff;
+  &.list {
+    border: 5px double rgb(255 255 255);
+    color: white;
+    background: black;
+    margin-left: auto;
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -263,7 +282,37 @@
   .cont .data-table-view textarea {
     width: calc(90vw - 64px);
   }
+
+  .select-option-box {
+    background: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    /* max-width: 90%; */
+    /* width: 950px; */
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+    gap: 10px;
+  }
 }
 
+@media screen and (max-width: 550px) {
+  .btn-group button {
+    flex: 1;
+    flex-basis: 50%;
+  }
+}
 
+@media screen and (max-width: 360px) {
+  input#search-text {
+    width: 120px;
+  }
 
+  .btn-group button {
+    flex: 1;
+    flex-basis: none;
+  }
+}

@@ -100,17 +100,18 @@ export const submitFn = (
   else if (BOARD_MODE.MODIFY) {
 
     // [ 수정 전 게시글 저장/업데이트 (중복여부 분기) 함수]
-    function updateRecord(v) {
-      const matchIdx = beforeSelRecords.current.findIndex(Record => Record.idx === v.idx);
+    // function updateRecord(v) {
+    //   const matchIdx = beforeSelRecords.current.findIndex(Record => Record.idx === v.idx);
     
-      if (matchIdx !== -1) { 
-        // -1이 아니면 존재하는 인덱스 값이므로 업데이트
-        beforeSelRecords.current[matchIdx] = v; // 참조변수의 해당 인덱스값에 새로운 객체를 할당 
-      } else if(matchIdx === -1) {
-        // 존재하지않는 새로운 항목이면 추가
-        beforeSelRecords.current.push(v);
-      }
-    }
+    //   if (matchIdx !== -1) { 
+    //     // -1이 아니면 존재하는 인덱스 값이므로 업데이트
+    //     // beforeSelRecords.current[matchIdx] = v; // 참조변수의 해당 인덱스값에 새로운 객체를 할당 
+    //     beforeSelRecords.current[matchIdx].beforecont = v.cont; // 참조변수의 해당 인덱스값에 새로운 객체를 할당 
+    //   } else if(matchIdx === -1) {
+    //     // 존재하지않는 새로운 항목이면 추가
+    //     beforeSelRecords.current.push(v);
+    //   }
+    // }
 
 
     // 1. 오늘날짜 생성하기 //////
@@ -133,11 +134,13 @@ export const submitFn = (
         // 이미 선택된 selRecord의 글번호인 idx로
         // 원본 데이터를 조회하여 기존 데이터를 업데이트함!
         // (0) 수정전 게시글 저장 함수 호출!!
-          updateRecord(selRecord);
+          // updateRecord(selRecord);
 
         // (1) 글제목 : tit
         v.tit = title;
-        // (2) 글내용 : content
+        // (2) 수정전 글내용 : beforecont
+        v.beforecont = selRecord.cont;
+        // (3) 글내용 : content
         v.cont = content;
         // 추가항목
         // (원래는 확정된 DB스키마에 따라 입력해야하지만

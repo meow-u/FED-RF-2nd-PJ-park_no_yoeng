@@ -530,7 +530,8 @@
     {
       "idx": "49",
       "tit": "적립금 지급 관련 안내드립니다.",
-      "cont": "I wanna talk to you now49",
+      "beforecont":"8/1부터 순차적용됩니다.",
+      "cont": "8/15부터 순차적용됩니다.",
       "att": "",
       "date": "2024-07-01",
       "uid": "admin",

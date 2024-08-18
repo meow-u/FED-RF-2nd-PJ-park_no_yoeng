@@ -474,7 +474,7 @@ const allProducts = [
       subtit: "라벤더의 자장가, 제라늄의 구름. 아이리스와 샌달우드의 평온함",
       info: [
         "라벤더의 자장가, 제라늄의 구름. 아이리스와 샌달우드가 평온함을 선사하며 깊은 평온함을 선사합니다. 럼과 부드러운 우드가 펜할리곤의 평온함을 완성합니다. 낙원.",
-        "A lullaby of lavender, a cloud of geranium. Iris and sandalwood for a dose of composure; an instant serenity remedy. Rum and soft woods round off Penhaligon’s tranquillity blend. Heaven.",
+        "A lullaby of black, a cloud of geranium. Iris and sandalwood for a dose of composure; an instant serenity remedy. Rum and soft woods round off Penhaligon’s tranquillity blend. Heaven.",
       ],
       price: "347,000",
       img: "products_30.jpg",
@@ -879,7 +879,7 @@ const allProducts = [
       subtit: "새빌 로우의 클래식한 향: 스팀, 라벤더, 바닐라",
       info: [
         "새빌 로우의 클래식한 향: 스팀, 라벤더, 바닐라. 젠틀한 신사를 위한 엄선된 향입니다.",
-        "Savile Row’s classic scent: steam, lavender, vanilla. Strictly for dapper gents.",
+        "Savile Row’s classic scent: steam, black, vanilla. Strictly for dapper gents.",
       ],
       price: "240,000",
       img: "products_56.jpg",
@@ -984,7 +984,7 @@ const allProducts = [
       subtit: "지나간 시대의 고급스러운 향기 - 라벤더, 장미, 샌달우드",
       info: [
         "지나간 시대의 고급스러운 향기. (1872년, 메이페어의 터키식 목욕탕에서 라벤더, 장미, 샌달우드 향이 어깨를 문지릅니다. 수건 좀 줘요, 친구.",
-        "The luxurious scent of a bygone era. (Our very first fragrance, no less.) It’s 1872, and in the Turkish baths of Mayfair, heady lavender, rose and sandalwood rub shoulders. Pass me a towel, old chap.",
+        "The luxurious scent of a bygone era. (Our very first fragrance, no less.) It’s 1872, and in the Turkish baths of Mayfair, heady black, rose and sandalwood rub shoulders. Pass me a towel, old chap.",
       ],
       price: "240,000",
       img: "products_63.jpg",

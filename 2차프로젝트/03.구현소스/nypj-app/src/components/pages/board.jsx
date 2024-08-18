@@ -92,17 +92,9 @@ export default function Board() {
   // [2] 선택 게시글 데이터 저장
   const [selRecord, setSelRecord] = useState(null);
   // [2-5] 수정전 데이터 저장
-  const beforeSelRecords = useRef([{// 49번 샘플로 넣어둠
-    "idx": "49",
-    "tit": "This is a Title49",
-    "cont": "hello there! ",
-    "att": "",
-    "date": "2024-07-01",
-    "uid": "admin",
-    "unm": "Administrator",
-    "vcnt": "0",
-    "modifydate": "2024. 8. 2. 오후 16:23:05"
-}]);
+  const beforeSelRecords = useRef(
+baseData
+);
   console.log("beforeSelRecords:", beforeSelRecords.current);
   // -> 특정리스트 글 제목 클릭시 데이터 저장함!
   // [3] 페이징의 페이징 번호
@@ -114,13 +106,6 @@ export default function Board() {
   // 페이징의 페이징 개수 : 한번에 보여줄 페이징개수
   const pageBlockSize = 3;
 
-  // Board 컴포넌트 내부
-  // const wrappedSubmitFn = (...args) => submitFn(mode, sts, baseData, totalCount, setMode, setPageNum, selRecord, ...args);
-  // const wrappedDeleteFn = () => deleteFn(selRecord, baseData, totalCount, setMode, setPageNum);
-
-  // const clickButton = (e, {setMode, setKeyword, wrappedSubmitFn, wrappedDeleteFn}) => {
-  //   // 함수 내용
-  // };
 
   // 버튼 클릭시 변경함수 ////////////////////////////////
   const clickButton = (e) => {
@@ -241,14 +226,14 @@ export default function Board() {
                 )}
               {/* READ 모드에서는 목록 버튼 출력 */}
               {mode === BOARD_MODE.READ && (
-                <button onClick={clickButton}>LIST</button>
+                <button className="list" onClick={clickButton}>LIST</button>
               )}
               {
                 // 3. WRITE 모드
                 mode === BOARD_MODE.WRITE && (
                   <>
                     <button onClick={clickButton}>SUBMIT</button>
-                    <button onClick={clickButton}>LIST</button>
+                    <button className="list" onClick={clickButton}>LIST</button>
                   </>
                 )
               }
@@ -259,7 +244,7 @@ export default function Board() {
                     <button onClick={clickButton}>SUBMIT</button>
                     <button onClick={clickButton}>DELETE</button>
                     <button onClick={clickButton}>CANCEL</button>
-                    <button onClick={clickButton}>LIST</button>
+                    <button className="list" onClick={clickButton}>LIST</button>
                   </>
                 )
               }

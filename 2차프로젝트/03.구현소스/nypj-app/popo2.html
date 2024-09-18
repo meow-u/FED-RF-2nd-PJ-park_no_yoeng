@@ -6,21 +6,29 @@
     <title>포트폴리오 소개 페이지</title>
     <style>
       :root {
-        --background-gradient: linear-gradient(to bottom right, #bdaef7, #ffffff);
-        --header-bg: linear-gradient(to right, #72a0d9, #313ca2);
+        --background-gradient: gainsboro;
+        /* linear-gradient(to bottom right, #1c294cad, #ffffff); */
+        --header-and-tab-active-bg: linear-gradient(
+          125deg,
+          #e757d1 -20%,
+          #ffbe63e3
+        );
+        --tab-bg: linear-gradient(150deg, #6e6e6e, #a2a4ad);
         --header-text: #fff;
-        --sidebar-bg: #f9f9f9;
-        --tab-bg: linear-gradient(to right, #6e6e6e, #2b2b2b);
-        --tab-active-bg: linear-gradient(to right, #72a0d9, #313ca2);
-        --button-bg: linear-gradient(to right, #6e6e6e, #2b2b2b);
-        --button-text: #fff;
-        --border-color: #ddd;
         --box-shadow: rgba(0, 0, 0, 0.1);
-        --profile-img-border-radius: 50%;
+        --profile-img-border-radius: 20%;
+      }
+
+      #body {
+        line-height: 1.6;
+        background-position: center 0px;
+        padding-top: 50px;
+        backdrop-filter: blur(6px) brightness(0.4);
+
       }
 
       body {
-        font-family: "Arial", sans-serif;
+    font-family: 'Open Sans', sans-serif;
         margin: 0;
         padding: 0;
         background: var(--background-gradient);
@@ -44,56 +52,65 @@
       }
 
       .header {
-        background: var(--header-bg);
+        text-shadow: #0000003b 0px 0px 9px;
+        background: var(--header-and-tab-active-bg);
         color: var(--header-text);
-        padding: 1.5rem;
+        padding: 0.4rem;
         text-align: center;
-        font-size: 2rem;
-        font-weight: bold;
+        font-size: 1.6rem;
+        /* font-weight: bold; */
         letter-spacing: 1px;
       }
 
       .banner {
+        cursor: pointer;
         width: 100%;
-        height: 250px;
+        height: 300px;
         background-color: #f4f4f4;
-        background-size: cover;
+        background-size: 100%;
         background-position: center;
-        transition: background-image 0.3s ease-in-out;
+        transition: 0.3s ease-in-out;
+      }
+      .banner:hover {
+        background-size: 110%;
       }
 
       .content {
+        /* flex-wrap: wrap; */
         display: flex;
         flex: 1;
-        border-top: 1px solid var(--border-color);
+        border-top: 1px solid var(--header-text);
       }
 
       .sidebar {
         background-color: var(--sidebar-bg);
         padding: 2rem 1rem;
         width: 300px;
-        box-shadow: 2px 0 4px var(--box-shadow);
       }
 
       .main {
         flex: 1;
-        padding: 2rem;
+        padding-right: 1rem;
+
+        padding-bottom: 10px;
         background-color: #ffffff;
       }
 
       .tab-buttons {
+        padding-top: 10px;
         text-align: center;
         margin-bottom: 1.5rem;
         display: flex;
         justify-content: center;
-        flex-wrap: wrap;
+
+        white-space: nowrap;
       }
 
       .tab-buttons button {
         background: var(--tab-bg);
-        color: var(--button-text);
+        color: var(--header-text);
         border: none;
-        padding: 0.75rem 2rem;
+        padding: 0.75rem 1.5vw;
         cursor: pointer;
         margin: 0.5rem;
         border-radius: 8px;
@@ -102,7 +119,7 @@
       }
 
       .tab-buttons button.active {
-        background: var(--tab-active-bg);
+        background: var(--header-and-tab-active-bg);
       }
 
       .tab-content {
@@ -122,8 +139,8 @@
       .profile > img {
         cursor: pointer;
         border-radius: var(--profile-img-border-radius);
-        width: 120px;
-        height: 120px;
+        width: 200px;
+        height: 230px;
         object-fit: cover;
         transition: transform 0.3s ease;
       }
@@ -147,8 +164,8 @@
       }
 
       .expand-btn {
-        background: var(--button-bg);
-        color: var(--button-text);
+        background: var(--header-and-tab-active-bg);
+        color: var(--header-text);
         border: none;
         padding: 0.75rem 1.5rem;
         cursor: pointer;
@@ -158,7 +175,7 @@
       }
 
       .expand-btn:hover {
-        background: var(--tab-active-bg);
+        background: var(--header-and-tab-active-bg);
       }
 
       @keyframes fadeIn {
@@ -173,14 +190,16 @@
       }
 
       /* 모바일 및 작은 화면에서의 스타일 */
-      @media (max-width: 768px) {
+      @media (max-width: 800px) {
         .container {
           width: 90%;
           max-width: none;
         }
-
+        #body {
+          padding-top: 0px;
+        }
         .header {
-          font-size: 1.5rem;
+          font-size: 24px;
           padding: 1rem;
         }
 
@@ -189,7 +208,7 @@
         }
 
         .sidebar {
-          width: 100%;
+          margin: 0 auto;
           padding: 1rem;
           box-shadow: none;
         }
@@ -206,25 +225,25 @@
           flex-direction: column;
         }
 
-        .tab-buttons button {
+        /* .tab-buttons button {
           width: 100%;
-        }
+        } */
 
         .profile > img {
-          width: 100px;
-          height: 100px;
+          /* width: 100px;
+          height: 100px; */
         }
       }
 
       /* 태블릿 및 중간 크기 화면에서의 스타일 */
-      @media (min-width: 769px) and (max-width: 1024px) {
+      @media (min-width: 801px) and (max-width: 1024px) {
         .container {
           width: 80%;
         }
 
         .header {
           font-size: 1.75rem;
-          padding: 1.25rem;
+          padding-top: 1.25rem;
         }
 
         .banner {
@@ -232,7 +251,7 @@
         }
 
         .sidebar {
-          width: 280px;
+          min-width: 200px;
         }
 
         .tab-buttons button {
@@ -240,8 +259,9 @@
         }
 
         .profile > img {
-          width: 110px;
-          height: 110px;
+          margin-top: 20px;
+        width: 160px;
+        height: 185px;
         }
       }
 
@@ -264,7 +284,8 @@
       .modal-content {
         margin: auto;
         display: block;
-        width: 80%;
+        height: 100vh;
+        /* width: 80%; */
         max-width: 700px;
       }
 
@@ -286,7 +307,7 @@
 
       /* Additional styling for links */
       .main a {
-        color: #72a0d9;
+        color: #ff7b5c;
         text-decoration: none;
         font-weight: bold;
       }
@@ -296,15 +317,17 @@
       }
     </style>
   </head>
-  <body>
+  <body id="body">
     <div class="container">
-      <div class="header">프로페셔널 웹개발자를 꿈꾸는 OOO 입니다.</div>
+      <div class="header">
+        이전보다 더 나은 방법을 고민하고 실행하는 박노영 입니다.
+      </div>
       <div class="banner" id="banner"></div>
       <div class="content">
         <div class="sidebar">
           <div class="profile">
             <img
-              src="https://picsum.photos/200/300"
+              src="https://noyeong.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fcbf02762-71f6-48d6-8b29-e92941688831%2F67571ba1-a607-4944-9150-9996e3cc72d1%2F%25EB%25B0%2595%25EB%2585%25B8%25EC%2598%2581_%25EC%25A6%259D%25EB%25AA%2585%25EC%2582%25AC%25EC%25A7%2584_%25EC%2588%2598%25EC%25A0%25952.png?table=block&id=101240af-ef1f-80c1-9202-feead186ed12&spaceId=cbf02762-71f6-48d6-8b29-e92941688831&width=580&userId=&cache=v2"
               alt="나의 사진"
               onclick="openModal()"
             />
@@ -319,27 +342,25 @@
               <div id="caption"></div>
             </div>
             <h2>박노영</h2>
-            <p>배우고싶은게 너무 많은 예비 개발자</p>
+            <p>
+              직관적인 기능과 디자인이 조화로운 <br />
+              사용자 친화적 인터페이스를 지향합니다.
+            </p>
             <button class="expand-btn" onclick="toggleResume()">
-              이력서 보기
+              소개글 보기
             </button>
             <div class="expandable" id="resume">
               <p>
-                저는 프론트엔드 개발자로서 다양한 웹 애플리케이션을
-                개발해왔습니다. JavaScript, HTML, CSS를 사용하여 사용자 경험을
-                향상시키는 데 중점을 두고 작업하고 있습니다. 최근에는 React와
-                Vue.js를 활용한 프로젝트를 진행하였습니다.
+                안녕하세요! 저는 React, JavaScript를 사용하여 사용자 경험을
+                향상시키는 데 중점을 두고 웹개발 작업을 진행하고 있습니다.
               </p>
               <p>
-                경험이 풍부한 프론트엔드 개발자로서, 복잡한 웹 애플리케이션을
-                구현하는 데 필요한 기술적 역량과 문제 해결 능력을 갖추고
-                있습니다. 계속해서 최신 기술 트렌드를 학습하며 성장하고
-                있습니다.
+                지속적으로 기술적 역량과 문제 해결 능력을 갖추기 위한 새로운
+                기술 트렌드를 탐구하며 성장하고 노력하고 있습니다.
               </p>
               <p>
-                웹 개발 외에도 디자인에 대한 이해를 바탕으로 사용자 친화적인
-                인터페이스를 제공하는 것을 목표로 하고 있습니다. 나의 이력을
-                자세히 확인해 주세요.
+                웹 개발과 더불어 사용자 관점의 디자인에 대한 이해도를 바탕으로
+                고객 친화적인 인터페이스를 제공하는 것을 목표로 하고 있습니다.
               </p>
             </div>
           </div>
@@ -348,70 +369,127 @@
           <div class="tab-buttons">
             <button
               class="tab-button active"
-              onclick="showTab('project1', 'https://picsum.photos/200/400')"
+              onclick="showTab('project1', 'https://noyeong.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fcbf02762-71f6-48d6-8b29-e92941688831%2F560c847b-2119-44d1-92c2-00d78e0e2bfb%2FUntitled.png?table=block&id=c6d67853-a9df-4c14-9705-7f5312cb1499&spaceId=cbf02762-71f6-48d6-8b29-e92941688831&width=2000&userId=&cache=v2')"
             >
-              프로젝트 1
+              PROJECT 3
             </button>
             <button
               class="tab-button"
-              onclick="showTab('project2', 'https://picsum.photos/200/500')"
+              onclick="showTab('project2', 'https://noyeong.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fcbf02762-71f6-48d6-8b29-e92941688831%2Ff001866f-a2be-4422-987d-fffba9a97237%2FUntitled.png?table=block&id=2b2a72ed-1fc6-4b40-9229-774ac3e3c500&spaceId=cbf02762-71f6-48d6-8b29-e92941688831&width=2000&userId=&cache=v2')"
             >
-              프로젝트 2
+              PROJECT 2
             </button>
             <button
               class="tab-button"
-              onclick="showTab('project3', 'https://picsum.photos/200/600')"
+              onclick="showTab('project3', 'https://noyeong.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fcbf02762-71f6-48d6-8b29-e92941688831%2F180c4ee2-1ebf-4812-bcbe-461116d6dff4%2FUntitled.png?table=block&id=f62608e3-e4b8-463d-8643-0c2578f3b805&spaceId=cbf02762-71f6-48d6-8b29-e92941688831&width=1410&userId=&cache=v2')"
             >
-              프로젝트 3
+              PROJECT 1
             </button>
           </div>
           <div class="tab-content active" id="project1">
-            <h2>프로젝트 1</h2>
-            <p>
-              프로젝트 1의 설명 및 가이드문서. 이 프로젝트는 최신 웹 기술을
-              사용하여 개발된 웹 애플리케이션입니다. 사용자 인터페이스와 사용자
-              경험을 고려하여 설계되었습니다.
-            </p>
-            <p>
-              프로젝트의 주요 기능은 사용자 맞춤형 대시보드, 실시간 데이터
-              업데이트, 강력한 검색 기능 등이 포함되어 있습니다. 개발 과정에서의
-              주요 기술 스택과 도전 과제는 문서에 상세히 설명되어 있습니다.
-            </p>
-            <a href="https://example.com/project1" target="_blank"
-              >프로젝트 1 결과물 보기</a
-            >
-          </div>
-          <div class="tab-content" id="project2">
-            <h2>프로젝트 2</h2>
-            <p>
-              프로젝트 2의 설명 및 가이드문서. 이 프로젝트는 팀 협업을 통해
-              개발된 복잡한 웹 애플리케이션입니다. 사용자의 피드백을 반영하여
-              지속적으로 개선되었습니다.
-            </p>
-            <p>
-              주요 기능으로는 데이터 시각화, 사용자 정의 가능한 보고서 생성,
-              다양한 필터링 옵션이 제공됩니다. 프로젝트 문서에는 기술적 세부
-              사항과 설계 과정이 포함되어 있습니다.
-            </p>
-            <a href="https://example.com/project2" target="_blank"
-              >프로젝트 2 결과물 보기</a
-            >
-          </div>
-          <div class="tab-content" id="project3">
-            <h2>프로젝트 3</h2>
-            <p>
-              프로젝트 3의 설명 및 가이드문서. 이 프로젝트는 최신 웹 표준을
-              준수하며 높은 성능과 안정성을 자랑합니다. 전체적인 사용자 경험을
-              고려하여 설계되었습니다.
-            </p>
-            <p>
-              특징으로는 반응형 디자인, 접근성 향상, 사용자 맞춤형 기능이
-              포함되어 있습니다. 프로젝트 문서에서는 개발 과정에서의 주요 결정
-              사항과 문제 해결 방법을 설명합니다.
-            </p>
-            <a href="https://example.com/project3" target="_blank"
+            <a
+              class="link"
+              href="https://penhaligons.vercel.app/"
+              target="_blank"
               >프로젝트 3 결과물 보기</a
             >
+            <h2>PROJECT 3 - 펜할리곤스 쇼핑몰</h2>
+            <a
+              class="guide"
+              href="https://meow-u.github.io/FED-RF-2nd-PJ-park_no_yoeng/2차프로젝트/03.구현소스/nypj-app/public/doc/FED-NY-PJ.pdf"
+              target="_blank"
+              >프로젝트 가이드문서 URL</a
+            >
+            <p>
+              - 컨셉 : 펜할리곤스 (향수 쇼핑몰) 리뉴얼
+              <a href="https://brand.naver.com/penhaligons" target="_blank"
+                ><br />
+                참고 사이트</a
+              >
+              <br />
+              - 사용 프로그램 : react /javascript /jquery /scss <br />
+              - 제작 기간 : 2024 5.10 – 7.24<br />
+              - 기여도 : 100% (1인)
+            </p>
+            <p style="padding-top: 10px">
+              프로젝트의 주안점은 상태관리 변수를 통한 사용자 이벤트에 따른
+              실시간 데이터 처리 및 필터링 기능입니다. <br /><br />주요
+              기능으로는 사용자 검색 기능과 장바구니, 마이페이지, 공지게시판,
+              상품별 상세 페이지 구현, 그리고 회원가입 및 로그인 기능으로
+              구성되며, 반응형 웹을 지원합니다. <br /><br />
+              개발 과정에서의 설계 과정에 따른 세부기술 사항은 가이드 문서를
+              통해 설명되어 있습니다.
+            </p>
+          </div>
+          <div class="tab-content" id="project2">
+            <a
+              class="link"
+              href="https://starwars-iota-one.vercel.app/"
+              target="_blank"
+              >프로젝트 2 결과물 보기</a
+            >
+            <h2>PROJECT 2 - 스타워즈 팀프로젝트</h2>
+            <a
+              class="guide"
+              href="https://meow-u.github.io/FED-RF-2nd-PJ-park_no_yoeng/팀프로젝트/000_React_PJ/star-app/public/doc/index.html"
+              target="_blank"
+              >프로젝트 가이드문서 URL</a
+            >
+            <p>
+              - 컨셉 : 스타워즈 시리즈 흥보 사이트 제작
+              <a class="link" href="https://www.starwars.com/" target="_blank"
+                ><br />
+                참고 사이트</a
+              >
+              <br />
+              - 사용 프로그램 : react /javascript /html&scss /jquery <br />
+              - 제작 기간 : 2024 4.22 – 5.10<br />
+              - 기여도 : main페이지 + 공통 상하단 영역 개발 / 30% (총 4인)<br />
+            </p>
+            <p style="padding-top: 10px">
+              반응형 UI/UX를 적용해 모바일에서도 쉽게 탐색 가능하도록 구현한 SPA
+              사이트 입니다. 빠른 콘텐츠 전환과 리액트 라우터 기반 네비게이션을
+              제공합니다.<br /><br />
+              시리즈별로 강조된 상단 배너로 시각적 몰입감을 높였으며, 통일 된
+              구조적 흐름과 컨텐츠 클릭 시 모달 팝업을 통해 상세 정보를
+              전달합니다. <br />
+              주요 기능은 로그인 / 회원가입, 슬라이드 배너, 비디오 팝업 및 상세
+              모달 등을 포함합니다. <br /><br />
+              프로젝트 문서에는 요구사항정의서, 기획서, 일정표를 포함한 기술적
+              세부 사항과 설계 과정이 포함되어 있습니다.
+            </p>
+          </div>
+          <div class="tab-content" id="project3">
+            <a
+              class="link"
+              href="https://starbucks-sand-tau.vercel.app/"
+              target="_blank"
+              >프로젝트 1 결과물 보기</a
+            >
+            <h2>PROJECT 1 - 스타벅스 쇼핑몰</h2>
+            <a
+              class="guide"
+              href="https://meow-u.github.io/FED-RF-2nd-PJ-park_no_yoeng/1차프로젝트/04.가이드문서/FED-RF-2nd_박노영_개인1차PJ_발표자료.pdf"
+              target="_blank"
+              >프로젝트 가이드문서 URL</a
+            >
+            <p>
+              - 컨셉 : 스타벅스 코리아 사이트 리뉴얼
+              <a href="https://www.starbucks.co.kr/" target="_blank"
+                ><br />
+                참고 사이트</a
+              >
+              <br />
+              - 사용 프로그램 : javascript / html&css<br />
+              - 제작 기간 : 2024 3.04– 4.16<br />
+              - 기여도 : 기여도 : 100% (1인)<br />
+            </p>
+            <p style="padding-top: 10px">
+              프로젝트 특징으로는 사용자 스크롤을 중심으로 한 반응형 디자인,
+              구조적 다양성 및 브랜드 컨셉을 고려한 통일감을 고려하여 개발
+              진행하였습니다. 프로젝트 문서에서는 개발 과정에서의 주요 결정
+              사항과 문제 해결 방법을 설명합니다.
+            </p>
           </div>
         </div>
       </div>
@@ -436,19 +514,15 @@
         document.getElementById(
           "banner"
         ).style.backgroundImage = `url(${bannerImage})`;
+        document.getElementById(
+          "body"
+        ).style.backgroundImage = `url(${bannerImage})`;
       }
 
       function toggleResume() {
         const resume = document.getElementById("resume");
         resume.classList.toggle("show");
 
-        if (resume.classList.contains("show")) {
-          event.target.style.background =
-            "linear-gradient(to right, #72a0d9, #313ca2)"; // Expanded
-        } else {
-          event.target.style.background =
-            "linear-gradient(to right, #6e6e6e, #2b2b2b)"; // Collapsed
-        }
       }
 
       // 프로필 모달관련
@@ -465,6 +539,18 @@
       function closeModal() {
         document.getElementById("myModal").style.display = "none";
       }
+
+      // 로딩완료후 첫번째 탭 활성화
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector(".tab-button.active").click();
+      });
+
+      document.querySelector(".banner").addEventListener("click", () => {
+        console.log("banner clicked");
+
+        document.querySelector(".active>a.link").click();
+      });
     </script>
   </body>
 </html>

@@ -159,7 +159,19 @@ export default function TopArea({ scrollFn }) {
       </div>
       <button className="fixed">
         <div className="wrap">
-          <a className="fixbtn" href="" onClick={(e) => window.history.back()}>
+          <a
+            className="fixbtn"
+            href=""
+            onClick={(e) => {
+              // 뒤로가기 버튼 클릭시 이벤트
+              const active = document.querySelector(".fixbtn.active");
+
+              if (!active) {
+                console.log("active클래스 없음");
+                window.history.back();
+              }
+            }}
+          >
             <span>BACK /</span>
           </a>
 

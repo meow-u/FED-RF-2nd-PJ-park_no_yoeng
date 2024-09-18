@@ -1,6 +1,6 @@
 // 펜할리곤스 상품상세 모듈  ItemDetail.jsx
-
-import React, { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import React, { useContext, useEffect} from "react";
 // 데이터 불러오기
 import { allProducts } from "../data/products_data";
 // css 불러오기
@@ -11,7 +11,8 @@ import { Inner } from "./content_inner";
 // 제이쿼리 불러오기
 import $ from "jquery";
 
-function ItemDetail({ itemIdx }) {
+function ItemDetail({ itemIdx, sMenu }) {
+  let goNav = useNavigate();
   useEffect(() => {
     //////////////////////////// 부드럽게 상단이동
     $("html,body").animate(
@@ -27,6 +28,7 @@ function ItemDetail({ itemIdx }) {
   // console.log("seldata:", seldata);
 
   console.log("product에서 받아온 itemIdx:", itemIdx);
+  console.log("product에서 받아온 sMenu:", sMenu);
 
   useEffect(() => {
     console.log("아이템디테일 랜더링");
@@ -54,6 +56,26 @@ function ItemDetail({ itemIdx }) {
       $(window).off("resize");
     };
   }); // 여기에 빈배열을 담으니, 관련상품 클릭시 리랜더링 되지않아 지움.
+
+  useEffect(() => {
+    // 뒤로가기 버튼 클릭시 이벤트
+    const fixbtn = document.querySelector(".fixbtn");
+    console.log("fixbtn:", fixbtn);
+  
+
+    // if (sMenu) {
+      // sMenu값이 있을때만 back버튼에 클래스 추가 후 이벤트걸기
+      fixbtn.classList.add("active");
+      let active = document.querySelector(".fixbtn.active");
+      //기존 BACK 버튼 클릭시 이벤트
+      active.addEventListener("click", (e) => {
+        e.preventDefault();
+        console.log('보내는sMenu:',sMenu);
+        goNav("/shop", { state: { sMenu:sMenu } });
+      });
+    // }
+  });
+
   // 이미지갯수 전역변수
   let imgArr;
   // 전체상품중 전달받은 idx와 같은 데이터 추출 후 변수에 재할당

@@ -133,6 +133,15 @@ export function Layout() {
       return;
     }
 
+    // 만약 장바구니에 추가한 아이템 품목이 10개 이상이면 추가하지 않는다.
+    if (localsCart.length >= 10) {
+      alert(
+        "최대 장바구니 품목은 10개를 초과할 수 없습니다. 일부품목을 삭제 후 다시 시도해주세요."
+      );
+      // 추가 하지않고 함수나가기
+      return;
+    }
+
     // 로컬스 카트 데이터에 아이템 추가
     const updatedCart = [...localsCart, item];
     console.log("추가된카트:", updatedCart);
@@ -150,7 +159,6 @@ export function Layout() {
     );
     console.log("삭제된카트:", updatedCart);
     updateCart(updatedCart);
-
   };
 
   // [ 공통 함수 ] ////////////////////////////////////////
@@ -236,6 +244,17 @@ export function Layout() {
       console.log(">>>>>>>this :", $(this));
       // $('button.item') && $(this).css({ filter: "invert(0)" });
     } else if (!isinWish) {
+
+          // 만약 장바구니에 추가한 아이템 품목이 10개 이상이면 추가하지 않는다.
+    if (wishData.length >= 20) {
+      alert(
+        "최대 위시리스트 품목은 20개를 초과할 수 없습니다. 일부품목을 삭제 후 다시 시도해주세요."
+      );
+      // 추가 하지않고 함수나가기
+      return
+    }
+
+
       // 추가전 해당상품객체에 wish 키값 true 할당
       itemData && (itemData.wish = true);
 
@@ -295,14 +314,14 @@ export function Layout() {
         setMenu,
       }}
     >
-        {/* 카트리스트 : 카트상태값 true일시 출력 */}
-        {cartSts && <Cart />}
-        {/* 1. 상단영역 */}
-        <TopArea scrollFn={scrollTop} />
-        {/* 2. 메인영역 */}
-        <MainArea />
-        {/* 3. 하단영역 */}
-        <FooterArea />
+      {/* 카트리스트 : 카트상태값 true일시 출력 */}
+      {cartSts && <Cart />}
+      {/* 1. 상단영역 */}
+      <TopArea scrollFn={scrollTop} />
+      {/* 2. 메인영역 */}
+      <MainArea />
+      {/* 3. 하단영역 */}
+      <FooterArea />
     </Con.Provider>
   );
 } ///////// Layout 컴포넌트 /////////

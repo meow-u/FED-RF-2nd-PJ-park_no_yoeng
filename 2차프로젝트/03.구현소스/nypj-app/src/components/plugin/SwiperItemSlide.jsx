@@ -36,6 +36,7 @@ export default function SwiperItemSlide({
   shop,
   setSmenu,
   setIsSub,
+  sMenu,
 }) {
   let [index, setIndex] = useState(0);
   const myCon = useContext(Con);
@@ -129,11 +130,11 @@ export default function SwiperItemSlide({
     // SwiperItemSlide.jsx , make_itemList.jsx
     const buttons = document.querySelectorAll('button.item');
     buttons.forEach(el => {
-      if (el.innerText === "Remove Wishlist") {
+      if (el.innerText === "Remove Wish") {
         el.style.filter = 'invert(1)'
         el.style.border = '1px solid #fff'
       }
-      else if (el.innerText ==="Add wish List"){
+      else if (el.innerText ==="Add Wish♥"){
         el.style.filter = 'invert(0)'
         el.style.border = '1px solid #000'
       }
@@ -281,7 +282,7 @@ export default function SwiperItemSlide({
                 <SwiperSlide key={i} className="swiper-slide">
                   <Link
                     to={`/shop/product/${v.idx}`}
-                    state={{ itemIdx: v.idx }}
+                    state={{ itemIdx: v.idx , sMenu:sMenu}}
                     key={i}
                   >
                     <img
@@ -301,7 +302,7 @@ export default function SwiperItemSlide({
                     >
                       {/* 로컬 위시데이터에 해당 idx 포함여부에따라 출력 */}
                       {JSON.parse(localStorage.getItem("wish-data")).some(
-                      (v1) => v1.idx === v.idx) ? "Remove Wishlist" : "Add wish List"}</button>
+                      (v1) => v1.idx === v.idx) ? "Remove Wish" : "Add Wish♥"}</button>
                    
                   </div>
                 </SwiperSlide>

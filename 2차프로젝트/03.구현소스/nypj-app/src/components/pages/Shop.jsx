@@ -1,5 +1,5 @@
 // 펜할리곤스 Shop 서브페이지 컴포넌트
-
+import { useLocation } from "react-router-dom";
 import React, { useContext, useEffect, useLayoutEffect, useState } from "react";
 import { Con } from "../modules/myCon";
 import "../../css/_shop.scss";
@@ -28,12 +28,14 @@ let subMenu = hamMenu[1].sub; //서브메뉴 데이터
 // React는 단방향 데이터 흐름을 따릅니다. 자식 컴포넌트는 부모로부터 받은 프롭을 변경할 수 없습니다.
 
 export default function Shop({ initSmenu = "Shop" }) {
+  let loc = useLocation();
+
   const myCon = useContext(Con);
   // 배너변경
   useLayoutEffect(() => {
     myCon.setMenu("shop");
   });
- 
+
   // initSmenu index.js에서 받아온 클릭된 서브메뉴 데이터
   // 하위메뉴를 클릭해서 들어오면 해당값으로 설정,  그냥 shop으로 들어왔을시 '초기값 "Shop"
 
@@ -48,6 +50,14 @@ export default function Shop({ initSmenu = "Shop" }) {
   console.log(">>>>>>처음랜더링");
   // initSMenu가 "Shop"이 아니면서 sMenu와 같지 않을 때 : 햄버거통한 메뉴값 읽어올 때
 
+  // 아이템디테일에서 받아온 sMenu값
+  let sMenuFromitemDetail = loc.state.sMenu;
+  if (sMenuFromitemDetail ) {
+    initSmenu = sMenuFromitemDetail;
+  }
+  console.log("loc.state:", loc.state);
+  console.log("잘찍힘 아이템디테일에서 받아온 sMenu값sMenuFromitemDetail:", sMenuFromitemDetail);
+
   // initSmune값이 변경되면 (상단 메뉴통해 들어올때)
   // 해당 값의 버튼을 찾아서 클릭이벤트 발생시키기 (sMenu값 변경 후 랜더링시키기위함)
   useEffect(() => {
@@ -60,9 +70,11 @@ export default function Shop({ initSmenu = "Shop" }) {
         // 클릭할 메뉴에 클릭이벤트 발생시켜서 sMenu값 변경!!
 
         el.click();
+      }else if (el.innerText === sMenuFromitemDetail) {
+        el.click();
       }
     });
-  }, [initSmenu]);
+  }, [initSmenu,sMenuFromitemDetail]);
 
   console.log("랜더링! 클릭된 sMenu :", sMenu);
   console.log("그리구 txt:", txt);
@@ -106,6 +118,12 @@ export default function Shop({ initSmenu = "Shop" }) {
         setIsSub(false);
       }
     }
+
+    // sMenu가 Shop일때 back버튼 클래스 삭제하기
+    if (sMenu === "Shop") {
+      let fixbtn = document.querySelector(".fixbtn");
+      fixbtn.classList.remove("active");
+    }
   }, [sMenu, txt]);
 
   useEffect(() => {
@@ -132,7 +150,7 @@ export default function Shop({ initSmenu = "Shop" }) {
       //소멸구역
       window.removeEventListener("resize", shopResizeFn);
     };
-  },[]);
+  }, []);
 
   // 컬렉션 메뉴 토글 + 클릭시 txt상태변수 변경 함수 ////////////////////////////////////
   function toggleCollection(el) {
@@ -290,6 +308,7 @@ export default function Shop({ initSmenu = "Shop" }) {
           idname={"bestitem-area inshop"}
           shoptxt={txt}
           setIsSub={setIsSub}
+          sMenu={sMenu}
         />
       </div>
       <div className="itemList-wrap inbox">
@@ -307,7 +326,7 @@ export default function Shop({ initSmenu = "Shop" }) {
           </select>
         )}
         {/* 뿌리는 컴포넌트 */}
-        <MakeItemList menuTxt={txt} isSub={isSub} sort={sort} />
+        <MakeItemList menuTxt={txt} isSub={isSub} sort={sort} sMenu={sMenu} />
         {/* shop 메인일때만 카데고리별 best 뿌리기 */}
         {txt === "Shop" &&
           ctgList.map((v, i) => {

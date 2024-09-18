@@ -11,6 +11,8 @@ import { Con } from "../modules/myCon";
 import "../../css/_my_page.scss";
 // 서브컴포넌트
 import CartInner from "../../components/modules/cart_inner";
+import { Link } from "react-router-dom";
+import SwiperItemSlide from "../plugin/SwiperItemSlide";
 function MyPage() {
   //컨텍스트 API사용
   const myCon = useContext(Con);
@@ -99,13 +101,29 @@ function MyPage() {
             {selecMenu === "MY CART" && (
               <>
                 <h2 className="cart-tit ">{`Your Cart List (${myCon.localsCart.length})`}</h2>
-                <CartInner selecMenu={selecMenu} />
+                {myCon.localsCart.length > 0 ? (
+                  <CartInner selecMenu={selecMenu} />
+                ) : (
+                  <>
+                  <span className="mypage-tit"> 장바구니에 상품이 존재하지 않습니다.</span>
+                  <Link className="mypage-link" to ="/shop">더 많은상품 둘러보기 &gt;</Link>
+                  <SwiperItemSlide idname={"bestitem-area"} />
+                  </>
+                )}
               </>
             )}
             {selecMenu === "WISHLIST" && (
               <>
                 <h2 className="cart-tit">{`Your Wish List (${myCon.wishList.length})`}</h2>
-                <CartInner selecMenu={selecMenu} />
+                {myCon.wishList.length > 0 ? (
+                  <CartInner selecMenu={selecMenu} />
+                ) : (
+                  <>
+                  <span className="mypage-tit"> 위시리스트에 상품이 존재하지 않습니다.</span>
+                  <Link className="mypage-link" to ="/shop">더 많은상품 둘러보기 &gt;</Link>
+                  <SwiperItemSlide idname={"bestitem-area"} />
+                  </>
+                )}
               </>
             )}
             {selecMenu === "MY ACCOUNT" && (

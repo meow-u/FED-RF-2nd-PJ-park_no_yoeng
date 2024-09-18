@@ -1,238 +1,244 @@
 .item-box {
-   margin-bottom: 5vh;
-   // min-height: 55vh;
-   overflow: auto;
+  margin-bottom: 5vh;
+  // min-height: 55vh;
+  overflow: auto;
 
-   .item {
-      padding: 1vw;
+  .item {
+    padding: 1vw;
 
+    background: #fff;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
+    .img-wrap {
+      width: 40%;
+      img {
+        max-height: 25vh;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+    }
+
+    .item-wrap {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      button.cart-wish-btn {
+        overflow: visible;
+        color: #000;
+        transition: 0.2s;
+        background: transparent;
+        font-style: normal;
+        transform: scaleX(1.4);
+        display: inline;
+        width: auto;
+        height: 22px;
+        margin: 0;
+        margin-right: 10px;
+        padding: 0;
+        border: none;
+        font-weight: bolder;
+        font-size: 20px;
+        text-align: center;
+        &::after {
+          background-color: none;
+          color: #000;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          content: "";
+          position: absolute;
+          display: block;
+          transition: transform 0.2s ease-out, opacity 0.6s 0s;
+          transform: scaleX(0) skewX(20deg);
+          z-index: -1;
+          opacity: 0;
+        }
+        &::hover {
+          color: #000;
+        }
+      }
+
+      > * {
+        margin: 5px 10px;
+      }
+
+      .cnt,
+      .etit,
+      .ktit,
+      .price,
+      .num,
+      .total {
+        font-size: 14px;
+        color: #333;
+      }
+
+      .cnt {
+        font-weight: bold;
+        width: auto;
+      }
+
+      .etit {
+        font-style: italic;
+        width: 100%;
+      }
+
+      .ktit {
+        font-weight: bold;
+        width: 100%;
+      }
+      & > span.gift {
+        font-size: 12px;
+        padding: 5px;
+        background: #b6d1ff;
+        font-weight: 600;
+        position: absolute;
+        translate: 7% -20%;
+      }
+
+      // .price,
+      // .total {
+      // }
+
+      .num {
+        span {
+          width: 100%;
+          text-align: -webkit-left;
+          display: inline-block;
+        }
+        text-align: center;
+      }
+
+      .delete {
+        z-index: auto;
+        height: 24px;
+        background: rgba(113, 38, 228, 0.6117647059);
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        overflow: visible;
+
+        &:hover {
+          background: #c13b1b;
+
+          z-index: auto;
+        }
+      }
+
+      .itemlist-wrap {
+        display: flex;
+        width: 90%;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .btn-box {
+    margin: 5px 0px;
+    aspect-ratio: 3 / 1;
+    height: 25px;
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+
+    button.box,
+    input {
+      flex: 1;
+      border: none;
       background: #fff;
-      border-radius: 8px;
-      margin-bottom: 15px;
+      font-size: 16px;
       display: flex;
       align-items: center;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.3s;
 
-      .img-wrap {
-         width: 40%;
-         img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 4px;
-         }
+      &:hover {
+        background-color: #f0f0f0;
       }
+    }
 
-      .item-wrap {
-         flex: 1;
-         display: flex;
-         justify-content: space-between;
-         flex-wrap: wrap;
-
-         button.cart-wish-btn {
-            overflow: visible;
-            color: #000;
-            transition: 0.2s;
-            background: transparent;
-            font-style: normal;
-            transform: scaleX(1.4);
-            display: inline;
-            width: auto;
-            height: 22px;
-            margin: 0;
-            margin-right: 10px;
-            padding: 0;
-            border: none;
-            font-weight: bolder;
-            font-size: 20px;
-            text-align: center;
-            &::after {
-               background-color: none;
-               color: #000;
-               width: 100%;
-               height: 100%;
-               top: 0;
-               left: 0;
-               content: "";
-               position: absolute;
-               display: block;
-               transition: transform 0.2s ease-out, opacity 0.6s 0s;
-               transform: scaleX(0) skewX(20deg);
-               z-index: -1;
-               opacity: 0;
-            }
-            &::hover {
-               color: #000;
-            }
-         }
-
-         > * {
-            margin: 5px 10px;
-         }
-
-         .cnt,
-         .etit,
-         .ktit,
-         .price,
-         .num,
-         .total {
-            font-size: 14px;
-            color: #333;
-         }
-
-         .cnt {
-            font-weight: bold;
-            width: auto;
-         }
-
-         .etit {
-            font-style: italic;
-            width: 100%;
-         }
-
-         .ktit {
-            font-weight: bold;
-            width: 100%;
-         }
-         & > span.gift {
-            font-size: 12px;
-            padding: 5px;
-            background: #b6d1ff;
-            font-weight: 600;
-            position: absolute;
-            translate: 7% -20%;
-         }
-
-         // .price,
-         // .total {
-         // }
-
-         .num {
-            span {
-               width: 100%;
-               text-align: -webkit-left;
-               display: inline-block;
-            }
-            text-align: center;
-         }
-
-         .delete {
-            z-index: auto;
-            height: 24px;
-            background: rgba(113, 38, 228, 0.6117647059);
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            overflow: visible;
-
-            &:hover {
-               background: #c13b1b;
-
-               z-index: auto;
-            }
-         }
-
-         .itemlist-wrap {
-            display: flex;
-            width: 90%;
-            justify-content: space-between;
-         }
+    input {
+      font-size: smaller;
+      padding: 1px 6px;
+      width: 100%;
+      text-align: center;
+      -moz-appearance: textfield; // Firefox에서 화살표 제거
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
       }
-   }
+    }
 
-   .btn-box {
-      margin: 5px 0px;
-      aspect-ratio: 3 / 1;
-      height: 25px;
-      display: flex;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      overflow: hidden;
-
-      button.box,
-      input {
-         flex: 1;
-         border: none;
-         background: #fff;
-         font-size: 16px;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         cursor: pointer;
-         transition: background-color 0.3s;
-
-         &:hover {
-            background-color: #f0f0f0;
-         }
+    .up,
+    .down {
+      border-style: none;
+      flex: 1 1;
+      position: relative;
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: #333;
       }
+    }
 
-      input {
-         font-size: smaller;
-         padding: 1px 6px;
-         width: 100%;
-         text-align: center;
-         -moz-appearance: textfield; // Firefox에서 화살표 제거
-         &::-webkit-outer-spin-button,
-         &::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-         }
+    .up {
+      &::before {
+        opacity: 1;
+        width: 2px;
+        height: 10px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
+      &::after {
+        opacity: 1;
+        width: 10px;
+        height: 2px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
 
-      .up,
-      .down {
-         border-style: none;
-         flex: 1 1;
-         position: relative;
-         &::before,
-         &::after {
-            content: "";
-            position: absolute;
-            background-color: #333;
-         }
+    .down {
+      &::after {
+        opacity: 1;
+        width: 10px;
+        height: 2px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
+    }
+  }
+}
 
-      .up {
-         &::before {
-            opacity: 1;
-            width: 2px;
-            height: 10px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-         }
-         &::after {
-            opacity: 1;
-            width: 10px;
-            height: 2px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-         }
-      }
-
-      .down {
-         &::after {
-            opacity: 1;
-            width: 10px;
-            height: 2px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-         }
-      }
-   }
+.inner-tit {
+  padding: 0 10px;
+  line-height: 1.5;
 }
 
 @media screen and (max-width: 500px) {
-   .item .item-wrap .etit {
-      font-style: italic;
-      width: 70%;
-   }
-   .item .item-wrap button.cart-wish-btn {
-      translate: 0 100%;
-   }
+  .item .item-wrap .etit {
+    font-style: italic;
+    width: 70%;
+  }
+  .item .item-wrap button.cart-wish-btn {
+    translate: 0 100%;
+  }
 }

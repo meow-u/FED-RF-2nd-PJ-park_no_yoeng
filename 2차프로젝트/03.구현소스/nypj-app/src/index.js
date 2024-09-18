@@ -47,7 +47,7 @@ export default function App() {
   const productArr = Array(88)
     .fill()
     .map((v, i) => i + 1);
-  console.log("productArr2", productArr);
+  console.log("productArr", productArr);
 
   return (
     // <BrowserRouter>

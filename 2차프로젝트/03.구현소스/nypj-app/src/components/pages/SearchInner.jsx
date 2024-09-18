@@ -31,6 +31,16 @@ const categories = [
 ];
 
 export default function SearchInner({ keyword }) {
+  useEffect(() => {
+    // 상단영역 검색아이콘 숨기기
+    document.querySelector(".searchicon").style.display = "none";
+
+    return () => {
+      // 상단영역 검색아이콘 보이기
+      document.querySelector(".searchicon").style.display = "block";
+    };
+  }, []);
+
   // 검색어 상태관리변수
   let [key, setKey] = useState(keyword);
   // 정렬기준 상태관리변수
@@ -157,7 +167,8 @@ export default function SearchInner({ keyword }) {
       // console.log(parseInt(a.price.replace(/,/g,"")), parseInt(b.price.replace(/,/g,"")))
       parseInt(a.price.replace(/,/g, "")) < parseInt(b.price.replace(/,/g, ""))
         ? -1
-        : parseInt(a.price.replace(/,/g,'')) > parseInt(b.price.replace(/,/g,'')) 
+        : parseInt(a.price.replace(/,/g, "")) >
+          parseInt(b.price.replace(/,/g, ""))
         ? 1
         : 0
     );
@@ -166,7 +177,8 @@ export default function SearchInner({ keyword }) {
     schItemData.sort((a, b) =>
       parseInt(a.price.replace(/,/g, "")) > parseInt(b.price.replace(/,/g, ""))
         ? -1
-        : parseInt(a.price.replace(/,/g,'')) < parseInt(b.price.replace(/,/g,'')) 
+        : parseInt(a.price.replace(/,/g, "")) <
+          parseInt(b.price.replace(/,/g, ""))
         ? 1
         : 0
     );
@@ -481,7 +493,7 @@ export default function SearchInner({ keyword }) {
                     </li>
                   </ol>
                 </li>
-                <li>
+                {/* <li>
                   OUR STORY
                   <input type="checkbox" id="ourstory" className="checkbox" />
                   <label htmlFor="ourstory" className="label" />
@@ -490,7 +502,7 @@ export default function SearchInner({ keyword }) {
                   COLLECTION
                   <input type="checkbox" id="collection" className="checkbox" />
                   <label htmlFor="collection" className="label" />
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>
@@ -522,9 +534,10 @@ export default function SearchInner({ keyword }) {
             </aside>
             {/* 뿌리는 컴포넌트 */}
             <MakeItemList dt={resultData} />
+            
+            {/* 페이지번호표시 */}
             <div className="page col-9">
               <ul>
-                {/* 페이지번호표시 */}
                 {/* #!은 새로고침안됨. url은변경. 주로 단일 페이지 애플리케이션(SPA)에서 사용 */}
                 {Array(Math.ceil(schItemData.length / 12))
                   .fill(0)
@@ -539,6 +552,7 @@ export default function SearchInner({ keyword }) {
                   ))}
               </ul>
             </div>
+
           </div>
         </div>
       </section>

@@ -63,9 +63,13 @@
       }
     }
     .item-box {
+      
+    height: 55vh;
+    margin-bottom: 5vh;
       flex-wrap: wrap;
       display: flex;
       .item {
+        height: 25vh;
         box-sizing: border-box;
         flex-basis: calc(50% - 2vw);
         width: 80%;
@@ -128,6 +132,14 @@
 }
 @media screen and (max-width: 650px) {
   .mypage-area {
+    .swiper-wrapper.cont-box {
+      flex-direction: row;
+  }
+  div#bestitem-area {
+  
+    width: auto;
+  }
+
     .cont-box {
       flex-direction: column;
 
@@ -141,6 +153,28 @@
       }
     }
   }
+}
+
+span.mypage-tit {
+  font-size: clamp(20px, 4vw, 30px);
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  padding: 30px;
+}
+
+.mypage-link{
+  font-size: clamp(15px, 2vw, 20px);
+  display: block;
+  text-align: center;
+  font-weight: 700;
+  color: blue;
+  cursor: pointer;
+}
+
+div#bestitem-area {
+  
+  width: 75vw;
 }
 
 @media (max-width: 550px) {

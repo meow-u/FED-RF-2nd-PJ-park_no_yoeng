@@ -24,8 +24,13 @@ export const PagingList = ({
   // 전체 페이지 개수 : 전체레코드수 / 페이지당개수
   // 유의점: 나머지가 있는지 검사해서 있으면 +1
 
+  // 현재 페이지번호
+  console.log("현재페이지번호:", currentPageNum);
+
   // 1. 총 페이지 개수
   // 전체 레코드수 / 페이지당 개수 : 소수점이 나오면 페이지가 부족한것임므로  ceil로 올림처리
+  console.log("전체 레코드수:",totalCount);
+  console.log("페이지당개수:",boardBlockSize);
   let totalPageCount = Math.ceil(totalCount.current / boardBlockSize);
 
   console.log(
@@ -34,7 +39,7 @@ export const PagingList = ({
     "전체레코드수:",
     totalCount.current,
     "전체 레코드수 / 페이지당 개수 :",
-    totalCount.current % boardBlockSize
+    totalCount.current / boardBlockSize
   );
 
   // [ 페이징의 페이징 하기 ]
@@ -214,5 +219,6 @@ export const PagingList = ({
   }; //////////// goPaging /////////////
 
   // 코드리턴
-  return pagingBar;
+  return <div className="pasing"> {totalCount.current > 0 && <div className="totalcount">{totalCount.current} results found</div>}
+  {pagingBar}</div>;
 }; ////////// pagingList 함수 //////////////

@@ -5,7 +5,7 @@ import $ from "jquery";
 import { Con } from "../modules/myCon";
 import "../../css/_cart_inner.scss";
 import { addComma } from "../func/common_fn";
-import {FilledHeartSvg, OutlineHeartSvg} from "../data/svg/empty_heart";
+import { FilledHeartSvg, OutlineHeartSvg } from "../data/svg/empty_heart";
 
 function CartInner({ selecMenu }) {
   //selecMenu는 mypage에서 선택한 메뉴이름을 받아옴
@@ -64,11 +64,26 @@ function CartInner({ selecMenu }) {
   //결과 적으로 길이가 기존 데이터 요소갯수만큼 생기기 떄문에 아닌값은 꼭 필터로 빼줘야 함
   ////////////////////////////////////////////////////////////////////////
 
+  // 위시리스트일때는 역순으로 렌더링
+  // selData = selecMenu === "WISHLIST" ? [...selData].reverse() : selData;
+
   //코드 리턴구역
+  console.log("selData:", selData);
   return (
     <>
+      <span className="inner-tit">
+        {" "}
+        {selecMenu !== "WISHLIST" &&
+          "장바구니에 담을 수 있는 최대 품목은 10개까지입니다."}
+      </span>
+      <span className="inner-tit">
+        {" "}
+        {selecMenu === "WISHLIST" &&
+          "위시리스트에 담을 수 있는 최대 품목은 20개까지입니다."}
+      </span>
       <div className="item-box subbar">
-        {selData.map((v, i) => {
+        { 
+        (selecMenu === "WISHLIST" ? selData.reverse() : selData).map((v, i) => {
           return (
             // 데이터의 갯수가 0이상일때만 렌더링
             selData.length > 0 ? (
@@ -96,7 +111,9 @@ function CartInner({ selecMenu }) {
                 <div className="item-wrap">
                   <h4 className="cnt">{i + 1}</h4>
                   {/* 선물포장표시 */}
-                  {selecMenu !== "WISHLIST" && v.gift && <span className="gift">{v.gift}</span>}
+                  {selecMenu !== "WISHLIST" && v.gift && (
+                    <span className="gift">{v.gift}</span>
+                  )}
 
                   {/* 위시여부표시 여기서 분기해서 칠! */}
                   {selecMenu !== "MY CART" && (
@@ -112,7 +129,7 @@ function CartInner({ selecMenu }) {
                           myCon.WishHandler(v.idx, v, e);
                       }}
                     >
-                      {selecMenu !== "WISHLIST" ? `♡` : <FilledHeartSvg/>}
+                      {selecMenu !== "WISHLIST" ? `♡` : <FilledHeartSvg />}
                     </button>
                   )}
 
@@ -254,7 +271,9 @@ function CartInner({ selecMenu }) {
               <h1>장바구니에 상품이 존재하지 않습니다.</h1>
             )
           );
-        })}
+        })
+
+      }
       </div>
     </>
   );

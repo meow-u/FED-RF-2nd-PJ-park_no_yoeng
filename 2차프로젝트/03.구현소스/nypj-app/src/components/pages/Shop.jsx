@@ -51,10 +51,16 @@ export default function Shop({ initSmenu = "Shop" }) {
   // initSMenu가 "Shop"이 아니면서 sMenu와 같지 않을 때 : 햄버거통한 메뉴값 읽어올 때
 
   // 아이템디테일에서 받아온 sMenu값
-  let sMenuFromitemDetail = loc.state.sMenu;
+  let sMenuFromitemDetail;
   if (sMenuFromitemDetail ) {
+    sMenuFromitemDetail = loc.state.sMenu;
     initSmenu = sMenuFromitemDetail;
   }
+
+
+
+
+  
   console.log("loc.state:", loc.state);
   console.log("잘찍힘 아이템디테일에서 받아온 sMenu값sMenuFromitemDetail:", sMenuFromitemDetail);
 
@@ -74,6 +80,22 @@ export default function Shop({ initSmenu = "Shop" }) {
         el.click();
       }
     });
+
+// 현재 경로에서 마지막 부분을 가져옴//////////////////////////////////
+const path = window.location.pathname;
+
+// 슬래시(/)로 구분된 경로에서 마지막 부분 확인
+const lastSegment = path.split('/').pop();
+
+// 마지막 경로가 'Collections'일 경우 특정 동작 실행
+if (lastSegment === 'Collections') {
+  // 원하는 동작 실행
+  console.log('마지막 경로가 "Collections"입니다.');
+  document.querySelector(".coll").click();
+  document.querySelector(".coll").click();//더블클릭
+  // 예: 특정 함수를 호출하거나 로직을 실행///////////////////////////
+}
+
   }, [initSmenu,sMenuFromitemDetail]);
 
   console.log("랜더링! 클릭된 sMenu :", sMenu);

@@ -39,6 +39,11 @@ export default function TopArea({ scrollFn }) {
     });
   });
 
+  // 서브메뉴중 shop메뉴 클릭시 이전 메뉴는 클릭방지 (shop 하위메뉴는 css로 포인트 이벤트 별도 처리함)
+  if ($(".sub-menu.on")) {
+    $(".hambox>ul").css("pointer-events", "none");
+  }
+
   // scrollFn은 부모로부터 받은 함수
   // 이동함수
   const goNav = useNavigate();
@@ -241,7 +246,14 @@ export default function TopArea({ scrollFn }) {
                                   ) : (
                                     <a
                                       href="###"
-                                      onClick={(e) => e.preventDefault()}
+                                      onClick={(e) => {
+                                        e.preventDefault();
+
+                                        $(".hambox>ul").css(
+                                          "pointer-events",
+                                          "all"
+                                        );
+                                      }}
                                     >
                                       {v.txt}
                                     </a>

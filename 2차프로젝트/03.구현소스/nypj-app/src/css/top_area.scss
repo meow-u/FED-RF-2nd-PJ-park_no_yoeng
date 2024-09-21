@@ -276,9 +276,9 @@ button.fixed {
     > li > a {
       transform: translateY(100%);
     }
-    &.on {
+    &.on > li{
       pointer-events: all;
-      > li > a {
+      > a {
         transform: translateY(0px);
       }
     }

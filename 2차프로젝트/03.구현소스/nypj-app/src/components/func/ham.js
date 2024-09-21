@@ -121,6 +121,12 @@ const hamFn = () => {
         submenu.classList.remove("on"); // 서브 메뉴 숨기기
       });
       document.querySelector("body").style.overflow = "auto"; // 햄버거메뉴 닫혔을때 스크롤바 보이기
+
+      // 햄버거메뉴 닫힐때 포인트이벤트 초기화
+      $(".hambox>ul").css(
+        "pointer-events",
+        "all"
+      );
     } else {
       // 햄버거 메뉴가 열릴 때
       document.querySelector(".tmenu.col-4").style.opacity = "0"; // 상단 메뉴 숨기기

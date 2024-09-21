@@ -148,6 +148,7 @@
       }
 
       .expandable {
+        pointer-events: none;
         margin-top: 1rem;
         font-size: 0.9rem;
         line-height: 1.6;
@@ -198,6 +199,7 @@
       a.top-link:hover {
         padding-left: 28px;
       }
+      
 
       @keyframes fadeIn {
         from {
@@ -296,7 +298,7 @@
       .modal {
         display: none; /* 기본적으로 모달은 숨김 */
         position: fixed; /* 화면 전체에 고정 */
-        z-index: 1; /* 다른 요소 위에 표시 */
+        z-index: 11; /* 다른 요소 위에 표시 */
         left: 0;
         top: 0;
         width: 100%; /* 전체 너비 */
@@ -448,8 +450,8 @@
             <p style="padding-top: 10px">
               프로젝트의 주안점은 상태관리 변수를 통한 사용자 이벤트에 따른
               실시간 데이터 처리 및 필터링 기능입니다. <br /><br />주요
-              기능으로는 사용자 검색 기능과 장바구니, 마이페이지, 공지게시판,
-              상품별 상세 페이지 구현, 그리고 회원가입 및 로그인 기능으로
+              기능으로는 <strong>사용자 검색 기능과 장바구니, 마이페이지, 공지게시판,
+              상품별 상세 페이지 구현, 그리고 회원가입 및 로그인 기능</strong>으로
               구성되며, 반응형 웹을 지원합니다. <br /><br />
               개발 과정에서의 설계 과정에 따른 세부기술 사항은 가이드 문서를
               통해 설명되어 있습니다.

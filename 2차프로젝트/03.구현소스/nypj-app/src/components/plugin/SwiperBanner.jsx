@@ -49,7 +49,7 @@ export default function Banner() {
    if (myCon.menu !== "main") {
       setTimeout(() => {
          $('.swiper-button-next').trigger('click');
-      }, 1000);
+      }, 0);
    }
 
   }, [myCon.menu]);

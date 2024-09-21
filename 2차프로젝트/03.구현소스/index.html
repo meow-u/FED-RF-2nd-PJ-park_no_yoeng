@@ -24,11 +24,10 @@
         background-position: center 0px;
         padding-top: 50px;
         backdrop-filter: blur(6px) brightness(0.4);
-
       }
 
       body {
-    font-family: 'Open Sans', sans-serif;
+        font-family: "Open Sans", sans-serif;
         margin: 0;
         padding: 0;
         background: var(--background-gradient);
@@ -79,13 +78,12 @@
         /* flex-wrap: wrap; */
         display: flex;
         flex: 1;
-        border-top: 1px solid var(--header-text);
       }
 
       .sidebar {
         background-color: var(--sidebar-bg);
         padding: 2rem 1rem;
-        width: 300px;
+        max-width: 300px;
       }
 
       .main {
@@ -150,17 +148,21 @@
       }
 
       .expandable {
-        display: none;
         margin-top: 1rem;
         font-size: 0.9rem;
         line-height: 1.6;
         padding: 1rem;
         background-color: #f5f5f5;
         border-radius: 8px;
+
+        transition: 0.2s;
+        opacity: 0;
+        max-height: 0px;
       }
 
       .expandable.show {
-        display: block;
+        opacity: 1;
+        max-height: 400px;
       }
 
       .expand-btn {
@@ -178,6 +180,25 @@
         background: var(--header-and-tab-active-bg);
       }
 
+      a.top-link {
+        z-index: 10;
+        writing-mode: vertical-lr;
+        text-decoration: none;
+        background: var(--header-and-tab-active-bg);
+        color: white;
+        padding: 5px;
+        padding-top: 220px;
+        width: 25px;
+        text-align: start;
+        line-height: 1.5;
+        border-radius: 0 0 8px 0;
+        transition: 0.2s;
+      }
+
+      a.top-link:hover {
+        padding-left: 28px;
+      }
+
       @keyframes fadeIn {
         from {
           opacity: 0;
@@ -191,6 +212,9 @@
 
       /* 모바일 및 작은 화면에서의 스타일 */
       @media (max-width: 800px) {
+        a.top-link {
+          position: absolute;
+        }
         .container {
           width: 90%;
           max-width: none;
@@ -199,7 +223,7 @@
           padding-top: 0px;
         }
         .header {
-          font-size: 24px;
+          font-size: 5vw;
           padding: 1rem;
         }
 
@@ -225,18 +249,17 @@
           flex-direction: column;
         }
 
-        /* .tab-buttons button {
-          width: 100%;
-        } */
-
-        .profile > img {
-          /* width: 100px;
-          height: 100px; */
+        a.top-link {
+          padding-top: 15px;
+          padding-bottom: 15px;
         }
       }
 
       /* 태블릿 및 중간 크기 화면에서의 스타일 */
       @media (min-width: 801px) and (max-width: 1024px) {
+        a.top-link {
+          position: absolute;
+        }
         .container {
           width: 80%;
         }
@@ -260,8 +283,11 @@
 
         .profile > img {
           margin-top: 20px;
-        width: 160px;
-        height: 185px;
+          width: 160px;
+          height: 185px;
+        }
+        a.top-link {
+          padding-top: 5px;
         }
       }
 
@@ -324,6 +350,13 @@
       </div>
       <div class="banner" id="banner"></div>
       <div class="content">
+        <a
+          class="top-link"
+          href="https://noyeong.notion.site/Introduction-bb4fdfe1002f40668e6e2eae9e83b6fb?pvs=74"
+          target="_blank"
+        >
+          이력서 보기
+        </a>
         <div class="sidebar">
           <div class="profile">
             <img
@@ -331,6 +364,7 @@
               alt="나의 사진"
               onclick="openModal()"
             />
+
             <div id="myModal" class="modal">
               <span class="close" onclick="closeModal()">&times;</span>
               <img
@@ -522,7 +556,6 @@
       function toggleResume() {
         const resume = document.getElementById("resume");
         resume.classList.toggle("show");
-
       }
 
       // 프로필 모달관련
@@ -551,6 +584,19 @@
 
         document.querySelector(".active>a.link").click();
       });
+
+      // 모달창에서 클릭시 닫기
+      
+      document.querySelector("#myModal").addEventListener("click", () => {
+        closeModal();
+      });
+    
+      // 모달창에서 esc키 누를시 닫기
+      document.addEventListener("keyup",()=>{
+        if(event.key === "Escape"){
+          closeModal();
+      }})
+
     </script>
   </body>
 </html>

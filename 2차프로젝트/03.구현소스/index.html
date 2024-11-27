@@ -28,12 +28,15 @@
         margin-top: 265vh;
       }
       #body {
+        background-color: #7a725ffa;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
         line-height: 1.6;
         background-position: center 0px;
-        padding-top: 50px;
-
-        padding-bottom: 300px;
-        backdrop-filter: blur(6px) brightness(0.4);
+        background-blend-mode: multiply;
+        /* padding-top: 50px; */
+        /* padding-bottom: 300px; */
+        /* backdrop-filter: blur(6px) brightness(0.4); */
       }
 
       body {
@@ -220,7 +223,7 @@
           transform: translateY(0);
         }
       }
-   
+
       /* 모바일 및 작은 화면에서의 스타일 */
       @media (max-width: 800px) {
         a.top-link {
@@ -656,18 +659,23 @@
       src="//my-site-noyeong.disqus.com/count.js"
       async
     ></script>
-    <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/6745cae62480f5b4f5a44bca/1idka15jb';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
-  })();
-  </script>
-  <!--End of Tawk.to Script-->
+
+    <div id="chat">
+      <!--Start of Tawk.to Script-->
+      <script type="text/javascript">
+        var Tawk_API = Tawk_API || {},
+          Tawk_LoadStart = new Date();
+        (function () {
+          var s1 = document.createElement("script"),
+            s0 = document.getElementsByTagName("script")[0];
+          s1.async = true;
+          s1.src = "https://embed.tawk.to/6745cae62480f5b4f5a44bca/1idka15jb";
+          s1.charset = "UTF-8";
+          s1.setAttribute("crossorigin", "*");
+          s0.parentNode.insertBefore(s1, s0);
+        })();
+      </script>
+    </div>
+    <!--End of Tawk.to Script-->
   </body>
 </html>
